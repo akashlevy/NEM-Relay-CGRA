@@ -1,0 +1,21 @@
+#Array files
+./test_top.svp
+
+#Compute tile files
+./test_tile.svp
+
+#SB design files
+../../test_sb/rtl/test_sb.svp
+../../test_sb/rtl/test_sb_dir.svp
+../../test_sb/rtl/test_mux_var.svp
+
+#CB design files
+../../test_sb/rtl/test_mux.svp
+
+#PE design file
+../../test_pe/rtl/test_pe.svp
+../../test_pe/rtl/test_lut.svp
+../../test_pe/rtl/test_full_add.svp
+../../test_pe/rtl/test_mult_add.svp
+../../test_pe/rtl/test_opt_reg.svp
+

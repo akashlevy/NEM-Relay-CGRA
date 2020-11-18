@@ -1,0 +1,18 @@
+<ioroot>
+  <io name='ioin' type='source'>
+    <tile>0</tile>
+    <wire_name>wire_0_0_BUS16_S1_T0</wire_name>
+    <side>1</side>
+    <track>0</track>
+    <row>0</row>
+    <col>0</col>
+  </io>
+  <io name='ioout' type='sink'>
+    <tile>8</tile>
+    <wire_name>wire_1_2_BUS16_S3_T0</wire_name>
+    <side>3</side>
+    <track>0</track>
+    <row>1</row>
+    <col>2</col>
+  </io>
+</ioroot>

@@ -1,0 +1,16 @@
+05/2017
+
+make_sb_decoder.csh
+  Calls "sb_encoder.py -full" and uses the output to build a switchbox
+  decoder "/tmp/sb_decode_5tracks.py".  Makes a lotta temp files in /tmp.
+
+sb_encoder.py --help
+  Builds a switchbox encoder for indicated number of tracks (default=5).
+  Usage:
+     sb_encoder.py <-ntracks %d> <-full | -abbrev>
+
+lib/sb_decode_5tracks.py
+  Result of running make_sb_decoder.csh
+
+NOTES
+  Should make_sb_decoder be in a "gen" subdirectory?

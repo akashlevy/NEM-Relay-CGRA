@@ -1,0 +1,111 @@
+verilator -Wall --cc --exe tb_remote.cpp -y /nobackup/steveri/github/CGRAGenerator/verilator/example/ counter.v
+make: Entering directory `/nobackup/steveri/github/CGRAGenerator/verilator/example-remote/obj_dir'
+g++  -I.  -MMD -I/var/local/verilator-3.900/include -I/var/local/verilator-3.900/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -Wno-char-subscripts -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o tb_remote.o ../tb_remote.cpp
+g++  -I.  -MMD -I/var/local/verilator-3.900/include -I/var/local/verilator-3.900/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -Wno-char-subscripts -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o verilated.o /var/local/verilator-3.900/include/verilated.cpp
+/usr/bin/perl /var/local/verilator-3.900/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcounter.cpp > Vcounter__ALLcls.cpp
+/usr/bin/perl /var/local/verilator-3.900/bin/verilator_includer -DVL_INCLUDE_OPT=include Vcounter__Syms.cpp > Vcounter__ALLsup.cpp
+g++  -I.  -MMD -I/var/local/verilator-3.900/include -I/var/local/verilator-3.900/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -Wno-char-subscripts -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o Vcounter__ALLcls.o Vcounter__ALLcls.cpp
+g++  -I.  -MMD -I/var/local/verilator-3.900/include -I/var/local/verilator-3.900/include/vltstd -DVL_PRINTF=printf -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -Wno-char-subscripts -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable       -c -o Vcounter__ALLsup.o Vcounter__ALLsup.cpp
+      Archiving Vcounter__ALL.a ...
+ar r Vcounter__ALL.a Vcounter__ALLcls.o Vcounter__ALLsup.o
+ranlib Vcounter__ALL.a
+g++    tb_remote.o verilated.o Vcounter__ALL.a    -o Vcounter -lm -lstdc++  2>&1 | c++filt
+make: Leaving directory `/nobackup/steveri/github/CGRAGenerator/verilator/example-remote/obj_dir'
+now run executable simulation
+obj_dir/Vcounter
+
+
+           i.clk  rst cen wen o_p  o_n
+    -----  -----  --- --- --- ---  ---
+    eval-  000.0   1   0   0    0    0
+    eval+  000.0   1   0   0    0    0
+    eval-  000.1   1   0   0    0    0
+    eval+  000.1   1   0   0    0    0
+    eval-  001.0   1   0   0    0    0
+    eval+  001.0   1   0   0    0    0
+    eval-  001.1   1   0   0    0    0
+    eval+  001.1   1   0   0    0    0
+    eval-  002.0   0   0   0    0    0
+    eval+  002.0   0   0   0    0    0
+    eval-  002.1   0   0   0    0    0
+    eval+  002.1   0   0   0    0    0
+    eval-  003.0   0   0   0    0    0
+    eval+  003.0   0   0   0    0    0
+    eval-  003.1   0   0   0    0    0
+    eval+  003.1   0   0   0    0    0
+
+           i.clk  rst cen wen o_p  o_n
+    -----  -----  --- --- --- ---  ---
+    eval-  004.0   0   0   0    0    0
+    eval+  004.0   0   0   0    0    0
+    eval-  004.1   0   0   0    0    0
+    eval+  004.1   0   0   0    0    0
+    eval-  005.0   0   0   0    0    0
+    eval+  005.0   0   0   0    0    0
+    eval-  005.1   0   0   0    0    0
+    eval+  005.1   0   0   0    0    0
+    eval-  006.0   0   0   0    0    0
+    eval+  006.0   0   0   0    0    0
+    eval-  006.1   0   0   0    0    0
+    eval+  006.1   0   0   0    0    0
+    eval-  007.0   0   1   0    0    0
+    eval+  007.0   0   1   0    0    1
+    eval-  007.1   0   1   0    0    1
+    eval+  007.1   0   1   0    1    1
+
+           i.clk  rst cen wen o_p  o_n
+    -----  -----  --- --- --- ---  ---
+    eval-  008.0   0   1   0    1    1
+    eval+  008.0   0   1   0    1    2
+    eval-  008.1   0   1   0    1    2
+    eval+  008.1   0   1   0    2    2
+    eval-  009.0   0   1   0    2    2
+    eval+  009.0   0   1   0    2    3
+    eval-  009.1   0   1   0    2    3
+    eval+  009.1   0   1   0    3    3
+    eval-  010.0   0   1   0    3    3
+    eval+  010.0   0   1   0    3    4
+    eval-  010.1   0   1   0    3    4
+    eval+  010.1   0   1   0    4    4
+    eval-  011.0   0   1   1    4    4
+    eval+  011.0   0   1   1    4   55
+    eval-  011.1   0   1   1    4   55
+    eval+  011.1   0   1   1   55   55
+
+           i.clk  rst cen wen o_p  o_n
+    -----  -----  --- --- --- ---  ---
+    eval-  012.0   0   1   0   55   55
+    eval+  012.0   0   1   0   55   56
+    eval-  012.1   0   1   0   55   56
+    eval+  012.1   0   1   0   56   56
+    eval-  013.0   0   1   0   56   56
+    eval+  013.0   0   1   0   56   57
+    eval-  013.1   0   1   0   56   57
+    eval+  013.1   0   1   0   57   57
+    eval-  014.0   0   1   0   57   57
+    eval+  014.0   0   1   0   57   58
+    eval-  014.1   0   1   0   57   58
+    eval+  014.1   0   1   0   58   58
+    eval-  015.0   0   1   0   58   58
+    eval+  015.0   0   1   0   58   59
+    eval-  015.1   0   1   0   58   59
+    eval+  015.1   0   1   0   59   59
+
+           i.clk  rst cen wen o_p  o_n
+    -----  -----  --- --- --- ---  ---
+    eval-  016.0   0   1   0   59   59
+    eval+  016.0   0   1   0   59   5a
+    eval-  016.1   0   1   0   59   5a
+    eval+  016.1   0   1   0   5a   5a
+    eval-  017.0   0   1   0   5a   5a
+    eval+  017.0   0   1   0   5a   5b
+    eval-  017.1   0   1   0   5a   5b
+    eval+  017.1   0   1   0   5b   5b
+    eval-  018.0   0   1   0   5b   5b
+    eval+  018.0   0   1   0   5b   5c
+    eval-  018.1   0   1   0   5b   5c
+    eval+  018.1   0   1   0   5c   5c
+    eval-  019.0   0   1   0   5c   5c
+    eval+  019.0   0   1   0   5c   5d
+    eval-  019.1   0   1   0   5c   5d
+    eval+  019.1   0   1   0   5d   5d

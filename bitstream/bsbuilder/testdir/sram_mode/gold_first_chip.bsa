@@ -1,0 +1,599 @@
+# MEM_CONFIG_HACK
+# Override buggy mem config default: set bits 32-63 in every memtile to all zeroes
+01000018 00000000
+0100001C 00000000
+01000020 00000000
+01000024 00000000
+0100002B 00000000
+0100002F 00000000
+01000033 00000000
+01000037 00000000
+0100003D 00000000
+01000041 00000000
+01000045 00000000
+01000049 00000000
+0100004F 00000000
+01000053 00000000
+01000057 00000000
+0100005B 00000000
+01000061 00000000
+01000065 00000000
+01000069 00000000
+0100006D 00000000
+01000073 00000000
+01000077 00000000
+0100007B 00000000
+0100007F 00000000
+01000085 00000000
+01000089 00000000
+0100008D 00000000
+01000091 00000000
+01000097 00000000
+0100009B 00000000
+0100009F 00000000
+010000A3 00000000
+010000A9 00000000
+010000AD 00000000
+010000B1 00000000
+010000B5 00000000
+010000BB 00000000
+010000BF 00000000
+010000C3 00000000
+010000C7 00000000
+010000CD 00000000
+010000D1 00000000
+010000D5 00000000
+010000D9 00000000
+010000DF 00000000
+010000E3 00000000
+010000E7 00000000
+010000EB 00000000
+010000F1 00000000
+010000F5 00000000
+010000F9 00000000
+010000FD 00000000
+01000103 00000000
+01000107 00000000
+0100010B 00000000
+0100010F 00000000
+01000115 00000000
+01000119 00000000
+0100011D 00000000
+01000121 00000000
+01000127 00000000
+0100012B 00000000
+0100012F 00000000
+01000133 00000000
+
+00080015 00000400
+# data[(11, 10)] : @ tile (2, 2) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S1_T0
+
+00010024 00000000
+# data[(1, 0)] : @ tile (2, 17) connect wire 0 (in_0_BUS16_S1_T0) to out_0_BUS16_S0_T0
+
+00080028 00000800
+# data[(11, 10)] : @ tile (3, 2) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S1_T0
+
+00010037 40000000
+# data[(31, 30)] : @ tile (3, 17) connect wire 1 (in_0_BUS16_S1_T0) to out_0_BUS16_S3_T0
+
+0008003A 00000800
+# data[(11, 10)] : @ tile (4, 2) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S1_T0
+
+00010049 40000000
+# data[(31, 30)] : @ tile (4, 17) connect wire 1 (in_0_BUS16_S1_T0) to out_0_BUS16_S3_T0
+
+0008004C 00000002
+# data[(1, 0)] : @ tile (5, 2) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S0_T0
+
+0008004D 00000001
+# data[(1, 0)] : @ tile (5, 3) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008004E 00000001
+# data[(1, 0)] : @ tile (5, 4) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0000004F 40000000
+# data[(32, 30)] : @ tile (5, 5) connect wire 1 (in_0_BUS1_S1_T0) to out_0_BUS1_S2_T0
+
+0100004F 00000000
+# data[(32, 30)] : @ tile (5, 5) connect wire 1 (in_0_BUS1_S1_T0) to out_0_BUS1_S2_T0
+# data[(35, 33)] : @ tile (5, 5) connect wire 0 (in_0_BUS1_S0_T1) to out_0_BUS1_S2_T1
+
+0001004F 00500C01
+# data[(1, 0)] : @ tile (5, 5) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+# data[(11, 10)] : @ tile (5, 5) connect wire 3 (rdata) to out_0_BUS16_S1_T0
+# data[(21, 20)] : @ tile (5, 5) connect wire 1 (in_0_BUS16_S1_T0) to out_0_BUS16_S2_T0
+# data[(23, 22)] : @ tile (5, 5) connect wire 1 (in_0_BUS16_S1_T1) to out_0_BUS16_S2_T1
+
+0002004F 00000006
+# data[(1, 0)] : mode = 2 (sram)
+# data[(2, 2)] : tile_en = 1
+# data[(15, 3)] : fifo_depth = 0
+# data[(18, 16)] : almost_full_count = 0
+# data[(19, 19)] : chain_enable = 0
+
+0009004F 00000005
+# data[(3, 0)] : @ tile (5, 5) connect wire 5 (out_0_BUS16_S2_T0) to wdata
+
+000A004F 00000006
+# data[(3, 0)] : @ tile (5, 5) connect wire 6 (out_0_BUS16_S2_T1) to addr
+
+000B004F 00000005
+# data[(3, 0)] : @ tile (5, 5) connect wire 5 (out_0_BUS1_S2_T0) to ren
+
+000C004F 00000006
+# data[(3, 0)] : @ tile (5, 5) connect wire 6 (out_0_BUS1_S2_T1) to wen
+
+00080050 00000001
+# data[(1, 0)] : @ tile (5, 6) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00090050 00400000
+# data[(13, 12)] : @ tile (5, 6) connect wire 0 (in_BUS1_S0_T1) to out_BUS1_S1_T1
+# data[(23, 22)] : @ tile (5, 6) connect wire 1 (in_BUS1_S1_T1) to out_BUS1_S2_T1
+
+00080051 00000001
+# data[(1, 0)] : @ tile (5, 7) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00090051 00000000
+# data[(23, 22)] : @ tile (5, 7) connect wire 0 (in_BUS1_S0_T1) to out_BUS1_S2_T1
+
+00000052 00000000
+# data[(7, 0)] : lut_value = 0x0
+
+F3000052 00000000
+# data[(0, 0)] : init `bit0` reg with const `0`
+
+F4000052 00000000
+# data[(0, 0)] : init `bit1` reg with const `0`
+
+F5000052 00000000
+# data[(0, 0)] : init `bit2` reg with const `0`
+
+FF000052 0000E00E
+# data[(5, 0)] : alu_op = lut ; 0xE
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_LUT=0xE
+# data[(25, 24)]: bit0: 'const_0' (REG_CONST)
+# data[(27, 26)]: bit1: 'const_1' (REG_CONST)
+# data[(29, 28)]: bit2: 'const_2' (REG_CONST)
+
+00080052 00000400
+# data[(11, 10)] : @ tile (5, 8) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S1_T0
+
+00090052 00C00000
+# data[(23, 22)] : @ tile (5, 8) connect wire 3 (pe_out_res_p) to out_BUS1_S2_T1
+
+0001005B 40000000
+# data[(31, 30)] : @ tile (5, 17) connect wire 1 (in_0_BUS16_S1_T0) to out_0_BUS16_S3_T0
+
+00000061 40000000
+# data[(32, 30)] : @ tile (6, 5) connect wire 1 (in_0_BUS1_S1_T0) to out_0_BUS1_S2_T0
+
+01000061 00000000
+# data[(32, 30)] : @ tile (6, 5) connect wire 1 (in_0_BUS1_S1_T0) to out_0_BUS1_S2_T0
+# data[(35, 33)] : @ tile (6, 5) connect wire 0 (in_0_BUS1_S0_T1) to out_0_BUS1_S2_T1
+# data[(47, 45)] : @ tile (6, 5) connect wire 0 (in_0_BUS1_S0_T0) to out_0_BUS1_S3_T0
+
+00010061 00400803
+# data[(1, 0)] : @ tile (6, 5) connect wire 3 (rdata) to out_0_BUS16_S0_T0
+# data[(11, 10)] : @ tile (6, 5) connect wire 2 (in_0_BUS16_S3_T0) to out_0_BUS16_S1_T0
+# data[(23, 22)] : @ tile (6, 5) connect wire 1 (in_0_BUS16_S1_T1) to out_0_BUS16_S2_T1
+# data[(31, 30)] : @ tile (6, 5) connect wire 0 (in_0_BUS16_S0_T0) to out_0_BUS16_S3_T0
+
+01010061 00000001
+# data[(33, 32)] : @ tile (6, 5) connect wire 1 (in_0_BUS16_S1_T1) to out_0_BUS16_S3_T1
+
+00020061 00000006
+# data[(1, 0)] : mode = 2 (sram)
+# data[(2, 2)] : tile_en = 1
+# data[(15, 3)] : fifo_depth = 0
+# data[(18, 16)] : almost_full_count = 0
+# data[(19, 19)] : chain_enable = 0
+
+000A0061 00000006
+# data[(3, 0)] : @ tile (6, 5) connect wire 6 (out_0_BUS16_S2_T1) to addr
+
+000B0061 00000005
+# data[(3, 0)] : @ tile (6, 5) connect wire 5 (out_0_BUS1_S2_T0) to ren
+
+000C0061 00000006
+# data[(3, 0)] : @ tile (6, 5) connect wire 6 (out_0_BUS1_S2_T1) to wen
+
+00080062 00100400
+# data[(11, 10)] : @ tile (6, 6) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S1_T0
+# data[(21, 20)] : @ tile (6, 6) connect wire 1 (in_BUS16_S1_T0) to out_BUS16_S2_T0
+
+00090062 00800000
+# data[(21, 20)] : @ tile (6, 6) connect wire 0 (in_BUS1_S0_T0) to out_BUS1_S2_T0
+# data[(23, 22)] : @ tile (6, 6) connect wire 2 (in_BUS1_S3_T1) to out_BUS1_S2_T1
+
+01090062 00000000
+# data[(33, 32)] : @ tile (6, 6) connect wire 0 (in_BUS1_S0_T1) to out_BUS1_S3_T1
+
+00000063 00000000
+# data[(7, 0)] : lut_value = 0x0
+
+F3000063 00000000
+# data[(0, 0)] : init `bit0` reg with const `0`
+
+F4000063 00000000
+# data[(0, 0)] : init `bit1` reg with const `0`
+
+F5000063 00000000
+# data[(0, 0)] : init `bit2` reg with const `0`
+
+FF000063 0000E00E
+# data[(5, 0)] : alu_op = lut ; 0xE
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_LUT=0xE
+# data[(25, 24)]: bit0: 'const_0' (REG_CONST)
+# data[(27, 26)]: bit1: 'const_1' (REG_CONST)
+# data[(29, 28)]: bit2: 'const_2' (REG_CONST)
+
+00090063 00D00000
+# data[(21, 20)] : @ tile (6, 7) connect wire 1 (in_BUS1_S1_T0) to out_BUS1_S2_T0
+# data[(23, 22)] : @ tile (6, 7) connect wire 3 (pe_out_res_p) to out_BUS1_S2_T1
+
+FF000064 000AF000
+# data[ 5,  0] =  0 :: alu_op 'add'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  2 :: data0  'wire_a' (REG_BYPASS)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+
+00020064 00000005
+# data[(3, 0)] : @ tile (6, 8) connect wire 5 (out_BUS16_S2_T0) to data0
+
+00030064 00000000
+# data[(3, 0)] : @ tile (6, 8) connect wire 0 (in_BUS16_S1_T0) to data1
+
+00080064 00200003
+# data[(1, 0)] : @ tile (6, 8) connect wire 3 (pe_out_res) to out_BUS16_S0_T0
+# data[(21, 20)] : @ tile (6, 8) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S2_T0
+
+00010065 00000001
+# data[(1, 0)] : @ tile (6, 9) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+
+00080066 00000001
+# data[(1, 0)] : @ tile (6, 10) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00080067 00000001
+# data[(1, 0)] : @ tile (6, 11) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00080068 00000001
+# data[(1, 0)] : @ tile (6, 12) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00010069 00000001
+# data[(1, 0)] : @ tile (6, 13) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+
+0008006A 00000001
+# data[(1, 0)] : @ tile (6, 14) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008006B 00000001
+# data[(1, 0)] : @ tile (6, 15) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008006C 00000001
+# data[(1, 0)] : @ tile (6, 16) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0001006D 80000000
+# data[(31, 30)] : @ tile (6, 17) connect wire 2 (in_0_BUS16_S2_T0) to out_0_BUS16_S3_T0
+
+01000073 00002000
+# data[(47, 45)] : @ tile (7, 5) connect wire 1 (in_0_BUS1_S1_T0) to out_0_BUS1_S3_T0
+
+00010073 00000002
+# data[(1, 0)] : @ tile (7, 5) connect wire 2 (in_0_BUS16_S3_T0) to out_0_BUS16_S0_T0
+# data[(5, 4)] : @ tile (7, 5) connect wire 0 (in_0_BUS16_S1_T2) to out_0_BUS16_S0_T2
+# data[(13, 12)] : @ tile (7, 5) connect wire 0 (in_0_BUS16_S0_T1) to out_0_BUS16_S1_T1
+
+01010073 00000000
+# data[(33, 32)] : @ tile (7, 5) connect wire 0 (in_0_BUS16_S0_T1) to out_0_BUS16_S3_T1
+
+F0000074 00000002
+# data[(15, 0)] : init `data0` reg with const `2`
+
+FF000074 0008F00B
+# data[ 5,  0] = 11 :: alu_op 'mult_0'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  0 :: data0  'const_a' (REG_CONST)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+
+00030074 00000007
+# data[(3, 0)] : @ tile (7, 6) connect wire 7 (out_BUS16_S1_T2) to data1
+
+00080074 C0404801
+# data[(1, 0)] : @ tile (7, 6) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+# data[(11, 10)] : @ tile (7, 6) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S1_T0
+# data[(15, 14)] : @ tile (7, 6) connect wire 1 (in_BUS16_S2_T2) to out_BUS16_S1_T2
+# data[(23, 22)] : @ tile (7, 6) connect wire 1 (in_BUS16_S1_T1) to out_BUS16_S2_T1
+# data[(31, 30)] : @ tile (7, 6) connect wire 3 (pe_out_res) to out_BUS16_S3_T0
+
+01080074 00080000
+# data[(51, 51)] : @ tile (7, 6) latch output wire out_BUS16_S2_T1
+
+00000075 0000003F
+# data[(7, 0)] : lut_value = 0x3F
+
+F3000075 00000000
+# data[(0, 0)] : init `bit0` reg with const `0`
+
+F4000075 00000000
+# data[(0, 0)] : init `bit1` reg with const `0`
+
+F5000075 00000000
+# data[(0, 0)] : init `bit2` reg with const `0`
+
+FF000075 0000E00E
+# data[(5, 0)] : alu_op = lut ; 0xE
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_LUT=0xE
+# data[(25, 24)]: bit0: 'const_0' (REG_CONST)
+# data[(27, 26)]: bit1: 'const_1' (REG_CONST)
+# data[(29, 28)]: bit2: 'const_2' (REG_CONST)
+
+00080075 00000001
+# data[(1, 0)] : @ tile (7, 7) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+# data[(11, 10)] : @ tile (7, 7) connect wire 0 (in_BUS16_S0_T0) to out_BUS16_S1_T0
+
+00090075 C0000000
+# data[(31, 30)] : @ tile (7, 7) connect wire 3 (pe_out_res_p) to out_BUS1_S3_T0
+
+F3000076 00000000
+# data[(15, 0)] : init `bit0` reg with const `0`
+
+FF000076 000AF008
+# data[ 5,  0] =  8 :: alu_op 'sel'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  2 :: data0  'wire_a' (REG_BYPASS)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+# data[25, 24] =  0 :: bit0   'const_0' (REG_CONST)
+
+00020076 00000000
+# data[(3, 0)] : @ tile (7, 8) connect wire 0 (in_BUS16_S2_T0) to data0
+
+00030076 00000000
+# data[(3, 0)] : @ tile (7, 8) connect wire 0 (in_BUS16_S1_T0) to data1
+
+00080076 40300000
+# data[(21, 20)] : @ tile (7, 8) connect wire 3 (pe_out_res) to out_BUS16_S2_T0
+# data[(31, 30)] : @ tile (7, 8) connect wire 1 (in_BUS16_S1_T0) to out_BUS16_S3_T0
+
+01000085 00000000
+# data[(47, 45)] : @ tile (8, 5) connect wire 0 (in_0_BUS1_S0_T0) to out_0_BUS1_S3_T0
+
+00010085 00002000
+# data[(13, 12)] : @ tile (8, 5) connect wire 2 (in_0_BUS16_S3_T1) to out_0_BUS16_S1_T1
+
+01010085 00000004
+# data[(35, 34)] : @ tile (8, 5) connect wire 1 (in_0_BUS16_S1_T2) to out_0_BUS16_S3_T2
+
+F3000086 00000000
+# data[(15, 0)] : init `bit0` reg with const `0`
+
+FF000086 000AF008
+# data[ 5,  0] =  8 :: alu_op 'sel'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  2 :: data0  'wire_a' (REG_BYPASS)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+# data[25, 24] =  0 :: bit0   'const_0' (REG_CONST)
+
+00020086 00000005
+# data[(3, 0)] : @ tile (8, 6) connect wire 5 (out_BUS16_S2_T0) to data0
+
+00030086 00000002
+# data[(3, 0)] : @ tile (8, 6) connect wire 2 (in_BUS16_S1_T2) to data1
+
+00080086 00200030
+# data[(5, 4)] : @ tile (8, 6) connect wire 3 (pe_out_res) to out_BUS16_S0_T2
+# data[(21, 20)] : @ tile (8, 6) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S2_T0
+
+01080086 00000001
+# data[(33, 32)] : @ tile (8, 6) connect wire 1 (in_BUS16_S1_T1) to out_BUS16_S3_T1
+
+00090086 00000000
+# data[(21, 20)] : @ tile (8, 6) connect wire 0 (in_BUS1_S0_T0) to out_BUS1_S2_T0
+
+00000087 0000003F
+# data[(7, 0)] : lut_value = 0x3F
+
+F3000087 00000000
+# data[(0, 0)] : init `bit0` reg with const `0`
+
+F4000087 00000000
+# data[(0, 0)] : init `bit1` reg with const `0`
+
+F5000087 00000000
+# data[(0, 0)] : init `bit2` reg with const `0`
+
+FF000087 0000E00E
+# data[(5, 0)] : alu_op = lut ; 0xE
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_LUT=0xE
+# data[(25, 24)]: bit0: 'const_0' (REG_CONST)
+# data[(27, 26)]: bit1: 'const_1' (REG_CONST)
+# data[(29, 28)]: bit2: 'const_2' (REG_CONST)
+
+00080087 00004002
+# data[(1, 0)] : @ tile (8, 7) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S0_T0
+# data[(15, 14)] : @ tile (8, 7) connect wire 1 (in_BUS16_S2_T2) to out_BUS16_S1_T2
+
+01080087 00008000
+# data[(47, 47)] : @ tile (8, 7) latch output wire out_BUS16_S1_T2
+
+00090087 00300000
+# data[(1, 0)] : @ tile (8, 7) connect wire 0 (in_BUS1_S1_T0) to out_BUS1_S0_T0
+# data[(21, 20)] : @ tile (8, 7) connect wire 3 (pe_out_res_p) to out_BUS1_S2_T0
+
+00000088 000000EE
+# data[(7, 0)] : lut_value = 0xEE
+
+F4000088 00000000
+# data[(0, 0)] : init `bit1` reg with const `0`
+
+F5000088 00000000
+# data[(0, 0)] : init `bit2` reg with const `0`
+
+FF000088 0200E00E
+# data[(5, 0)] : alu_op = lut ; 0xE
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_LUT=0xE
+# data[(25, 24)]: bit0: 'wire_0' (REG_BYPASS)
+# data[(27, 26)]: bit1: 'const_1' (REG_CONST)
+# data[(29, 28)]: bit2: 'const_2' (REG_CONST)
+
+00040088 00000000
+# data[(3, 0)] : @ tile (8, 8) connect wire 0 (in_BUS1_S2_T0) to bit0
+
+00080088 80000000
+# data[(31, 30)] : @ tile (8, 8) connect wire 2 (in_BUS16_S2_T0) to out_BUS16_S3_T0
+
+01080088 00800000
+# data[(55, 55)] : @ tile (8, 8) latch output wire out_BUS16_S3_T0
+
+00090088 00000C00
+# data[(11, 10)] : @ tile (8, 8) connect wire 3 (pe_out_res_p) to out_BUS1_S1_T0
+
+00010097 00000008
+# data[(3, 2)] : @ tile (9, 5) connect wire 2 (in_0_BUS16_S3_T1) to out_0_BUS16_S0_T1
+
+01010097 00000000
+# data[(35, 34)] : @ tile (9, 5) connect wire 0 (in_0_BUS16_S0_T2) to out_0_BUS16_S3_T2
+
+F3000098 00000001
+# data[(15, 0)] : init `bit0` reg with const `1`
+
+FF000098 000AF008
+# data[ 5,  0] =  8 :: alu_op 'sel'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  2 :: data0  'wire_a' (REG_BYPASS)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+# data[25, 24] =  0 :: bit0   'const_0' (REG_CONST)
+
+00020098 00000005
+# data[(3, 0)] : @ tile (9, 6) connect wire 5 (out_BUS16_S2_T0) to data0
+
+00030098 00000006
+# data[(3, 0)] : @ tile (9, 6) connect wire 6 (out_BUS16_S1_T1) to data1
+
+00080098 00001000
+# data[(1, 0)] : @ tile (9, 6) connect wire 0 (in_BUS16_S1_T0) to out_BUS16_S0_T0
+# data[(13, 12)] : @ tile (9, 6) connect wire 1 (in_BUS16_S2_T1) to out_BUS16_S1_T1
+# data[(21, 20)] : @ tile (9, 6) connect wire 0 (in_BUS16_S0_T0) to out_BUS16_S2_T0
+# data[(25, 24)] : @ tile (9, 6) connect wire 0 (in_BUS16_S0_T2) to out_BUS16_S2_T2
+
+01080098 00000003
+# data[(33, 32)] : @ tile (9, 6) connect wire 3 (pe_out_res) to out_BUS16_S3_T1
+# data[(35, 34)] : @ tile (9, 6) connect wire 0 (in_BUS16_S0_T2) to out_BUS16_S3_T2
+
+F0000099 00000000
+# data[(15, 0)] : init `data0` reg with const `0`
+
+FF000099 0208F008
+# data[ 5,  0] =  8 :: alu_op 'sel'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  0 :: data0  'const_a' (REG_CONST)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+# data[25, 24] =  1 :: bit0   'wire_0' (REG_BYPASS)
+
+00030099 00000005
+# data[(3, 0)] : @ tile (9, 7) connect wire 5 (out_BUS16_S1_T0) to data1
+
+00040099 00000005
+# data[(3, 0)] : @ tile (9, 7) connect wire 5 (out_BUS1_S2_T0) to bit0
+
+00080099 02300400
+# data[(11, 10)] : @ tile (9, 7) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S1_T0
+# data[(21, 20)] : @ tile (9, 7) connect wire 3 (pe_out_res) to out_BUS16_S2_T0
+# data[(25, 24)] : @ tile (9, 7) connect wire 2 (in_BUS16_S3_T2) to out_BUS16_S2_T2
+
+00090099 40000000
+# data[(21, 20)] : @ tile (9, 7) connect wire 0 (in_BUS1_S0_T0) to out_BUS1_S2_T0
+# data[(31, 30)] : @ tile (9, 7) connect wire 1 (in_BUS1_S1_T0) to out_BUS1_S3_T0
+
+0009009A 00200000
+# data[(21, 20)] : @ tile (9, 8) connect wire 2 (in_BUS1_S3_T0) to out_BUS1_S2_T0
+
+F00000A7 0000003F
+# data[(15, 0)] : init `data0` reg with const `63`
+
+FF0000A7 0008A001
+# data[ 5,  0] =  1 :: alu_op 'sub'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 10 :: flag   'ge'
+# data[17, 16] =  0 :: data0  'const_a' (REG_CONST)
+# data[19, 18] =  2 :: data1  'wire_b' (REG_BYPASS)
+
+000300A7 00000005
+# data[(3, 0)] : @ tile (10, 3) connect wire 5 (out_BUS16_S1_T0) to data1
+
+000800A7 00000000
+# data[(11, 10)] : @ tile (10, 3) connect wire 0 (in_BUS16_S0_T0) to out_BUS16_S1_T0
+
+000900A7 00000003
+# data[(1, 0)] : @ tile (10, 3) connect wire 3 (pe_out_res_p) to out_BUS1_S0_T0
+
+000000A8 00000055
+# data[(7, 0)] : lut_value = 0x55
+
+F40000A8 00000000
+# data[(0, 0)] : init `bit1` reg with const `0`
+
+F50000A8 00000000
+# data[(0, 0)] : init `bit2` reg with const `0`
+
+FF0000A8 0200E00E
+# data[(5, 0)] : alu_op = lut ; 0xE
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_LUT=0xE
+# data[(25, 24)]: bit0: 'wire_0' (REG_BYPASS)
+# data[(27, 26)]: bit1: 'const_1' (REG_CONST)
+# data[(29, 28)]: bit2: 'const_2' (REG_CONST)
+
+000400A8 00000000
+# data[(3, 0)] : @ tile (10, 4) connect wire 0 (in_BUS1_S2_T0) to bit0
+
+000800A8 00000000
+# data[(21, 20)] : @ tile (10, 4) connect wire 0 (in_BUS16_S0_T0) to out_BUS16_S2_T0
+
+000900A8 00000003
+# data[(1, 0)] : @ tile (10, 4) connect wire 3 (pe_out_res_p) to out_BUS1_S0_T0
+
+000000A9 00000001
+# data[(2, 0)] : @ tile (10, 5) connect wire 1 (in_0_BUS1_S2_T0) to out_0_BUS1_S0_T0
+
+000100A9 00000000
+# data[(21, 20)] : @ tile (10, 5) connect wire 0 (in_0_BUS16_S0_T0) to out_0_BUS16_S2_T0
+
+F10000AA 00000001
+# data[(15, 0)] : init `data1` reg with const `1`
+
+FF0000AA 0002F000
+# data[ 5,  0] =  0 :: alu_op 'add'
+# data[ 6,  6] =  0 :: sign   'u'
+# data[15, 12] = 15 :: flag   'pe'
+# data[17, 16] =  2 :: data0  'wire_a' (REG_BYPASS)
+# data[19, 18] =  0 :: data1  'const_b' (REG_CONST)
+
+000200AA 00000006
+# data[(3, 0)] : @ tile (10, 6) connect wire 6 (out_BUS16_S2_T1) to data0
+
+000800AA C0B00000
+# data[(21, 20)] : @ tile (10, 6) connect wire 3 (pe_out_res) to out_BUS16_S2_T0
+# data[(23, 22)] : @ tile (10, 6) connect wire 2 (in_BUS16_S3_T1) to out_BUS16_S2_T1
+# data[(31, 30)] : @ tile (10, 6) connect wire 3 (pe_out_res) to out_BUS16_S3_T0
+
+000900AA 00000001
+# data[(1, 0)] : @ tile (10, 6) connect wire 1 (in_BUS1_S2_T0) to out_BUS1_S0_T0
+
+000900AB 80000000
+# data[(31, 30)] : @ tile (10, 7) connect wire 2 (in_BUS1_S2_T0) to out_BUS1_S3_T0
+
+# WARNING You did not designate a 16-bit output bus and...
+# OOPS looks like cgra_info only has old-style IO pads.
+# NO DEFAULT OUTPUT-BUS FOR YOU!!!
+

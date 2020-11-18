@@ -1,0 +1,64 @@
+{
+    "reset_in_pad": {
+        "pad_bus" : "pads_E_0",
+        "bits": {
+            "0": { "pad_bit":"0" }
+        },
+        "mode": "in",
+        "width": 1
+    },
+    "io16in_in_arg_1_0_0": {
+        "pad_bus" : "pads_N_0",
+        "bits": {
+             "0": { "pad_bit":"10" },
+             "1": { "pad_bit":"11" },
+             "2": { "pad_bit":"12" },
+             "3": { "pad_bit":"13" },
+             "4": { "pad_bit":"14" },
+             "5": { "pad_bit":"15" },
+             "6": { "pad_bit":"6" },
+             "7": { "pad_bit":"7" },
+             "8": { "pad_bit":"8" },
+             "9": { "pad_bit":"9" },
+            "10": { "pad_bit":"0" },
+            "11": { "pad_bit":"1" },
+            "12": { "pad_bit":"2" },
+            "13": { "pad_bit":"3" },
+            "14": { "pad_bit":"4" },
+            "15": { "pad_bit":"5" }
+        },
+        "mode": "in",
+        "width": 16
+    },
+    "io16_out_0_0": {
+        "pad_bus" : "pads_E_0",
+        "bits": {
+             "0": { "pad_bit":"10" },
+             "1": { "pad_bit":"11" },
+             "2": { "pad_bit":"12" },
+             "3": { "pad_bit":"13" },
+             "4": { "pad_bit":"14" },
+             "5": { "pad_bit":"15" },
+             "6": { "pad_bit":"6" },
+             "7": { "pad_bit":"7" },
+             "8": { "pad_bit":"8" },
+             "9": { "pad_bit":"9" },
+            "10": { "pad_bit":"0" },
+            "11": { "pad_bit":"1" },
+            "12": { "pad_bit":"2" },
+            "13": { "pad_bit":"3" },
+            "14": { "pad_bit":"4" },
+            "15": { "pad_bit":"5" }
+        },
+        "mode": "out",
+        "width": 16
+    },
+    "io1_out_0_0": {
+        "pad_bus" : "pads_S_0",
+        "bits": {
+            "0": { "pad_bit":"0" }
+        },
+        "mode": "out",
+        "width": 1
+    }
+}

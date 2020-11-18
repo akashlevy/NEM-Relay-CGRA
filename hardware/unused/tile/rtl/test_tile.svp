@@ -1,0 +1,227 @@
+//;my $num_res    = 1;
+//;
+//;my $mux_recipe = parameter(Name=>'mux_recipe', val=> ('$i+1; $i; $N-$i'), doc=>'MUX parrten');
+//;
+//;my $segments        = parameter(Name=>'segments', val=> ('1=>0.5, 2=> 0.3, 4=>0.0, 8=>0.2'), doc=>'Frequency of the wire segments');
+//;my $tracks_per_tile = parameter(Name=>'tracks_per_tile', val=> 6, Min=>1, doc=>'Number of tracks that start here');
+//;
+//;
+//;my $tile_x          = parameter(Name=>'tile_x', val=> 3, Min=>0, doc=>'X position of this tile in chips geometry');
+//;my $tile_y          = parameter(Name=>'tile_y', val=> 1, Min=>0, doc=>'Y position of this tile in chips geometry');
+//;
+//; my $connect_en     = parameter(Name=>'connect_en', val=> 0, List=>[0,1] , doc=>'Enable generation of connectivity matrix?');
+//;
+//;my $N = 15;
+//;
+//Segments: `$segments`
+module `mname`  #(
+  parameter Width   = 16
+) (
+  input               clk,
+  input               rst_n,
+
+  input        [15:0] cfg_d,
+  input        [9:0]  cfg_a,
+  input               cfg_en,
+
+
+  input        [`$N-1`:0][Width - 1:0] in0,
+  input        [`$N-1`:0][Width - 1:0] in1,
+  input        [`$N-1`:0][Width - 1:0] in2,
+  input        [`$N-1`:0][Width - 1:0] in3,
+
+  output logic [`$N-1`:0][Width - 1:0] out0,
+  output logic [`$N-1`:0][Width - 1:0] out1,
+  output logic [`$N-1`:0][Width - 1:0] out2,
+  output logic [`$N-1`:0][Width - 1:0] out3,
+
+
+  input        [`$N-1`:0]              in0_p,
+  input        [`$N-1`:0]              in1_p,
+  input        [`$N-1`:0]              in2_p,
+  input        [`$N-1`:0]              in3_p,
+
+  output logic [`$N-1`:0]              out0_p,
+  output logic [`$N-1`:0]              out1_p,
+  output logic [`$N-1`:0]              out2_p,
+  output logic [`$N-1`:0]              out3_p
+
+);
+
+
+logic [ `$num_res-1`:0][Width - 1:0] res;
+logic [ `$num_res-1`:0]              res_p;
+
+//; my $pe_inp_cnt = 3;
+//; my $SB = generate('test_sb', 'test_sb', "segments"=>$segments, "num_res"=>$num_res, 
+//;                   "connect_en" => $connect_en, "mux_recipe" => $mux_recipe, 
+//;                   "tracks_per_tile"=>$tracks_per_tile, "num_res"=> $num_res, 
+//;                   "tile_x"=> $tile_x, "tile_y" =>$tile_y);
+//; my $SB_p = clone($SB, 'test_sb_p');
+
+//; if($connect_en == 1) {
+//;   my $sb_con   = $SB->get_param('connectivity') or error("Connectivity is not set!");
+//;#  my $sb_p_con = $SB_p->get_param('connectivity') or error("Connectivity is not set!");
+//;
+//;   parameter(Name=>'connectivity', Val=>$sb_con , Force=>1, doc=>"Connectivity info");
+//;}
+
+//; my $PE = generate('test_pe', 'test_pe', use_add=>$pe_inp_cnt-1, mult_mode=>$pe_inp_cnt-1);
+
+//; my $CB_a = generate('test_mux', 'cb_a', "use_ff"=>0);
+//; my $CB_b = clone($CB_a, 'cb_b');
+//; my $CB_c = clone($CB_a, 'cb_c');
+//; my $CB_d = clone($CB_a, 'cb_d');
+
+
+logic [Width - 1:0] op_a_in;
+logic [Width - 1:0] op_b_in;
+logic               op_d_p_in;
+
+logic [$clog2(`$N`)-1:0] cb_a_sel;
+logic [$clog2(`$N`)-1:0] cb_b_sel;
+logic [$clog2(`$N`)-1:0] cb_d_sel;
+
+
+
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    cb_a_sel <= 'h0;
+  end else if(cfg_en & (cfg_a[9:8]==2'b10) && (cfg_a[7:0]==8'h0)) begin
+    cb_a_sel <= cfg_d[$clog2(`$N`)-1:0];
+  end
+end
+
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    cb_b_sel <= 'h0;
+  end else if(cfg_en & (cfg_a[9:8]==2'b10) && (cfg_a[7:0]==8'h1)) begin
+    cb_b_sel <= cfg_d[$clog2(`$N`)-1:0];
+  end
+end
+
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    cb_d_sel <= 'h0;
+  end else if(cfg_en & (cfg_a[9:8]==2'b10) && (cfg_a[7:0]==8'h3)) begin
+    cb_d_sel <= cfg_d[$clog2(`$N`)-1:0];
+  end
+end
+
+
+`$CB_a->mname()` #(.DataWidth(Width),.NumInp(`$N`)) `$CB_a->iname()`
+(
+  .data_in (in0),
+  .sel     (cb_a_sel),
+  .res     (op_a_in)
+);
+
+`$CB_b->mname()` #(.DataWidth(Width),.NumInp(`$N`)) `$CB_b->iname()`
+(
+  .data_in (in1),
+  .sel     (cb_b_sel),
+  .res     (op_b_in)
+);
+
+`$CB_d->mname()` #(.DataWidth(1),.NumInp(`$N`)) `$CB_d->iname()`
+(
+  .data_in (in0_p),
+  .sel     (cb_d_sel),
+  .res     (op_d_p_in)
+);
+
+//;if($pe_inp_cnt > 2) {
+logic [Width - 1:0] op_c_in;
+logic [$clog2(`$N`)-1:0] cb_c_sel;
+
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    cb_c_sel <= 'h0;
+  end else if(cfg_en & (cfg_a[9:8]==2'b10) && (cfg_a[7:0]==8'h2)) begin
+    cb_c_sel <= cfg_d[$clog2(`$N`)-1:0];
+  end
+end
+
+`$CB_c->mname()` #(.DataWidth(Width),.NumInp(`$N`)) `$CB_c->iname()`
+(
+  .data_in (in0),
+  .sel     (cb_c_sel),
+  .res     (op_c_in)
+);
+//;}
+
+
+
+`$PE->mname()` #(.DataWidth(Width)) `$PE->iname()`
+(
+  .clk       (clk),
+  .rst_n     (rst_n),
+
+  .cfg_d     (cfg_d),
+  .cfg_a     (cfg_a[7:0]),
+  .cfg_en    (cfg_en & (cfg_a[9:8]==2'b00)),
+
+  .op_a_in   (op_a_in),
+  .op_b_in   (op_b_in),
+//;if($pe_inp_cnt > 2) {
+  .op_c_in   (op_c_in),
+//;}
+
+  .op_d_p_in (op_d_p_in),
+
+  .res       (res[0]),
+  .res_p     (res_p[0])
+);
+
+
+`$SB->mname()` #(.Width(Width)) `$SB->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+
+  .cfg_d    (cfg_d),
+  .cfg_a    (cfg_a[7:0]),
+  .cfg_en   (cfg_en  & (cfg_a[9:8]==2'b01)),
+
+  .in0      (in0),
+  .in1      (in1),
+  .in2      (in2),
+  .in3      (in3),
+
+  .res      (res),
+
+  .out0     (out0),
+  .out1     (out1),
+  .out2     (out2),
+  .out3     (out3)
+);
+
+
+`$SB_p->mname()` #(.Width(1)) `$SB_p->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+
+  .cfg_d    (cfg_d),
+  .cfg_a    (cfg_a[7:0]),
+  .cfg_en   (cfg_en & ~cfg_a[8]),
+
+  .in0      (in0_p),
+  .in1      (in1_p),
+  .in2      (in2_p),
+  .in3      (in3_p),
+
+  .res      (res_p),
+
+  .out0     (out0_p),
+  .out1     (out1_p),
+  .out2     (out2_p),
+  .out3     (out3_p)
+);
+
+
+
+
+endmodule

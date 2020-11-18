@@ -1,0 +1,93 @@
+//; my $DataWidth      = parameter(Name=>'DataWidth', val=> 16, doc=>'Data Width');
+//; my $SHIFT_REG_LEN  = parameter(Name=>'SHIFT_REG_LEN',
+//;                               Val=> 3, Min=>0, Step=>1, Max=>16,
+//;                               Doc=>"Total number of shift registers");
+//;
+//; my $USE_SHIFT_REG = ($SHIFT_REG_LEN > 0);
+
+module `mname` (
+
+//------------------------------------------
+// Global Signals
+// -----------------------------------------
+//; if($USE_SHIFT_REG) {
+input clk,
+//input clk_en,
+input rst_n,
+//; }
+//------------------------------------------
+// Inputs
+//-----------------------------------------
+input [`$DataWidth - 1`:0] data_in,        // Shift Register Data In
+//; if($USE_SHIFT_REG) {
+input [`$DataWidth - 1`:0] data_out_sel,   // Select for Mux
+input        shift,          // Shift Data
+//; }
+//------------------------------------------
+// Outputs
+//------------------------------------------
+output [`$DataWidth -1`:0] data_out     // Shift Register Data Out
+
+);
+
+//; if($USE_SHIFT_REG==0) {
+assign data_out = data_in;
+//; }
+
+
+//; if($USE_SHIFT_REG) {
+logic [`$DataWidth -1`:0] shift_registers [`$SHIFT_REG_LEN -1`:0]; // Shift Registers
+logic [`$DataWidth- 1`:0] data_out_int;
+
+//------------------------------------------
+// Shift Register Logic
+// Each register input is the output of previous register
+//------------------------------------------
+genvar i;
+generate
+  for (i = 1; i < `$SHIFT_REG_LEN`; i = i + 1) begin : GEN_SHIFT_REG
+    always_ff @(posedge clk or negedge rst_n) begin
+if(~rst_n) begin
+        shift_registers[i] <= 'h0;
+      end else if(shift) begin
+        shift_registers[i] <= shift_registers[i-1];
+      end
+    end
+  end
+endgenerate
+
+//------------------------------------------
+// Shift Register Logic
+// First register receives data from the input
+//------------------------------------------
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+     shift_registers[0] <= 'h0;
+  end else if(shift) begin
+     shift_registers[0] <= data_in;
+  end
+end
+
+//parameter MUX_SEL_SIZE = $ceil($clog2(SHIFT_REG_LEN + 1))
+
+//------------------------------------------
+// Mux Logic
+// For SHIFT_REG_LEN=3, datapth:
+// Data_in --> Reg_0 --> Reg_1 --> Reg_2
+// --> MUX --> Data_out
+//------------------------------------------
+always_comb begin: proc_mux
+    case (sel)
+        8'h0 : data_out_int = data_in;
+//; for (my $i = 1; $i <= $SHIFT_REG_LEN; $i++) {
+        8'h`$i` : data_out_int = shift_registers[`$i-1`];
+//; }
+        default : data_out_int = data_in;
+    endcase
+end
+
+assign data_out = data_out_int;
+
+//; }
+
+endmodule

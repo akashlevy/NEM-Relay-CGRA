@@ -1,0 +1,348 @@
+//; my $reg_inputs = parameter(Name=>'reg_inputs', val=> 1, List=>[1, 0], doc=>'Add register on the inputs');
+//; my $reg_out    = parameter(Name=>'reg_out', val=> 1, List=>[1, 0], doc=>'Add register on the outputs');
+//;
+//; my $use_add   = parameter(Name=>'use_add', val=> 2, List=>[2, 1, 0], doc=>'0 - no adders, 1 - simple ADDs, 2 - SAD');
+//; my $bool_inps = parameter(Name=>'bool_inps',
+//;                               Val=>3, Min=>0, Step=>1, Max=>16,
+//;                               Doc=>"0 - no booleans, 1 - simple gates, 2-16 - uses LUTs with that number of inputs");
+//; my $use_shift = parameter(Name=>'use_shift', val=> 1, List=>[1, 0], doc=>'Use shift operations');
+//; my $mult_mode = parameter(Name=>'mult_mode', val=> 2, List=>[2, 1, 0], doc=>'Use MAD(2) or MULT(1) or None(0)');
+//;
+//; my $use_sad  = $use_add > 1;
+//; my $use_bool = ($bool_inps == 1);
+//; my $use_lut  = ($bool_inps > 1);
+//;
+//; my $use_c_input = ($use_sad > 0 || $mult_mode > 1 || $bool_inps > 2);
+//;
+module   `mname`  #(
+  parameter DataWidth = 16
+) (
+  input                clk,
+  input                rst_n,
+
+//; if($use_lut || $reg_inputs) {
+  input         [15:0] cfg_d,
+  input         [7:0]  cfg_a,
+  input                cfg_en,
+
+//;} else {
+  input [15:0]                  op_code,
+
+//;}
+  input  [DataWidth-1:0]        op_a_in,
+  input  [DataWidth-1:0]        op_b_in,
+//; if($use_c_input) {
+  input  [DataWidth-1:0]        op_c_in,
+//;}
+  input                         op_d_p_in,
+
+  output logic [DataWidth-1:0]  res,
+  output logic                  res_p
+);
+
+logic  [DataWidth-1:0]        op_a;
+logic  [DataWidth-1:0]        op_b;
+//; if($use_c_input) {
+logic  [DataWidth-1:0]        op_c;
+//; }
+logic                         op_d_p;
+
+//; if($reg_inputs) {
+
+logic [15:0] op_code;
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    op_code <= 4'h0;
+  end else if(cfg_en && (&cfg_a)) begin
+    op_code <= cfg_d;
+  end
+end
+
+
+//; my $op_a_r = generate_base('test_opt_reg', 'test_opt_reg_a');
+`$op_a_r->mname()` #(.DataWidth(DataWidth)) `$op_a_r->iname()`
+(
+  .clk     (clk),
+  .rst_n   (rst_n),
+  .load    (cfg_en && (cfg_a == 8'hF0)),
+  .val     (cfg_d[DataWidth-1:0]),
+  .sel     (op_code[15]),
+  .data_in (op_a_in),
+  .res     (op_a)
+);
+
+//; my $op_b_r = clone($op_a_r, 'test_opt_reg_b');
+`$op_b_r->mname()` #(.DataWidth(DataWidth)) `$op_b_r->iname()`
+(
+  .clk     (clk),
+  .rst_n   (rst_n),
+  .load    (cfg_en && (cfg_a == 8'hF1)),
+  .val     (cfg_d[DataWidth-1:0]),
+  .sel     (op_code[14]),
+  .data_in (op_b_in),
+  .res     (op_b)
+);
+
+
+//; if($use_c_input) {
+//;   my $op_c_r = clone($op_a_r, 'test_opt_reg_c');
+`$op_c_r->mname()` #(.DataWidth(DataWidth)) `$op_c_r->iname()`
+(
+  .clk     (clk),
+  .rst_n   (rst_n),
+  .load    (cfg_en && (cfg_a == 8'hF2)),
+  .val     (cfg_d[DataWidth-1:0]),
+  .sel     (op_code[15]),
+  .data_in (op_c_in),
+  .res     (op_c)
+);
+//; }
+
+
+//;my $op_d_r = clone($op_a_r, 'test_opt_reg_d');
+`$op_d_r->mname()` #(.DataWidth(1)) `$op_d_r->iname()`
+(
+  .clk     (clk),
+  .rst_n   (rst_n),
+  .load    (cfg_en && (cfg_a == 8'hF3)),
+  .val     (cfg_d[0]),
+  .sel     (op_code[15]),
+  .data_in (op_d_p_in),
+  .res     (op_d_p)
+);
+
+
+//;} else {
+assign op_a = op_a_in;
+assign op_b = op_b_in;
+//; if($use_c_input) {
+assign op_c = op_c_in;
+//; }
+assign op_d_p = op_d_p_in;
+
+//;}
+//;
+//;
+//; if($use_add > 0) {
+localparam NUM_ADDERS = `$use_add`;
+localparam ADD_MSB = NUM_ADDERS - 1;
+
+logic [DataWidth-1:0]  add_a     [ADD_MSB:0];
+logic [DataWidth-1:0]  add_b     [ADD_MSB:0];
+logic                  add_c_in  [ADD_MSB:0];
+
+logic [DataWidth-1:0]  add_res   [ADD_MSB:0];
+logic                  add_c_out [ADD_MSB:0];
+
+genvar ggg;
+
+generate
+  for(ggg=0;ggg<NUM_ADDERS;ggg=ggg+1) begin
+//; my $full_add = generate_base('test_full_add', 'full_add');
+  `$full_add->mname()` #(.DataWidth(DataWidth)) `$full_add->iname()`
+    (
+      .a     (add_a[ggg]),
+      .b     (add_b[ggg]),
+      .c_in  (add_c_in[ggg]),
+
+      .res   (add_res[ggg]),
+      .c_out (add_c_out[ggg])
+    );
+  end
+endgenerate
+
+logic [DataWidth-1:0]  add_res_0;
+assign add_res_0 = add_res[0];
+
+//; }
+
+logic [DataWidth-1:0] res_w;
+logic                 res_p_w;
+
+//; if($use_lut) {
+logic [DataWidth-1:0] res_lut;
+
+//; my $lut           = generate_base('test_lut', 'test_lut', "lut_inps"=>$bool_inps);
+//; my $lut_extra_inp = $lut->get_param('lut_inps') > 2;
+//; my $c_in_slice    = ($lut->get_param('lut_inps') == 3) ? "[0]" : "["+($bool_inps-1)+":0]";
+
+`$lut->mname()` #(.DataWidth(DataWidth)) `$lut->iname()`
+(
+  .cfg_clk  (clk),
+  .cfg_rst_n(rst_n),
+  .cfg_d    (cfg_d),
+  .cfg_a    (cfg_a),
+  .cfg_en   (cfg_en),
+
+  .op_a_in  (op_a),
+  .op_b_in  (op_b),
+//; if($lut_extra_inp){
+  .op_c_in  (op_c`$c_in_slice`),
+//;}
+
+  .res      (res_lut)
+);
+//;}
+
+//; if($mult_mode > 0) {
+logic [2*DataWidth-1:0] mult_res;
+logic                 mult_c_out;
+
+//; my $mult = generate_base('test_mult_add', 'test_mult_add', "use_mad"=>($mult_mode-1));
+`$mult->mname()` #(.DataWidth(DataWidth)) `$mult->iname()`
+(
+  .a  (op_a),
+  .b  (op_b),
+//;if($mult_mode > 1) {
+  .c  (op_c),
+//;}
+
+  .res   (mult_res),
+  .c_out (mult_c_out)
+);
+//;}
+
+always_comb begin : proc_alu
+//; if($use_add > 0) {
+  add_a[0] = op_a;
+  add_b[0] = op_b;
+  add_c_in[0] = 1'b0;
+
+//; if($use_sad) {
+  add_a[1] = add_res[0];
+  add_b[1] = op_c;
+  add_c_in[1] = 1'b0;
+//;}
+
+  res_w   = add_res[ADD_MSB];
+  res_p_w = add_c_out[ADD_MSB];
+//; } else {
+  res_w = 'hX;
+  res_p_w = 'hX;
+//;}
+
+
+  case (op_code)
+//; if($use_add > 0) {
+    16'h0: begin
+        ;
+//; if($use_sad) {
+        add_c_in[1] = add_c_out[0];
+//;}
+      end
+    16'h1: begin
+        add_b[0]    = ~op_b;
+        add_c_in[0] = 1'b1;
+//; if($use_sad) {
+        add_c_in[1] = add_c_out[0];
+//;}
+      end
+    16'h2: begin
+        add_b[0]    = ~op_b;
+        add_c_in[0] = 1'b1;
+      end
+    16'h4: begin
+        add_b[0]    = ~op_b;
+        add_c_in[0] = 1'b1;
+
+        res_w   = add_res_0[DataWidth-1] ? op_a : op_b;
+        res_p_w = ~add_res_0[DataWidth-1];
+      end
+    16'h5: begin
+        add_b[0]    = ~op_b;
+        add_c_in[0] = 1'b1;
+
+        res_w   = ~add_res_0[DataWidth-1] ? op_a : op_b;
+        res_p_w = add_res_0[DataWidth-1];
+      end
+    16'h6: begin
+        res_p_w = ~|(op_a ^ op_b);
+        res_w   = op_b;
+      end
+    16'h7: begin
+        res_p_w = |(op_a ^ op_b);
+        res_w   = op_a;
+      end
+    16'h8: begin
+        res_w = op_d_p ? op_a : op_b;
+      end
+//; }
+//; if($use_lut) {
+    16'h9: begin
+         res_w = res_lut;
+       end
+//; }
+//; if($use_sad) {
+    16'hA: begin
+        add_a[1]    = add_res_0[DataWidth-1] ? ~add_res[0] : add_res[0];
+        add_c_in[1] = add_res_0[DataWidth-1];
+      end
+//; }
+//; if($use_shift > 0) {
+    16'hF: begin
+        res_w = op_a >> op_b[3:0];
+      end
+    16'h10: begin
+        res_w = $signed(op_a) >>> op_b[3:0];
+      end
+    16'h11: begin
+        res_w = op_a <<< op_b[3:0];
+      end
+//; }
+//; if($mult_mode > 0) {
+    16'hB: begin
+        res_w   = mult_res[15:0];
+        res_p_w = mult_c_out;
+      end
+    16'hC: begin
+        res_w   = mult_res[23:8];
+        res_p_w = mult_c_out;
+      end
+    16'hD: begin
+        res_w   = mult_res[31:16];
+        res_p_w = mult_c_out;
+      end
+//; }
+//; if($use_bool) {
+    16'h12: begin
+        res_w = op_a | op_b;
+      end
+    16'h13: begin
+        res_w = op_a & op_b;
+      end
+    16'h14: begin
+        res_w = op_a ^ op_b;
+      end
+    16'h14: begin
+        res_w = ~op_a;
+      end
+//; }
+
+
+    default: begin
+        res_w   = op_a;
+        res_p_w = op_d_p;
+      end
+  endcase
+end
+
+//; if($reg_out) {
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    res   <= 16'h0;
+    res_p <= 1'b0;
+  end else begin
+    res   <= res_w;
+    res_p <= res_p_w;
+  end
+end
+//; } else {
+  assign res   = res_w;
+  assign res_p = res_p_w;
+//;}
+
+endmodule
+
+
+
+

@@ -1,0 +1,26 @@
+Entered here for mux_cnt 0
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S1_T0 | SEL: 11
+SB : Array Length : 46
+SB : Bitstream after initialization:  1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+SB DEBUG: Bitstream for tile_0 sb_0 : 1000000000000000000000000000000000110000000000
+
+CB DEBUG: TILE : tile_1 | FEAT_ID = cb_0 | SEL_WID: 4 | SEL: 0101
+CB DEBUG: Bitstream for tile_1 : cb_0 00000000000000000000000000000101
+
+CB DEBUG: TILE : tile_1 | FEAT_ID = cb_1 | SEL_WID: 4 | SEL: 0000
+CB DEBUG: Bitstream for tile_1 : cb_1 00000000000000000000000000000000
+
+Entered here for mux_cnt 0
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S1_T0 | SEL: 11
+SB : Array Length : 46
+SB : Bitstream after initialization:  1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0
+SB DEBUG: Bitstream for tile_1 sb_0 : 1000000000000000000000000000000000110000000000
+
+CB DEBUG: TILE : tile_2 | FEAT_ID = cb_0 | SEL_WID: 4 | SEL: 0101
+CB DEBUG: Bitstream for tile_2 : cb_0 00000000000000000000000000000101
+
+Entered here for mux_cnt 0
+SB DEBUG: TILE : tile_5 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S2_T0 | SEL: 11
+SB : Array Length : 22
+SB : Bitstream after initialization:  1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+SB DEBUG: Bitstream for tile_5 sb_0 : 1100000000000000000000

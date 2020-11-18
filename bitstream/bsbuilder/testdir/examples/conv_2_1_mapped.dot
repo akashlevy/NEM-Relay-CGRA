@@ -1,0 +1,16 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "const0__334" -> "add_335_339_340$binop.data.in.0";
+    "mul_337_338_339$binop" -> "add_335_339_340$binop.data.in.1";
+    "add_335_339_340$binop" -> "add_341_345_346$binop.data.in.0";
+    "mul_343_344_345$binop" -> "add_341_345_346$binop.data.in.1";
+    "add_341_345_346$binop" -> "OUTPUT";
+    "const7__338" -> "mul_337_338_339$binop.data.in.1";
+    "const7__344" -> "mul_343_344_345$binop.data.in.1";
+    "INPUT" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem"; # fifo_depth 10
+    "INPUT" -> "mul_343_344_345$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem" -> "mul_337_338_339$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream_wen_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+}

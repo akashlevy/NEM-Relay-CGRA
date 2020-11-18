@@ -1,0 +1,134 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+
+    # Comment
+    "T3_mem"    -> "T1_latch_s1t1";
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+    "T3_mem"    -> "T1_MUL";   
+    "T1_const17"-> "T1_MUL";   
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T10_ADD"   -> "T10_ADD";  # (tautology)
+  # "T1_MUL"    -> "T1_MUL";   # (tautology)
+    "T10_ADD"   -> "T2_ADD";   
+    "T1_MUL"    -> "T2_ADD";   
+    "T17_mem"   -> "T3_mem";   
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T11_MUL"   -> "T11_MUL";  # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T19_ADD"   -> "T19_ADD";  # (tautology)
+    "T19_ADD"   -> "self.out"; 
+  # "T9_MUL"    -> "T9_MUL";   # (tautology)
+    "T8_const0" -> "T8_ADD";   
+    "T9_MUL"    -> "T8_ADD";   
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T1_out_s1t1_latch"-> "T1_out_s1t1_latch";# (tautology)
+    "T1_latch_s1t1"-> "T9_regA";  
+    "T9_regA"   -> "T9_MUL";   
+    "T9_const11"-> "T9_MUL";   
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T2_ADD"    -> "T2_ADD";   # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T8_ADD"    -> "T8_ADD";   # (tautology)
+  # "T11_MUL"   -> "T11_MUL";  # (tautology)
+    "T8_ADD"    -> "T10_ADD";  
+    "T11_MUL"   -> "T10_ADD";  
+  # "T12_MUL"   -> "T12_MUL";  # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+    "T3_mem"    -> "T11_regA"; 
+    "T11_regA"  -> "T11_MUL";  
+    "T11_const14"-> "T11_MUL";  
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T19_ADD"   -> "T19_ADD";  # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+    "T18_ADD"   -> "T12_MUL";  
+    "T12_const19"-> "T12_MUL";  
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T8_ADD"    -> "T8_ADD";   # (tautology)
+  # "T8_ADD"    -> "T8_ADD";   # (tautology)
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T16_out_s1t0_latch"-> "T16_out_s1t0_latch";# (tautology)
+    "T16_latch_s1t0"-> "T15_regA"; 
+    "T15_regA"  -> "T15_MUL";  
+    "T15_const12"-> "T15_MUL";  
+    "T17_mem"   -> "T16_latch_s1t0";
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T8_ADD"    -> "T8_ADD";   # (tautology)
+  # "T2_ADD"    -> "T2_ADD";   # (tautology)
+  # "T15_MUL"   -> "T15_MUL";  # (tautology)
+    "T2_ADD"    -> "T16_ADD";  
+    "T15_MUL"   -> "T16_ADD";  
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+    "T18_ADD"   -> "T17_mem";  
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T12_MUL"   -> "T12_MUL";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+    "self.in"   -> "T18_ADD";  
+    "T18_const0"-> "T18_ADD";  
+  # "T26_ADD"   -> "T26_ADD";  # (tautology)
+  # "T20_MUL"   -> "T20_MUL";  # (tautology)
+  # "T27_ADD"   -> "T27_ADD";  # (tautology)
+  # "T12_MUL"   -> "T12_MUL";  # (tautology)
+    "T27_ADD"   -> "T19_ADD";  
+    "T12_MUL"   -> "T19_ADD";  
+  # "T26_ADD"   -> "T26_ADD";  # (tautology)
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+    "T18_ADD"   -> "T20_regA"; 
+    "T20_regA"  -> "T20_MUL";  
+    "T20_const16"-> "T20_MUL";  
+  # "T24_MUL"   -> "T24_MUL";  # (tautology)
+  # "T16_out_s1t0_latch"-> "T16_out_s1t0_latch";# (tautology)
+  # "T16_ADD"   -> "T16_ADD";  # (tautology)
+  # "T16_out_s1t0_latch"-> "T16_out_s1t0_latch";# (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+    "T17_mem"   -> "T24_regA"; 
+    "T24_regA"  -> "T24_MUL";  
+    "T24_const15"-> "T24_MUL";  
+  # "T32_out_s3t1_latch"-> "T32_out_s3t1_latch";# (tautology)
+  # "T3_mem"    -> "T3_mem";   # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+    "T17_mem"   -> "T25_MUL";  
+    "T25_const18"-> "T25_MUL";  
+  # "T32_out_s3t1_latch"-> "T32_out_s3t1_latch";# (tautology)
+  # "T20_MUL"   -> "T20_MUL";  # (tautology)
+  # "T25_MUL"   -> "T25_MUL";  # (tautology)
+  # "T27_ADD"   -> "T27_ADD";  # (tautology)
+  # "T32_ADD"   -> "T32_ADD";  # (tautology)
+  # "T34_MUL"   -> "T34_MUL";  # (tautology)
+    "T32_ADD"   -> "T26_ADD";  
+    "T34_MUL"   -> "T26_ADD";  
+  # "T32_out_s3t1_latch"-> "T32_out_s3t1_latch";# (tautology)
+  # "T34_MUL"   -> "T34_MUL";  # (tautology)
+  # "T26_ADD"   -> "T26_ADD";  # (tautology)
+  # "T20_MUL"   -> "T20_MUL";  # (tautology)
+    "T26_ADD"   -> "T27_ADD";  
+    "T20_MUL"   -> "T27_ADD";  
+  # "T24_MUL"   -> "T24_MUL";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T16_ADD"   -> "T16_ADD";  # (tautology)
+  # "T24_MUL"   -> "T24_MUL";  # (tautology)
+    "T16_ADD"   -> "T30_ADD";  
+    "T24_MUL"   -> "T30_ADD";  
+  # "T18_ADD"   -> "T18_ADD";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T30_ADD"   -> "T30_ADD";  # (tautology)
+    "T18_ADD"   -> "T32_latch_s3t1";
+  # "T30_ADD"   -> "T30_ADD";  # (tautology)
+  # "T25_MUL"   -> "T25_MUL";  # (tautology)
+    "T30_ADD"   -> "T32_ADD";  
+    "T25_MUL"   -> "T32_ADD";  
+  # "T25_MUL"   -> "T25_MUL";  # (tautology)
+  # "T32_ADD"   -> "T32_ADD";  # (tautology)
+  # "T32_out_s3t1_latch"-> "T32_out_s3t1_latch";# (tautology)
+    "T32_latch_s3t1"-> "T34_regA"; 
+    "T34_regA"  -> "T34_MUL";  
+    "T34_const13"-> "T34_MUL";  
+  # "T30_ADD"   -> "T30_ADD";  # (tautology)
+  # "T30_ADD"   -> "T30_ADD";  # (tautology)
+}

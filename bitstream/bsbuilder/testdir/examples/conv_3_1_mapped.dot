@@ -1,0 +1,20 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "const0_0" -> "add_340_343_344_PE.data.in.0";
+    "const3_3" -> "mul_3423_343_PE.data.in.1";
+    "const5_5" -> "mul_3475_348_PE.data.in.1";
+    "const7_7" -> "mul_3527_353_PE.data.in.1";
+    "add_350_353_354_PE" -> "OUTPUT";
+    "INPUT" -> "lb_p4_clamped_stencil_update_stream$mem_1$cgramem"; # fifo_depth 10
+    "INPUT" -> "mul_3527_353_PE.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$mem_1$cgramem" -> "lb_p4_clamped_stencil_update_stream$mem_2$cgramem"; # fifo_depth 10
+    "lb_p4_clamped_stencil_update_stream$mem_1$cgramem" -> "mul_3475_348_PE.data.in.0";
+    "lb_p4_clamped_stencil_update_stream_wen_lut_bitPE" -> "lb_p4_clamped_stencil_update_stream$mem_1$cgramem.wen"; # lut_value 0xff
+    "lb_p4_clamped_stencil_update_stream$mem_2$cgramem" -> "mul_3423_343_PE.data.in.0";
+    "lb_p4_clamped_stencil_update_stream_wen_lut_bitPE" -> "lb_p4_clamped_stencil_update_stream$mem_2$cgramem.wen"; # lut_value 0xff
+    "add_340_343_344_PE" -> "add_345_348_349_PE.data.in.0";
+    "add_345_348_349_PE" -> "add_350_353_354_PE.data.in.0";
+    "mul_3423_343_PE" -> "add_340_343_344_PE.data.in.1";
+    "mul_3475_348_PE" -> "add_345_348_349_PE.data.in.1";
+    "mul_3527_353_PE" -> "add_350_353_354_PE.data.in.1";
+}

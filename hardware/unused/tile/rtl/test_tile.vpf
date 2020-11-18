@@ -1,0 +1,18 @@
+#Compute tile files
+./test_tile.svp
+
+#SB design files
+../../sb/rtl/test_sb.svp
+../../sb/rtl/test_sb_dir.svp
+../../sb/rtl/test_mux_var.svp
+
+#CB design files
+../../sb/rtl/test_mux.svp
+
+#PE design file
+../../pe/rtl/test_pe.svp
+../../pe/rtl/test_lut.svp
+../../pe/rtl/test_full_add.svp
+../../pe/rtl/test_mult_add.svp
+../../pe/rtl/test_opt_reg.svp
+

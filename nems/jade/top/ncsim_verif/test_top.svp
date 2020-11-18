@@ -1,0 +1,111 @@
+/*************************************************************************
+ ** From Perforce:
+ **
+ ** $Id: //Smart_design/ChipGen/moduleTest/Primitives/top.vp#5 $
+ ** $DateTime: 2010/03/25 11:23:45 $
+ ** $Change: 8474 $
+ ** $Author: shacham $
+ *************************************************************************/
+
+/* *****************************************************************************
+ * File: top.vp
+ * Author: Ofer Shacham
+ * 
+ * Description:
+ * simple top that instantiate the test and the dut
+ * 
+ *
+ * Change bar:
+ * -----------
+ * Date          Author   Description
+ * Mar 19, 2010  shacham  initial version
+ *  
+ * 
+ * ****************************************************************************/
+
+/*******************************************************************************
+ * Generation Control Definitions
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Simulation Control Definitions
+ ******************************************************************************/
+//; my $max_cyc = parameter(Name=>'MaxCycles', Val=>100000000, Min=>1, Step=>1, 
+//;			    Doc=>'Max number of simulation cycles');
+//; my $design_name = parameter(Name=>'DesignName', Val=>'top', 
+//;				Doc=>'This is a generic top, so what is the design name to use?');
+//; my $IDCODE = $self->define_param(IDCODE => 1);
+//; my $num_tracks = parameter(Name=>'num_tracks', Val=>16, Min=>1,Step=>1,Doc=>'Number of tracks per side in CGRA');
+//; my $config_data_width = parameter(Name=>'config_data_width',Val=>32, Min=>1, Step =>1, Doc=>'Width of config data buses');
+//; my $config_addr_width = parameter(Name=>'config_addr_width',Val=>29, Min=>1, Step =>1, Doc=>'Width of config addr bus');
+//; my $config_op_width = parameter(Name=>'config_op_width',Val=>3,Min=>1,Step=>1,Doc=>'Width of config op field');
+/*******************************************************************************
+ * Module top:
+ ******************************************************************************/
+module `mname`();
+   logic Clk;
+   logic Reset;
+   wire [`$num_tracks-1`:0] pads_S0;
+   wire [`$num_tracks-1`:0] pads_S1;
+   wire [`$num_tracks-1`:0] pads_S2;
+   wire [`$num_tracks-1`:0] pads_S3;
+   
+   /****************************************************************************
+    * Instantiate clocks
+    * *************************************************************************/
+    //; my $clocker_obj = generate('clocker', 'clocker', CLK_PERIOD=>10, RST_PERIOD=>20);
+    `$clocker_obj->instantiate` (.Clk(Clk), .Reset(Reset));
+
+   // timer:
+   initial begin
+      repeat(`$max_cyc`) @(posedge Clk);
+      $display("\n%0t\tERROR: The `$max_cyc` cycles marker has passed!",$time);
+      $finish(2);
+   end
+
+
+   
+
+   /****************************************************************************
+    * Instantiate DUT interface and DUT
+    * *************************************************************************/
+   //; # We use generate_base when there is for sure just one of X
+   //; my $dut_obj = generate_base($design_name, 'dut', connect_GC=>1);
+   //; my $dut_ifc_path = $dut_obj->get_param('IFC');
+   //; my $dut_ifc = clone($dut_ifc_path, 'dut_ifc');
+   `$dut_ifc->instantiate` (.Clk(Clk), .Reset(Reset));
+
+   `$dut_obj->instantiate` (
+	.pads_N_0(pads_S3),
+	.pads_S_0(pads_S1),
+	.pads_E_0(pads_S0),
+	.pads_W_0(pads_S2),
+	.clk_pad(Clk),
+	.reset_pad(Reset)
+   );
+   //Since we aren't using interface here, assign signals 
+   //Inputs
+   assign dut.tck_pad = dut_ifc.tck;
+   //assign dut.clk_in = dut_ifc.Clk;
+   //assign dut.reset_in = dut_ifc.Reset;
+   assign dut.tdi_pad = dut_ifc.tdi;
+   assign dut.tms_pad = dut_ifc.tms;
+   assign dut.trst_n_pad = dut_ifc.trst_n;
+   //Outputs
+   assign dut_ifc.config_addr_to_gc = dut.global_controller.config_addr_out;
+   assign dut_ifc.config_data_to_gc = dut.global_controller.config_data_out;
+   assign dut_ifc.tdo = dut.tdo_pad;
+//   assign dut_ifc.config_data_from_gc = dut.global_controller.config_data_in;
+   /****************************************************************************
+    * Instantiate Test
+    * **************************************************************************/
+    //; my $tst_obj = generate('test', 'tst');
+    `$tst_obj->instantiate` (.ifc(`$dut_ifc->iname()`),
+			     .pads_S0(pads_S0),
+			     .pads_S1(pads_S1),
+			     .pads_S2(pads_S2),
+			     .pads_S3(pads_S3)
+	);
+      
+endmodule
+ 

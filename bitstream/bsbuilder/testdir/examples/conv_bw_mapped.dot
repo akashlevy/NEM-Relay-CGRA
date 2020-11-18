@@ -1,0 +1,54 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "const0_0" -> "add_466_470_471$binop.data.in.0";
+    "mul_468_469_470$binop" -> "add_466_470_471$binop.data.in.1";
+    "add_466_470_471$binop" -> "add_472_476_477$binop.data.in.0";
+    "mul_474_475_476$binop" -> "add_472_476_477$binop.data.in.1";
+    "add_472_476_477$binop" -> "add_478_482_483$binop.data.in.0";
+    "mul_480_481_482$binop" -> "add_478_482_483$binop.data.in.1";
+    "add_478_482_483$binop" -> "add_484_488_489$binop.data.in.0";
+    "mul_486_487_488$binop" -> "add_484_488_489$binop.data.in.1";
+    "add_484_488_489$binop" -> "add_490_494_495$binop.data.in.0";
+    "mul_492_493_494$binop" -> "add_490_494_495$binop.data.in.1";
+    "add_490_494_495$binop" -> "add_496_500_501$binop.data.in.0";
+    "mul_498_499_500$binop" -> "add_496_500_501$binop.data.in.1";
+    "add_496_500_501$binop" -> "add_502_506_507$binop.data.in.0";
+    "mul_504_505_506$binop" -> "add_502_506_507$binop.data.in.1";
+    "add_502_506_507$binop" -> "add_508_512_513$binop.data.in.0";
+    "mul_510_511_512$binop" -> "add_508_512_513$binop.data.in.1";
+    "add_508_512_513$binop" -> "add_514_518_519$binop.data.in.0";
+    "mul_516_517_518$binop" -> "add_514_518_519$binop.data.in.1";
+    "add_514_518_519$binop" -> "OUTPUT";
+    "const0_0$1" -> "mul_492_493_494$binop.data.in.1";
+    "const11_11" -> "mul_468_469_470$binop.data.in.1";
+    "const12_12" -> "mul_486_487_488$binop.data.in.1";
+    "const13_13" -> "mul_504_505_506$binop.data.in.1";
+    "const14_14" -> "mul_474_475_476$binop.data.in.1";
+    "const16_16" -> "mul_510_511_512$binop.data.in.1";
+    "const17_17" -> "mul_480_481_482$binop.data.in.1";
+    "const18_18" -> "mul_498_499_500$binop.data.in.1";
+    "const19_19" -> "mul_516_517_518$binop.data.in.1";
+    "INPUT" -> "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_1";
+    "INPUT" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem"; # fifo_depth 64
+    "INPUT" -> "mul_516_517_518$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_1" -> "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_2";
+    "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_1" -> "mul_510_511_512$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_2" -> "mul_504_505_506$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_p4_clamped_stencil_update_stream$lb1d_1$reg_1";
+    "lb_p4_clamped_stencil_update_stream$lb1d_1$reg_1" -> "lb_p4_clamped_stencil_update_stream$lb1d_1$reg_2";
+    "lb_p4_clamped_stencil_update_stream$lb1d_1$reg_1" -> "mul_492_493_494$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lb1d_1$reg_2" -> "mul_486_487_488$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lbmem_2_0$cgramem" -> "lb_p4_clamped_stencil_update_stream$lb1d_2$reg_1";
+    "lb_p4_clamped_stencil_update_stream$lb1d_2$reg_1" -> "lb_p4_clamped_stencil_update_stream$lb1d_2$reg_2";
+    "lb_p4_clamped_stencil_update_stream$lb1d_2$reg_1" -> "mul_474_475_476$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lb1d_2$reg_2" -> "mul_468_469_470$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_p4_clamped_stencil_update_stream$lbmem_2_0$cgramem"; # fifo_depth 64
+    "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem" -> "mul_498_499_500$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream_wen_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+    "lb_p4_clamped_stencil_update_stream$lbmem_2_0$c0_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_2_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_p4_clamped_stencil_update_stream$lbmem_2_0$c1_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_2_0$cgramem.ren"; # lut_value 0x3f
+    "lb_p4_clamped_stencil_update_stream$lbmem_2_0$cgramem" -> "mul_480_481_482$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream_wen1_lutcnst" -> "lb_p4_clamped_stencil_update_stream$lbmem_2_0$cgramem.wen"; # lut_value 0x3f
+}

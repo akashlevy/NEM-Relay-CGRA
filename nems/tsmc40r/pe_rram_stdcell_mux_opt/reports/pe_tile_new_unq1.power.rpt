@@ -1,0 +1,68 @@
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : pe_tile_new_unq1
+Version: L-2016.03-SP5-5
+Date   : Tue Oct  1 03:24:21 2019
+****************************************
+
+
+Library(s) Used:
+
+    tcbn40lpbwptc (File: /tsmc40r/pdk/2019.05.21_TSMC/tcbn40lpbwp_200a/tcbn40lpbwp_200a_nldm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn40lpbwp_200a/tcbn40lpbwptc.db)
+    hybrid40tt (File: /home/akashl/Hybrid-RRAM-NEMS/model/sismart/devicetest/models/liberty/nldm_hybrid40tt.db)
+
+
+Operating Conditions: NCCOM   Library: tcbn40lpbwptc
+Wire Load Model Mode: Inactive.
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+pe_tile_new_unq1                          1.100    1.278  927.020    2.380 100.0
+  test_pe (test_pe_unq1_0)                0.168    0.260  402.240    0.429  18.0
+    test_debug_bit (test_debug_reg_DataWidth1_0)
+                                       3.17e-05 2.83e-03    0.600 2.86e-03   0.1
+    test_debug_data (test_debug_reg_DataWidth16_0)
+                                       9.22e-04 5.25e-03    9.139 6.18e-03   0.3
+    test_lut (test_lut_DataWidth1_0)   3.82e-05 2.67e-03    3.421 2.72e-03   0.1
+    test_pe_comp (test_pe_comp_unq1_0)    0.131    0.215  301.352    0.346  14.5
+      test_shifter (test_shifter_unq1_DataWidth16_0)
+                                       9.65e-03 8.22e-03   16.393 1.79e-02   0.8
+      test_mult_add (test_mult_add_DataWidth16_0)
+                                          0.107    0.188  219.731    0.295  12.4
+      cmpr (test_cmpr_0)               2.43e-04 2.46e-04    2.104 4.91e-04   0.0
+      GEN_ADD[0].full_add (test_full_add_DataWidth16_0)
+                                       4.79e-03 5.98e-03   11.702 1.08e-02   0.5
+    test_opt_reg_f (test_opt_reg_DataWidth1_4)
+                                       4.73e-08 2.69e-03    0.791 2.69e-03   0.1
+    test_opt_reg_e (test_opt_reg_DataWidth1_5)
+                                       1.09e-06 2.69e-03    0.799 2.69e-03   0.1
+    test_opt_reg_d (test_opt_reg_DataWidth1_3)
+                                       1.78e-05 2.65e-03    0.995 2.67e-03   0.1
+    test_opt_reg_file (test_opt_reg_file_DataWidth16_0)
+                                       9.30e-03 8.61e-03   19.004 1.79e-02   0.8
+    test_opt_reg_a (test_opt_reg_DataWidth16_0)
+                                       8.77e-03 9.23e-03   24.606 1.80e-02   0.8
+  sb_1b (sb_unq2_0)                    2.68e-02 5.50e-02   36.687 8.19e-02   3.4
+  sb_wide (sb_unq1_0)                     0.900    0.942  404.658    1.843  77.4
+  cb_cg_en (cb_unq2_4)                 1.62e-05 1.19e-04    2.428 1.37e-04   0.0
+  cb_bit2 (cb_unq2_7)                  3.50e-05 1.47e-04    2.426 1.84e-04   0.0
+  cb_bit1 (cb_unq2_6)                  1.86e-05 1.20e-04    2.428 1.41e-04   0.0
+  cb_bit0 (cb_unq2_5)                  4.76e-05 1.54e-04    2.426 2.04e-04   0.0
+  cb_data1 (cb_unq1_3)                 2.98e-03 8.36e-03   29.210 1.14e-02   0.5
+  cb_data0 (cb_unq1_2)                 2.12e-03 9.23e-03   29.150 1.14e-02   0.5
+1

@@ -1,0 +1,27 @@
+F0000000 FFFFFFFF
+F1000000 FFFFFFFF
+FF000000 000000F0
+# data[(5, 0)] : alu_op = input ; 3
+00070000 00000003
+# data[(1, 0)] : @ tile (0, 0) connect wire 3 (pe_out_res) to out_BUS16_S0_T0 ; 5
+F1000001 00000002
+# data[(15, 0)] : init `data1` reg with const `2` ; 4
+FF000001 0002000B
+# data[(4, 0)] : alu_op = mul ; 4
+# data[(17, 16)] : data0: REG_BYPASS ; 4
+# data[(19, 18)] : data1: REG_CONST ; 4
+00020001 00000000
+# data[(3, 0)] : @ tile (0, 1) connect wire 0 (in_BUS16_S2_T0) to data0 ; 5
+00070001 00000C00
+# data[(11, 10)] : @ tile (0, 1) connect wire 3 (pe_out_res) to out_BUS16_S1_T0 ; 6
+F1000008 FFFFFFFF
+FF000008 000000FF
+# data[(5, 0)] : alu_op = output ; 2
+00020008 00000005
+# data[(3, 0)] : @ tile (1, 0) connect wire 5 (out_BUS16_S2_T0) to data0 ; 6
+00070008 00000000
+# data[(21, 20)] : @ tile (1, 0) connect wire 0 (in_BUS16_S0_T0) to out_BUS16_S2_T0 ; 6
+00070009 00200000
+# data[(21, 20)] : @ tile (1, 1) connect wire 2 (in_BUS16_S3_T0) to out_BUS16_S2_T0 ; 6
+
+

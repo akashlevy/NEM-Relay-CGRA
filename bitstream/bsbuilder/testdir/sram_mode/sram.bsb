@@ -1,0 +1,250 @@
+# PLACEMENT
+T82_lut00(const0_0,const0_0,const0_0)						# sram_input_wen_lutcnst
+T99_lut00(const0_0,const0_0,const0_0)						# sram_output_wen_lutcnst
+T100_add(wire,wire)						# output_adder$binop
+T116_mul(const2_2,wire)						# multiplier$binop
+T118_sel(wire,wire,const0_0)						# sram_output$readreg$enMux$mux
+T134_sel(wire,wire,const0_0)						# sram_input$readreg$enMux$mux
+T136_lutEE(wire,const0_0,const0_0)						# counter$resetOr$lut$lut
+T152_sel(wire,wire,const1_1)						# counter$count$enMux$mux
+T153_sel(const0_0,wire,wire)						# counter$count$clrMux$mux
+T167_gte(const63_63,wire)						# counter$ult$comp$compop
+T168_lut55(wire,const0_0,const0_0)						# counter$ult$not$lut$lut
+T170_add(wire,const1_1)						# counter$add$binop
+T117_lut3F(const0_0,const0_0,const0_0)						# sram_output$mem$c1_lutcnst
+T135_lut3F(const0_0,const0_0,const0_0)						# sram_input$mem$c1_lutcnst
+T79_sram						#sram_output$mem$cgramem
+T97_sram						#sram_input$mem$cgramem
+
+
+#ROUTING
+
+# net id: e1
+# r8: counter$count$reg0::reg
+# m20: sram_input$mem$cgramem::addr
+# m4: sram_output$mem$cgramem::addr
+# p11: counter$add$binop::data0
+# p31: counter$count$enMux$mux::data1
+T115_in_s0t1 -> T115_out_s3t1
+T97_in_s1t1 -> T97_out_s2t1
+T97_out_s2t1 -> T97_addr
+T97_in_s1t1 -> T97_out_s3t1
+T79_in_s1t1 -> T79_out_s2t1
+T79_out_s2t1 -> T79_addr
+T115_in_s0t1 -> T115_out_s1t1
+T133_in_s3t1 -> T133_out_s1t1
+T151_in_s3t1 -> T151_out_s0t1
+T152_in_s2t1 -> T152_out_s1t1
+T152_out_s1t1 -> T152_data1
+T170_in_s3t1 -> T170_out_s2t1
+T170_out_s2t1 -> T170_data0
+
+
+# net id: e3
+# p11: counter$add$binop::out
+# p29: counter$count$clrMux$mux::data1
+# p22: counter$ult$comp$compop::data1
+T170_pe_out -> T170_out_s3t0
+T152_in_s1t0 -> T152_out_s0t0
+T153_in_s2t0 -> T153_out_s1t0
+T153_out_s1t0 -> T153_data1
+T170_pe_out -> T170_out_s2t0
+T169_in_s0t0 -> T169_out_s2t0
+T168_in_s0t0 -> T168_out_s2t0
+T167_in_s0t0 -> T167_out_s1t0
+T167_out_s1t0 -> T167_data1
+
+
+# net id: e5
+# p5: counter$resetOr$lut$lut::out
+# p29: counter$count$clrMux$mux::bit0
+T136_pe_outb -> T136_out_s1t0b
+T154_in_s3t0b -> T154_out_s2t0b
+T153_in_s0t0b -> T153_out_s2t0b
+T153_out_s2t0b -> T153_bit0b
+
+
+# net id: e6
+# p29: counter$count$clrMux$mux::out
+# p31: counter$count$enMux$mux::data0
+T153_pe_out -> T153_out_s2t0
+T152_in_s0t0 -> T152_out_s2t0
+T152_out_s2t0 -> T152_data0
+
+
+# net id: e8
+# p31: counter$count$enMux$mux::out
+# r8: counter$count$reg0::reg
+T152_pe_out -> T152_out_s3t1
+T134_in_s1t1 -> T134_out_s3t1
+T116_in_s1t1 -> T116_out_s2t1 (r)
+
+
+# net id: e11
+# p9: counter$ult$not$lut$lut::out
+# p5: counter$resetOr$lut$lut::bit0
+T168_pe_outb -> T168_out_s0t0b
+T169_in_s2t0b -> T169_out_s0t0b
+T170_in_s2t0b -> T170_out_s0t0b
+T171_in_s2t0b -> T171_out_s3t0b
+T153_in_s1t0b -> T153_out_s3t0b
+T135_in_s1t0b -> T135_out_s0t0b
+T136_in_s2t0b -> T136_bit0b
+
+
+# net id: e13
+# p22: counter$ult$comp$compop::out
+# p9: counter$ult$not$lut$lut::bit0
+T167_pe_outb -> T167_out_s0t0b
+T168_in_s2t0b -> T168_bit0b
+
+
+# net id: e16
+# p26: output_adder$binop::out
+# i24: io16_out_0_0::in
+T100_pe_out -> T100_out_s0t0
+T101_in_s2t0 -> T101_out_s0t0
+T102_in_s2t0 -> T102_out_s0t0
+T103_in_s2t0 -> T103_out_s0t0
+T104_in_s2t0 -> T104_out_s0t0
+T105_in_s2t0 -> T105_out_s0t0
+T106_in_s2t0 -> T106_out_s0t0
+T107_in_s2t0 -> T107_out_s0t0
+T108_in_s2t0 -> T108_out_s0t0
+T109_in_s2t0 -> T109_out_s3t0
+T91_in_s1t0 -> T91_out_s3t0
+T73_in_s1t0 -> T73_out_s3t0
+T55_in_s1t0 -> T55_out_s3t0
+T36_in_s1t0 -> T36_out_s0t0
+
+
+# net id: e17
+# i33: io16in_in_arg_1_0_0::out
+# p26: output_adder$binop::data0
+T21_in_s2t0 -> T21_out_s1t0
+T40_in_s3t0 -> T40_out_s1t0
+T58_in_s3t0 -> T58_out_s1t0
+T76_in_s3t0 -> T76_out_s0t0
+T77_in_s2t0 -> T77_out_s0t0
+T78_in_s2t0 -> T78_out_s0t0
+T79_in_s2t0 -> T79_out_s0t0
+T80_in_s2t0 -> T80_out_s0t0
+T81_in_s2t0 -> T81_out_s0t0
+T82_in_s2t0 -> T82_out_s1t0
+T100_in_s3t0 -> T100_out_s2t0
+T100_out_s2t0 -> T100_data0
+
+
+# net id: e18
+# r15: sram_input$readreg$reg0::reg
+# p23: multiplier$binop::data1
+# p2: sram_input$readreg$enMux$mux::data1
+T153_in_s3t2 -> T153_out_s2t2
+T152_in_s0t2 -> T152_out_s3t2
+T134_in_s1t2 -> T134_data1
+T152_in_s0t2 -> T152_out_s2t2
+T151_in_s0t2 -> T151_out_s3t2
+T133_in_s1t2 -> T133_out_s3t2
+T115_in_s1t2 -> T115_out_s0t2
+T116_in_s2t2 -> T116_out_s1t2
+T116_out_s1t2 -> T116_data1
+
+
+# net id: e19
+# p23: multiplier$binop::out
+# m4: sram_output$mem$cgramem::wdata
+T116_pe_out -> T116_out_s3t0
+T98_in_s1t0 -> T98_out_s2t0
+T97_in_s0t0 -> T97_out_s3t0
+T79_in_s1t0 -> T79_out_s2t0
+T79_out_s2t0 -> T79_wdata
+
+
+# net id: e20
+# r12: sram_output$readreg$reg0::reg
+# p26: output_adder$binop::data1
+# p3: sram_output$readreg$enMux$mux::data1
+T118_in_s1t0 -> T118_data1
+T118_in_s1t0 -> T118_out_s3t0
+T100_in_s1t0 -> T100_data1
+
+
+# net id: e22
+# p13: sram_input$mem$c1_lutcnst::out
+# m20: sram_input$mem$cgramem::ren
+T135_pe_outb -> T135_out_s2t0b
+T134_in_s0t0b -> T134_out_s2t0b
+T133_in_s0t0b -> T133_out_s3t0b
+T115_in_s1t0b -> T115_out_s3t0b
+T97_in_s1t0b -> T97_out_s2t0b
+T97_out_s2t0b -> T97_renb
+
+
+# net id: e23
+# m20: sram_input$mem$cgramem::rdata
+# p2: sram_input$readreg$enMux$mux::data0
+T97_rdata -> T97_out_s0t0
+T98_in_s2t0 -> T98_out_s1t0
+T116_in_s3t0 -> T116_out_s1t0
+T134_in_s3t0 -> T134_out_s2t0
+T134_out_s2t0 -> T134_data0
+
+
+# net id: e24
+# p18: sram_input_wen_lutcnst::out
+# m20: sram_input$mem$cgramem::wen
+T82_pe_outb -> T82_out_s2t1b
+T81_in_s0t1b -> T81_out_s2t1b
+T80_in_s0t1b -> T80_out_s1t1b
+T98_in_s3t1b -> T98_out_s2t1b
+T97_in_s0t1b -> T97_out_s2t1b
+T97_out_s2t1b -> T97_wenb
+
+
+# net id: e26
+# p2: sram_input$readreg$enMux$mux::out
+# r15: sram_input$readreg$reg0::reg
+T134_pe_out -> T134_out_s0t2
+T135_in_s2t2 -> T135_out_s1t2 (r)
+
+
+# net id: e28
+# p30: sram_output$mem$c1_lutcnst::out
+# m4: sram_output$mem$cgramem::ren
+T117_pe_outb -> T117_out_s3t0b
+T99_in_s1t0b -> T99_out_s2t0b
+T98_in_s0t0b -> T98_out_s2t0b
+T97_in_s0t0b -> T97_out_s3t0b
+T79_in_s1t0b -> T79_out_s2t0b
+T79_out_s2t0b -> T79_renb
+
+
+# net id: e29
+# m4: sram_output$mem$cgramem::rdata
+# p3: sram_output$readreg$enMux$mux::data0
+T79_rdata -> T79_out_s1t0
+T97_in_s3t0 -> T97_out_s1t0
+T115_in_s3t0 -> T115_out_s0t0
+T116_in_s2t0 -> T116_out_s0t0
+T117_in_s2t0 -> T117_out_s0t0
+T118_in_s2t0 -> T118_data0
+
+
+# net id: e30
+# p27: sram_output_wen_lutcnst::out
+# m4: sram_output$mem$cgramem::wen
+T99_pe_outb -> T99_out_s2t1b
+T98_in_s0t1b -> T98_out_s3t1b
+T80_in_s1t1b -> T80_out_s2t1b
+T79_in_s0t1b -> T79_out_s2t1b
+T79_out_s2t1b -> T79_wenb
+
+
+# net id: e32
+# p3: sram_output$readreg$enMux$mux::out
+# r12: sram_output$readreg$reg0::reg
+T118_pe_out -> T118_out_s2t0
+T117_in_s0t0 -> T117_out_s1t0
+T135_in_s3t0 -> T135_out_s0t0
+T136_in_s2t0 -> T136_out_s3t0 (r)
+

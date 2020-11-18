@@ -1,0 +1,57 @@
+//; my $max_lb   = parameter(Name=>'max_lb', val=> 4,  doc=>'max number of line buffers, fifos, and mem blocks allowed per tile');
+
+
+set lef_file "/nobackup/jbrunhav/synopsys_EDK2/synopsys_EDK2/TSMCHOME/digital/Back_End/lef/tcbn45gsbwp_110a/lef/HVH_0d5_0/tcbn45gsbwp_10lm7X2ZRDL.lef /nobackup/nikhil3/arm_mems/arm/tsmc/cln40g/sram_sp_hsc_rvt_hvt_rvt/r10p2/sram_512w_16b/sram_512w_16b.lef"
+set timing_db "/nobackup/jbrunhav/synopsys_EDK2/synopsys_EDK2/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn45gsbwp_110a/tcbn45gsbwpwcl.lib /nobackup/nikhil3/arm_mems/arm/tsmc/cln40g/sram_sp_hsc_rvt_hvt_rvt/r10p2/sram_512w_16b/sram_512w_16b_nldm_ss_0p81v_0p81v_m40c_syn.lib"
+
+
+###################################################################################
+
+set init_import_mode {-treatUndefinedCellAsBbox 0 -keepEmptyModule 1} 
+set init_verilog rtl_syn.v
+set init_design_netlisttype {Verilog}
+set init_design_settop {0}
+set init_lef_file $lef_file
+set init_pwr_net VDD
+set init_gnd_net VSS
+set init_assign_buffer {0} 
+set init_mmmc_file mmmc.tcl
+
+set delaycal_use_default_delay_limit {1000}
+set delaycal_default_net_delay {1000.0ps} 
+set delaycal_default_net_load {2.0pf}
+set delaycal_input_transition_delay {100ps}
+
+setLibraryUnit -time 1ns
+
+init_design
+
+globalNetConnect VDD -type pgpin -pin VDD -inst *
+globalNetConnect VDD -type tiehi
+globalNetConnect VSS -type pgpin -pin VSS -inst *
+globalNetConnect VSS -type tielo
+
+setNanoRouteMode -routeTopRoutingLayer 8
+setTrialRouteMode -maxRouteLayer 8      
+setPinAssignMode -maxLayer 8
+
+setPlaceMode -placeIoPins true
+
+set tcells [get_cells -hier * -filter "is_hierarchical==false"]
+set tarea 0.0
+foreach_in_collection tc $tcells {
+  set ca [get_property $tc area]
+  set tarea [expr $tarea + $ca]
+}
+set width [format "%0.1f" [expr sqrt($tarea/0.8)]]
+
+floorPlan -site core -s $width $width 1.0 1.0 1.0 1.0
+#placeDesign
+#trialRoute
+#lefOut mem_tile.lef -5.7 -specifyTopLayer 8 -noCutObs
+
+
+exit 
+
+module `mname`
+endmodule

@@ -1,0 +1,10 @@
+<HierarchyTop>
+  <InstanceName>top</InstanceName>
+  <Parameters>
+    <ParameterItem>
+      <Doc></Doc>
+      <Name>num_io_groups_per_side</Name>
+      <Val>2</Val>
+    </ParameterItem>
+  </Parameters>
+</HierarchyTop>

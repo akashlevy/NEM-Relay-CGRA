@@ -1,0 +1,22 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "const10__152" -> "ult_152_147_153_uge_PE.data.in.0";
+    "const20__150" -> "ult_147_150_151_uge_PE.data.in.1";
+    "const50__148" -> "ule_148_147_149_PE.data.in.0";
+    "INPUT" -> "ule_148_147_149_PE.data.in.1";
+    "INPUT" -> "ult_147_150_151_uge_PE.data.in.0";
+    "INPUT" -> "ult_152_147_153_uge_PE.data.in.1";
+    "bitmux_157_157_149_lut_bitPE" -> "OUTPUT_1bit"; # lut_value 0xca
+    "bitand_153_151_154_lut_bitPE" -> "bitor_154_155_156_lut_bitPE.bit.in.0"; # lut_value 0x88
+    "bitnot_156_lut_bitPE" -> "bitmux_157_157_149_lut_bitPE.bit.in.1"; # lut_value 0x55
+    "bitnot_156_lut_bitPE" -> "bitmux_157_157_149_lut_bitPE.bit.in.2"; # lut_value 0x55
+    "bitor_154_155_156_lut_bitPE" -> "bitnot_156_lut_bitPE.bit.in.0"; # lut_value 0xee
+    "bitxor_149_151_155_lut_bitPE" -> "bitor_154_155_156_lut_bitPE.bit.in.1"; # lut_value 0x66
+    "ule_148_147_149_PE" -> "bitmux_157_157_149_lut_bitPE.bit.in.0"; # lut_value 0x00
+    "ule_148_147_149_PE" -> "bitxor_149_151_155_lut_bitPE.bit.in.0"; # lut_value 0x00
+    "ult_147_150_151_not_lut_bitPE" -> "bitand_153_151_154_lut_bitPE.bit.in.1"; # lut_value 0x55
+    "ult_147_150_151_not_lut_bitPE" -> "bitxor_149_151_155_lut_bitPE.bit.in.1"; # lut_value 0x55
+    "ult_147_150_151_uge_PE" -> "ult_147_150_151_not_lut_bitPE.bit.in.0"; # lut_value 0x00
+    "ult_152_147_153_not_lut_bitPE" -> "bitand_153_151_154_lut_bitPE.bit.in.0"; # lut_value 0x55
+    "ult_152_147_153_uge_PE" -> "ult_152_147_153_not_lut_bitPE.bit.in.0"; # lut_value 0x00
+}

@@ -1,0 +1,38 @@
+
+# CONSTANTS
+# const2__348::mul_347_348_349_PE.data.in.1 T21_op2
+
+# REGISTERS []
+
+# PE tiles
+T21_mul(wire,const2__348)  # mul_347_348_349_PE
+
+# LUT tiles for wen_lut's []
+
+# MEM tiles
+
+# ROUTING
+
+# INPUT::mul_347_348_349_PE.data.in.0
+T21_in_s2t0 -> T21_op1
+
+# mul_347_348_349_PE::OUTPUT
+T21_pe_out -> T21_out_s0t0
+T22_in_s2t0 -> T22_out_s0t0
+T23_in_s2t0 -> T23_out_s0t0
+T24_in_s2t0 -> T24_out_s0t0
+T25_in_s2t0 -> T25_out_s0t0
+T26_in_s2t0 -> T26_out_s0t0
+T27_in_s2t0 -> T27_out_s0t0
+T28_in_s2t0 -> T28_out_s0t0
+T29_in_s2t0 -> T29_out_s0t0
+T30_in_s2t0 -> T30_out_s0t0
+T31_in_s2t0 -> T31_out_s0t0
+T32_in_s2t0 -> T32_out_s0t0
+T33_in_s2t0 -> T33_out_s0t0
+T34_in_s2t0 -> T34_out_s0t0
+T35_in_s2t0 -> T35_out_s0t0
+T36_in_s2t0 -> T36_out_s0t0
+
+# INPUT  tile  21 ( 2, 2) / in_BUS16_S2_T0 / wire_2_1_BUS16_S0_T0
+# OUTPUT tile  36 ( 2,17) / out_0_BUS16_S0_T0 / wire_2_17_BUS16_S0_T0

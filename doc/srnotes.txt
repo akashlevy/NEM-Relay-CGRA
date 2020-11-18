@@ -1,0 +1,5 @@
+SR notes 01/2017
+
+TODO
+- find all cgra-related docs and put them (or links to them) in this
+  folder somewheres.

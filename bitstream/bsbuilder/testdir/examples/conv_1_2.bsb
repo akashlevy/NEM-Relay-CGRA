@@ -1,0 +1,66 @@
+
+# CONSTANTS
+# const0__304::add_305_309_310$binop.data.in.0 Tx0102_op2
+# const5__308::mul_307_308_309$binop.data.in.1 Tx0101_op2
+# const5__314::mul_313_314_315$binop.data.in.1 Tx0201_op2
+
+# REGISTERS ['Tx0101_op1']
+
+# PE tiles
+Tx0101_mul(reg,const5__308) # mul_307_308_309$binop
+Tx0102_add(wire,const0__304) # add_305_309_310$binop
+Tx0202_add(wire,wire)      # add_311_315_316$binop
+Tx0201_mul(wire,const5__314) # mul_313_314_315$binop
+
+# LUT tiles for wen_lut's []
+
+# MEM tiles
+
+# ROUTING
+
+# INPUT::lb_p4csus$lb1d_0$reg_1
+Tx0101_in_s3t0 -> Tx0101_out_s2t0
+Tx0101_out_s2t0 -> Tx0101_op1 (r)
+
+# INPUT::mul_313_314_315$binop.data.in.0
+Tx0101_in_s3t0 -> Tx0101_out_s1t0
+Tx0201_in_s3t0 -> Tx0201_out_s2t0
+Tx0201_out_s2t0 -> Tx0201_op1
+
+# add_305_309_310$binop::add_311_315_316$binop.data.in.0
+Tx0102_pe_out -> Tx0102_out_s1t1
+Tx0202_in_s3t1 -> Tx0202_out_s2t1
+Tx0202_out_s2t1 -> Tx0202_op1
+
+# add_311_315_316$binop::OUTPUT
+Tx0202_pe_out -> Tx0202_out_s3t0
+Tx0102_in_s1t0 -> Tx0102_out_s0t0
+Tx0103_in_s2t0 -> Tx0103_out_s0t0
+Tx0104_in_s2t0 -> Tx0104_out_s0t0
+Tx0105_in_s2t0 -> Tx0105_out_s0t0
+Tx0106_in_s2t0 -> Tx0106_out_s0t0
+Tx0107_in_s2t0 -> Tx0107_out_s0t0
+Tx0108_in_s2t0 -> Tx0108_out_s0t0
+Tx0109_in_s2t0 -> Tx0109_out_s0t0
+Tx010A_in_s2t0 -> Tx010A_out_s0t0
+Tx010B_in_s2t0 -> Tx010B_out_s0t0
+Tx010C_in_s2t0 -> Tx010C_out_s0t0
+Tx010D_in_s2t0 -> Tx010D_out_s0t0
+Tx010E_in_s2t0 -> Tx010E_out_s0t0
+Tx010F_in_s2t0 -> Tx010F_out_s0t0
+Tx0110_in_s2t0 -> Tx0110_out_s0t0
+
+# lb_p4csus$lb1d_0$reg_1::mul_307_308_309$binop.data.in.0
+# Tx0101_op1 (r) 
+
+# mul_307_308_309$binop::add_305_309_310$binop.data.in.1
+Tx0101_pe_out -> Tx0101_out_s0t0
+Tx0102_in_s2t0 -> Tx0102_op1
+
+# mul_313_314_315$binop::add_311_315_316$binop.data.in.1
+Tx0201_pe_out -> Tx0201_out_s0t2
+Tx0202_in_s2t2 -> Tx0202_out_s1t2
+Tx0202_out_s1t2 -> Tx0202_op2
+
+# INPUT  tile 257 ( 1, 1) / in_BUS16_S3_T0 / wire_0_1_BUS16_S1_T0
+# OUTPUT tile 272 ( 1,16) / out_0_BUS16_S0_T0 / wire_1_16_BUS16_S0_T0

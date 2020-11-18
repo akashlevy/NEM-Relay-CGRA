@@ -1,0 +1,122 @@
+//; my $num_res    = parameter(Name=>'num_res', val=> 1, Min=>1, doc=>'Number of result inputs');
+//; my $mux_recipe = parameter(Name=>'mux_recipe', val=> ('$i+1; $i; $N-$i'), doc=>'MUX parrten');
+//; my $mask       = parameter(Name=>'mask', val=> "1001", doc=>'Mask for istantiating output MUXes');
+//; my $connect_en = parameter(Name=>'connect_en', val=> 0, List=>[0,1] , doc=>'Enable generation of connectivity matrix?');
+//;
+//;#TODO: add support for Fs>3 by splitting each mux_recipe_arr[] on ',' boundary
+//;my @mux_recipe_arr = split(';',$mux_recipe);
+//;
+//;sub GetMod{
+//;  my $i;
+//;  my $N;
+//;
+//;  ($i, $N) = @_;
+//;
+//;  if ($i < 0) {
+//;    return GetMod($i+$N,$N);
+//;  }
+//;  elsif($i >= $N) {
+//;    return GetMod($i-$N,$N);
+//;  }
+//;  else{
+//;    return $i;
+//;  }
+//;}
+//;
+//;
+//;my $N = length($mask);
+//;my $O = () = $mask =~ /1/gi;
+//;
+/*
+
+Pattern length  : N = `$N`
+Number of MUXes : O = `$O` (same as the number ones in the pattern)
+
+*/
+module `mname`  #(
+  parameter Width   = 16
+) (
+  input                            clk,
+  input                            rst_n,
+
+  input        [`$N-1`:0][2:0]         cfg,
+
+  input        [`$N-1`:0][Width - 1:0] in_right,//in0,
+  input        [`$N-1`:0][Width - 1:0] in_oppos,//in1,
+  input        [`$N-1`:0][Width - 1:0] in_left,//in2,
+  input        [ `$num_res-1`:0][Width - 1:0] res,
+
+  output logic [`$N-1`:0][Width - 1:0] out
+);
+//;
+//; my $mux = generate_base('test_mux_var', 'test_mux', "use_ff"=>1, "num_inp" => $num_res+(scalar @mux_recipe_arr) );
+//;
+//; my @all_connections;
+//; my $j = 0;
+//; for (my $i=0; $i < $N; $i = $i + 1){
+//;   my @connections;
+//;   if( substr($mask, $i, 1)=="0"){
+assign out[`$i`] = in_oppos[`$i`];
+//;     push (@connections, "");
+//;     push (@connections, $i);
+//;     push (@connections, "");
+//;     push (@connections, "");
+//;   } else {
+//;
+//;     my $i_mux = $mux;
+//;     if($i>0){
+//;      $i_mux = clone($mux, "test_mux_$i");
+//;     }
+
+//;     my $index_0 = GetMod(eval($mux_recipe_arr[0]), ($mux_recipe_arr[0]=~/^\$[iN]/) ? $O : $N);
+//;     my $index_1 = GetMod(eval($mux_recipe_arr[1]), ($mux_recipe_arr[0]=~/^\$[iN]/) ? $O : $N);
+//;     my $index_2 = GetMod(eval($mux_recipe_arr[2]), ($mux_recipe_arr[0]=~/^\$[iN]/) ? $O : $N);
+//;
+`$i_mux->mname()` #(.DataWidth(Width)) `$i_mux->iname()`
+(
+  .clk            (clk),
+  .rst_n          (rst_n),
+
+  .data_in_0      (in_right[`$index_0`]),
+  .data_in_1      (in_oppos[`$index_1`]),
+  .data_in_2      (in_left [`$index_2`]),
+  .data_in_3      (res),
+  .sel            (cfg[`$i`][1:0]),
+  .reg_en         (cfg[`$i`][2]),
+  .res            (out[`$i`])
+);
+
+//;     $j = $j + 1;
+//;     push (@connections, $index_0);
+//;     push (@connections, $index_1);
+//;     push (@connections, $index_2);
+//;     push (@connections, 0);
+//;   }
+//;
+//;    if($connect_en == 1) {
+//;      push (@all_connections, \@connections);
+
+/*
+`join(", ", @connections)`
+*/
+
+//;   }
+//;}
+//;if($connect_en == 1) {
+//;   parameter(Name=>'con_matrix', Val=>\@all_connections , Force=>1, doc=>"Array of connections");
+//;}
+
+endmodule
+
+//;if($connect_en == 1) {
+/*
+
+//; for (my $i=0; $i < scalar @all_connections; $i = $i + 1){
+//;   my $row = $all_connections[$i];
+`$i` : `join(" ",@$row)`
+//;}
+
+*/
+//;}
+
+

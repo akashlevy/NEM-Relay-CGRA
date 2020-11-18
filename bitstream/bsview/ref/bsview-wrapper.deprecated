@@ -1,0 +1,88 @@
+#!/bin/csh -f
+
+echo
+echo "bsview is deprecated.  Use bsview.py instead"
+echo
+
+exit -1
+##############################################################################
+##############################################################################
+##############################################################################
+
+# GOAL:
+#   bsview file.bs
+#   - decodes and displays bitstream
+#   -- decodes bitstream and puts it..? /tmp I guess...?
+#   -- calls bsview.py file.bs-decoded
+
+set scriptpath = $0
+set scriptdir = ${scriptpath:h}
+if ("$scriptpath" == "$scriptdir") set scriptdir = "."
+set BSVIEW_HOME = $scriptdir
+
+if ($#argv == 0) then
+    USAGE:
+    set sn = $scriptpath:t
+    echo "Usage:"
+    echo "    $sn <b1.bs> <b2.bs> ...   # Displays decoded bitstreams b1, b2, ..."
+    echo "    $sn -swaprc <b1.bs> ...   # Swap RC on indicated bitstream"
+    echo "    $sn -newmem <b1.bs> ...   # Do the right thing for newmem regime"
+    echo "    $sn -oldmem <b1.bs> ...   # Do the right thing for oldmem regime (default)"
+    echo "    $sn -8x8 <b1.bs> ...      # Do the right thing for 8x8 newmem regime (default)"
+    echo "    $sn -demo                 # Runs through a couple built-in demos"
+    echo "    $sn --help                # Displays this help message"
+    exit 0
+endif
+
+if ("$argv[1]" == '--help') goto USAGE
+
+if ("$argv[1]" == '-demo') then
+  $BSVIEW_HOME/bsview.py
+  exit 0
+endif
+
+# echo $BSVIEW_HOME/bsview.py $argv
+# $BSVIEW_HOME/bsview.py $argv
+
+# TODO maybe use extension to decide whether bs needs decoded or not
+# or auto-detect
+
+# set switch = ""
+# Let's make "newmem" the default
+set switch = "-newmem"
+
+set echo
+foreach arg ($argv)
+
+  # Valid switches now include -oldmem, -newmem, -swaprc, -8x8 ...
+  if (`expr "$arg" : "-"`) then
+    set switch = $arg
+    continue
+  endif
+
+  set bs = $arg
+  set bsname = $arg:t
+  set bsdecoded = /tmp/$bsname-decoded
+  echo "Decoding bitstream '$bs', output to '$bsdecoded'"
+
+  echo "Before:"
+  cat $bs
+  
+  $BSVIEW_HOME/../decoder/decode.py -nodefaults $switch $bs > $bsdecoded
+
+  echo
+  echo "After:"
+  cat $bsdecoded
+
+  echo "Decoded output is here: $bsdecoded"
+
+  # echo -n "Continue? (^C to exit) "; set reply = $<; echo ""
+  $BSVIEW_HOME/bsview.py $switch $bsdecoded
+
+  set switch = ""
+
+end
+
+
+
+

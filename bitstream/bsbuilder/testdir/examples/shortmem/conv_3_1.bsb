@@ -1,0 +1,120 @@
+
+# CONSTANTS
+# const0_0::add_340_343_344_PE.data.in.0 T80_op2
+# const3_3::mul_3423_343_PE.data.in.1 T62_op2
+# const5_5::mul_3475_348_PE.data.in.1 T42_op2
+# const7_7::mul_3527_353_PE.data.in.1 T21_op2
+
+# REGISTERS []
+
+# PE tiles
+T21_mul(wire,const7_7)     # mul_3527_353_PE
+T42_mul(wire,const5_5)     # mul_3475_348_PE
+T62_mul(wire,const3_3)     # mul_3423_343_PE
+T80_add(wire,const0_0)     # add_340_343_344_PE
+T98_add(wire,wire)         # add_345_348_349_PE
+T116_add(wire,wire)        # add_350_353_354_PE
+
+# LUT tiles for wen_lut's [25, 44]
+T25_lutFF(const0,const0,const0)
+T44_lutFF(const0,const0,const0)
+
+# MEM tiles
+T24_mem_10   # lb_p4csus$mem_1$cgramem fifo_depth=10
+T43_mem_10   # lb_p4csus$mem_2$cgramem fifo_depth=10
+
+# ROUTING
+
+# INPUT::lb_p4csus$mem_1$cgramem
+T21_in_s2t0 -> T21_out_s0t0
+T22_in_s2t0 -> T22_out_s0t0
+T23_in_s2t0 -> T23_out_s0t0
+T24_in_s2t0 -> T24_mem_in
+
+# wen_lut::lb_p4csus$mem_1$cgramem
+T25_pe_out_b0 -> T25_out_s2t0_b0
+T24_in_s0t0_b0 -> T24_out_s2t0_b0
+T24_out_s2t0_b0 -> T24_wen
+
+# INPUT::mul_3527_353_PE.data.in.0
+T21_in_s2t0 -> T21_op1
+
+# add_340_343_344_PE::add_345_348_349_PE.data.in.0
+T80_pe_out -> T80_out_s1t4
+T98_in_s3t4 -> T98_out_s2t4
+T98_out_s2t4 -> T98_op1
+
+# add_345_348_349_PE::add_350_353_354_PE.data.in.0
+T98_pe_out -> T98_out_s1t0
+T116_in_s3t0 -> T116_out_s2t0
+T116_out_s2t0 -> T116_op1
+
+# add_350_353_354_PE::OUTPUT
+T116_pe_out -> T116_out_s3t0
+T98_in_s1t0 -> T98_out_s3t0
+T80_in_s1t0 -> T80_out_s3t0
+T62_in_s1t0 -> T62_out_s3t0
+T44_in_s1t0 -> T44_out_s3t0
+T25_in_s1t0 -> T25_out_s0t0
+T26_in_s2t0 -> T26_out_s0t0
+T27_in_s2t0 -> T27_out_s0t0
+T28_in_s2t0 -> T28_out_s0t0
+T29_in_s2t0 -> T29_out_s0t0
+T30_in_s2t0 -> T30_out_s0t0
+T31_in_s2t0 -> T31_out_s0t0
+T32_in_s2t0 -> T32_out_s0t0
+T33_in_s2t0 -> T33_out_s0t0
+T34_in_s2t0 -> T34_out_s0t0
+T35_in_s2t0 -> T35_out_s0t0
+T36_in_s2t0 -> T36_out_s0t0
+
+# lb_p4csus$mem_1$cgramem::lb_p4csus$mem_2$cgramem
+T24_mem_out -> T24_out_s1t0
+T43_in_s3t0 -> T43_out_s2t0
+T43_out_s2t0 -> T43_mem_in
+
+# wen_lut::lb_p4csus$mem_2$cgramem
+T44_pe_out_b0 -> T44_out_s2t0_b0
+T43_in_s0t0_b0 -> T43_out_s2t0_b0
+T43_out_s2t0_b0 -> T43_wen
+
+# lb_p4csus$mem_1$cgramem::mul_3475_348_PE.data.in.0
+T24_mem_out -> T24_out_s1t1
+T43_in_s3t1 -> T43_out_s2t1
+T42_in_s0t1 -> T42_out_s2t1
+T42_out_s2t1 -> T42_op1
+
+# lb_p4csus$mem_2$cgramem::mul_3423_343_PE.data.in.0
+T43_mem_out -> T43_out_s1t2
+T61_in_s3t2 -> T61_out_s0t2
+T62_in_s2t2 -> T62_op1
+
+# mul_3423_343_PE::add_340_343_344_PE.data.in.1
+T62_pe_out -> T62_out_s1t3
+T80_in_s3t3 -> T80_out_s2t3
+T80_out_s2t3 -> T80_op1
+
+# mul_3475_348_PE::add_345_348_349_PE.data.in.1
+T42_pe_out -> T42_out_s1t1
+T60_in_s3t1 -> T60_out_s1t1
+T78_in_s3t1 -> T78_out_s1t1
+T96_in_s3t1 -> T96_out_s0t1
+T97_in_s2t1 -> T97_out_s0t1
+T98_in_s2t1 -> T98_out_s1t1
+T98_out_s1t1 -> T98_op2
+
+# mul_3527_353_PE::add_350_353_354_PE.data.in.1
+T21_pe_out -> T21_out_s1t2
+T40_in_s3t2 -> T40_out_s1t2
+T58_in_s3t2 -> T58_out_s1t2
+T76_in_s3t2 -> T76_out_s1t2
+T94_in_s3t2 -> T94_out_s1t2
+T112_in_s3t2 -> T112_out_s0t2
+T113_in_s2t2 -> T113_out_s0t2
+T114_in_s2t2 -> T114_out_s0t2
+T115_in_s2t2 -> T115_out_s0t2
+T116_in_s2t2 -> T116_out_s1t2
+T116_out_s1t2 -> T116_op2
+
+# INPUT  tile  21 ( 2, 2) / in_BUS16_S2_T0 / wire_2_1_BUS16_S0_T0
+# OUTPUT tile  36 ( 2,17) / out_0_BUS16_S0_T0 / wire_2_17_BUS16_S0_T0

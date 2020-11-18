@@ -1,0 +1,241 @@
+///////////////////////////////////////////////////////////////////
+// CGRA memory tile generator with SB CB
+//
+// Nikhil Bhagdikar
+// (C) Stanford University
+//////////////////////////////////////////////////////////////////
+
+//; use POSIX;
+//; #global
+//; my $bus_config = parameter(Name=>'bus_config', val=> "BUS16:16b:10t BUS1:1b:10t", doc=>'buses used at global level. pass through wires will be generated for all buses on left and right edges');
+
+//; # for memory 
+//; my $max_lb   = parameter(Name=>'max_lb', val=> 4,  doc=>'max number of line buffers, fifos, and mem blocks allowed per tile');
+//; my $gen_mem_for_busname  = parameter(Name=>'gen_mem_for_busname', val=> "BUS16", doc=>'generate mem for a particular bus width. only one name must be specified.');
+//; my $ddepth   = parameter(Name=>'ddepth', val=> 4096, doc=>'number of words in the memory');
+
+//; # for sb
+//; my $sides = parameter(Name=>'sides', val=> 2, doc=>'number of edges for a SB, memory tiles have horizontal wires only i.e. sides=2'); 
+//; my $feedthrough_outputs = parameter(Name=>'feedthrough_outputs', val=> "11100", doc=>'active low binary vector specifying into what tracks can the memory output be injected. Set the bit corresponding to a track to **0** to enable it to carry the injected value. length = number_tracks*0.5. MSB = track0. affects only the bus for which memory is being generated, other buses are always completely feedthrough.');
+//; my $registered_outputs = parameter(Name=>'registered_outputs', val=> "00011", doc=>'binary vector specifying which of the non-feedthrough outputs above can be registered. set bit to 1 for registering. feedthrough tracks are not registered');
+//; my $is_bidi = parameter(Name=>'is_bidi', val=> 0, doc=>'1 if SB pins are bidi. TBD.');
+
+//; # for cb
+//; my $cb_connections = parameter(Name=>'cb_connections', val=> "1111111111", doc=>'binary vector to specify tracks muxed by cb input to memory.length = num_tracks.');
+
+//; # for layout 
+//; my $impl_cgra_row_height = parameter(Name=>'impl_cgra_row_height', val=> 100, doc=>'cgra row height in micron');
+//; my $impl_mem_tile_height = parameter(Name=>'impl_mem_tile_height', val=> 4, doc=>'multiple of cgra row height to use as mem_tile height');
+
+//; my $pe_outputs_per_sb = int(ceil($impl_mem_tile_height / $max_lb));
+//; my $cbs_per_sb = $pe_outputs_per_sb;
+
+//; my @cb_connections_arr = split('',$cb_connections);
+
+//; my %bus_width_hash = ();
+//; my %bus_num_tracks_hash = ();
+//; foreach my $bus (split(' ', $bus_config)) {
+//;   if ($bus=~m/(BUS\S+):(\S+)b:(\S+)t/) { 
+//;     $bus_width_hash{ $1 } = $2;
+//;     $bus_num_tracks_hash{ $1 } = $3;
+//;   }
+//; }
+
+
+module mem_tile_sb_cb(
+clk,
+config_addr,
+config_data,
+//; for (my $row=0; $row < $impl_mem_tile_height; $row++) {
+//;   for my $bus (keys %bus_num_tracks_hash) {
+//;     my $num_tracks = $bus_num_tracks_hash { $bus };
+//;     for(my $i=0; $i<$sides; $i++) {
+//;       for(my $j=0; $j<$num_tracks*0.5; $j++) {
+out_`$row`_`$bus`_`$i`_`$j`,
+in_`$row`_`$bus`_`$i`_`$j`,
+//;      }
+//;     }
+//;   }
+//; }
+reset,
+tile_id
+);
+
+  input clk;
+  input [31:0] config_addr;
+  input [31:0] config_data;
+
+//; for (my $row=0; $row < $impl_mem_tile_height; $row++) {
+//;   for my $bus (keys %bus_num_tracks_hash) {
+//;     my $num_tracks = $bus_num_tracks_hash { $bus };
+//;     my $bus_width = $bus_width_hash { $bus };
+//;     for(my $i=0; $i<$sides; $i++) {
+//;       for(my $j=0; $j<$num_tracks*0.5; $j++) {
+  output [`$bus_width-1`:0] out_`$row`_`$bus`_`$i`_`$j`;
+  input [`$bus_width-1`:0] in_`$row`_`$bus`_`$i`_`$j`;
+//;      }
+//;     }
+//;   }
+//; }
+
+  input [15:0] tile_id;
+  input reset;
+
+//; ##############################################
+//; #
+//; # Generate config enables
+//; #
+//; ##############################################
+
+
+//; my $intra_tile_addr = 0;
+//; for(my $row=0; $row<$impl_mem_tile_height; $row++,$intra_tile_addr++) {
+  reg config_en_sb_`$row`;
+  always @(posedge clk) begin
+    if (reset) begin
+       config_en_sb_`$row` <= 1'b0;
+    end else begin
+       if ((config_addr[15:0]==tile_id)&&(config_addr[23:16]==8'd`$intra_tile_addr`)) begin
+         config_en_sb_`$row` <= 1'b1;
+       end else begin
+         config_en_sb_`$row` <= 1'b0;
+       end
+    end
+  end
+//; }
+
+//; for(my $cb=0; $cb<$max_lb; $cb++,$intra_tile_addr++) {
+  reg config_en_cb_`$cb`;
+  always @(posedge clk) begin
+    if (reset) begin
+       config_en_cb_`$cb` <= 1'b0;
+    end else begin
+       if ((config_addr[15:0]==tile_id)&&(config_addr[23:16]==8'd`$intra_tile_addr`)) begin
+         config_en_cb_`$cb` <= 1'b1;
+       end else begin
+         config_en_cb_`$cb` <= 1'b0;
+       end
+    end
+  end
+//; }
+
+  reg config_en_mem;
+  always @(posedge clk) begin
+    if (reset) begin
+       config_en_mem <= 1'b0;
+    end else begin
+       if ((config_addr[15:0]==tile_id)&&(config_addr[23:16]==8'd`$intra_tile_addr`)) begin
+         config_en_mem <= 1'b1;
+       end else begin
+         config_en_mem <= 1'b0;
+       end
+    end
+  end
+
+//; for(my $i=0; $i<$max_lb; $i++) {
+//;   my $bus_width = $bus_width_hash { $gen_mem_for_busname };
+  wire [`$bus_width-1`:0] mem_output_`$i`;
+  wire [`$bus_width-1`:0] mem_input_`$i`;
+//; }
+
+//; ##############################################
+//; #
+//; # Instantiate SBs
+//; #
+//; ##############################################
+//; my %bus_module_hash = ();
+//; for my $bus (keys %bus_num_tracks_hash) {
+//;   my $num_tracks = $bus_num_tracks_hash { $bus };
+//;   my $bus_width = $bus_width_hash { $bus };
+//;   my $ft = '1'x($num_tracks * 0.5);
+//;   my $reg = '0'x($num_tracks * 0.5);
+//;   if ($bus eq $gen_mem_for_busname) {
+//;     $bus_module_hash{ $bus } = generate('sb', 'sb1', width => $bus_width, num_tracks => $num_tracks, sides => $sides, feedthrough_outputs=>$feedthrough_outputs, registered_outputs=>$registered_outputs, pe_output_count=>$pe_outputs_per_sb, is_bidi=>$is_bidi);
+//;   } else {
+//;     $bus_module_hash{ $bus } = generate('sb', 'sb2', width => $bus_width, num_tracks => $num_tracks, sides => $sides, feedthrough_outputs=>$ft, registered_outputs=>$reg, pe_output_count=>0, is_bidi=>$is_bidi);
+//;   }
+//; }
+//; for (my $row=0; $row < $impl_mem_tile_height; $row++) {
+//;   for my $bus (keys %bus_num_tracks_hash) {
+//;     my $num_tracks = $bus_num_tracks_hash { $bus };
+//;     my $sb_obj = clone($bus_module_hash{ $bus }, 'sb_inst_bus'.$bus.'_row'.$row);
+  `$sb_obj->instantiate()`
+  (
+    .clk(clk),
+    .reset(reset),
+//;     if ($bus eq $gen_mem_for_busname) {
+//;       my $start=($row*$pe_outputs_per_sb);
+//;       my $end=($row*$pe_outputs_per_sb)+$pe_outputs_per_sb;
+//;       for(my $j=0, my $i=$start; ($i<$end) && ($i < $max_lb); $i++, $j++) {
+    .pe_output_`$j`(mem_output_`$i`),
+//;       }
+//;     }
+    //; for(my $i=0; $i<$sides; $i++) {
+    //;  for(my $j=0; $j<$num_tracks*0.5; $j++) {
+    .out_`$i`_`$j`(out_`$row`_`$bus`_`$i`_`$j`),
+    .in_`$i`_`$j`(in_`$row`_`$bus`_`$i`_`$j`),
+    //;  }
+    //; }
+    .config_addr(config_addr),
+    .config_data(config_data),
+    .config_en(config_en_sb_`$row`)
+  );
+//;   }
+//; }
+
+//; ##############################################
+//; #
+//; # Instantiate CBs
+//; #
+//; ##############################################
+
+//;   my $num_tracks = $bus_num_tracks_hash { $gen_mem_for_busname };
+//;   my $width = $bus_width_hash { $gen_mem_for_busname };
+//;   my $cb_base = generate('cb', 'cb', width=>$width, num_tracks=>$num_tracks, has_constant=>0, feedthrough_outputs=>$cb_connections);  
+
+//; for (my $cb=0; $cb < $max_lb; $cb++) {
+//;   my $row_to_use = int(floor($cb / $cbs_per_sb)); 
+//;   my $cb_obj = clone($cb_base, 'cb_inst_'.$cb);
+  `$cb_obj->instantiate()`
+  (
+    .clk(clk),
+    .reset(reset),
+    .out(mem_input_`$cb`),
+//; for(my $i=0, my $k=0; $i<$sides; $i++) {
+//;   for(my $j=0; $j<$num_tracks*0.5; $j++, $k++) {
+//;     if (@cb_connections_arr[$k]==1) {
+    .in_`$k`(in_`$row_to_use`_`$gen_mem_for_busname`_`$i`_`$j`),
+//;     }
+//;   }    
+//;  }
+    .config_addr(config_addr),
+    .config_data(config_data),
+    .config_en(config_en_cb_`$cb`)
+  );
+//; }
+
+//; ##############################################
+//; #
+//; # Instantiate memory
+//; #
+//; ##############################################
+
+//;   my $num_tracks = $bus_num_tracks_hash { $gen_mem_for_busname };
+//;   my $width = $bus_width_hash { $gen_mem_for_busname };
+//;   my $mem_base = generate('mem_tile', 'mem_tile', max_lb=>$max_lb, dwidth=>$width, ddepth=>$ddepth);
+
+  `$mem_base->instantiate()`
+  (
+      .clk(clk),
+      .config_addr(config_addr),
+      .config_data(config_data),
+      .config_en(config_en_mem),
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+      .data_in`$i`(mem_input_`$i`),
+      .data_out`$i`(mem_output_`$i`),
+//;}
+      .reset(reset)
+   );
+
+
+endmodule 

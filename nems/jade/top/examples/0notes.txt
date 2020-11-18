@@ -1,0 +1,7 @@
+01/2019
+
+cgra_info.txt.shortmem and cgra_info.txt.shortmem both use the
+old-style tile numbering used in our first taped-out chip
+
+We actually taped out the "shortmem" version (I think) and thus
+"cgra_info.first_chip" is a copy of that.

@@ -1,0 +1,656 @@
+//; include("ipu_header.svph");
+//; include("gen_mode_defs.svph");
+////////////////////////////////////////////////////////////////////////////////
+//
+// Test bench for PE compute.
+//
+////////////////////////////////////////////////////////////////////////////////
+//;
+//; my $reg_inputs = 0;
+//; my $dut     = generate('test_pe_comp_dual', 'dut',
+//;                            use_add => '2', use_bool => '1', debug => '1');
+module  `mname()`;
+
+localparam DataWidth = 32;
+localparam DataMSB   = DataWidth-1;
+
+
+logic        clk;
+logic        rst_n;
+
+logic [DataMSB:0] next_op_a_msb_in;
+logic [DataMSB:0] next_op_b_msb_in;
+
+
+logic [DataMSB:0] next_op_a_in;
+logic [DataMSB:0] next_op_b_in;
+logic [DataMSB:0] next_op_c_in;
+
+logic             next_op_d_p_in;
+
+logic [DataMSB:0] op_a_msb_in;
+logic [DataMSB:0] op_b_msb_in;
+
+logic [DataMSB:0] op_a_in;
+logic [DataMSB:0] op_b_in;
+logic [DataMSB:0] op_c_in;
+
+logic             op_d_p_in;
+
+logic [DataMSB:0] res;
+logic             res_p;
+
+logic [15:0]  op_code;
+
+bit [31:0] count;
+
+bit [4*DataWidth-1:0] exp_mult32_res;
+bit [DataMSB:0] exp_res;
+bit             exp_res_p;
+
+bit             ignore_res;
+bit             ignore_res_p;
+
+
+bit fail_res, fail_res_p, fail, fail_latch;
+
+
+logic [1:0] carry_chain  ;
+logic       cmpr_eq_chain;
+logic       res_p_lsb;
+
+logic      dual_mode;
+assign dual_mode = op_code[8];
+
+
+initial begin
+  #1000000 $display("Time = %d clk = %b", $time, clk);
+  //#400 $display("Time = %d clk = %b", $time, clk);
+
+  if(fail_latch)
+    $display("\nAt least one test has FAILED!\n");
+  else
+    $display("\nAll tests Passed\n");
+
+   $finish;
+end
+
+initial begin
+  #1 clk = 1;
+  forever begin
+    #5 clk = ~clk;
+  end
+end
+
+initial begin
+  rst_n = 0;
+  repeat(10) @(posedge clk);
+  rst_n = 1;
+end
+
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n)
+    fail_latch <= 0;
+  else if(fail)
+    fail_latch <= 1;
+end
+
+assign fail_res   = ~ignore_res & (exp_res !== res);
+assign fail_res_p = ~ignore_res_p & (exp_res_p !== res_p);
+assign fail       = fail_res | fail_res_p;
+
+
+typedef enum {
+Add_Op, Sub_Op, Abs_Op, GteMax_Op, LteMin_Op, Eq_Op,
+Sel_Op, Rshft_Op, RshftS_Op, Lshft_Op, Mult0_Op, Mult1_Op, Mult2_Op, Or_Op,
+And_Op, Xor_Op, Inv_Op, Cntr_Op, Div_Op, InvalidOp
+} pe_oper;
+
+pe_oper pre_nextOP;
+pe_oper nextOP;
+pe_oper currentOP;
+
+localparam PE_ADD_OP     = 6'h0;
+localparam PE_SUB_OP     = 6'h1;
+
+localparam PE_ABS_OP     = 6'h3;
+
+localparam PE_GTE_MAX_OP = 6'h4;
+localparam PE_LTE_MIN_OP = 6'h5;
+localparam PE_EQ_OP      = 6'h6;
+
+localparam PE_SEL_OP     = 6'h8;
+
+localparam PE_RSHFT_OP   = 6'hF;
+localparam PE_RSHFT_S_OP = 6'h10;
+localparam PE_LSHFT_OP   = 6'h11;
+
+localparam PE_MULT_0_OP  = 6'hB;
+localparam PE_MULT_1_OP  = 6'hC;
+localparam PE_MULT_2_OP  = 6'hD;
+
+localparam PE_OR_OP      = 6'h12;
+localparam PE_AND_OP     = 6'h13;
+localparam PE_XOR_OP     = 6'h14;
+localparam PE_INV_OP     = 6'h15;
+
+localparam PE_CNTR_OP    = 6'h18;
+
+localparam PE_DIV_OP    = 6'h19;
+
+logic is_signed_next;
+logic is_signed_pre_next;
+
+logic [2*DataWidth-1:0] mad_full;
+assign mad_full = (next_op_a_in*next_op_b_in) + next_op_c_in;
+
+always_ff @(posedge clk) begin
+  if (~rst_n) begin
+    pre_nextOP         <= Add_Op;
+    is_signed_pre_next <= 1'b0;
+  end
+  else begin
+    pre_nextOP         <= Div_Op;//Rshft_Op;//pe_oper'($urandom_range(17,0)); //'
+    is_signed_pre_next <= 1'b1;//$urandom_range(1,0);
+  end
+end
+
+logic [DataWidth + 1: 0] full_sum;
+assign full_sum = next_op_a_in + next_op_b_in + next_op_c_in + next_op_d_p_in;
+
+always_ff @(posedge clk or negedge rst_n) begin
+  if (~rst_n) begin
+    count        <= 'h0;
+
+    next_op_a_in <= 'h0;
+    next_op_b_in <= 'h0;
+    next_op_c_in <= 'h0;
+
+    next_op_d_p_in <= 'h0;
+
+    op_a_in <= 'h0;
+    op_b_in <= 'h0;
+    op_c_in <= 'h0;
+
+    op_d_p_in <= 'h0;
+
+    op_code <= 'h0;
+
+    exp_mult32_res <= 'h0;
+
+    exp_res   <= 'h0;
+    exp_res_p <= 'h0;
+
+    ignore_res   <= 'h1;
+    ignore_res_p <= 'h1;
+
+    nextOP    <= Add_Op;
+    currentOP <= Add_Op;
+
+    is_signed_next <= 1'b0;
+
+  end
+  else begin
+    count <= count + 1;
+
+    //nextOP    <= pe_oper'($urandom_range(17,0)); //'
+    nextOP         <= pre_nextOP;//Cntr_Op;
+    is_signed_next <= is_signed_pre_next;
+    currentOP      <= nextOP;
+
+    next_op_a_msb_in <= $urandom_range(2**DataWidth - 1,0);
+    next_op_b_msb_in <= $urandom_range(2**DataWidth - 1,0);
+
+    next_op_a_in <= $urandom_range(2**DataWidth - 1,0);
+    next_op_b_in <= {2{16'($urandom_range(31,0))}};//$urandom_range(2**DataWidth - 1,0);//'
+    next_op_c_in <= $urandom_range(2**DataWidth - 1,0);
+
+    next_op_d_p_in <= $urandom_range(1,0);
+
+    op_a_msb_in <= next_op_a_msb_in;
+    op_b_msb_in <= next_op_b_msb_in;
+
+    op_a_in <= next_op_a_in;
+    op_b_in <= next_op_b_in;
+    op_c_in <= next_op_c_in;
+
+    op_d_p_in <= next_op_d_p_in;
+
+    ignore_res   <= 1'b0;
+    ignore_res_p <= 1'b0;
+
+    op_code[15:6] <= 'h0;
+    op_code[6]    <= is_signed_pre_next;
+
+    op_code[7]    <= 1'b1;
+
+
+    case(pre_nextOP)
+      Add_Op : begin
+        op_code[5:0] <= PE_ADD_OP;
+        exp_res      <= full_sum[DataWidth-1:0];//next_op_a_in + next_op_b_in + next_op_c_in + next_op_d_p_in;
+        exp_res_p    <= |full_sum[DataWidth+1:DataWidth];//(next_op_a_in + next_op_b_in + next_op_c_in + next_op_d_p_in) > (2**DataWidth - 1);
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b0;
+      end
+      Sub_Op : begin
+        op_code[5:0] <= PE_SUB_OP;
+        exp_res      <= (next_op_a_in - next_op_b_in) + next_op_c_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Abs_Op : begin
+        op_code[5:0] <= PE_ABS_OP;
+        exp_res      <= abs(next_op_a_in - next_op_b_in) + next_op_c_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      GteMax_Op : begin
+        op_code[5:0] <= PE_GTE_MAX_OP;
+        if (is_signed_pre_next) begin
+          exp_res      <= ($signed(next_op_a_in) >= $signed(next_op_b_in)) ? next_op_a_in : next_op_b_in;
+          exp_res_p    <= ($signed(next_op_a_in) >= $signed(next_op_b_in));
+        end else begin
+          exp_res      <= (next_op_a_in >= next_op_b_in) ? next_op_a_in : next_op_b_in;
+          exp_res_p    <= (next_op_a_in >= next_op_b_in);
+        end
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b0;
+      end
+      LteMin_Op : begin
+        op_code[5:0] <= PE_LTE_MIN_OP;
+        if (is_signed_pre_next) begin
+          exp_res      <= ($signed(next_op_a_in) <= $signed(next_op_b_in)) ? next_op_a_in : next_op_b_in;
+          exp_res_p    <= ($signed(next_op_a_in) <= $signed(next_op_b_in));
+        end else begin
+          exp_res      <= (next_op_a_in <= next_op_b_in) ? next_op_a_in : next_op_b_in;
+          exp_res_p    <= (next_op_a_in <= next_op_b_in);
+        end
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b0;
+      end
+      Eq_Op : begin
+        op_code[5:0] <= PE_EQ_OP;
+        exp_res_p    <= (next_op_a_in === next_op_b_in);
+        ignore_res   <= 1'b1;
+        ignore_res_p <= 1'b0;
+      end
+      Sel_Op : begin
+        op_code[5:0] <= PE_SEL_OP;
+        exp_res      <= next_op_d_p_in ? next_op_a_in : next_op_b_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Lshft_Op : begin
+        next_op_b_in <= {2{16'($urandom_range(31,0))}};//'
+        op_code[5:0] <= PE_LSHFT_OP;
+        exp_res      <= next_op_a_in << next_op_b_in[4:0];
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      RshftS_Op : begin
+        next_op_b_in <= {2{16'($urandom_range(31,0))}};//'
+        op_code[5:0] <= PE_RSHFT_S_OP;
+        exp_res      <= $signed(next_op_a_in) >>> next_op_b_in[4:0];
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Rshft_Op : begin
+        next_op_b_in <= {2{16'($urandom_range(31,0))}};//'
+        op_code[5:0] <= PE_RSHFT_OP;
+        exp_res      <= next_op_a_in >> next_op_b_in[4:0];
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Or_Op : begin
+        op_code[5:0] <= PE_OR_OP;
+        exp_res      <= next_op_a_in | next_op_b_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      And_Op : begin
+        op_code[5:0] <= PE_AND_OP;
+        exp_res      <= next_op_a_in & next_op_b_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Xor_Op : begin
+        op_code[5:0] <= PE_XOR_OP;
+        exp_res      <= next_op_a_in ^ next_op_b_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Inv_Op : begin
+        op_code[5:0] <= PE_INV_OP;
+        exp_res      <= ~next_op_a_in;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Mult0_Op : begin
+        op_code[5:0] <= PE_MULT_0_OP;
+        exp_res      <= (next_op_a_in*next_op_b_in) + next_op_c_in ;
+        exp_mult32_res <= {next_op_a_msb_in, next_op_a_in} * {next_op_b_msb_in, next_op_b_in};
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Mult1_Op : begin
+        op_code[5:0] <= PE_MULT_1_OP;
+        exp_res      <= (mad_full >> (DataWidth/2));
+        exp_mult32_res <= {next_op_a_msb_in, next_op_a_in} * {next_op_b_msb_in, next_op_b_in};
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Mult2_Op : begin
+        op_code[5:0] <= PE_MULT_2_OP;
+        exp_res      <= (mad_full >> DataWidth);
+        exp_mult32_res <= {next_op_a_msb_in, next_op_a_in} * {next_op_b_msb_in, next_op_b_in};
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+      end
+      Cntr_Op : begin
+        op_code[5:0] <= PE_CNTR_OP;
+        exp_res      <= 'hX;
+        ignore_res   <= 1'b1;
+        ignore_res_p <= 1'b1;
+        next_op_a_in <= 'h1;
+        next_op_b_in <= 'h0;
+        next_op_c_in <= 'h9;
+      end
+
+      Div_Op : begin
+        op_code[5:0] <= PE_DIV_OP;
+        exp_res      <= 'hX;
+        ignore_res   <= 1'b0;
+        ignore_res_p <= 1'b1;
+        next_op_a_in <= 'h3BA6;
+        next_op_b_in <= {2{16'h1D}};
+        next_op_c_in <= 'h0;
+        next_op_d_p_in <= 'h0;
+      end
+
+      default: begin
+        $display("Error: unexpected instruction op code: %x!\n", nextOP);
+      end
+    endcase
+  end
+end
+
+
+logic [8:0]  op_code_vect[1:0];
+logic [15:0] op_a[1:0];
+logic [15:0] op_b[1:0];
+logic [15:0] op_c[1:0];
+logic        op_d_p[1:0];
+
+assign op_code_vect[0] = op_code[8:0];
+assign op_code_vect[1] = op_code[8:0];
+
+assign op_a[0]         = op_a_in[15:0];
+assign op_a[1]         = op_a_in[31:16];
+assign op_b[0]         = op_b_in[15:0];
+assign op_b[1]         = op_b_in[31:16];
+assign op_c[0]         = op_c_in[15:0];
+assign op_c[1]         = op_c_in[31:16];
+assign op_d_p[0]       = op_d_p_in;
+assign op_d_p[1]       = op_d_p_in;
+
+
+logic [15:0] res_vect[1:0];
+logic        res_p_vect[1:0];
+
+
+`$dut->mname()` `$dut->iname()` (
+  .op_code (op_code_vect),
+
+  .op_a (op_a),
+  .op_b (op_b),
+  .op_c (op_c),
+
+  .op_d_p (op_d_p),
+
+//; if($dut->get_param('use_cntr') > 0) {
+  .cntr_next (),
+  .cntr_en   (),
+//;}
+
+  .res      (res_vect),
+//; if($dut->get_param('mult_mode') > 0) {
+  .mult_res (),
+//;}
+  .res_p    (res_p_vect)
+);
+
+assign res   = {res_vect[1], res_vect[0]};
+assign res_p = res_p_vect[1];
+
+
+logic [15:0] res_low[7:0];
+logic [15:0] res_hi [7:0];
+
+logic div_err[7:0];
+logic div_err_lo[7:0];
+logic div_err_hi[7:0];
+
+//assign res_low[0] = 'h0;
+//assign res_hi [0] = op_a_in[15:0]; //what to divide - high
+
+assign res_low[0] = op_a_in[15:0];
+assign res_hi [0] = 'h0; //what to divide - high
+
+genvar g_i;
+
+generate
+  for (g_i=0; g_i < 8; g_i=g_i+1) begin : GEN_DIV
+
+logic [8:0]  op_code_vect[1:0];
+assign op_code_vect[0] = op_code[8:0];
+assign op_code_vect[1] = op_code[8:0];
+
+
+logic [15:0] op_a[1:0];
+logic [15:0] op_b[1:0];
+logic [15:0] op_c[1:0];
+logic        op_d_p[1:0];
+
+logic [15:0] res_vect[1:0];
+logic        res_p_vect[1:0];
+
+assign op_a[0] = res_low[g_i]; // result holder - low
+//assign op_a[0] = 'h0; // result holder - low
+assign op_b[0] =  op_b_in[15:0]; //denom
+assign op_c[0] =  'h0;
+assign op_d_p[0] = 1'b0;
+
+assign op_a[1] =  res_hi[g_i]; //what to divide - high
+//assign op_a[1] =  op_a_in[15:0]; //what to divide - high
+assign op_b[1] =  op_b_in[15:0]; //denom
+assign op_c[1] =  'h0;
+assign op_d_p[1] = 1'b0;
+
+`$dut->mname()` `$dut->iname()` (
+  .op_code (op_code_vect),
+
+  .op_a (op_a),
+  .op_b (op_b),
+  .op_c (),//op_c_in),
+
+  .op_d_p (op_d_p),
+
+//; if($dut->get_param('use_cntr') > 0) {
+  .cntr_next (),
+  .cntr_en   (),
+//;}
+
+  .res      (res_vect),
+//; if($dut->get_param('mult_mode') > 0) {
+  .mult_res (),
+//;}
+  .res_p    (res_p_vect)
+);
+
+  if(g_i<7) begin :GEN_IF
+    assign res_low[g_i+1] = res_vect[0];
+    assign res_hi [g_i+1] = res_vect[1];
+  end
+
+
+
+logic [15:0] res_hi_div_0;
+logic [15:0] res_lo_div_0;
+logic [15:0] res_hi_div_1;
+logic [15:0] res_lo_div_1;
+
+div_inst DIV_0(
+ .hi    (res_hi[g_i]),//op_a_in[15:0]),
+ .low   (res_low[g_i]),//'h0),
+ .denom (op_b_in[15:0]),
+
+ .res({res_hi_div_0, res_lo_div_0})
+);
+
+div_inst DIV_1(
+ .hi    (res_hi_div_0),
+ .low   (res_lo_div_0),
+ .denom (op_b_in[15:0]),
+
+ .res({res_hi_div_1, res_lo_div_1})
+);
+
+
+assign div_err_lo[g_i] = (res_lo_div_1!=res_vect[0]);
+assign div_err_hi[g_i] = (res_hi_div_1!=res_vect[1]);
+assign div_err[g_i] = (res_hi_div_1!=res_vect[1]) | (res_lo_div_1!=res_vect[0]);
+
+  end
+endgenerate
+
+
+logic div_rst_n;
+
+initial begin
+  div_rst_n = 0;
+  #150 div_rst_n = 1;
+end
+
+div_full DIV_FULL(
+ .numer ({16'h0,op_a_in[15:0]}),
+ .denom ({16'h0,op_b_in[15:0]}),
+
+ .clk  (clk),
+ .rst_n(div_rst_n),
+
+ .res()
+);
+
+
+
+
+
+
+function [DataWidth-1:0] abs(
+  input [DataWidth-1:0] a
+);
+  abs = ($signed(a) < 0) ? -a : a;
+endfunction
+
+endmodule
+
+
+
+
+module div_inst #(
+  WIDTH =  16
+)
+(
+ input [WIDTH-1:0]  hi,
+ input [WIDTH-1:0]  low,
+ input [WIDTH-1:0]  denom,
+
+ output [2*WIDTH-1:0] res
+);
+
+logic [2*WIDTH-1:0] pack;
+assign pack = {hi, low};
+
+logic [WIDTH-1:0]  tmp;
+assign tmp = pack[2*WIDTH-2:WIDTH-1] - denom ;
+//         = {hi[2*WIDTH-2:WIDTH], low[WIDTH-1]} -D
+
+assign res = ~tmp[WIDTH-1] ? {tmp, pack[WIDTH-2:0],1'b1} : {pack[2*WIDTH-2:0],1'b0};
+//        ~tmp[WIDTH-1] =>     hi = tmp, low ={low[WIDTH-2:0], 1'b1}
+//         tmp[WIDTH-1] =>     hi = {hi[2*WIDTH-2:WIDTH], low[WIDTH-1]} , low ={low[WIDTH-2:0], 1'b1}
+
+endmodule
+
+
+
+
+
+
+module div_full (
+  input [31:0]  numer,
+  input [31:0]  denom,
+
+  input clk,
+  input rst_n,
+
+  output logic [31:0] res
+);
+
+   logic [5:0]   i;
+
+   logic [31:0]  p;
+   logic [31:0]  d;
+
+
+   logic [31:0]  tmp;
+   assign tmp = {p[30:0],1'b0};
+//{res[30:0],1'b0};
+
+
+localparam BITS = 16;
+
+logic [31:0]  pack;
+logic [31:0]  tmp_pack;
+assign tmp_pack = {pack[30:0],1'b0};
+
+logic [31:0]  tmp_pack_diff;
+assign tmp_pack_diff = {pack[30:0],1'b0} - d;
+
+always_ff @(posedge clk or negedge rst_n) begin
+   if (~rst_n) begin
+      res <= 32'h0;
+      i <= BITS;
+
+      p <= numer;
+      d <= {denom[15:0], {BITS{1'b0}}};
+      pack <= numer;
+   end
+   else begin
+
+      if( i > 0 ) begin
+         i <= i - 1;
+
+         //if(tmp_pack_diff >= 32'h0) begin
+         if(~tmp_pack_diff[31]) begin
+            pack <= tmp_pack_diff | 32'h1;
+         end
+         else begin
+            pack <= {pack[30:0],1'b0};//tmp_pack_diff;
+         end
+
+
+         if(tmp >= d) begin
+            p   <= {p[30:0],1'b0} - d;
+            res <= {res[30:0],1'b1};
+         end
+         else begin
+            p   <=  tmp ;
+            res <= {res[30:0],1'b0};
+         end
+      end
+
+   end
+end
+
+endmodule

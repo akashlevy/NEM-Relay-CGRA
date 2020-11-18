@@ -1,0 +1,212 @@
+CB DEBUG: TILE : tile_0 | FEAT_ID = cb_0 | SEL_WID: 5 | SEL: 00011 
+CB DEBUG: Bitstream for tile_0 : cb_0 00000000000000000000000000000011 
+
+CB DEBUG: TILE : tile_0 | FEAT_ID = cb_1 | SEL_WID: 5 | SEL: 00101 
+CB DEBUG: Bitstream for tile_0 : cb_1 00000000000000000000000000000101 
+
+CB DEBUG: TILE : tile_0 | FEAT_ID = cb_2 | SEL_WID: 4 | SEL: 0110 
+CB DEBUG: Bitstream for tile_0 : cb_2 00000000000000000000000000000110 
+
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S0_T0 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_1 | SNK: out_BUS16_S0_T2 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_2 | SNK: out_BUS16_S0_T3 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_3 | SNK: out_BUS16_S0_T4 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_4 | SNK: out_BUS16_S0_T5 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_5 | SNK: out_BUS16_S1_T0 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_6 | SNK: out_BUS16_S1_T2 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_7 | SNK: out_BUS16_S1_T3 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_8 | SNK: out_BUS16_S1_T4 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_9 | SNK: out_BUS16_S1_T5 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_10 | SNK: out_BUS16_S2_T0 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_11 | SNK: out_BUS16_S2_T2 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_12 | SNK: out_BUS16_S2_T3 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_13 | SNK: out_BUS16_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_14 | SNK: out_BUS16_S2_T5 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_15 | SNK: out_BUS16_S3_T0 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_16 | SNK: out_BUS16_S3_T2 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_17 | SNK: out_BUS16_S3_T3 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_18 | SNK: out_BUS16_S3_T4 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_0 | MUX_ID = mux_19 | SNK: out_BUS16_S3_T5 | SEL: 10 
+SB DEBUG: Bitstream for tile_0 sb_0 : 111111111111111111111010101000011110000101011010011100101010
+
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_0 | SNK: out_BUS1_S0_T0 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_1 | SNK: out_BUS1_S0_T1 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_2 | SNK: out_BUS1_S0_T2 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_3 | SNK: out_BUS1_S0_T3 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_4 | SNK: out_BUS1_S0_T4 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_5 | SNK: out_BUS1_S1_T0 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_6 | SNK: out_BUS1_S1_T1 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_7 | SNK: out_BUS1_S1_T2 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_8 | SNK: out_BUS1_S1_T3 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_9 | SNK: out_BUS1_S1_T4 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_10 | SNK: out_BUS1_S2_T0 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_11 | SNK: out_BUS1_S2_T1 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_12 | SNK: out_BUS1_S2_T2 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_13 | SNK: out_BUS1_S2_T3 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_14 | SNK: out_BUS1_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_15 | SNK: out_BUS1_S3_T0 | SEL: 00 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_16 | SNK: out_BUS1_S3_T1 | SEL: 11 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_17 | SNK: out_BUS1_S3_T2 | SEL: 01 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_18 | SNK: out_BUS1_S3_T3 | SEL: 10 
+SB DEBUG: TILE : tile_0 | FEAT_ID = sb_1 | MUX_ID = mux_19 | SNK: out_BUS1_S3_T4 | SEL: 10 
+SB DEBUG: Bitstream for tile_0 sb_1 : 111111111111111111111010011100110110110001110000110110101001
+
+CB DEBUG: TILE : tile_1 | FEAT_ID = cb_0 | SEL_WID: 5 | SEL: 01011 
+CB DEBUG: Bitstream for tile_1 : cb_0 00000000000000000000000000001011 
+
+CB DEBUG: TILE : tile_1 | FEAT_ID = cb_1 | SEL_WID: 5 | SEL: 01010 
+CB DEBUG: Bitstream for tile_1 : cb_1 00000000000000000000000000001010 
+
+CB DEBUG: TILE : tile_1 | FEAT_ID = cb_2 | SEL_WID: 4 | SEL: 0000 
+CB DEBUG: Bitstream for tile_1 : cb_2 00000000000000000000000000000000 
+
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S0_T0 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_1 | SNK: out_BUS16_S0_T2 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_2 | SNK: out_BUS16_S0_T3 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_3 | SNK: out_BUS16_S0_T4 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_4 | SNK: out_BUS16_S0_T5 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_5 | SNK: out_BUS16_S1_T0 | SEL: 01 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_6 | SNK: out_BUS16_S1_T2 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_7 | SNK: out_BUS16_S1_T3 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_8 | SNK: out_BUS16_S1_T4 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_9 | SNK: out_BUS16_S1_T5 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_10 | SNK: out_BUS16_S2_T0 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_11 | SNK: out_BUS16_S2_T2 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_12 | SNK: out_BUS16_S2_T3 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_13 | SNK: out_BUS16_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_14 | SNK: out_BUS16_S2_T5 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_15 | SNK: out_BUS16_S3_T0 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_16 | SNK: out_BUS16_S3_T2 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_17 | SNK: out_BUS16_S3_T3 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_18 | SNK: out_BUS16_S3_T4 | SEL: 01 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_0 | MUX_ID = mux_19 | SNK: out_BUS16_S3_T5 | SEL: 10 
+SB DEBUG: Bitstream for tile_1 sb_0 : 111111111111111111111001110011001111111100111010010011001100
+
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_0 | SNK: out_BUS1_S0_T0 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_1 | SNK: out_BUS1_S0_T1 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_2 | SNK: out_BUS1_S0_T2 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_3 | SNK: out_BUS1_S0_T3 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_4 | SNK: out_BUS1_S0_T4 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_5 | SNK: out_BUS1_S1_T0 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_6 | SNK: out_BUS1_S1_T1 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_7 | SNK: out_BUS1_S1_T2 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_8 | SNK: out_BUS1_S1_T3 | SEL: 01 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_9 | SNK: out_BUS1_S1_T4 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_10 | SNK: out_BUS1_S2_T0 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_11 | SNK: out_BUS1_S2_T1 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_12 | SNK: out_BUS1_S2_T2 | SEL: 01 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_13 | SNK: out_BUS1_S2_T3 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_14 | SNK: out_BUS1_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_15 | SNK: out_BUS1_S3_T0 | SEL: 10 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_16 | SNK: out_BUS1_S3_T1 | SEL: 00 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_17 | SNK: out_BUS1_S3_T2 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_18 | SNK: out_BUS1_S3_T3 | SEL: 11 
+SB DEBUG: TILE : tile_1 | FEAT_ID = sb_1 | MUX_ID = mux_19 | SNK: out_BUS1_S3_T4 | SEL: 00 
+SB DEBUG: Bitstream for tile_1 sb_1 : 111111111111111111110011110010111001110000010000111010000010
+
+CB DEBUG: TILE : tile_2 | FEAT_ID = cb_0 | SEL_WID: 5 | SEL: 00011 
+CB DEBUG: Bitstream for tile_2 : cb_0 00000000000000000000000000000011 
+
+CB DEBUG: TILE : tile_2 | FEAT_ID = cb_1 | SEL_WID: 5 | SEL: 00101 
+CB DEBUG: Bitstream for tile_2 : cb_1 00000000000000000000000000000101 
+
+CB DEBUG: TILE : tile_2 | FEAT_ID = cb_2 | SEL_WID: 4 | SEL: 0110 
+CB DEBUG: Bitstream for tile_2 : cb_2 00000000000000000000000000000110 
+
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S0_T0 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_1 | SNK: out_BUS16_S0_T2 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_2 | SNK: out_BUS16_S0_T3 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_3 | SNK: out_BUS16_S0_T4 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_4 | SNK: out_BUS16_S0_T5 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_5 | SNK: out_BUS16_S1_T0 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_6 | SNK: out_BUS16_S1_T2 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_7 | SNK: out_BUS16_S1_T3 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_8 | SNK: out_BUS16_S1_T4 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_9 | SNK: out_BUS16_S1_T5 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_10 | SNK: out_BUS16_S2_T0 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_11 | SNK: out_BUS16_S2_T2 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_12 | SNK: out_BUS16_S2_T3 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_13 | SNK: out_BUS16_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_14 | SNK: out_BUS16_S2_T5 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_15 | SNK: out_BUS16_S3_T0 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_16 | SNK: out_BUS16_S3_T2 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_17 | SNK: out_BUS16_S3_T3 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_18 | SNK: out_BUS16_S3_T4 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_0 | MUX_ID = mux_19 | SNK: out_BUS16_S3_T5 | SEL: 10 
+SB DEBUG: Bitstream for tile_2 sb_0 : 111111111111111111111010101000011110000101011010011100101010
+
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_0 | SNK: out_BUS1_S0_T0 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_1 | SNK: out_BUS1_S0_T1 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_2 | SNK: out_BUS1_S0_T2 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_3 | SNK: out_BUS1_S0_T3 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_4 | SNK: out_BUS1_S0_T4 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_5 | SNK: out_BUS1_S1_T0 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_6 | SNK: out_BUS1_S1_T1 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_7 | SNK: out_BUS1_S1_T2 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_8 | SNK: out_BUS1_S1_T3 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_9 | SNK: out_BUS1_S1_T4 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_10 | SNK: out_BUS1_S2_T0 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_11 | SNK: out_BUS1_S2_T1 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_12 | SNK: out_BUS1_S2_T2 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_13 | SNK: out_BUS1_S2_T3 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_14 | SNK: out_BUS1_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_15 | SNK: out_BUS1_S3_T0 | SEL: 00 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_16 | SNK: out_BUS1_S3_T1 | SEL: 11 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_17 | SNK: out_BUS1_S3_T2 | SEL: 01 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_18 | SNK: out_BUS1_S3_T3 | SEL: 10 
+SB DEBUG: TILE : tile_2 | FEAT_ID = sb_1 | MUX_ID = mux_19 | SNK: out_BUS1_S3_T4 | SEL: 10 
+SB DEBUG: Bitstream for tile_2 sb_1 : 111111111111111111111010011100110110110001110000110110101001
+
+CB DEBUG: TILE : tile_3 | FEAT_ID = cb_0 | SEL_WID: 5 | SEL: 01011 
+CB DEBUG: Bitstream for tile_3 : cb_0 00000000000000000000000000001011 
+
+CB DEBUG: TILE : tile_3 | FEAT_ID = cb_1 | SEL_WID: 5 | SEL: 01010 
+CB DEBUG: Bitstream for tile_3 : cb_1 00000000000000000000000000001010 
+
+CB DEBUG: TILE : tile_3 | FEAT_ID = cb_2 | SEL_WID: 4 | SEL: 0000 
+CB DEBUG: Bitstream for tile_3 : cb_2 00000000000000000000000000000000 
+
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_0 | SNK: out_BUS16_S0_T0 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_1 | SNK: out_BUS16_S0_T2 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_2 | SNK: out_BUS16_S0_T3 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_3 | SNK: out_BUS16_S0_T4 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_4 | SNK: out_BUS16_S0_T5 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_5 | SNK: out_BUS16_S1_T0 | SEL: 01 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_6 | SNK: out_BUS16_S1_T2 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_7 | SNK: out_BUS16_S1_T3 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_8 | SNK: out_BUS16_S1_T4 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_9 | SNK: out_BUS16_S1_T5 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_10 | SNK: out_BUS16_S2_T0 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_11 | SNK: out_BUS16_S2_T2 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_12 | SNK: out_BUS16_S2_T3 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_13 | SNK: out_BUS16_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_14 | SNK: out_BUS16_S2_T5 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_15 | SNK: out_BUS16_S3_T0 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_16 | SNK: out_BUS16_S3_T2 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_17 | SNK: out_BUS16_S3_T3 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_18 | SNK: out_BUS16_S3_T4 | SEL: 01 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_0 | MUX_ID = mux_19 | SNK: out_BUS16_S3_T5 | SEL: 10 
+SB DEBUG: Bitstream for tile_3 sb_0 : 111111111111111111111001110011001111111100111010010011001100
+
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_0 | SNK: out_BUS1_S0_T0 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_1 | SNK: out_BUS1_S0_T1 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_2 | SNK: out_BUS1_S0_T2 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_3 | SNK: out_BUS1_S0_T3 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_4 | SNK: out_BUS1_S0_T4 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_5 | SNK: out_BUS1_S1_T0 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_6 | SNK: out_BUS1_S1_T1 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_7 | SNK: out_BUS1_S1_T2 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_8 | SNK: out_BUS1_S1_T3 | SEL: 01 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_9 | SNK: out_BUS1_S1_T4 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_10 | SNK: out_BUS1_S2_T0 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_11 | SNK: out_BUS1_S2_T1 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_12 | SNK: out_BUS1_S2_T2 | SEL: 01 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_13 | SNK: out_BUS1_S2_T3 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_14 | SNK: out_BUS1_S2_T4 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_15 | SNK: out_BUS1_S3_T0 | SEL: 10 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_16 | SNK: out_BUS1_S3_T1 | SEL: 00 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_17 | SNK: out_BUS1_S3_T2 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_18 | SNK: out_BUS1_S3_T3 | SEL: 11 
+SB DEBUG: TILE : tile_3 | FEAT_ID = sb_1 | MUX_ID = mux_19 | SNK: out_BUS1_S3_T4 | SEL: 00 
+SB DEBUG: Bitstream for tile_3 sb_1 : 111111111111111111110011110010111001110000010000111010000010
+

@@ -1,0 +1,214 @@
+<CGRA>
+  <tile tile_addr='0' row='0' col='0' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'><io></io></opcode>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    <sb feature_address='5' bus='BUS16'>
+        <sel_width>2</sel_width>
+        <mux snk='out_BUS16_S1_T0' reg='1' configh='11' configl='10' configr='45'>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+        </sb>
+    </tile>
+  <tile tile_addr='1' row='1' col='0' tracks='BUS1:5 BUS16:5 '>
+    <cb feature_address='2' bus='BUS16'>
+        <sel_width>4</sel_width>
+        <mux snk='a'>
+          <src sel='5'>in_BUS16_S3_T0</src>
+          </mux>
+    </cb>
+    <cb feature_address='3' bus='BUS16'>
+        <sel_width>4</sel_width>
+        <mux snk='b'>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          </mux>
+    </cb>
+    <opcode feature_address='1'><mult></mult></opcode>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    <sb feature_address='5' bus='BUS16'>
+        <sel_width>2</sel_width>
+        <mux snk='out_BUS16_S1_T0' reg='1' configh='11' configl='10' configr='45'>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+        </sb>
+    </tile>
+  <tile tile_addr='2' row='2' col='0' tracks='BUS1:5 BUS16:5 '>
+    <cb feature_address='2' bus='BUS16'>
+        <sel_width>4</sel_width>
+        <mux snk='a'>
+          <src sel='5'>in_BUS16_S3_T0</src>
+          </mux>
+    </cb>
+    <opcode feature_address='1'><io></io></opcode>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='3' row='3' col='0' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='4' row='0' col='1' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='5' row='1' col='1' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'><const>2</const></opcode>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    <sb feature_address='5' bus='BUS16'>
+        <sel_width>2</sel_width>
+        <mux snk='out_BUS16_S2_T0' reg='0' configh='21' configl='20'>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+        </sb>
+    </tile>
+  <tile tile_addr='6' row='2' col='1' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='7' row='3' col='1' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='8' row='0' col='2' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='9' row='1' col='2' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='10' row='2' col='2' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='11' row='3' col='2' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='12' row='0' col='3' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='13' row='1' col='3' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='14' row='2' col='3' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+  <tile tile_addr='15' row='3' col='3' tracks='BUS1:5 BUS16:5 '>
+    <opcode feature_address='1'/>
+    <pe feature_address='0'>
+        <bool_inps> 1 </bool_inps>
+        <mult_mode> 1 </mult_mode>
+        <reg_inputs> 1 </reg_inputs>
+        <reg_out> 0 </reg_out>
+        <use_add> 1 </use_add>
+        <use_shift> 1 </use_shift>
+    </pe>
+    </tile>
+</CGRA>

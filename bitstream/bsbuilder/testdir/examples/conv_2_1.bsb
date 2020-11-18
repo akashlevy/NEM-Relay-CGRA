@@ -1,0 +1,78 @@
+
+# CONSTANTS
+# const0__334::add_335_339_340$binop.data.in.0 Tx0102_op2
+# const7__338::mul_337_338_339$binop.data.in.1 Tx0103_op2
+# const7__344::mul_343_344_345$binop.data.in.1 Tx0101_op2
+
+# REGISTERS []
+
+# PE tiles
+Tx0101_mul(wire,const7__344) # mul_343_344_345$binop
+Tx0102_add(wire,const0__334) # add_335_339_340$binop
+Tx0103_mul(wire,const7__338) # mul_337_338_339$binop
+Tx0202_add(wire,wire)      # add_341_345_346$binop
+
+# LUT tiles for wen_lut's [261]
+Tx0105_lutFF(const0,const0,const0)
+
+# MEM tiles
+Tx0104_mem_10 # lb_p4csus$lbmem_1_0$cgramem fifo_depth=10
+
+# ROUTING
+
+# INPUT::lb_p4csus$lbmem_1_0$cgramem
+Tx0101_in_s3t0 -> Tx0101_out_s0t0
+Tx0102_in_s2t0 -> Tx0102_out_s0t0
+Tx0103_in_s2t0 -> Tx0103_out_s0t0
+Tx0104_in_s2t0 -> Tx0104_mem_in
+
+# wen_lut::lb_p4csus$lbmem_1_0$cgramem
+Tx0105_pe_out_b0 -> Tx0105_out_s2t0_b0
+Tx0104_in_s0t0_b0 -> Tx0104_out_s2t0_b0
+Tx0104_out_s2t0_b0 -> Tx0104_wen
+
+# INPUT::mul_343_344_345$binop.data.in.0
+Tx0101_in_s3t0 -> Tx0101_out_s2t0
+Tx0101_out_s2t0 -> Tx0101_op1
+
+# add_335_339_340$binop::add_341_345_346$binop.data.in.0
+Tx0102_pe_out -> Tx0102_out_s1t2
+Tx0202_in_s3t2 -> Tx0202_out_s2t2
+Tx0202_out_s2t2 -> Tx0202_op1
+
+# add_341_345_346$binop::OUTPUT
+Tx0202_pe_out -> Tx0202_out_s0t0
+Tx0203_in_s2t0 -> Tx0203_out_s0t0
+Tx0204_in_s2t0 -> Tx0204_out_s0t0
+Tx0205_in_s2t0 -> Tx0205_out_s0t0
+Tx0206_in_s2t0 -> Tx0206_out_s0t0
+Tx0207_in_s2t0 -> Tx0207_out_s0t0
+Tx0208_in_s2t0 -> Tx0208_out_s0t0
+Tx0209_in_s2t0 -> Tx0209_out_s0t0
+Tx020A_in_s2t0 -> Tx020A_out_s0t0
+Tx020B_in_s2t0 -> Tx020B_out_s0t0
+Tx020C_in_s2t0 -> Tx020C_out_s0t0
+Tx020D_in_s2t0 -> Tx020D_out_s0t0
+Tx020E_in_s2t0 -> Tx020E_out_s0t0
+Tx020F_in_s2t0 -> Tx020F_out_s0t0
+Tx0210_in_s2t0 -> Tx0210_out_s3t0
+Tx0110_in_s1t0 -> Tx0110_out_s0t0
+
+# lb_p4csus$lbmem_1_0$cgramem::mul_337_338_339$binop.data.in.0
+Tx0104_mem_out -> Tx0104_out_s2t0
+Tx0103_in_s0t0 -> Tx0103_out_s2t0
+Tx0103_out_s2t0 -> Tx0103_op1
+
+# mul_337_338_339$binop::add_335_339_340$binop.data.in.1
+Tx0103_pe_out -> Tx0103_out_s2t1
+Tx0102_in_s0t1 -> Tx0102_out_s2t1
+Tx0102_out_s2t1 -> Tx0102_op1
+
+# mul_343_344_345$binop::add_341_345_346$binop.data.in.1
+Tx0101_pe_out -> Tx0101_out_s1t3
+Tx0201_in_s3t3 -> Tx0201_out_s0t3
+Tx0202_in_s2t3 -> Tx0202_out_s1t3
+Tx0202_out_s1t3 -> Tx0202_op2
+
+# INPUT  tile 257 ( 1, 1) / in_BUS16_S3_T0 / wire_0_1_BUS16_S1_T0
+# OUTPUT tile 272 ( 1,16) / out_0_BUS16_S0_T0 / wire_1_16_BUS16_S0_T0

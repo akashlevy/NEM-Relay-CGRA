@@ -1,0 +1,51 @@
+//; my $use_ff   = parameter(Name=>'use_ff', val=> 1, List=>[1, 0], doc=>'Add optional register');
+
+module `mname`  #(
+  parameter DataWidth = 16,
+  parameter NumInp    = 4
+) (
+//; if($use_ff) {
+  input                        clk,
+  input                        rst_n,
+//; }
+
+  input  [DataWidth-1:0]       data_in [NumInp-1:0],
+  input  [$clog2(NumInp)-1:0]    sel,
+  //input  [1:0]    sel,
+//; if($use_ff) {
+  input                        reg_en,
+//; }
+
+  output logic [DataWidth-1:0] res
+);
+
+  logic [DataWidth-1:0] res_w;
+  integer j;
+
+  always_comb begin
+    res_w = 'hX;
+
+    for(j=0;j<NumInp; j=j+1) begin
+      if(sel == j)
+        res_w = data_in[j];
+    end
+  end
+
+//; if($use_ff) {
+  logic [DataWidth-1:0] res_reg;
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if(~rst_n) begin
+      res_reg <= 16'h0;
+    end else if(reg_en) begin
+      res_reg <= res_w;
+    end
+  end
+
+  assign res = reg_en ? res_reg : res_w;
+//; } else {
+    assign res = res_w;
+//;}
+
+endmodule
+

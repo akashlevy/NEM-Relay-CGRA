@@ -1,0 +1,25 @@
+//; my $use_mad = parameter(Name=>'use_mad', Val=>1, List=>[1, 0],
+//;                               Doc=>"Use MAD or simple MULT");
+module  `mname`  #(
+  parameter DataWidth = 16
+) (
+  input  [DataWidth-1:0] a,
+  input  [DataWidth-1:0] b,
+
+//; if ($use_mad) {
+  input  [DataWidth-1:0] c,
+//;}
+
+  output logic [2*DataWidth-1:0] res,
+  output logic                   c_out
+);
+
+
+//; if ($use_mad) {
+  assign {c_out, res} = a*b+c;
+//;} else {
+  assign res = a*b;
+  assign c_out = 1'b0;
+//;}
+
+endmodule

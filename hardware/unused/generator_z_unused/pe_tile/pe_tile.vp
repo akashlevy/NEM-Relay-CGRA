@@ -1,0 +1,448 @@
+///////////////////////////////////////////////////////////////////
+// CGRA PE generator 
+//
+// Nikhil Bhagdikar
+// (C) Stanford University
+// Please do not remove this header
+//////////////////////////////////////////////////////////////////
+//; use POSIX;
+//; #global
+//; my $bus_config = parameter(Name=>'bus_config', val=> "BUS16:16b:10t BUS1:1b:10t", doc=>'buses used at global level. pass through wires will be generated for all buses on left and right edges');
+
+//; # for sb
+//; my $sides = parameter(Name=>'sides', val=> 4, doc=>'number of edges for a SB'); 
+//; my $feedthrough_outputs = parameter(Name=>'feedthrough_outputs', val=> "11000", doc=>'binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = 0.5*num_tracks.');
+//; my $registered_outputs = parameter(Name=>'registered_outputs', val=> "00110", doc=>'binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.');
+//; my $is_bidi = parameter(Name=>'is_bidi', val=> 0, doc=>'1 if SB pins are bidi. TBD.');
+
+//; # for cb
+//; my $cb_connections = parameter(Name=>'cb_connections', val=> "1111111111", doc=>'binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.');
+//; my $has_constant = parameter(Name=>'has_constant', val=> 1, doc=>'set to 1 if the CB has a register to supply a constant '); 
+//; my $oper = parameter(Name=>'oper', val=>"", doc=>'Defines operations supported by the PE');
+
+
+//; my %bus_width_hash = ();
+//; my %bus_num_tracks_hash = ();
+//; foreach my $bus (split(' ', $bus_config)) {
+//;   if ($bus=~m/(BUS\S+):(\S+)b:(\S+)t/) { 
+//;     $bus_width_hash{ $1 } = $2;
+//;     $bus_num_tracks_hash{ $1 } = $3;
+//;   }
+//; }
+//; my %oper_name_hash = ();
+//; my %oper_input_hash = ();
+//; my %oper_output_hash = ();
+//; my %oper_impl_hash = ();
+//; my @opers = split('NAME', $oper);
+//; foreach my $oper (@opers) {
+//;   if ($oper =~ m/^:(\S+)\s*INPUTS:(.*)OUTPUT:\s*(\S+)\s*IMPL:\s*(\S+)\s*$/) {
+//;     my $name = $1;
+//;     my $inputs = $2;
+//;     my $output = $3;
+//;     my $impl = $4;
+//;     $inputs =~ s/\s+/ /g;
+//;     $inputs =~ s/^\s+//g;
+//;     $inputs =~ s/\s+$//g;
+//;     $output =~ s/\s//g;
+//;     $impl =~ s/\s//g;
+//;     #print "$name|@input_arr|$output|$impl|\n";
+//;     $oper_name_hash{$name} = 1; 
+//;     $oper_input_hash{$name} = $inputs;
+//;     $oper_output_hash{$name} = $output;
+//;     $oper_impl_hash{$name} = $impl;
+//;   }
+//; }
+//; my %cb_bus_name_hash = ();
+//; # collect CBs 
+//; for my $oper (keys %oper_name_hash) {
+//;   foreach my $xinput (split(' ', $oper_input_hash{$oper})) {
+//;     my @params = split('#', $xinput);
+//;     my $bus_name = $params[1];
+//;     my $cb_name = $params[2];
+//;     if ($cb_name=~m/cb\d+/) {
+//;       $cb_bus_name_hash{$bus_name."___".$cb_name} = 1;
+//;     }
+//;   }
+//; }
+//; my %pe_output_hash = ();
+//; # collect PE outputs 
+//; for my $oper (keys %oper_name_hash) {
+//;   foreach my $xoutput ($oper_output_hash{$oper}) {
+//;     my @params = split('#', $xoutput);
+//;     my $output_name = $params[0];
+//;     my $bus_name = $params[1];
+//;     my $pe_name = $params[2];
+//; 
+//;     my $key = $bus_name."___".$pe_name;
+//;     if (exists $pe_output_hash{$key}) {
+//;       $pe_output_hash{$key} .= " ".$oper."___".$output_name;
+//;     } else {
+//;       $pe_output_hash{$key} = $oper."___".$output_name;
+//;     }
+//;   }
+//; }
+//; #############################################################
+//; #  Instantiate operator modules
+//; #
+//; #############################################################
+//; foreach my $oper (sort (keys %oper_name_hash)) {
+//;     my $impl = $oper_impl_hash{$oper};
+module `$oper` (
+  clk,
+//;     foreach my $xinput (split(' ', $oper_input_hash{$oper})) {
+//;       my @params = split('#', $xinput);
+  `$params[0]`,
+//;     }
+//;   foreach my $xoutput ($oper_output_hash{$oper}) {
+//;     my @params = split('#', $xoutput);
+  `$params[0]`,
+//;     if ($impl =~ m/LUT:\S+:/) {
+  lut___data,
+//;     }
+//;   }
+  reset);
+  input clk;
+  input reset;
+//;   foreach my $xinput (split(' ', $oper_input_hash{$oper})) {
+//;     my @params = split('#', $xinput);
+//;     my $input_name = $params[0];
+//;     my $bus_name = $params[1];
+//;     my $cb_name = $params[2];
+  input [`$bus_width_hash{$bus_name}-1`:0] `$input_name`;
+//;   }
+//;     if ($impl =~ m/LUT:(\S+):/) {
+//;       my $lut_inputs = $1;
+//;       my $count = length($lut_inputs);
+  input [`2**$count - 1`:0] lut___data;
+//;     }
+//;     my $output_name; 
+//;   foreach my $xoutput ($oper_output_hash{$oper}) {
+//;     my @params = split('#', $xoutput);
+//;        $output_name = $params[0];
+//;     my $bus_name = $params[1];
+//;     my $pe_name = $params[2];
+  output [`$bus_width_hash{$bus_name}-1`:0] `$output_name`;
+//;     if ($impl =~ m/LUT:(\S*):/) {
+//;     my $inputs = $1;
+//;     $inputs = "{".join(',', split('',$inputs))."}";
+  assign `$output_name`=lut___data[`$inputs`];
+//;     } else {
+  assign `$impl`;
+//;     }
+//;   }
+endmodule
+
+//; }
+
+
+module `mname` (
+clk,
+config_addr,
+config_data,
+//;   for my $bus (keys %bus_num_tracks_hash) {
+//;     my $num_tracks = $bus_num_tracks_hash { $bus };
+//;     for(my $i=0; $i<$sides; $i++) {
+//;       for(my $j=0; $j<$num_tracks*0.5; $j++) {
+out_`$bus`_`$i`_`$j`,
+in_`$bus`_`$i`_`$j`,
+//;      }
+//;     }
+//;   }
+reset,
+tile_id
+);
+//; my $config_bits_used = 0;
+  input clk;
+  input [31:0] config_addr;
+  input [31:0] config_data;
+
+//;   for my $bus (keys %bus_num_tracks_hash) {
+//;     my $num_tracks = $bus_num_tracks_hash { $bus };
+//;     my $bus_width = $bus_width_hash { $bus };
+//;     for(my $i=0; $i<$sides; $i++) {
+//;       for(my $j=0; $j<$num_tracks*0.5; $j++) {
+  output [`$bus_width-1`:0] out_`$bus`_`$i`_`$j`;
+  input [`$bus_width-1`:0] in_`$bus`_`$i`_`$j`;
+//;      }
+//;     }
+//;   }
+
+  input [15:0] tile_id;
+  input reset;
+
+//; my %bus_module_hash = ();
+//; for my $bus (keys %bus_num_tracks_hash) {
+//;   my $num_tracks = $bus_num_tracks_hash { $bus };
+//;   my $bus_width = $bus_width_hash { $bus };
+//;   my $cb = generate('cb', 'cb'.$bus, width=>$bus_width, num_tracks=>$num_tracks, has_constant=>$has_constant, feedthrough_outputs=>$cb_connections);
+//;   $bus_module_hash{ $bus } = $cb;
+//; }
+
+//; #############################################################
+//; # Generate config enables for all SBs and CBs
+//; #############################################################
+//; my $num_sb = scalar (keys %bus_num_tracks_hash);
+//; my $intra_tile_addr = 0;
+//; for(my $i=0; $i<$num_sb; $i++,$intra_tile_addr++) {
+  reg config_en_sb_`$i`;
+  always @(posedge clk) begin
+    if (reset) begin
+       config_en_sb_`$i` <= 1'b0;
+    end else begin
+       if ((config_addr[15:0]==tile_id)&&(config_addr[23:16]==8'd`$intra_tile_addr`)) begin
+         config_en_sb_`$i` <= 1'b1;
+       end else begin
+         config_en_sb_`$i` <= 1'b0;
+       end
+    end
+  end
+//; }
+//; my $num_cb = scalar (keys %cb_bus_name_hash);
+//; for(my $i=0; $i<$num_cb; $i++,$intra_tile_addr++) {
+  reg config_en_cb_`$i`;
+  always @(posedge clk) begin
+    if (reset) begin
+       config_en_cb_`$i` <= 1'b0;
+    end else begin
+       if ((config_addr[15:0]==tile_id)&&(config_addr[23:16]==8'd`$intra_tile_addr`)) begin
+         config_en_cb_`$i` <= 1'b1;
+       end else begin
+         config_en_cb_`$i` <= 1'b0;
+       end
+    end
+  end
+//; }
+
+  reg config_en_pe;
+  always @(posedge clk) begin
+    if (reset) begin
+       config_en_pe <= 1'b0;
+    end else begin
+       if ((config_addr[15:0]==tile_id)&&(config_addr[23:16]==8'd`$intra_tile_addr`)) begin
+         config_en_pe <= 1'b1;
+       end else begin
+         config_en_pe <= 1'b0;
+       end
+    end
+  end
+
+//; #############################################################
+//; # Instantiate config memory
+//; #############################################################
+//;
+//;
+//; # Count number of PE outputs for each bus type
+//; #############################################################
+//; my %pe_output_count_hash = ();
+//; for my $bus (keys %bus_num_tracks_hash) {
+//;   my $pe_output_count = 0;
+//;   while (exists $pe_output_hash{$bus."___sb".$pe_output_count}) {
+//;     $pe_output_count++;
+//;   }
+//;   $pe_output_count_hash{$bus} = $pe_output_count;
+//; }
+//; # Compute number of config bits needed at PE level for output muxing
+//; #############################################################
+//; foreach my $bus (sort (keys %pe_output_count_hash)) {
+//;   for (my $i=0;$i<$pe_output_count_hash{$bus};$i++) {
+//;     my $key = $bus.'___sb'.$i;
+//;     my @all_ops = sort(split(' ', $pe_output_hash{ $key }));
+//;     my $bits = int(ceil(log(scalar @all_ops)/log(2)));
+//;     my $config_start = $config_bits_used;
+//;     my $config_end = $config_bits_used + $bits;
+//;     $config_bits_used += $bits;
+//;   }
+//; }
+//; # Compute number of config bits needed for LUTs 
+//; #############################################################
+//; my $lut_config_bits = 0;
+//; my $lut_config_bits_start = $config_bits_used;
+//; foreach my $oper (sort (keys %oper_name_hash)) {
+//;   my $impl = $oper_impl_hash{$oper};
+//;   if ($impl =~ m/LUT:(\S+):/) {
+//;     my $input_str = $1;
+//;     my $bits_needed = 2**length($input_str);
+//;     $lut_config_bits += $bits_needed;
+//;   }
+//; }
+//; $config_bits_used += $lut_config_bits;
+
+//; # Instantiate config mem
+//; #############################################################
+//; if ($config_bits_used>0) { 
+  reg [`int(ceil($config_bits_used/32.0)*32)-1`:0] config_pe;
+  
+  //; my $config_addrs_needed = int(ceil($config_bits_used / 32.0));
+  always @(posedge clk) begin
+    if (reset==1'b1) begin
+      config_pe <= `$config_bits_used`'d0;
+    end else begin
+      if (config_en_pe==1'b1) begin
+         case (config_addr[31:24])
+  //; for (my $j=0; $j<$config_addrs_needed; $j=$j+1) {
+           8'd`$j`: config_pe[`($j+1)*32-1`:`$j*32`] <= config_data;
+  //; }
+         endcase
+      end
+    end
+  end
+//; }
+
+//; #############################################################
+//; #  Instantiate CB, SB, op outputs 
+//; #
+//; #############################################################
+//; foreach my $bus (sort (keys %pe_output_count_hash)) {
+//;   for (my $i=0;$i<$pe_output_count_hash{$bus};$i++) {
+//;     my $key = $bus.'___sb'.$i;
+  reg [`$bus_width_hash{$bus} - 1`:0] `$key`;
+//;   }
+//; }
+//; foreach my $key (sort (keys %cb_bus_name_hash)) {
+//;   my @key_arr = split('___',$key);
+//;   my $bus_name = $key_arr[0];
+//;   my $bus_width = $bus_width_hash { $bus_name };
+  wire [`$bus_width-1`:0] `$key`;
+//; }
+
+//; foreach my $oper (sort (keys %oper_name_hash)) {
+//;   foreach my $xoutput ($oper_output_hash{$oper}) {
+//;     my @params = split('#', $xoutput);
+//;     my $bus_width = $bus_width_hash{ $params[1] };
+  wire [`$bus_width-1`:0] `$oper`___`$params[0]`;
+//;   }
+//; }
+
+//; #############################################################
+//; #  Instantiate CB
+//; #
+//; #############################################################
+//; my $cb=0;
+//; my @cb_connections_arr = split('',$cb_connections);
+//; foreach my $key (sort (keys %cb_bus_name_hash)) {
+//;   #print "$key\n";
+//;   my @key_arr = split('___',$key);
+//;   my $bus_name = $key_arr[0];
+//;   my $cb_name = $key_arr[1];
+//;   my $num_tracks = $bus_num_tracks_hash { $bus_name };
+//;   my $width = $bus_width_hash { $bus_name };
+//;   my $cb_to_inst =  $bus_module_hash{ $bus_name };
+//;   my $cb_obj = clone($cb_to_inst, 'cb_'.$bus_name.'_'.$cb);
+  `$cb_obj->instantiate()`
+  (
+    .clk(clk),
+    .reset(reset),
+    .out(`$bus_name . "___". $cb_name`),
+//; #change the code below for supporting more than 4 sides
+//; $cb_name =~ m/cb(\d+)/;
+//; my $cb_count = $1;
+//; my @xsides;
+//; if ($cb_count % 2 == 0) {
+//;  @xsides = (0, 2);
+//; } else {
+//;  @xsides = (1, 3);
+//; }
+//; my $k=0;
+//; foreach my $i (@xsides) {
+//;   for(my $j=0; $j<$num_tracks*0.5; $j++, $k++) {
+//;     if (@cb_connections_arr[$j]==1) {
+    .in_`$k`(in_`$bus_name`_`$i`_`$j`),
+//;     }
+//;   }    
+//;  }
+    .config_addr(config_addr),
+    .config_data(config_data),
+    .config_en(config_en_cb_`$cb`)
+//; $cb++;
+  );
+//; }
+
+//; #############################################################
+//; #  Instantiate SB 
+//; #
+//; #############################################################
+//; my $sb=0;
+//; # Generate SB templates for all bus types
+//; #############################################################
+//; my %bus_module_hash = ();
+//; for my $bus (keys %bus_num_tracks_hash) {
+//;   my $num_tracks = $bus_num_tracks_hash { $bus };
+//;   my $bus_width = $bus_width_hash { $bus };
+//;   $bus_module_hash{ $bus } = generate('sb', 'sb'.$bus, width => $bus_width, num_tracks => $num_tracks, sides => $sides, feedthrough_outputs=>$feedthrough_outputs, registered_outputs=>$registered_outputs, pe_output_count=>$pe_output_count_hash{$bus}, is_bidi=>$is_bidi);
+//; }
+//; # Instantiate PE output muxes and SBs
+//; #############################################################
+//; $config_bits_used=0;
+//; foreach my $bus (sort (keys %pe_output_count_hash)) {
+//;   for (my $i=0;$i<$pe_output_count_hash{$bus};$i++) {
+//;     my $key = $bus.'___sb'.$i;
+//;     my @all_ops = sort(split(' ', $pe_output_hash{ $key }));
+//;     my $bits = int(ceil(log(scalar @all_ops)/log(2)));
+//;     my $config_start = $config_bits_used;
+//;     my $config_end = $config_bits_used + $bits;
+//;     $config_bits_used += $bits;
+  always @(*) begin
+    case (config_pe[`$config_end - 1`:`$config_start`])
+//;     for (my $op_id=0; $op_id < scalar @all_ops; $op_id++) {  
+      `$bits`'d`$op_id`: `$key` <= `$all_ops[$op_id]`;
+//;     }
+      default: `$key` <= 0;
+    endcase
+  end
+//;    }
+//;   my $num_tracks = $bus_num_tracks_hash { $bus };
+//;   my $sb_obj = clone($bus_module_hash{ $bus }, 'sb_'.$bus);
+  `$sb_obj->instantiate()`
+  (
+    .clk(clk),
+    .reset(reset),
+//;   for(my $i=0; $i<$pe_output_count_hash{$bus}; $i++) {
+    .pe_output_`$i`(`$bus.'___sb'.$i`),
+//;   }
+//; for(my $i=0; $i<$sides; $i++) {
+//;  for(my $j=0; $j<$num_tracks*0.5; $j++) {
+    .out_`$i`_`$j`(out_`$bus`_`$i`_`$j`),
+    .in_`$i`_`$j`(in_`$bus`_`$i`_`$j`),
+//;  }
+//; }
+    .config_addr(config_addr),
+    .config_data(config_data),
+    .config_en(config_en_sb_`$sb`)
+//; $sb++;
+  );
+//;   
+//; }
+
+
+//; #############################################################
+//; # Instantiate ops
+//; #############################################################
+//; my $lut_config_bit_index = $lut_config_bits_start;
+//; foreach my $oper (sort (keys %oper_name_hash)) {
+//;     my $impl = $oper_impl_hash{$oper};
+  `$oper` `$oper`_u0 (
+   .clk(clk),
+//;     foreach my $xinput (split(' ', $oper_input_hash{$oper})) {
+//;       my @params = split('#', $xinput);
+//;       if ($params[2]=~m/cb\d+/) {
+   .`$params[0]`(`$params[1]`___`$params[2]`),
+//;       } else {
+   .`$params[0]`(`$params[2]`),
+//;       }
+//;     }
+//;   foreach my $xoutput ($oper_output_hash{$oper}) {
+//;     my @params = split('#', $xoutput);
+   .`$params[0]`(`$oper`___`$params[0]`),
+//;     if ($impl =~ m/LUT:(\S+):/) {
+//;     my $input_str = $1;
+//;     my $bits_needed = 2**length($input_str);
+//;     my $config_start = $lut_config_bit_index;
+//;     my $config_end = $config_start + $bits_needed;
+//;    $lut_config_bit_index += $bits_needed;
+   .lut___data(config_pe[`$config_end-1`:`$config_start`]), 
+//;     }
+//;   }
+   .reset(reset)
+  );
+//; }
+endmodule

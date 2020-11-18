@@ -1,0 +1,2820 @@
+# PLACEMENT
+Tx0101_lutEE(wire,wire,const0_0)						# lb_p3_lxx_stencil_update_stream$valcounter_1$resetOr$lut$lut
+Tx0102_mux(const0_0,wire,wire)						# lb_p3_lxx_stencil_update_stream$valcounter_1$count$clrMux$mux
+Tx0103_lut55(wire,const0_0,const0_0)						# lb_p3_lxx_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx0105_add(wire,wire)						# add_723_734_735$binop
+Tx0106_ule(const2_2,wire)						# lb_padded_2_stencil_update_stream$valcompare_0$compop
+Tx0107_mux(wire,wire,wire)						# lb_p3_lxx_stencil_update_stream$valcounter_0$count$enMux$mux
+Tx0109_ashr(wire,const6_6)						# ashr_742_761_762$binop
+Tx010A_add(wire,wire)						# add_723_740_741$binop
+Tx010B_add(wire,reg)						# add_723_736_737$binop
+Tx010D_add(wire,wire)						# add_723_738_739$binop
+Tx010E_smax(wire,wire)						# smax_784_785_786$cgramax
+Tx010F_smax(wire,wire)						# smax_786_787_788$cgramax
+Tx0201_add(wire,const1_1)						# lb_padded_2_stencil_update_stream$valcounter_1$add$binop
+Tx0202_mux(wire,wire,wire)						# lb_padded_2_stencil_update_stream$valcounter_1$count$enMux$mux
+Tx0203_uge(const61_61,wire)						# lb_p3_lxx_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx0205_add(wire,const1_1)						# lb_p3_lxx_stencil_update_stream$valcounter_1$add$binop
+Tx0206_mux(const0_0,wire,wire)						# lb_p3_lxx_stencil_update_stream$valcounter_0$count$clrMux$mux
+Tx0207_ule(const2_2,wire)						# lb_p3_lxx_stencil_update_stream$valcompare_0$compop
+Tx0209_mul(wire,wire)						# mul_762_763_765$binop
+Tx020A_add(wire,wire)						# add_762_763_764$binop
+Tx020B_mux(wire,wire,const1_1)						# lb_padded_2_stencil_update_stream$valcounter_0$count$enMux$mux
+Tx020D_add(wire,reg)						# add_742_755_756$binop
+Tx020E_add(wire,wire)						# add_742_757_758$binop
+Tx020F_smax(wire,reg)						# smax_778_779_780$cgramax
+Tx0301_lut88(wire,wire,const0_0)						# lb_padded_2_stencil_update_stream$valid_andr$_join$lut$lut
+Tx0302_add(wire,wire)						# add_723_732_733$binop
+Tx0303_mux(wire,wire,wire)						# lb_p3_lxx_stencil_update_stream$valcounter_1$count$enMux$mux
+Tx0305_lut88(const1_1,wire,const0_0)						# lb_padded_2_stencil_update_stream$valid_andr$opN_0$_join$lut$lut
+Tx0306_lutEE(wire,wire,const0_0)						# lb_p3_lxx_stencil_update_stream$valcounter_0$resetOr$lut$lut
+Tx0307_lut55(wire,const0_0,const0_0)						# lb_p3_lxx_stencil_update_stream$valcounter_0$ult$not$lut$lut
+Tx0309_mux(const0_0,wire,wire)						# lb_p3_cim_stencil_update_stream$valcounter_0$count$clrMux$mux
+Tx030A_add(wire,const1_1)						# lb_p3_cim_stencil_update_stream$valcounter_0$add$binop
+Tx030B_ashr(wire,const7_7)						# ashr_696_697_698$binop
+Tx030D_mul(wire,wire)						# mul_764_764_769$binop
+Tx030E_smax(wire,reg)						# smax_782_783_784$cgramax
+Tx030F_sge(wire,wire)						# slt_788_773_789$comp$compop
+Tx0401_ule(const2_2,wire)						# lb_padded_2_stencil_update_stream$valcompare_1$compop
+Tx0402_mux(const0_0,wire,wire)						# lb_padded_2_stencil_update_stream$valcounter_1$count$clrMux$mux
+Tx0403_ule(const2_2,wire)						# lb_p3_lxx_stencil_update_stream$valcompare_1$compop
+Tx0405_lut88(wire,wire,const0_0)						# lb_p3_lxx_stencil_update_stream$valid_andr$opN_0$_join$lut$lut
+Tx0406_add(wire,const1_1)						# lb_padded_2_stencil_update_stream$valcounter_0$add$binop
+Tx0407_add(wire,reg)						# add_723_730_731$binop
+Tx0409_lutEE(wire,wire,const0_0)						# lb_padded_2_stencil_update_stream$valcounter_0$resetOr$lut$lut
+Tx040A_ashr(wire,const7_7)						# ashr_667_668_669$binop
+Tx040B_mul(wire,wire)						# mul_666_666_667$binop
+Tx040D_lutEE(wire,wire,const0_0)						# lb_p3_lyy_stencil_update_stream$valcounter_1$resetOr$lut$lut
+Tx040E_mux(wire,const0_0,wire)						# mux_789_790_791$mux
+Tx040F_smax(wire,wire)						# smax_780_781_782$cgramax
+Tx0501_mul(wire,const2_2)						# mul_676_677_678$binop
+Tx0502_sle(wire,const255_255)						# smin_661_662_663$scomp$compop
+Tx0503_mul(wire,wire)						# mul_694_695_696$binop
+Tx0505_lut88(wire,wire,const0_0)						# lb_p3_lxx_stencil_update_stream$valid_andr$_join$lut$lut
+Tx0506_add(wire,const1_1)						# lb_p3_lxx_stencil_update_stream$valcounter_0$add$binop
+Tx0507_smax(wire,const65281_65281)						# smax_663_664_665$cgramax
+Tx0509_uge(const59_59,wire)						# lb_p3_cim_stencil_update_stream$valcounter_0$ult$comp$compop
+Tx050A_mux(const0_0,wire,wire)						# lb_padded_2_stencil_update_stream$valcounter_0$count$clrMux$mux
+Tx050B_add(wire,wire)						# add_742_759_760$binop
+Tx050D_lut88(wire,wire,const0_0)						# lb_p3_cim_stencil_update_stream$valid_andr$opN_0$_join$lut$lut
+Tx050E_ashr(wire,const4_4)						# ashr_769_770_771$binop
+Tx050F_lut55(wire,const0_0,const0_0)						# slt_788_773_789$not$lut$lut
+Tx0601_ashr(wire,const6_6)						# ashr_704_761_763$binop
+Tx0602_mul(wire,const2_2)						# mul_653_649_654$binop
+Tx0603_mux(wire,const255_255,wire)						# smin_661_662_663$min_mux$mux
+Tx0605_lutEE(wire,wire,const0_0)						# lb_p3_lxy_stencil_update_stream$valcounter_1$resetOr$lut$lut
+Tx0606_uge(const61_61,wire)						# lb_p3_lxx_stencil_update_stream$valcounter_0$ult$comp$compop
+Tx0607_mul(wire,wire)						# mul_766_766_767$binop
+Tx0609_uge(const61_61,wire)						# lb_p3_lyy_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx060A_mux(wire,wire,wire)						# lb_p3_cim_stencil_update_stream$valcounter_0$count$enMux$mux
+Tx060B_mux(wire,wire,wire)						# lb_p3_lxy_stencil_update_stream$valcounter_0$count$enMux$mux
+Tx060D_lutEE(wire,wire,const0_0)						# lb_p3_lxy_stencil_update_stream$valcounter_0$resetOr$lut$lut
+Tx060E_sub(wire,wire)						# sub_768_771_772$binop
+Tx060F_sub(wire,wire)						# sub_765_767_768$binop
+Tx0701_ashr(wire,const7_7)						# ashr_700_701_702$binop
+Tx0702_add(wire,wire)						# add_704_721_722$binop
+Tx0703_mul(reg,const2_2)						# mul_648_649_650$binop
+Tx0705_uge(const63_63,wire)						# lb_padded_2_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx0706_add(wire,wire)						# add_723_728_729$binop
+Tx0707_mux(wire,wire,wire)						# lb_p3_lyy_stencil_update_stream$valcounter_0$count$enMux$mux
+Tx0709_mux(const0_0,wire,wire)						# lb_p3_lxy_stencil_update_stream$valcounter_1$count$clrMux$mux
+Tx070A_uge(const61_61,wire)						# lb_p3_lxy_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx070B_ule(const2_2,wire)						# lb_p3_cim_stencil_update_stream$valcompare_0$compop
+Tx070D_smax(reg,wire)						# smax_774_775_776$cgramax
+Tx070E_lut55(wire,const0_0,const0_0)						# lb_p3_lyy_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx070F_smax(wire,wire)						# smax_776_777_778$cgramax
+Tx0801_lut55(wire,const0_0,const0_0)						# lb_padded_2_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx0802_sub(wire,wire)						# sub_643_645_646$binop
+Tx0803_sub(wire,wire)						# sub_646_650_651$binop
+Tx0805_add(wire,wire)						# add_723_726_727$binop
+Tx0806_add(const0_0,reg)						# add_723_724_725$binop
+Tx0807_ashr(wire,const6_6)						# ashr_723_761_766$binop
+Tx0809_mux(const0_0,wire,wire)						# lb_p3_lxy_stencil_update_stream$valcounter_0$count$clrMux$mux
+Tx080A_uge(const63_63,wire)						# lb_padded_2_stencil_update_stream$valcounter_0$ult$comp$compop
+Tx080B_lut55(wire,const0_0,const0_0)						# lb_p3_lxy_stencil_update_stream$valcounter_0$ult$not$lut$lut
+Tx080D_lutEE(wire,wire,const0_0)						# lb_p3_cim_stencil_update_stream$valcounter_0$resetOr$lut$lut
+Tx080E_uge(const61_61,wire)						# lb_p3_lxy_stencil_update_stream$valcounter_0$ult$comp$compop
+Tx080F_lut55(wire,const0_0,const0_0)						# lb_p3_cim_stencil_update_stream$valcounter_0$ult$not$lut$lut
+Tx0901_lutEE(wire,wire,const0_0)						# lb_padded_2_stencil_update_stream$valcounter_1$resetOr$lut$lut
+Tx0902_add(wire,wire)						# add_704_719_720$binop
+Tx0903_add(wire,reg)						# add_704_717_718$binop
+Tx0905_add(wire,wire)						# add_651_654_655$binop
+Tx0906_uge(const59_59,wire)						# lb_p3_cim_stencil_update_stream$valcounter_1$ult$comp$compop
+Tx0907_lut88(wire,wire,const0_0)						# lb_p3_lyy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut
+Tx0909_lut55(wire,const0_0,const0_0)						# lb_p3_lxy_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx090A_lut55(wire,const0_0,const0_0)						# lb_padded_2_stencil_update_stream$valcounter_0$ult$not$lut$lut
+Tx090B_add(wire,const1_1)						# lb_p3_lxy_stencil_update_stream$valcounter_0$add$binop
+Tx090D_mux(wire,wire,wire)						# lb_p3_lxy_stencil_update_stream$valcounter_1$count$enMux$mux
+Tx090E_mux(wire,wire,wire)						# lb_p3_cim_stencil_update_stream$valcounter_1$count$enMux$mux
+Tx090F_ule(const2_2,wire)						# lb_p3_lxy_stencil_update_stream$valcompare_1$compop
+Tx0A01_ule(const2_2,wire)						# lb_p3_lyy_stencil_update_stream$valcompare_1$compop
+Tx0A02_mul(wire,wire)						# mul_699_699_700$binop
+Tx0A03_add(wire,wire)						# add_704_715_716$binop
+Tx0A05_sub(wire,wire)						# sub_671_673_674$binop
+Tx0A06_add(wire,const1_1)						# lb_p3_cim_stencil_update_stream$valcounter_1$add$binop
+Tx0A07_add(wire,wire)						# add_742_747_748$binop
+Tx0A09_add(wire,wire)						# add_742_753_754$binop
+Tx0A0A_lut55(wire,const0_0,const0_0)						# lb_p3_cim_stencil_update_stream$valcounter_1$ult$not$lut$lut
+Tx0A0B_lut88(wire,wire,const0_0)						# lb_p3_lxy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut
+Tx0A0D_add(wire,wire)						# add_704_709_710$binop
+Tx0A0E_mux(const0_0,wire,wire)						# lb_p3_lyy_stencil_update_stream$valcounter_1$count$clrMux$mux
+Tx0A0F_lut88(wire,wire,const0_0)						# lb_p3_cim_stencil_update_stream$valid_andr$_join$lut$lut
+Tx0B01_add(wire,wire)						# add_704_713_714$binop
+Tx0B02_lut88(wire,wire,const0_0)						# lb_p3_lyy_stencil_update_stream$valid_andr$_join$lut$lut
+Tx0B03_sle(wire,const255_255)						# smin_689_690_691$scomp$compop
+Tx0B05_add(wire,const1_1)						# lb_p3_lyy_stencil_update_stream$valcounter_0$add$binop
+Tx0B06_mux(wire,const255_255,wire)						# smin_689_690_691$min_mux$mux
+Tx0B07_ule(const2_2,wire)						# lb_p3_cim_stencil_update_stream$valcompare_1$compop
+Tx0B09_smax(wire,const65281_65281)						# smax_691_692_693$cgramax
+Tx0B0A_mux(const0_0,wire,wire)						# lb_p3_cim_stencil_update_stream$valcounter_1$count$clrMux$mux
+Tx0B0B_lutEE(wire,wire,const0_0)						# lb_p3_cim_stencil_update_stream$valcounter_1$resetOr$lut$lut
+Tx0B0D_add(const0_0,reg)						# add_704_705_706$binop
+Tx0B0E_uge(const61_61,wire)						# lb_p3_lyy_stencil_update_stream$valcounter_0$ult$comp$compop
+Tx0B0F_mux(wire,wire,wire)						# lb_p3_lyy_stencil_update_stream$valcounter_1$count$enMux$mux
+Tx0C01_add(wire,const1_1)						# lb_p3_lyy_stencil_update_stream$valcounter_1$add$binop
+Tx0C02_sub(wire,wire)						# sub_686_688_689$binop
+Tx0C03_add(wire,wire)						# add_683_685_686$binop
+Tx0C05_add(wire,reg)						# add_704_711_712$binop
+Tx0C06_lutEE(wire,wire,const0_0)						# lb_p3_lyy_stencil_update_stream$valcounter_0$resetOr$lut$lut
+Tx0C07_sub(wire,wire)						# sub_679_682_683$binop
+Tx0C09_ule(const2_2,wire)						# lb_p3_lxy_stencil_update_stream$valcompare_0$compop
+Tx0C0A_add(wire,reg)						# add_742_749_750$binop
+Tx0C0B_add(const0_0,reg)						# add_742_743_744$binop
+Tx0C0D_add(wire,wire)						# add_704_707_708$binop
+Tx0C0E_add(wire,const1_1)						# lb_p3_lxy_stencil_update_stream$valcounter_1$add$binop
+Tx0C0F_lut55(wire,const0_0,const0_0)						# lb_p3_lyy_stencil_update_stream$valcounter_0$ult$not$lut$lut
+Tx0D02_add(wire,wire)						# add_658_660_661$binop
+Tx0D03_sub(wire,wire)						# sub_655_657_658$binop
+Tx0D05_mul(wire,const2_2)						# mul_681_677_682$binop
+Tx0D06_ule(const2_2,wire)						# lb_p3_lyy_stencil_update_stream$valcompare_0$compop
+Tx0D07_add(wire,wire)						# add_674_678_679$binop
+Tx0D09_mux(const0_0,wire,wire)						# lb_p3_lyy_stencil_update_stream$valcounter_0$count$clrMux$mux
+Tx0D0A_add(wire,wire)						# add_742_751_752$binop
+Tx0D0B_add(wire,wire)						# add_742_745_746$binop
+Tx0D0D_lut88(wire,wire,const0_0)						# lb_p3_lxy_stencil_update_stream$valid_andr$_join$lut$lut
+Tx0D01_lut3F(const0_0,const0_0,const0_0)						# lb_padded_2_stencil_update_stream_wen2_lutcnst
+Tx030C_mem_60						#lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem
+Tx0604_mem_62						#lb_p3_lxy_stencil_update_stream$lbmem_1_0$cgramem
+Tx060C_mem_60						#lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem
+Tx0704_mem_62						#lb_p3_lxy_stencil_update_stream$lbmem_2_0$cgramem
+Tx0904_mem_62						#lb_p3_lyy_stencil_update_stream$lbmem_1_0$cgramem
+Tx0908_mem_62						#lb_p3_lxx_stencil_update_stream$lbmem_1_0$cgramem
+Tx0A08_mem_62						#lb_p3_lxx_stencil_update_stream$lbmem_2_0$cgramem
+Tx0B04_mem_64						#lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem
+Tx0C04_mem_62						#lb_p3_lyy_stencil_update_stream$lbmem_2_0$cgramem
+Tx0D04_mem_64						#lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem
+
+
+#IO
+Tx1110_pad(out,1)
+Tx0001_pad(in,1)
+
+#ROUTING
+
+# net id: e0
+# p334: sub_646_650_651$binop::out
+# p0: add_651_654_655$binop::data0
+Tx0803_pe_out -> Tx0803_out_s1t0
+Tx0903_in_s3t0 -> Tx0903_out_s0t0
+Tx0904_in_s2t0 -> Tx0904_out_s0t0
+Tx0905_in_s2t0 -> Tx0905_data0
+
+
+# net id: e1
+# p306: mul_653_649_654$binop::out
+# p0: add_651_654_655$binop::data1
+Tx0602_pe_out -> Tx0602_out_s0t0
+Tx0603_in_s2t0 -> Tx0603_out_s0t0
+Tx0604_in_s2t0 -> Tx0604_out_s1t0
+Tx0704_in_s3t0 -> Tx0704_out_s1t0
+Tx0804_in_s3t0 -> Tx0804_out_s0t0
+Tx0805_in_s2t0 -> Tx0805_out_s1t0
+Tx0905_in_s3t0 -> Tx0905_out_s1t0
+Tx0905_out_s1t0 -> Tx0905_data1
+
+
+# net id: e2
+# p0: add_651_654_655$binop::out
+# p335: sub_655_657_658$binop::data0
+Tx0905_pe_out -> Tx0905_out_s1t1
+Tx0A05_in_s3t1 -> Tx0A05_out_s1t1
+Tx0B05_in_s3t1 -> Tx0B05_out_s1t1
+Tx0C05_in_s3t1 -> Tx0C05_out_s2t1
+Tx0C04_in_s0t1 -> Tx0C04_out_s2t1
+Tx0C03_in_s0t1 -> Tx0C03_out_s1t1
+Tx0D03_in_s3t1 -> Tx0D03_out_s2t1
+Tx0D03_out_s2t1 -> Tx0D03_data0
+
+
+# net id: e3
+# p335: sub_655_657_658$binop::out
+# p1: add_658_660_661$binop::data0
+Tx0D03_pe_out -> Tx0D03_out_s2t0
+Tx0D02_in_s0t0 -> Tx0D02_out_s2t0
+Tx0D02_out_s2t0 -> Tx0D02_data0
+
+
+# net id: e4
+# i59: io16in_in_arg_1_0_0::out
+# p1: add_658_660_661$binop::data1
+# p3: add_683_685_686$binop::data1
+# r256: lb_padded_2_stencil_update_stream$lb1d_0$reg_1::reg
+# m264: lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem::wdata
+Tx1001_in_s2t0 -> Tx1001_out_s3t0
+Tx0F01_in_s1t0 -> Tx0F01_out_s3t0
+Tx0E01_in_s1t0 -> Tx0E01_out_s0t0
+Tx0E02_in_s2t0 -> Tx0E02_out_s3t0
+Tx0D02_in_s1t0 -> Tx0D02_data1
+Tx0D02_in_s1t0 -> Tx0D02_out_s3t0
+Tx0C02_in_s1t0 -> Tx0C02_out_s0t0
+Tx0C03_in_s2t0 -> Tx0C03_out_s1t0
+Tx0C03_out_s1t0 -> Tx0C03_data1
+Tx0C03_in_s2t0 -> Tx0C03_out_s0t0
+Tx0C04_in_s2t0 -> Tx0C04_out_s3t0
+Tx0B04_in_s1t0 -> Tx0B04_out_s2t0
+Tx0B04_out_s2t0 -> Tx0B04_wdata
+Tx0C02_in_s1t0 -> Tx0C02_out_s3t0
+Tx0B02_in_s1t0 -> Tx0B02_out_s3t0
+Tx0A02_in_s1t0 -> Tx0A02_out_s3t0
+Tx0902_in_s1t0 -> Tx0902_out_s3t0
+Tx0802_in_s1t0 -> Tx0802_out_s3t0
+Tx0702_in_s1t0 -> Tx0702_out_s3t0
+Tx0602_in_s1t0 -> Tx0602_out_s3t0
+Tx0502_in_s1t0 -> Tx0502_out_s3t0
+Tx0402_in_s1t0 -> Tx0402_out_s2t0
+Tx0401_in_s0t0 -> Tx0401_out_s3t0
+Tx0301_in_s1t0 -> Tx0301_out_s0t0 (r)
+
+
+# net id: e5
+# p1: add_658_660_661$binop::out
+# p329: smin_661_662_663$min_mux$mux::data0
+# p330: smin_661_662_663$scomp$compop::data0
+Tx0D02_pe_out -> Tx0D02_out_s3t1
+Tx0C02_in_s1t1 -> Tx0C02_out_s3t1
+Tx0B02_in_s1t1 -> Tx0B02_out_s3t1
+Tx0A02_in_s1t1 -> Tx0A02_out_s3t1
+Tx0902_in_s1t1 -> Tx0902_out_s3t1
+Tx0802_in_s1t1 -> Tx0802_out_s3t1
+Tx0702_in_s1t1 -> Tx0702_out_s0t1
+Tx0703_in_s2t1 -> Tx0703_out_s3t1
+Tx0603_in_s1t1 -> Tx0603_out_s2t1
+Tx0603_out_s2t1 -> Tx0603_data0
+Tx0702_in_s1t1 -> Tx0702_out_s3t1
+Tx0602_in_s1t1 -> Tx0602_out_s3t1
+Tx0502_in_s1t1 -> Tx0502_out_s2t1
+Tx0502_out_s2t1 -> Tx0502_data0
+
+
+# net id: e6
+# p336: sub_671_673_674$binop::out
+# p2: add_674_678_679$binop::data0
+Tx0A05_pe_out -> Tx0A05_out_s0t0
+Tx0A06_in_s2t0 -> Tx0A06_out_s0t0
+Tx0A07_in_s2t0 -> Tx0A07_out_s1t0
+Tx0B07_in_s3t0 -> Tx0B07_out_s1t0
+Tx0C07_in_s3t0 -> Tx0C07_out_s1t0
+Tx0D07_in_s3t0 -> Tx0D07_out_s2t0
+Tx0D07_out_s2t0 -> Tx0D07_data0
+
+
+# net id: e7
+# p308: mul_676_677_678$binop::out
+# p2: add_674_678_679$binop::data1
+Tx0501_pe_out -> Tx0501_out_s0t0
+Tx0502_in_s2t0 -> Tx0502_out_s1t0
+Tx0602_in_s3t0 -> Tx0602_out_s1t0
+Tx0702_in_s3t0 -> Tx0702_out_s1t0
+Tx0802_in_s3t0 -> Tx0802_out_s1t0
+Tx0902_in_s3t0 -> Tx0902_out_s1t0
+Tx0A02_in_s3t0 -> Tx0A02_out_s1t0
+Tx0B02_in_s3t0 -> Tx0B02_out_s1t0
+Tx0C02_in_s3t0 -> Tx0C02_out_s1t0
+Tx0D02_in_s3t0 -> Tx0D02_out_s0t0
+Tx0D03_in_s2t0 -> Tx0D03_out_s0t0
+Tx0D04_in_s2t0 -> Tx0D04_out_s0t0
+Tx0D05_in_s2t0 -> Tx0D05_out_s0t0
+Tx0D06_in_s2t0 -> Tx0D06_out_s0t0
+Tx0D07_in_s2t0 -> Tx0D07_out_s1t0
+Tx0D07_out_s1t0 -> Tx0D07_data1
+
+
+# net id: e8
+# p2: add_674_678_679$binop::out
+# p337: sub_679_682_683$binop::data0
+Tx0D07_pe_out -> Tx0D07_out_s3t0
+Tx0C07_in_s1t0 -> Tx0C07_out_s2t0
+Tx0C07_out_s2t0 -> Tx0C07_data0
+
+
+# net id: e9
+# p337: sub_679_682_683$binop::out
+# p3: add_683_685_686$binop::data0
+Tx0C07_pe_out -> Tx0C07_out_s2t2
+Tx0C06_in_s0t2 -> Tx0C06_out_s2t2
+Tx0C05_in_s0t2 -> Tx0C05_out_s2t2
+Tx0C04_in_s0t2 -> Tx0C04_out_s2t2
+Tx0C03_in_s0t2 -> Tx0C03_out_s2t2
+Tx0C03_out_s2t2 -> Tx0C03_data0
+
+
+# net id: e10
+# p3: add_683_685_686$binop::out
+# p338: sub_686_688_689$binop::data0
+Tx0C03_pe_out -> Tx0C03_out_s2t0
+Tx0C02_in_s0t0 -> Tx0C02_out_s2t0
+Tx0C02_out_s2t0 -> Tx0C02_data0
+
+
+# net id: e13
+# p4: add_704_705_706$binop::out
+# p5: add_704_707_708$binop::data0
+Tx0B0D_pe_out -> Tx0B0D_out_s1t0
+Tx0C0D_in_s3t0 -> Tx0C0D_out_s2t0
+Tx0C0D_out_s2t0 -> Tx0C0D_data0
+
+
+# net id: e14
+# r212: lb_p3_lyy_stencil_update_stream$lb1d_2$reg_1::reg
+# p5: add_704_707_708$binop::data1
+# p4: add_704_705_706$binop::data1
+Tx0B09_in_s1t1 -> Tx0B09_out_s0t1
+Tx0B0A_in_s2t1 -> Tx0B0A_out_s0t1
+Tx0B0B_in_s2t1 -> Tx0B0B_out_s0t1
+Tx0B0C_in_s2t1 -> Tx0B0C_out_s1t1
+Tx0C0C_in_s3t1 -> Tx0C0C_out_s0t1
+Tx0C0D_in_s2t1 -> Tx0C0D_out_s1t1
+Tx0C0D_out_s1t1 -> Tx0C0D_data1
+Tx0B0C_in_s2t1 -> Tx0B0C_out_s0t1
+Tx0B0D_in_s2t1 -> Tx0B0D_out_s1t1
+Tx0B0D_out_s1t1 -> Tx0B0D_data1
+
+
+# net id: e15
+# p5: add_704_707_708$binop::out
+# p6: add_704_709_710$binop::data0
+Tx0C0D_pe_out -> Tx0C0D_out_s3t0
+Tx0B0D_in_s1t0 -> Tx0B0D_out_s3t0
+Tx0A0D_in_s1t0 -> Tx0A0D_out_s2t0
+Tx0A0D_out_s2t0 -> Tx0A0D_data0
+
+
+# net id: e16
+# m220: lb_p3_lyy_stencil_update_stream$lbmem_2_0$cgramem::rdata
+# p6: add_704_709_710$binop::data1
+# r212: lb_p3_lyy_stencil_update_stream$lb1d_2$reg_1::reg
+Tx0C04_rdata -> Tx0C04_out_s0t1
+Tx0C05_in_s2t1 -> Tx0C05_out_s0t1
+Tx0C06_in_s2t1 -> Tx0C06_out_s0t1
+Tx0C07_in_s2t1 -> Tx0C07_out_s0t1
+Tx0C08_in_s2t1 -> Tx0C08_out_s0t1
+Tx0C09_in_s2t1 -> Tx0C09_out_s3t1 (r)
+Tx0C09_in_s2t1 -> Tx0C09_out_s0t1
+Tx0C0A_in_s2t1 -> Tx0C0A_out_s0t1
+Tx0C0B_in_s2t1 -> Tx0C0B_out_s0t1
+Tx0C0C_in_s2t1 -> Tx0C0C_out_s3t1
+Tx0B0C_in_s1t1 -> Tx0B0C_out_s3t1
+Tx0A0C_in_s1t1 -> Tx0A0C_out_s0t1
+Tx0A0D_in_s2t1 -> Tx0A0D_out_s1t1
+Tx0A0D_out_s1t1 -> Tx0A0D_data1
+
+
+# net id: e17
+# p6: add_704_709_710$binop::out
+# p7: add_704_711_712$binop::data0
+Tx0A0D_pe_out -> Tx0A0D_out_s1t0
+Tx0B0D_in_s3t0 -> Tx0B0D_out_s2t0
+Tx0B0C_in_s0t0 -> Tx0B0C_out_s2t0
+Tx0B0B_in_s0t0 -> Tx0B0B_out_s2t0
+Tx0B0A_in_s0t0 -> Tx0B0A_out_s2t0
+Tx0B09_in_s0t0 -> Tx0B09_out_s2t0
+Tx0B08_in_s0t0 -> Tx0B08_out_s2t0
+Tx0B07_in_s0t0 -> Tx0B07_out_s2t0
+Tx0B06_in_s0t0 -> Tx0B06_out_s1t0
+Tx0C06_in_s3t0 -> Tx0C06_out_s2t0
+Tx0C05_in_s0t0 -> Tx0C05_out_s2t0
+Tx0C05_out_s2t0 -> Tx0C05_data0
+
+
+# net id: e19
+# p7: add_704_711_712$binop::out
+# p8: add_704_713_714$binop::data0
+Tx0C05_pe_out -> Tx0C05_out_s3t1
+Tx0B05_in_s1t1 -> Tx0B05_out_s2t1
+Tx0B04_in_s0t1 -> Tx0B04_out_s2t1
+Tx0B03_in_s0t1 -> Tx0B03_out_s2t1
+Tx0B02_in_s0t1 -> Tx0B02_out_s2t1
+Tx0B01_in_s0t1 -> Tx0B01_out_s2t1
+Tx0B01_out_s2t1 -> Tx0B01_data0
+
+
+# net id: e20
+# r210: lb_p3_lyy_stencil_update_stream$lb1d_1$reg_1::reg
+# p8: add_704_713_714$binop::data1
+# p7: add_704_711_712$binop::data1
+Tx0C02_in_s0t1 -> Tx0C02_out_s1t1
+Tx0D02_in_s3t1 -> Tx0D02_out_s0t1
+Tx0D03_in_s2t1 -> Tx0D03_out_s0t1
+Tx0D04_in_s2t1 -> Tx0D04_out_s0t1
+Tx0D05_in_s2t1 -> Tx0D05_out_s3t1
+Tx0C05_in_s1t1 -> Tx0C05_data1
+Tx0C02_in_s0t1 -> Tx0C02_out_s2t1
+Tx0C01_in_s0t1 -> Tx0C01_out_s3t1
+Tx0B01_in_s1t1 -> Tx0B01_data1
+
+
+# net id: e21
+# p8: add_704_713_714$binop::out
+# p9: add_704_715_716$binop::data0
+Tx0B01_pe_out -> Tx0B01_out_s3t0
+Tx0A01_in_s1t0 -> Tx0A01_out_s0t0
+Tx0A02_in_s2t0 -> Tx0A02_out_s0t0
+Tx0A03_in_s2t0 -> Tx0A03_data0
+
+
+# net id: e22
+# m216: lb_p3_lyy_stencil_update_stream$lbmem_1_0$cgramem::rdata
+# p9: add_704_715_716$binop::data1
+# r210: lb_p3_lyy_stencil_update_stream$lb1d_1$reg_1::reg
+# m220: lb_p3_lyy_stencil_update_stream$lbmem_2_0$cgramem::wdata
+Tx0904_rdata -> Tx0904_out_s1t1
+Tx0A04_in_s3t1 -> Tx0A04_out_s2t1
+Tx0A03_in_s0t1 -> Tx0A03_out_s1t1
+Tx0A03_out_s1t1 -> Tx0A03_data1
+Tx0B03_in_s3t1 -> Tx0B03_out_s1t1
+Tx0C03_in_s3t1 -> Tx0C03_out_s2t1 (r)
+Tx0C03_in_s3t1 -> Tx0C03_out_s0t1
+Tx0C04_in_s2t1 -> Tx0C04_wdata
+
+
+# net id: e23
+# p9: add_704_715_716$binop::out
+# p10: add_704_717_718$binop::data0
+Tx0A03_pe_out -> Tx0A03_out_s3t0
+Tx0903_in_s1t0 -> Tx0903_out_s2t0
+Tx0903_out_s2t0 -> Tx0903_data0
+
+
+# net id: e25
+# p10: add_704_717_718$binop::out
+# p11: add_704_719_720$binop::data0
+Tx0903_pe_out -> Tx0903_out_s2t1
+Tx0902_in_s0t1 -> Tx0902_out_s2t1
+Tx0902_out_s2t1 -> Tx0902_data0
+
+
+# net id: e26
+# r208: lb_p3_lyy_stencil_update_stream$lb1d_0$reg_1::reg
+# p11: add_704_719_720$binop::data1
+# p10: add_704_717_718$binop::data1
+Tx0902_in_s3t1 -> Tx0902_out_s1t1
+Tx0902_out_s1t1 -> Tx0902_data1
+Tx0902_in_s3t1 -> Tx0902_out_s0t1
+Tx0903_in_s2t1 -> Tx0903_out_s1t1
+Tx0903_out_s1t1 -> Tx0903_data1
+
+
+# net id: e27
+# p11: add_704_719_720$binop::out
+# p12: add_704_721_722$binop::data0
+Tx0902_pe_out -> Tx0902_out_s3t2
+Tx0802_in_s1t2 -> Tx0802_out_s3t2
+Tx0702_in_s1t2 -> Tx0702_out_s2t2
+Tx0702_out_s2t2 -> Tx0702_data0
+
+
+# net id: e28
+# p34: ashr_700_701_702$binop::out
+# p12: add_704_721_722$binop::data1
+# r208: lb_p3_lyy_stencil_update_stream$lb1d_0$reg_1::reg
+# m216: lb_p3_lyy_stencil_update_stream$lbmem_1_0$cgramem::wdata
+Tx0701_pe_out -> Tx0701_out_s0t1
+Tx0702_in_s2t1 -> Tx0702_out_s1t1
+Tx0702_out_s1t1 -> Tx0702_data1
+Tx0802_in_s3t1 -> Tx0802_out_s1t1 (r)
+Tx0802_in_s3t1 -> Tx0802_out_s0t1
+Tx0803_in_s2t1 -> Tx0803_out_s1t1
+Tx0903_in_s3t1 -> Tx0903_out_s0t1
+Tx0904_in_s2t1 -> Tx0904_wdata
+
+
+# net id: e29
+# p12: add_704_721_722$binop::out
+# p35: ashr_704_761_763$binop::data0
+Tx0702_pe_out -> Tx0702_out_s2t0
+Tx0701_in_s0t0 -> Tx0701_out_s3t0
+Tx0601_in_s1t0 -> Tx0601_out_s2t0
+Tx0601_out_s2t0 -> Tx0601_data0
+
+
+# net id: e32
+# p13: add_723_724_725$binop::out
+# p14: add_723_726_727$binop::data0
+Tx0806_pe_out -> Tx0806_out_s2t0
+Tx0805_in_s0t0 -> Tx0805_out_s2t0
+Tx0805_out_s2t0 -> Tx0805_data0
+
+
+# net id: e33
+# r164: lb_p3_lxy_stencil_update_stream$lb1d_2$reg_1::reg
+# p14: add_723_726_727$binop::data1
+# p13: add_723_724_725$binop::data1
+Tx0805_in_s3t1 -> Tx0805_out_s1t1
+Tx0805_out_s1t1 -> Tx0805_data1
+Tx0805_in_s3t1 -> Tx0805_out_s0t1
+Tx0806_in_s2t1 -> Tx0806_out_s1t1
+Tx0806_out_s1t1 -> Tx0806_data1
+
+
+# net id: e34
+# p14: add_723_726_727$binop::out
+# p15: add_723_728_729$binop::data0
+Tx0805_pe_out -> Tx0805_out_s3t0
+Tx0705_in_s1t0 -> Tx0705_out_s0t0
+Tx0706_in_s2t0 -> Tx0706_data0
+
+
+# net id: e35
+# m172: lb_p3_lxy_stencil_update_stream$lbmem_2_0$cgramem::rdata
+# p15: add_723_728_729$binop::data1
+# r164: lb_p3_lxy_stencil_update_stream$lb1d_2$reg_1::reg
+Tx0704_rdata -> Tx0704_out_s0t1
+Tx0705_in_s2t1 -> Tx0705_out_s1t1 (r)
+Tx0705_in_s2t1 -> Tx0705_out_s0t1
+Tx0706_in_s2t1 -> Tx0706_out_s1t1
+Tx0706_out_s1t1 -> Tx0706_data1
+
+
+# net id: e36
+# p15: add_723_728_729$binop::out
+# p16: add_723_730_731$binop::data0
+Tx0706_pe_out -> Tx0706_out_s3t0
+Tx0606_in_s1t0 -> Tx0606_out_s3t0
+Tx0506_in_s1t0 -> Tx0506_out_s0t0
+Tx0507_in_s2t0 -> Tx0507_out_s3t0
+Tx0407_in_s1t0 -> Tx0407_out_s2t0
+Tx0407_out_s2t0 -> Tx0407_data0
+
+
+# net id: e38
+# p16: add_723_730_731$binop::out
+# p17: add_723_732_733$binop::data0
+Tx0407_pe_out -> Tx0407_out_s3t0
+Tx0307_in_s1t0 -> Tx0307_out_s2t0
+Tx0306_in_s0t0 -> Tx0306_out_s2t0
+Tx0305_in_s0t0 -> Tx0305_out_s2t0
+Tx0304_in_s0t0 -> Tx0304_out_s2t0
+Tx0303_in_s0t0 -> Tx0303_out_s2t0
+Tx0302_in_s0t0 -> Tx0302_out_s2t0
+Tx0302_out_s2t0 -> Tx0302_data0
+
+
+# net id: e39
+# r162: lb_p3_lxy_stencil_update_stream$lb1d_1$reg_1::reg
+# p17: add_723_732_733$binop::data1
+# p16: add_723_730_731$binop::data1
+Tx0601_in_s1t1 -> Tx0601_out_s3t1
+Tx0501_in_s1t1 -> Tx0501_out_s3t1
+Tx0401_in_s1t1 -> Tx0401_out_s0t1
+Tx0402_in_s2t1 -> Tx0402_out_s3t1
+Tx0302_in_s1t1 -> Tx0302_data1
+Tx0402_in_s2t1 -> Tx0402_out_s0t1
+Tx0403_in_s2t1 -> Tx0403_out_s0t1
+Tx0404_in_s2t1 -> Tx0404_out_s0t1
+Tx0405_in_s2t1 -> Tx0405_out_s0t1
+Tx0406_in_s2t1 -> Tx0406_out_s0t1
+Tx0407_in_s2t1 -> Tx0407_out_s1t1
+Tx0407_out_s1t1 -> Tx0407_data1
+
+
+# net id: e40
+# p17: add_723_732_733$binop::out
+# p18: add_723_734_735$binop::data0
+Tx0302_pe_out -> Tx0302_out_s3t0
+Tx0202_in_s1t0 -> Tx0202_out_s3t0
+Tx0102_in_s1t0 -> Tx0102_out_s0t0
+Tx0103_in_s2t0 -> Tx0103_out_s0t0
+Tx0104_in_s2t0 -> Tx0104_out_s0t0
+Tx0105_in_s2t0 -> Tx0105_data0
+
+
+# net id: e41
+# m168: lb_p3_lxy_stencil_update_stream$lbmem_1_0$cgramem::rdata
+# p18: add_723_734_735$binop::data1
+# r162: lb_p3_lxy_stencil_update_stream$lb1d_1$reg_1::reg
+# m172: lb_p3_lxy_stencil_update_stream$lbmem_2_0$cgramem::wdata
+Tx0604_rdata -> Tx0604_out_s1t1
+Tx0704_in_s3t1 -> Tx0704_out_s2t1
+Tx0704_out_s2t1 -> Tx0704_wdata
+Tx0703_in_s0t1 -> Tx0703_out_s2t1
+Tx0702_in_s0t1 -> Tx0702_out_s2t1
+Tx0701_in_s0t1 -> Tx0701_out_s3t1 (r)
+Tx0604_rdata -> Tx0604_out_s3t1
+Tx0504_in_s1t1 -> Tx0504_out_s3t1
+Tx0404_in_s1t1 -> Tx0404_out_s3t1
+Tx0304_in_s1t1 -> Tx0304_out_s3t1
+Tx0204_in_s1t1 -> Tx0204_out_s0t1
+Tx0205_in_s2t1 -> Tx0205_out_s3t1
+Tx0105_in_s1t1 -> Tx0105_data1
+
+
+# net id: e42
+# p18: add_723_734_735$binop::out
+# p19: add_723_736_737$binop::data0
+Tx0105_pe_out -> Tx0105_out_s0t0
+Tx0106_in_s2t0 -> Tx0106_out_s0t0
+Tx0107_in_s2t0 -> Tx0107_out_s0t0
+Tx0108_in_s2t0 -> Tx0108_out_s0t0
+Tx0109_in_s2t0 -> Tx0109_out_s0t0
+Tx010A_in_s2t0 -> Tx010A_out_s0t0
+Tx010B_in_s2t0 -> Tx010B_data0
+
+
+# net id: e44
+# p19: add_723_736_737$binop::out
+# p20: add_723_738_739$binop::data0
+Tx010B_pe_out -> Tx010B_out_s0t0
+Tx010C_in_s2t0 -> Tx010C_out_s0t0
+Tx010D_in_s2t0 -> Tx010D_data0
+
+
+# net id: e45
+# r160: lb_p3_lxy_stencil_update_stream$lb1d_0$reg_1::reg
+# p20: add_723_738_739$binop::data1
+# p19: add_723_736_737$binop::data1
+Tx020D_in_s1t1 -> Tx020D_out_s3t1
+Tx010D_in_s1t1 -> Tx010D_data1
+Tx010D_in_s1t1 -> Tx010D_out_s2t1
+Tx010C_in_s0t1 -> Tx010C_out_s2t1
+Tx010B_in_s0t1 -> Tx010B_out_s1t1
+Tx010B_out_s1t1 -> Tx010B_data1
+
+
+# net id: e46
+# p20: add_723_738_739$binop::out
+# p21: add_723_740_741$binop::data0
+Tx010D_pe_out -> Tx010D_out_s2t0
+Tx010C_in_s0t0 -> Tx010C_out_s2t0
+Tx010B_in_s0t0 -> Tx010B_out_s2t0
+Tx010A_in_s0t0 -> Tx010A_out_s2t0
+Tx010A_out_s2t0 -> Tx010A_data0
+
+
+# net id: e47
+# p33: ashr_696_697_698$binop::out
+# p21: add_723_740_741$binop::data1
+# r160: lb_p3_lxy_stencil_update_stream$lb1d_0$reg_1::reg
+# m168: lb_p3_lxy_stencil_update_stream$lbmem_1_0$cgramem::wdata
+Tx030B_pe_out -> Tx030B_out_s0t1
+Tx030C_in_s2t1 -> Tx030C_out_s0t1
+Tx030D_in_s2t1 -> Tx030D_out_s3t1 (r)
+Tx030B_pe_out -> Tx030B_out_s3t1
+Tx020B_in_s1t1 -> Tx020B_out_s2t1
+Tx020A_in_s0t1 -> Tx020A_out_s3t1
+Tx010A_in_s1t1 -> Tx010A_data1
+Tx030B_pe_out -> Tx030B_out_s1t1
+Tx040B_in_s3t1 -> Tx040B_out_s1t1
+Tx050B_in_s3t1 -> Tx050B_out_s2t1
+Tx050A_in_s0t1 -> Tx050A_out_s2t1
+Tx0509_in_s0t1 -> Tx0509_out_s2t1
+Tx0508_in_s0t1 -> Tx0508_out_s2t1
+Tx0507_in_s0t1 -> Tx0507_out_s2t1
+Tx0506_in_s0t1 -> Tx0506_out_s2t1
+Tx0505_in_s0t1 -> Tx0505_out_s2t1
+Tx0504_in_s0t1 -> Tx0504_out_s1t1
+Tx0604_in_s3t1 -> Tx0604_out_s2t1
+Tx0604_out_s2t1 -> Tx0604_wdata
+
+
+# net id: e48
+# p21: add_723_740_741$binop::out
+# p36: ashr_723_761_766$binop::data0
+Tx010A_pe_out -> Tx010A_out_s1t0
+Tx020A_in_s3t0 -> Tx020A_out_s1t0
+Tx030A_in_s3t0 -> Tx030A_out_s1t0
+Tx040A_in_s3t0 -> Tx040A_out_s1t0
+Tx050A_in_s3t0 -> Tx050A_out_s1t0
+Tx060A_in_s3t0 -> Tx060A_out_s1t0
+Tx070A_in_s3t0 -> Tx070A_out_s2t0
+Tx0709_in_s0t0 -> Tx0709_out_s2t0
+Tx0708_in_s0t0 -> Tx0708_out_s2t0
+Tx0707_in_s0t0 -> Tx0707_out_s1t0
+Tx0807_in_s3t0 -> Tx0807_out_s2t0
+Tx0807_out_s2t0 -> Tx0807_data0
+
+
+# net id: e51
+# p22: add_742_743_744$binop::out
+# p23: add_742_745_746$binop::data0
+Tx0C0B_pe_out -> Tx0C0B_out_s1t0
+Tx0D0B_in_s3t0 -> Tx0D0B_out_s2t0
+Tx0D0B_out_s2t0 -> Tx0D0B_data0
+
+
+# net id: e52
+# r116: lb_p3_lxx_stencil_update_stream$lb1d_2$reg_1::reg
+# p23: add_742_745_746$binop::data1
+# p22: add_742_743_744$binop::data1
+Tx0C0D_in_s1t1 -> Tx0C0D_out_s2t1
+Tx0C0C_in_s0t1 -> Tx0C0C_out_s1t1
+Tx0D0C_in_s3t1 -> Tx0D0C_out_s2t1
+Tx0D0B_in_s0t1 -> Tx0D0B_out_s1t1
+Tx0D0B_out_s1t1 -> Tx0D0B_data1
+Tx0C0C_in_s0t1 -> Tx0C0C_out_s2t1
+Tx0C0B_in_s0t1 -> Tx0C0B_out_s1t1
+Tx0C0B_out_s1t1 -> Tx0C0B_data1
+
+
+# net id: e53
+# p23: add_742_745_746$binop::out
+# p24: add_742_747_748$binop::data0
+Tx0D0B_pe_out -> Tx0D0B_out_s3t0
+Tx0C0B_in_s1t0 -> Tx0C0B_out_s2t0
+Tx0C0A_in_s0t0 -> Tx0C0A_out_s2t0
+Tx0C09_in_s0t0 -> Tx0C09_out_s2t0
+Tx0C08_in_s0t0 -> Tx0C08_out_s3t0
+Tx0B08_in_s1t0 -> Tx0B08_out_s3t0
+Tx0A08_in_s1t0 -> Tx0A08_out_s2t0
+Tx0A07_in_s0t0 -> Tx0A07_out_s2t0
+Tx0A07_out_s2t0 -> Tx0A07_data0
+
+
+# net id: e54
+# m124: lb_p3_lxx_stencil_update_stream$lbmem_2_0$cgramem::rdata
+# p24: add_742_747_748$binop::data1
+# r116: lb_p3_lxx_stencil_update_stream$lb1d_2$reg_1::reg
+Tx0A08_rdata -> Tx0A08_out_s2t1
+Tx0A07_in_s0t1 -> Tx0A07_out_s1t1
+Tx0A07_out_s1t1 -> Tx0A07_data1
+Tx0A08_rdata -> Tx0A08_out_s0t1
+Tx0A09_in_s2t1 -> Tx0A09_out_s0t1
+Tx0A0A_in_s2t1 -> Tx0A0A_out_s1t1
+Tx0B0A_in_s3t1 -> Tx0B0A_out_s1t1
+Tx0C0A_in_s3t1 -> Tx0C0A_out_s1t1
+Tx0D0A_in_s3t1 -> Tx0D0A_out_s0t1
+Tx0D0B_in_s2t1 -> Tx0D0B_out_s0t1
+Tx0D0C_in_s2t1 -> Tx0D0C_out_s0t1
+Tx0D0D_in_s2t1 -> Tx0D0D_out_s3t1 (r)
+
+
+# net id: e55
+# p24: add_742_747_748$binop::out
+# p25: add_742_749_750$binop::data0
+Tx0A07_pe_out -> Tx0A07_out_s0t0
+Tx0A08_in_s2t0 -> Tx0A08_out_s1t0
+Tx0B08_in_s3t0 -> Tx0B08_out_s1t0
+Tx0C08_in_s3t0 -> Tx0C08_out_s0t0
+Tx0C09_in_s2t0 -> Tx0C09_out_s0t0
+Tx0C0A_in_s2t0 -> Tx0C0A_data0
+
+
+# net id: e57
+# p25: add_742_749_750$binop::out
+# p26: add_742_751_752$binop::data0
+Tx0C0A_pe_out -> Tx0C0A_out_s1t0
+Tx0D0A_in_s3t0 -> Tx0D0A_out_s2t0
+Tx0D0A_out_s2t0 -> Tx0D0A_data0
+
+
+# net id: e58
+# r114: lb_p3_lxx_stencil_update_stream$lb1d_1$reg_1::reg
+# p26: add_742_751_752$binop::data1
+# p25: add_742_749_750$binop::data1
+Tx0E06_in_s3t2 -> Tx0E06_out_s0t2
+Tx0E07_in_s2t2 -> Tx0E07_out_s0t2
+Tx0E08_in_s2t2 -> Tx0E08_out_s0t2
+Tx0E09_in_s2t2 -> Tx0E09_out_s3t2
+Tx0D09_in_s1t2 -> Tx0D09_out_s0t2
+Tx0D0A_in_s2t2 -> Tx0D0A_out_s1t2
+Tx0D0A_out_s1t2 -> Tx0D0A_data1
+Tx0D0A_in_s2t2 -> Tx0D0A_out_s3t2
+Tx0C0A_in_s1t2 -> Tx0C0A_data1
+
+
+# net id: e59
+# p26: add_742_751_752$binop::out
+# p27: add_742_753_754$binop::data0
+Tx0D0A_pe_out -> Tx0D0A_out_s3t0
+Tx0C0A_in_s1t0 -> Tx0C0A_out_s3t0
+Tx0B0A_in_s1t0 -> Tx0B0A_out_s3t0
+Tx0A0A_in_s1t0 -> Tx0A0A_out_s2t0
+Tx0A09_in_s0t0 -> Tx0A09_out_s2t0
+Tx0A09_out_s2t0 -> Tx0A09_data0
+
+
+# net id: e60
+# m120: lb_p3_lxx_stencil_update_stream$lbmem_1_0$cgramem::rdata
+# p27: add_742_753_754$binop::data1
+# r114: lb_p3_lxx_stencil_update_stream$lb1d_1$reg_1::reg
+# m124: lb_p3_lxx_stencil_update_stream$lbmem_2_0$cgramem::wdata
+Tx0908_rdata -> Tx0908_out_s1t2
+Tx0A08_in_s3t2 -> Tx0A08_out_s2t2
+Tx0A08_out_s2t2 -> Tx0A08_wdata
+Tx0A08_in_s3t2 -> Tx0A08_out_s0t2
+Tx0A09_in_s2t2 -> Tx0A09_out_s1t2
+Tx0A09_out_s1t2 -> Tx0A09_data1
+Tx0A08_in_s3t2 -> Tx0A08_out_s1t2
+Tx0B08_in_s3t2 -> Tx0B08_out_s1t2
+Tx0C08_in_s3t2 -> Tx0C08_out_s1t2
+Tx0D08_in_s3t2 -> Tx0D08_out_s2t2
+Tx0D07_in_s0t2 -> Tx0D07_out_s2t2
+Tx0D06_in_s0t2 -> Tx0D06_out_s1t2 (r)
+
+
+# net id: e61
+# p27: add_742_753_754$binop::out
+# p28: add_742_755_756$binop::data0
+Tx0A09_pe_out -> Tx0A09_out_s3t0
+Tx0909_in_s1t0 -> Tx0909_out_s3t0
+Tx0809_in_s1t0 -> Tx0809_out_s3t0
+Tx0709_in_s1t0 -> Tx0709_out_s3t0
+Tx0609_in_s1t0 -> Tx0609_out_s3t0
+Tx0509_in_s1t0 -> Tx0509_out_s3t0
+Tx0409_in_s1t0 -> Tx0409_out_s3t0
+Tx0309_in_s1t0 -> Tx0309_out_s0t0
+Tx030A_in_s2t0 -> Tx030A_out_s0t0
+Tx030B_in_s2t0 -> Tx030B_out_s0t0
+Tx030C_in_s2t0 -> Tx030C_out_s0t0
+Tx030D_in_s2t0 -> Tx030D_out_s3t0
+Tx020D_in_s1t0 -> Tx020D_out_s2t0
+Tx020D_out_s2t0 -> Tx020D_data0
+
+
+# net id: e63
+# p28: add_742_755_756$binop::out
+# p29: add_742_757_758$binop::data0
+Tx020D_pe_out -> Tx020D_out_s0t0
+Tx020E_in_s2t0 -> Tx020E_data0
+
+
+# net id: e64
+# r112: lb_p3_lxx_stencil_update_stream$lb1d_0$reg_1::reg
+# p29: add_742_757_758$binop::data1
+# p28: add_742_755_756$binop::data1
+Tx040D_in_s1t2 -> Tx040D_out_s3t2
+Tx030D_in_s1t2 -> Tx030D_out_s3t2
+Tx020D_in_s1t2 -> Tx020D_data1
+Tx020D_in_s1t2 -> Tx020D_out_s0t2
+Tx020E_in_s2t2 -> Tx020E_out_s1t2
+Tx020E_out_s1t2 -> Tx020E_data1
+
+
+# net id: e65
+# p29: add_742_757_758$binop::out
+# p30: add_742_759_760$binop::data0
+Tx020E_pe_out -> Tx020E_out_s1t0
+Tx030E_in_s3t0 -> Tx030E_out_s1t0
+Tx040E_in_s3t0 -> Tx040E_out_s1t0
+Tx050E_in_s3t0 -> Tx050E_out_s2t0
+Tx050D_in_s0t0 -> Tx050D_out_s2t0
+Tx050C_in_s0t0 -> Tx050C_out_s2t0
+Tx050B_in_s0t0 -> Tx050B_out_s2t0
+Tx050B_out_s2t0 -> Tx050B_data0
+
+
+# net id: e66
+# p32: ashr_667_668_669$binop::out
+# p30: add_742_759_760$binop::data1
+# r112: lb_p3_lxx_stencil_update_stream$lb1d_0$reg_1::reg
+# m120: lb_p3_lxx_stencil_update_stream$lbmem_1_0$cgramem::wdata
+Tx040A_pe_out -> Tx040A_out_s1t2
+Tx050A_in_s3t2 -> Tx050A_out_s0t2
+Tx050B_in_s2t2 -> Tx050B_out_s1t2
+Tx050B_out_s1t2 -> Tx050B_data1
+Tx050B_in_s2t2 -> Tx050B_out_s0t2
+Tx050C_in_s2t2 -> Tx050C_out_s0t2
+Tx050D_in_s2t2 -> Tx050D_out_s3t2 (r)
+Tx050A_in_s3t2 -> Tx050A_out_s1t2
+Tx060A_in_s3t2 -> Tx060A_out_s1t2
+Tx070A_in_s3t2 -> Tx070A_out_s1t2
+Tx080A_in_s3t2 -> Tx080A_out_s2t2
+Tx0809_in_s0t2 -> Tx0809_out_s2t2
+Tx0808_in_s0t2 -> Tx0808_out_s1t2
+Tx0908_in_s3t2 -> Tx0908_out_s2t2
+Tx0908_out_s2t2 -> Tx0908_wdata
+
+
+# net id: e67
+# p30: add_742_759_760$binop::out
+# p37: ashr_742_761_762$binop::data0
+Tx050B_pe_out -> Tx050B_out_s3t0
+Tx040B_in_s1t0 -> Tx040B_out_s3t0
+Tx030B_in_s1t0 -> Tx030B_out_s3t0
+Tx020B_in_s1t0 -> Tx020B_out_s2t0
+Tx020A_in_s0t0 -> Tx020A_out_s2t0
+Tx0209_in_s0t0 -> Tx0209_out_s3t0
+Tx0109_in_s1t0 -> Tx0109_out_s2t0
+Tx0109_out_s2t0 -> Tx0109_data0
+
+
+# net id: e68
+# p37: ashr_742_761_762$binop::out
+# p31: add_762_763_764$binop::data0
+# p312: mul_762_763_765$binop::data0
+Tx0109_pe_out -> Tx0109_out_s1t0
+Tx0209_in_s3t0 -> Tx0209_out_s2t0
+Tx0209_out_s2t0 -> Tx0209_data0
+Tx0209_in_s3t0 -> Tx0209_out_s0t0
+Tx020A_in_s2t0 -> Tx020A_data0
+
+
+# net id: e69
+# p35: ashr_704_761_763$binop::out
+# p31: add_762_763_764$binop::data1
+# p312: mul_762_763_765$binop::data1
+Tx0601_pe_out -> Tx0601_out_s0t1
+Tx0602_in_s2t1 -> Tx0602_out_s0t1
+Tx0603_in_s2t1 -> Tx0603_out_s0t1
+Tx0604_in_s2t1 -> Tx0604_out_s0t1
+Tx0605_in_s2t1 -> Tx0605_out_s0t1
+Tx0606_in_s2t1 -> Tx0606_out_s0t1
+Tx0607_in_s2t1 -> Tx0607_out_s0t1
+Tx0608_in_s2t1 -> Tx0608_out_s3t1
+Tx0508_in_s1t1 -> Tx0508_out_s3t1
+Tx0408_in_s1t1 -> Tx0408_out_s3t1
+Tx0308_in_s1t1 -> Tx0308_out_s3t1
+Tx0208_in_s1t1 -> Tx0208_out_s0t1
+Tx0209_in_s2t1 -> Tx0209_out_s1t1
+Tx0209_out_s1t1 -> Tx0209_data1
+Tx0209_in_s2t1 -> Tx0209_out_s0t1
+Tx020A_in_s2t1 -> Tx020A_out_s1t1
+Tx020A_out_s1t1 -> Tx020A_data1
+
+
+# net id: e70
+# p31: add_762_763_764$binop::out
+# p313: mul_764_764_769$binop::data0
+# p313: mul_764_764_769$binop::data1
+Tx020A_pe_out -> Tx020A_out_s0t0
+Tx020B_in_s2t0 -> Tx020B_out_s0t0
+Tx020C_in_s2t0 -> Tx020C_out_s0t0
+Tx020D_in_s2t0 -> Tx020D_out_s1t0
+Tx030D_in_s3t0 -> Tx030D_out_s2t0
+Tx030D_out_s2t0 -> Tx030D_data0
+Tx030D_in_s3t0 -> Tx030D_out_s1t0
+Tx030D_out_s1t0 -> Tx030D_data1
+
+
+# net id: e71
+# p307: mul_666_666_667$binop::out
+# p32: ashr_667_668_669$binop::data0
+Tx040B_pe_out -> Tx040B_out_s2t0
+Tx040A_in_s0t0 -> Tx040A_out_s2t0
+Tx040A_out_s2t0 -> Tx040A_data0
+
+
+# net id: e73
+# p310: mul_694_695_696$binop::out
+# p33: ashr_696_697_698$binop::data0
+Tx0503_pe_out -> Tx0503_out_s0t1
+Tx0504_in_s2t1 -> Tx0504_out_s0t1
+Tx0505_in_s2t1 -> Tx0505_out_s0t1
+Tx0506_in_s2t1 -> Tx0506_out_s0t1
+Tx0507_in_s2t1 -> Tx0507_out_s0t1
+Tx0508_in_s2t1 -> Tx0508_out_s0t1
+Tx0509_in_s2t1 -> Tx0509_out_s0t1
+Tx050A_in_s2t1 -> Tx050A_out_s3t1
+Tx040A_in_s1t1 -> Tx040A_out_s3t1
+Tx030A_in_s1t1 -> Tx030A_out_s0t1
+Tx030B_in_s2t1 -> Tx030B_data0
+
+
+# net id: e75
+# p311: mul_699_699_700$binop::out
+# p34: ashr_700_701_702$binop::data0
+Tx0A02_pe_out -> Tx0A02_out_s2t0
+Tx0A01_in_s0t0 -> Tx0A01_out_s3t0
+Tx0901_in_s1t0 -> Tx0901_out_s3t0
+Tx0801_in_s1t0 -> Tx0801_out_s3t0
+Tx0701_in_s1t0 -> Tx0701_out_s2t0
+Tx0701_out_s2t0 -> Tx0701_data0
+
+
+# net id: e79
+# p36: ashr_723_761_766$binop::out
+# p314: mul_766_766_767$binop::data0
+# p314: mul_766_766_767$binop::data1
+Tx0807_pe_out -> Tx0807_out_s3t0
+Tx0707_in_s1t0 -> Tx0707_out_s3t0
+Tx0607_in_s1t0 -> Tx0607_out_s2t0
+Tx0607_out_s2t0 -> Tx0607_data0
+Tx0607_in_s1t0 -> Tx0607_data1
+
+
+# net id: e81
+# p313: mul_764_764_769$binop::out
+# p38: ashr_769_770_771$binop::data0
+Tx030D_pe_out -> Tx030D_out_s1t1
+Tx040D_in_s3t1 -> Tx040D_out_s0t1
+Tx040E_in_s2t1 -> Tx040E_out_s1t1
+Tx050E_in_s3t1 -> Tx050E_out_s2t1
+Tx050E_out_s2t1 -> Tx050E_data0
+
+
+# net id: e83
+# p38: ashr_769_770_771$binop::out
+# p340: sub_768_771_772$binop::data1
+Tx050E_pe_out -> Tx050E_out_s1t0
+Tx060E_in_s3t0 -> Tx060E_out_s1t0
+Tx060E_out_s1t0 -> Tx060E_data1
+
+
+# net id: e93
+# p315: mux_789_790_791$mux::out
+# i58: io16_out_0_0::in
+Tx040E_pe_out -> Tx040E_out_s3t0
+Tx030E_in_s1t0 -> Tx030E_out_s3t0
+Tx020E_in_s1t0 -> Tx020E_out_s3t0
+Tx010E_in_s1t0 -> Tx010E_out_s0t0
+Tx010F_in_s2t0 -> Tx010F_out_s0t0
+Tx0110_in_s2t0 -> Tx0110_out_s0t0
+
+
+# net id: e94
+# p107: lb_p3_cim_stencil_update_stream$valid_andr$_join$lut$lut::out
+# i60: io1_valid::in
+Tx0A0F_pe_outb -> Tx0A0F_out_s1t0b
+Tx0B0F_in_s3t0b -> Tx0B0F_out_s1t0b
+Tx0C0F_in_s3t0b -> Tx0C0F_out_s1t0b
+Tx0D0F_in_s3t0b -> Tx0D0F_out_s1t0b
+Tx0E0F_in_s3t0b -> Tx0E0F_out_s1t0b
+Tx0F0F_in_s3t0b -> Tx0F0F_out_s1t0b
+Tx100F_in_s3t0b -> Tx100F_out_s0t0b
+Tx1010_in_s2t0b -> Tx1010_out_s1t0b
+
+
+# net id: e95
+# i61: io1in_reset::out
+# p88: lb_p3_cim_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit1
+# p101: lb_p3_cim_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit1
+# p136: lb_p3_lxx_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit1
+# p149: lb_p3_lxx_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit1
+# p184: lb_p3_lxy_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit1
+# p197: lb_p3_lxy_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit1
+# p232: lb_p3_lyy_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit1
+# p245: lb_p3_lyy_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit1
+# p280: lb_padded_2_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit1
+# p293: lb_padded_2_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit1
+Tx0101_in_s3t0b -> Tx0101_out_s1t0b
+Tx0101_out_s1t0b -> Tx0101_bit1b
+Tx0101_in_s3t0b -> Tx0101_out_s0t0b
+Tx0102_in_s2t0b -> Tx0102_out_s0t0b
+Tx0103_in_s2t0b -> Tx0103_out_s0t0b
+Tx0104_in_s2t0b -> Tx0104_out_s0t0b
+Tx0105_in_s2t0b -> Tx0105_out_s1t0b
+Tx0205_in_s3t0b -> Tx0205_out_s1t0b
+Tx0305_in_s3t0b -> Tx0305_out_s0t0b
+Tx0306_in_s2t0b -> Tx0306_out_s1t0b
+Tx0306_out_s1t0b -> Tx0306_bit1b
+Tx0305_in_s3t0b -> Tx0305_out_s1t0b
+Tx0405_in_s3t0b -> Tx0405_out_s1t0b
+Tx0505_in_s3t0b -> Tx0505_out_s1t0b
+Tx0605_in_s3t0b -> Tx0605_out_s1t0b
+Tx0605_out_s1t0b -> Tx0605_bit1b
+Tx0306_in_s2t0b -> Tx0306_out_s0t0b
+Tx0307_in_s2t0b -> Tx0307_out_s0t0b
+Tx0308_in_s2t0b -> Tx0308_out_s1t0b
+Tx0408_in_s3t0b -> Tx0408_out_s0t0b
+Tx0409_in_s2t0b -> Tx0409_out_s1t0b
+Tx0409_out_s1t0b -> Tx0409_bit1b
+Tx0409_in_s2t0b -> Tx0409_out_s0t0b
+Tx040A_in_s2t0b -> Tx040A_out_s0t0b
+Tx040B_in_s2t0b -> Tx040B_out_s0t0b
+Tx040C_in_s2t0b -> Tx040C_out_s0t0b
+Tx040D_in_s2t0b -> Tx040D_out_s1t0b
+Tx040D_out_s1t0b -> Tx040D_bit1b
+Tx050D_in_s3t0b -> Tx050D_out_s1t0b
+Tx060D_in_s3t0b -> Tx060D_out_s1t0b
+Tx060D_out_s1t0b -> Tx060D_bit1b
+Tx070D_in_s3t0b -> Tx070D_out_s1t0b
+Tx080D_in_s3t0b -> Tx080D_out_s1t0b
+Tx080D_out_s1t0b -> Tx080D_bit1b
+Tx080D_in_s3t0b -> Tx080D_out_s2t0b
+Tx080C_in_s0t0b -> Tx080C_out_s2t0b
+Tx080B_in_s0t0b -> Tx080B_out_s1t0b
+Tx090B_in_s3t0b -> Tx090B_out_s1t0b
+Tx0A0B_in_s3t0b -> Tx0A0B_out_s1t0b
+Tx0B0B_in_s3t0b -> Tx0B0B_out_s1t0b
+Tx0B0B_out_s1t0b -> Tx0B0B_bit1b
+Tx0C0B_in_s3t0b -> Tx0C0B_out_s2t0b
+Tx0C0A_in_s0t0b -> Tx0C0A_out_s2t0b
+Tx0C09_in_s0t0b -> Tx0C09_out_s2t0b
+Tx0C08_in_s0t0b -> Tx0C08_out_s2t0b
+Tx0C07_in_s0t0b -> Tx0C07_out_s2t0b
+Tx0C06_in_s0t0b -> Tx0C06_out_s1t0b
+Tx0C06_out_s1t0b -> Tx0C06_bit1b
+Tx0605_in_s3t0b -> Tx0605_out_s2t0b
+Tx0604_in_s0t0b -> Tx0604_out_s2t0b
+Tx0603_in_s0t0b -> Tx0603_out_s2t0b
+Tx0602_in_s0t0b -> Tx0602_out_s1t0b
+Tx0702_in_s3t0b -> Tx0702_out_s1t0b
+Tx0802_in_s3t0b -> Tx0802_out_s1t0b
+Tx0902_in_s3t0b -> Tx0902_out_s2t0b
+Tx0901_in_s0t0b -> Tx0901_out_s1t0b
+Tx0901_out_s1t0b -> Tx0901_bit1b
+
+
+# net id: e98
+# p340: sub_768_771_772$binop::out
+# r64: lb_p3_cim_stencil_update_stream$lb1d_0$reg_1::reg
+# m72: lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem::wdata
+# p328: smax_786_787_788$cgramax::data1
+Tx060E_pe_out -> Tx060E_out_s3t1
+Tx050E_in_s1t1 -> Tx050E_out_s3t1
+Tx040E_in_s1t1 -> Tx040E_out_s0t1
+Tx040F_in_s2t1 -> Tx040F_out_s3t1
+Tx030F_in_s1t1 -> Tx030F_out_s3t1
+Tx020F_in_s1t1 -> Tx020F_out_s2t1 (r)
+Tx020F_in_s1t1 -> Tx020F_out_s3t1
+Tx010F_in_s1t1 -> Tx010F_data1
+Tx040E_in_s1t1 -> Tx040E_out_s2t1
+Tx040D_in_s0t1 -> Tx040D_out_s2t1
+Tx040C_in_s0t1 -> Tx040C_out_s3t1
+Tx030C_in_s1t1 -> Tx030C_out_s2t1
+Tx030C_out_s2t1 -> Tx030C_wdata
+
+
+# net id: e99
+# r64: lb_p3_cim_stencil_update_stream$lb1d_0$reg_1::reg
+# p326: smax_782_783_784$cgramax::data1
+# p327: smax_784_785_786$cgramax::data1
+Tx020E_in_s0t1 -> Tx020E_out_s1t1
+Tx030E_in_s3t1 -> Tx030E_out_s1t1
+Tx030E_out_s1t1 -> Tx030E_data1
+Tx020E_in_s0t1 -> Tx020E_out_s3t1
+Tx010E_in_s1t1 -> Tx010E_data1
+
+
+# net id: e101
+# m72: lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem::rdata
+# r66: lb_p3_cim_stencil_update_stream$lb1d_1$reg_1::reg
+# m76: lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem::wdata
+# p325: smax_780_781_782$cgramax::data1
+Tx030C_rdata -> Tx030C_out_s1t3
+Tx040C_in_s3t3 -> Tx040C_out_s1t3
+Tx050C_in_s3t3 -> Tx050C_out_s1t3
+Tx060C_in_s3t3 -> Tx060C_out_s2t3
+Tx060C_out_s2t3 -> Tx060C_wdata
+Tx060C_in_s3t3 -> Tx060C_out_s0t3
+Tx060D_in_s2t3 -> Tx060D_out_s0t3
+Tx060E_in_s2t3 -> Tx060E_out_s3t3 (r)
+Tx040C_in_s3t3 -> Tx040C_out_s0t3
+Tx040D_in_s2t3 -> Tx040D_out_s3t3
+Tx030D_in_s1t3 -> Tx030D_out_s0t3
+Tx030E_in_s2t3 -> Tx030E_out_s1t3
+Tx040E_in_s3t3 -> Tx040E_out_s0t3
+Tx040F_in_s2t3 -> Tx040F_out_s1t3
+Tx040F_out_s1t3 -> Tx040F_data1
+
+
+# net id: e102
+# r66: lb_p3_cim_stencil_update_stream$lb1d_1$reg_1::reg
+# p324: smax_778_779_780$cgramax::data1
+# p315: mux_789_790_791$mux::data0
+# p316: slt_788_773_789$comp$compop::data1
+Tx050E_in_s1t3 -> Tx050E_out_s3t3
+Tx040E_in_s1t3 -> Tx040E_out_s2t3
+Tx040E_out_s2t3 -> Tx040E_data0
+Tx040E_in_s1t3 -> Tx040E_out_s3t3
+Tx030E_in_s1t3 -> Tx030E_out_s0t3
+Tx030F_in_s2t3 -> Tx030F_out_s1t3
+Tx030F_out_s1t3 -> Tx030F_data1
+Tx030F_in_s2t3 -> Tx030F_out_s3t3
+Tx020F_in_s1t3 -> Tx020F_data1
+
+
+# net id: e104
+# m76: lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem::rdata
+# r68: lb_p3_cim_stencil_update_stream$lb1d_2$reg_1::reg
+# p323: smax_776_777_778$cgramax::data1
+Tx060C_rdata -> Tx060C_out_s0t1
+Tx060D_in_s2t1 -> Tx060D_out_s1t1 (r)
+Tx060D_in_s2t1 -> Tx060D_out_s0t1
+Tx060E_in_s2t1 -> Tx060E_out_s1t1
+Tx070E_in_s3t1 -> Tx070E_out_s0t1
+Tx070F_in_s2t1 -> Tx070F_out_s1t1
+Tx070F_out_s1t1 -> Tx070F_data1
+
+
+# net id: e105
+# r68: lb_p3_cim_stencil_update_stream$lb1d_2$reg_1::reg
+# p322: smax_774_775_776$cgramax::data0
+# p322: smax_774_775_776$cgramax::data1
+Tx070D_in_s3t1 -> Tx070D_out_s2t1
+Tx070D_out_s2t1 -> Tx070D_data0
+Tx070D_in_s3t1 -> Tx070D_out_s1t1
+Tx070D_out_s1t1 -> Tx070D_data1
+
+
+# net id: e109
+# m72: lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem::valid
+# m76: lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem::wen
+Tx030C_validb -> Tx030C_out_s1t0b
+Tx040C_in_s3t0b -> Tx040C_out_s1t0b
+Tx050C_in_s3t0b -> Tx050C_out_s1t0b
+Tx060C_in_s3t0b -> Tx060C_out_s2t0b
+Tx060C_out_s2t0b -> Tx060C_wenb
+
+
+# net id: e110
+# p155: lb_p3_lxx_stencil_update_stream$valid_andr$_join$lut$lut::out
+# m72: lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem::wen
+# p83: lb_p3_cim_stencil_update_stream$valcounter_0$count$enMux$mux::bit0
+# p109: lb_p3_cim_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit0
+Tx0505_pe_outb -> Tx0505_out_s0t0b
+Tx0506_in_s2t0b -> Tx0506_out_s0t0b
+Tx0507_in_s2t0b -> Tx0507_out_s0t0b
+Tx0508_in_s2t0b -> Tx0508_out_s0t0b
+Tx0509_in_s2t0b -> Tx0509_out_s1t0b
+Tx0609_in_s3t0b -> Tx0609_out_s0t0b
+Tx060A_in_s2t0b -> Tx060A_bit0b
+Tx0509_in_s2t0b -> Tx0509_out_s0t0b
+Tx050A_in_s2t0b -> Tx050A_out_s0t0b
+Tx050B_in_s2t0b -> Tx050B_out_s0t0b
+Tx050C_in_s2t0b -> Tx050C_out_s0t0b
+Tx050D_in_s2t0b -> Tx050D_bit0b
+Tx050C_in_s2t0b -> Tx050C_out_s3t0b
+Tx040C_in_s1t0b -> Tx040C_out_s3t0b
+Tx030C_in_s1t0b -> Tx030C_out_s2t0b
+Tx030C_out_s2t0b -> Tx030C_wenb
+
+
+# net id: e113
+# p78: lb_p3_cim_stencil_update_stream$valcompare_0$compop::out
+# p109: lb_p3_cim_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit1
+Tx070B_pe_outb -> Tx070B_out_s3t0b
+Tx060B_in_s1t0b -> Tx060B_out_s0t0b
+Tx060C_in_s2t0b -> Tx060C_out_s0t0b
+Tx060D_in_s2t0b -> Tx060D_out_s3t0b
+Tx050D_in_s1t0b -> Tx050D_bit1b
+
+
+# net id: e114
+# r84: lb_p3_cim_stencil_update_stream$valcounter_0$count$reg0::reg
+# p78: lb_p3_cim_stencil_update_stream$valcompare_0$compop::data1
+# p80: lb_p3_cim_stencil_update_stream$valcounter_0$add$binop::data0
+# p83: lb_p3_cim_stencil_update_stream$valcounter_0$count$enMux$mux::data1
+Tx060B_in_s3t3 -> Tx060B_out_s1t3
+Tx070B_in_s3t3 -> Tx070B_out_s1t3
+Tx070B_out_s1t3 -> Tx070B_data1
+Tx060B_in_s3t3 -> Tx060B_out_s2t3
+Tx060A_in_s0t3 -> Tx060A_out_s1t3
+Tx060A_out_s1t3 -> Tx060A_data1
+Tx060A_in_s0t3 -> Tx060A_out_s2t3
+Tx0609_in_s0t3 -> Tx0609_out_s3t3
+Tx0509_in_s1t3 -> Tx0509_out_s3t3
+Tx0409_in_s1t3 -> Tx0409_out_s0t3
+Tx040A_in_s2t3 -> Tx040A_out_s3t3
+Tx030A_in_s1t3 -> Tx030A_out_s2t3
+Tx030A_out_s2t3 -> Tx030A_data0
+
+
+# net id: e115
+# p79: lb_p3_cim_stencil_update_stream$valcompare_1$compop::out
+# p107: lb_p3_cim_stencil_update_stream$valid_andr$_join$lut$lut::bit1
+Tx0B07_pe_outb -> Tx0B07_out_s0t0b
+Tx0B08_in_s2t0b -> Tx0B08_out_s0t0b
+Tx0B09_in_s2t0b -> Tx0B09_out_s0t0b
+Tx0B0A_in_s2t0b -> Tx0B0A_out_s0t0b
+Tx0B0B_in_s2t0b -> Tx0B0B_out_s0t0b
+Tx0B0C_in_s2t0b -> Tx0B0C_out_s0t0b
+Tx0B0D_in_s2t0b -> Tx0B0D_out_s0t0b
+Tx0B0E_in_s2t0b -> Tx0B0E_out_s0t0b
+Tx0B0F_in_s2t0b -> Tx0B0F_out_s3t0b
+Tx0A0F_in_s1t0b -> Tx0A0F_bit1b
+
+
+# net id: e116
+# r97: lb_p3_cim_stencil_update_stream$valcounter_1$count$reg0::reg
+# p79: lb_p3_cim_stencil_update_stream$valcompare_1$compop::data1
+# p93: lb_p3_cim_stencil_update_stream$valcounter_1$add$binop::data0
+# p96: lb_p3_cim_stencil_update_stream$valcounter_1$count$enMux$mux::data1
+Tx0C0D_in_s0t1 -> Tx0C0D_out_s3t1
+Tx0B0D_in_s1t1 -> Tx0B0D_out_s3t1
+Tx0A0D_in_s1t1 -> Tx0A0D_out_s0t1
+Tx0A0E_in_s2t1 -> Tx0A0E_out_s3t1
+Tx090E_in_s1t1 -> Tx090E_data1
+Tx0B0D_in_s1t1 -> Tx0B0D_out_s2t1
+Tx0B0C_in_s0t1 -> Tx0B0C_out_s2t1
+Tx0B0B_in_s0t1 -> Tx0B0B_out_s2t1
+Tx0B0A_in_s0t1 -> Tx0B0A_out_s2t1
+Tx0B09_in_s0t1 -> Tx0B09_out_s2t1
+Tx0B08_in_s0t1 -> Tx0B08_out_s2t1
+Tx0B07_in_s0t1 -> Tx0B07_out_s1t1
+Tx0B07_out_s1t1 -> Tx0B07_data1
+Tx0B07_in_s0t1 -> Tx0B07_out_s3t1
+Tx0A07_in_s1t1 -> Tx0A07_out_s2t1
+Tx0A06_in_s0t1 -> Tx0A06_out_s2t1
+Tx0A06_out_s2t1 -> Tx0A06_data0
+
+
+# net id: e118
+# p80: lb_p3_cim_stencil_update_stream$valcounter_0$add$binop::out
+# p82: lb_p3_cim_stencil_update_stream$valcounter_0$count$clrMux$mux::data1
+# p89: lb_p3_cim_stencil_update_stream$valcounter_0$ult$comp$compop::data1
+Tx030A_pe_out -> Tx030A_out_s2t0
+Tx0309_in_s0t0 -> Tx0309_out_s1t0
+Tx0309_out_s1t0 -> Tx0309_data1
+Tx0409_in_s3t0 -> Tx0409_out_s1t0
+Tx0509_in_s3t0 -> Tx0509_out_s1t0
+Tx0509_out_s1t0 -> Tx0509_data1
+
+
+# net id: e120
+# p88: lb_p3_cim_stencil_update_stream$valcounter_0$resetOr$lut$lut::out
+# p82: lb_p3_cim_stencil_update_stream$valcounter_0$count$clrMux$mux::bit0
+Tx080D_pe_outb -> Tx080D_out_s3t0b
+Tx070D_in_s1t0b -> Tx070D_out_s2t0b
+Tx070C_in_s0t0b -> Tx070C_out_s3t0b
+Tx060C_in_s1t0b -> Tx060C_out_s3t0b
+Tx050C_in_s1t0b -> Tx050C_out_s2t0b
+Tx050B_in_s0t0b -> Tx050B_out_s3t0b
+Tx040B_in_s1t0b -> Tx040B_out_s2t0b
+Tx040A_in_s0t0b -> Tx040A_out_s2t0b
+Tx0409_in_s0t0b -> Tx0409_out_s3t0b
+Tx0309_in_s1t0b -> Tx0309_out_s2t0b
+Tx0309_out_s2t0b -> Tx0309_bit0b
+
+
+# net id: e121
+# p82: lb_p3_cim_stencil_update_stream$valcounter_0$count$clrMux$mux::out
+# p83: lb_p3_cim_stencil_update_stream$valcounter_0$count$enMux$mux::data0
+Tx0309_pe_out -> Tx0309_out_s1t1
+Tx0409_in_s3t1 -> Tx0409_out_s0t1
+Tx040A_in_s2t1 -> Tx040A_out_s1t1
+Tx050A_in_s3t1 -> Tx050A_out_s1t1
+Tx060A_in_s3t1 -> Tx060A_out_s2t1
+Tx060A_out_s2t1 -> Tx060A_data0
+
+
+# net id: e122
+# p83: lb_p3_cim_stencil_update_stream$valcounter_0$count$enMux$mux::out
+# r84: lb_p3_cim_stencil_update_stream$valcounter_0$count$reg0::reg
+Tx060A_pe_out -> Tx060A_out_s3t3
+Tx050A_in_s1t3 -> Tx050A_out_s0t3
+Tx050B_in_s2t3 -> Tx050B_out_s1t3 (r)
+
+
+# net id: e125
+# p92: lb_p3_cim_stencil_update_stream$valcounter_0$ult$not$lut$lut::out
+# p88: lb_p3_cim_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit0
+# p96: lb_p3_cim_stencil_update_stream$valcounter_1$count$enMux$mux::bit0
+Tx080F_pe_outb -> Tx080F_out_s2t1b
+Tx080E_in_s0t1b -> Tx080E_out_s2t1b
+Tx080D_in_s0t1b -> Tx080D_out_s2t1b
+Tx080D_out_s2t1b -> Tx080D_bit0b
+Tx080E_in_s0t1b -> Tx080E_out_s1t1b
+Tx090E_in_s3t1b -> Tx090E_out_s2t1b
+Tx090E_out_s2t1b -> Tx090E_bit0b
+
+
+# net id: e126
+# p89: lb_p3_cim_stencil_update_stream$valcounter_0$ult$comp$compop::out
+# p92: lb_p3_cim_stencil_update_stream$valcounter_0$ult$not$lut$lut::bit0
+Tx0509_pe_outb -> Tx0509_out_s0t1b
+Tx050A_in_s2t1b -> Tx050A_out_s0t1b
+Tx050B_in_s2t1b -> Tx050B_out_s0t1b
+Tx050C_in_s2t1b -> Tx050C_out_s0t1b
+Tx050D_in_s2t1b -> Tx050D_out_s0t1b
+Tx050E_in_s2t1b -> Tx050E_out_s1t1b
+Tx060E_in_s3t1b -> Tx060E_out_s1t1b
+Tx070E_in_s3t1b -> Tx070E_out_s1t1b
+Tx080E_in_s3t1b -> Tx080E_out_s0t1b
+Tx080F_in_s2t1b -> Tx080F_bit0b
+
+
+# net id: e130
+# p93: lb_p3_cim_stencil_update_stream$valcounter_1$add$binop::out
+# p95: lb_p3_cim_stencil_update_stream$valcounter_1$count$clrMux$mux::data1
+# p102: lb_p3_cim_stencil_update_stream$valcounter_1$ult$comp$compop::data1
+Tx0A06_pe_out -> Tx0A06_out_s3t0
+Tx0906_in_s1t0 -> Tx0906_data1
+Tx0A06_pe_out -> Tx0A06_out_s1t0
+Tx0B06_in_s3t0 -> Tx0B06_out_s0t0
+Tx0B07_in_s2t0 -> Tx0B07_out_s0t0
+Tx0B08_in_s2t0 -> Tx0B08_out_s0t0
+Tx0B09_in_s2t0 -> Tx0B09_out_s0t0
+Tx0B0A_in_s2t0 -> Tx0B0A_out_s1t0
+Tx0B0A_out_s1t0 -> Tx0B0A_data1
+
+
+# net id: e132
+# p101: lb_p3_cim_stencil_update_stream$valcounter_1$resetOr$lut$lut::out
+# p95: lb_p3_cim_stencil_update_stream$valcounter_1$count$clrMux$mux::bit0
+Tx0B0B_pe_outb -> Tx0B0B_out_s2t0b
+Tx0B0A_in_s0t0b -> Tx0B0A_out_s2t0b
+Tx0B0A_out_s2t0b -> Tx0B0A_bit0b
+
+
+# net id: e133
+# p95: lb_p3_cim_stencil_update_stream$valcounter_1$count$clrMux$mux::out
+# p96: lb_p3_cim_stencil_update_stream$valcounter_1$count$enMux$mux::data0
+Tx0B0A_pe_out -> Tx0B0A_out_s0t0
+Tx0B0B_in_s2t0 -> Tx0B0B_out_s0t0
+Tx0B0C_in_s2t0 -> Tx0B0C_out_s3t0
+Tx0A0C_in_s1t0 -> Tx0A0C_out_s0t0
+Tx0A0D_in_s2t0 -> Tx0A0D_out_s3t0
+Tx090D_in_s1t0 -> Tx090D_out_s0t0
+Tx090E_in_s2t0 -> Tx090E_data0
+
+
+# net id: e134
+# p96: lb_p3_cim_stencil_update_stream$valcounter_1$count$enMux$mux::out
+# r97: lb_p3_cim_stencil_update_stream$valcounter_1$count$reg0::reg
+Tx090E_pe_out -> Tx090E_out_s0t1
+Tx090F_in_s2t1 -> Tx090F_out_s1t1
+Tx0A0F_in_s3t1 -> Tx0A0F_out_s1t1
+Tx0B0F_in_s3t1 -> Tx0B0F_out_s2t1
+Tx0B0E_in_s0t1 -> Tx0B0E_out_s1t1
+Tx0C0E_in_s3t1 -> Tx0C0E_out_s2t1 (r)
+
+
+# net id: e137
+# p105: lb_p3_cim_stencil_update_stream$valcounter_1$ult$not$lut$lut::out
+# p101: lb_p3_cim_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit0
+Tx0A0A_pe_outb -> Tx0A0A_out_s0t1b
+Tx0A0B_in_s2t1b -> Tx0A0B_out_s1t1b
+Tx0B0B_in_s3t1b -> Tx0B0B_out_s2t1b
+Tx0B0B_out_s2t1b -> Tx0B0B_bit0b
+
+
+# net id: e138
+# p102: lb_p3_cim_stencil_update_stream$valcounter_1$ult$comp$compop::out
+# p105: lb_p3_cim_stencil_update_stream$valcounter_1$ult$not$lut$lut::bit0
+Tx0906_pe_outb -> Tx0906_out_s0t0b
+Tx0907_in_s2t0b -> Tx0907_out_s0t0b
+Tx0908_in_s2t0b -> Tx0908_out_s0t0b
+Tx0909_in_s2t0b -> Tx0909_out_s1t0b
+Tx0A09_in_s3t0b -> Tx0A09_out_s0t0b
+Tx0A0A_in_s2t0b -> Tx0A0A_bit0b
+
+
+# net id: e142
+# p109: lb_p3_cim_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::out
+# p107: lb_p3_cim_stencil_update_stream$valid_andr$_join$lut$lut::bit0
+Tx050D_pe_outb -> Tx050D_out_s0t0b
+Tx050E_in_s2t0b -> Tx050E_out_s1t0b
+Tx060E_in_s3t0b -> Tx060E_out_s1t0b
+Tx070E_in_s3t0b -> Tx070E_out_s1t0b
+Tx080E_in_s3t0b -> Tx080E_out_s1t0b
+Tx090E_in_s3t0b -> Tx090E_out_s0t0b
+Tx090F_in_s2t0b -> Tx090F_out_s1t0b
+Tx0A0F_in_s3t0b -> Tx0A0F_out_s2t0b
+Tx0A0F_out_s2t0b -> Tx0A0F_bit0b
+
+
+# net id: e148
+# m120: lb_p3_lxx_stencil_update_stream$lbmem_1_0$cgramem::valid
+# m124: lb_p3_lxx_stencil_update_stream$lbmem_2_0$cgramem::wen
+Tx0908_validb -> Tx0908_out_s1t0b
+Tx0A08_in_s3t0b -> Tx0A08_out_s2t0b
+Tx0A08_out_s2t0b -> Tx0A08_wenb
+
+
+# net id: e149
+# p299: lb_padded_2_stencil_update_stream$valid_andr$_join$lut$lut::out
+# m120: lb_p3_lxx_stencil_update_stream$lbmem_1_0$cgramem::wen
+# p131: lb_p3_lxx_stencil_update_stream$valcounter_0$count$enMux$mux::bit0
+# p157: lb_p3_lxx_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit0
+# m168: lb_p3_lxy_stencil_update_stream$lbmem_1_0$cgramem::wen
+# p179: lb_p3_lxy_stencil_update_stream$valcounter_0$count$enMux$mux::bit0
+# p205: lb_p3_lxy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit0
+# m216: lb_p3_lyy_stencil_update_stream$lbmem_1_0$cgramem::wen
+# p227: lb_p3_lyy_stencil_update_stream$valcounter_0$count$enMux$mux::bit0
+# p253: lb_p3_lyy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit0
+Tx0301_pe_outb -> Tx0301_out_s0t1b
+Tx0302_in_s2t1b -> Tx0302_out_s0t1b
+Tx0303_in_s2t1b -> Tx0303_out_s0t1b
+Tx0304_in_s2t1b -> Tx0304_out_s1t1b
+Tx0404_in_s3t1b -> Tx0404_out_s0t1b
+Tx0405_in_s2t1b -> Tx0405_bit0b
+Tx0404_in_s3t1b -> Tx0404_out_s1t1b
+Tx0504_in_s3t1b -> Tx0504_out_s1t1b
+Tx0604_in_s3t1b -> Tx0604_out_s2t1b
+Tx0604_out_s2t1b -> Tx0604_wenb
+Tx0604_in_s3t1b -> Tx0604_out_s1t1b
+Tx0704_in_s3t1b -> Tx0704_out_s1t1b
+Tx0804_in_s3t1b -> Tx0804_out_s1t1b
+Tx0904_in_s3t1b -> Tx0904_out_s2t1b
+Tx0904_out_s2t1b -> Tx0904_wenb
+Tx0904_in_s3t1b -> Tx0904_out_s0t1b
+Tx0905_in_s2t1b -> Tx0905_out_s0t1b
+Tx0906_in_s2t1b -> Tx0906_out_s0t1b
+Tx0907_in_s2t1b -> Tx0907_bit0b
+Tx0907_in_s2t1b -> Tx0907_out_s0t1b
+Tx0908_in_s2t1b -> Tx0908_wenb
+Tx0907_in_s2t1b -> Tx0907_out_s3t1b
+Tx0807_in_s1t1b -> Tx0807_out_s3t1b
+Tx0707_in_s1t1b -> Tx0707_out_s2t1b
+Tx0707_out_s2t1b -> Tx0707_bit0b
+Tx0707_in_s1t1b -> Tx0707_out_s0t1b
+Tx0708_in_s2t1b -> Tx0708_out_s0t1b
+Tx0709_in_s2t1b -> Tx0709_out_s0t1b
+Tx070A_in_s2t1b -> Tx070A_out_s3t1b
+Tx060A_in_s1t1b -> Tx060A_out_s0t1b
+Tx060B_in_s2t1b -> Tx060B_bit0b
+Tx0908_in_s2t1b -> Tx0908_out_s0t1b
+Tx0909_in_s2t1b -> Tx0909_out_s0t1b
+Tx090A_in_s2t1b -> Tx090A_out_s0t1b
+Tx090B_in_s2t1b -> Tx090B_out_s1t1b
+Tx0A0B_in_s3t1b -> Tx0A0B_out_s2t1b
+Tx0A0B_out_s2t1b -> Tx0A0B_bit0b
+Tx0304_in_s2t1b -> Tx0304_out_s0t1b
+Tx0305_in_s2t1b -> Tx0305_out_s0t1b
+Tx0306_in_s2t1b -> Tx0306_out_s3t1b
+Tx0206_in_s1t1b -> Tx0206_out_s3t1b
+Tx0106_in_s1t1b -> Tx0106_out_s0t1b
+Tx0107_in_s2t1b -> Tx0107_bit0b
+
+
+# net id: e152
+# p126: lb_p3_lxx_stencil_update_stream$valcompare_0$compop::out
+# p157: lb_p3_lxx_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit1
+Tx0207_pe_outb -> Tx0207_out_s2t1b
+Tx0206_in_s0t1b -> Tx0206_out_s1t1b
+Tx0306_in_s3t1b -> Tx0306_out_s1t1b
+Tx0406_in_s3t1b -> Tx0406_out_s2t1b
+Tx0405_in_s0t1b -> Tx0405_out_s1t1b
+Tx0405_out_s1t1b -> Tx0405_bit1b
+
+
+# net id: e153
+# r132: lb_p3_lxx_stencil_update_stream$valcounter_0$count$reg0::reg
+# p126: lb_p3_lxx_stencil_update_stream$valcompare_0$compop::data1
+# p128: lb_p3_lxx_stencil_update_stream$valcounter_0$add$binop::data0
+# p131: lb_p3_lxx_stencil_update_stream$valcounter_0$count$enMux$mux::data1
+Tx0506_in_s3t2 -> Tx0506_out_s2t2
+Tx0506_out_s2t2 -> Tx0506_data0
+Tx0506_in_s3t2 -> Tx0506_out_s0t2
+Tx0507_in_s2t2 -> Tx0507_out_s3t2
+Tx0407_in_s1t2 -> Tx0407_out_s3t2
+Tx0307_in_s1t2 -> Tx0307_out_s3t2
+Tx0207_in_s1t2 -> Tx0207_data1
+Tx0207_in_s1t2 -> Tx0207_out_s3t2
+Tx0107_in_s1t2 -> Tx0107_data1
+
+
+# net id: e154
+# p127: lb_p3_lxx_stencil_update_stream$valcompare_1$compop::out
+# p155: lb_p3_lxx_stencil_update_stream$valid_andr$_join$lut$lut::bit1
+Tx0403_pe_outb -> Tx0403_out_s1t1b
+Tx0503_in_s3t1b -> Tx0503_out_s0t1b
+Tx0504_in_s2t1b -> Tx0504_out_s0t1b
+Tx0505_in_s2t1b -> Tx0505_out_s1t1b
+Tx0505_out_s1t1b -> Tx0505_bit1b
+
+
+# net id: e155
+# r145: lb_p3_lxx_stencil_update_stream$valcounter_1$count$reg0::reg
+# p127: lb_p3_lxx_stencil_update_stream$valcompare_1$compop::data1
+# p141: lb_p3_lxx_stencil_update_stream$valcounter_1$add$binop::data0
+# p144: lb_p3_lxx_stencil_update_stream$valcounter_1$count$enMux$mux::data1
+Tx0505_in_s3t2 -> Tx0505_out_s2t2
+Tx0504_in_s0t2 -> Tx0504_out_s3t2
+Tx0404_in_s1t2 -> Tx0404_out_s2t2
+Tx0403_in_s0t2 -> Tx0403_out_s1t2
+Tx0403_out_s1t2 -> Tx0403_data1
+Tx0403_in_s0t2 -> Tx0403_out_s3t2
+Tx0303_in_s1t2 -> Tx0303_data1
+Tx0505_in_s3t2 -> Tx0505_out_s0t2
+Tx0506_in_s2t2 -> Tx0506_out_s3t2
+Tx0406_in_s1t2 -> Tx0406_out_s3t2
+Tx0306_in_s1t2 -> Tx0306_out_s3t2
+Tx0206_in_s1t2 -> Tx0206_out_s2t2
+Tx0205_in_s0t2 -> Tx0205_out_s2t2
+Tx0205_out_s2t2 -> Tx0205_data0
+
+
+# net id: e157
+# p128: lb_p3_lxx_stencil_update_stream$valcounter_0$add$binop::out
+# p130: lb_p3_lxx_stencil_update_stream$valcounter_0$count$clrMux$mux::data1
+# p137: lb_p3_lxx_stencil_update_stream$valcounter_0$ult$comp$compop::data1
+Tx0506_pe_out -> Tx0506_out_s1t0
+Tx0606_in_s3t0 -> Tx0606_out_s1t0
+Tx0606_out_s1t0 -> Tx0606_data1
+Tx0506_pe_out -> Tx0506_out_s3t0
+Tx0406_in_s1t0 -> Tx0406_out_s3t0
+Tx0306_in_s1t0 -> Tx0306_out_s3t0
+Tx0206_in_s1t0 -> Tx0206_data1
+
+
+# net id: e159
+# p136: lb_p3_lxx_stencil_update_stream$valcounter_0$resetOr$lut$lut::out
+# p130: lb_p3_lxx_stencil_update_stream$valcounter_0$count$clrMux$mux::bit0
+Tx0306_pe_outb -> Tx0306_out_s3t0b
+Tx0206_in_s1t0b -> Tx0206_out_s2t0b
+Tx0206_out_s2t0b -> Tx0206_bit0b
+
+
+# net id: e160
+# p130: lb_p3_lxx_stencil_update_stream$valcounter_0$count$clrMux$mux::out
+# p131: lb_p3_lxx_stencil_update_stream$valcounter_0$count$enMux$mux::data0
+Tx0206_pe_out -> Tx0206_out_s0t0
+Tx0207_in_s2t0 -> Tx0207_out_s3t0
+Tx0107_in_s1t0 -> Tx0107_out_s2t0
+Tx0107_out_s2t0 -> Tx0107_data0
+
+
+# net id: e161
+# p131: lb_p3_lxx_stencil_update_stream$valcounter_0$count$enMux$mux::out
+# r132: lb_p3_lxx_stencil_update_stream$valcounter_0$count$reg0::reg
+Tx0107_pe_out -> Tx0107_out_s2t2
+Tx0106_in_s0t2 -> Tx0106_out_s1t2
+Tx0206_in_s3t2 -> Tx0206_out_s1t2
+Tx0306_in_s3t2 -> Tx0306_out_s1t2
+Tx0406_in_s3t2 -> Tx0406_out_s1t2 (r)
+
+
+# net id: e164
+# p140: lb_p3_lxx_stencil_update_stream$valcounter_0$ult$not$lut$lut::out
+# p136: lb_p3_lxx_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit0
+# p144: lb_p3_lxx_stencil_update_stream$valcounter_1$count$enMux$mux::bit0
+Tx0307_pe_outb -> Tx0307_out_s2t0b
+Tx0306_in_s0t0b -> Tx0306_out_s2t0b
+Tx0306_out_s2t0b -> Tx0306_bit0b
+Tx0305_in_s0t0b -> Tx0305_out_s2t0b
+Tx0304_in_s0t0b -> Tx0304_out_s2t0b
+Tx0303_in_s0t0b -> Tx0303_out_s2t0b
+Tx0303_out_s2t0b -> Tx0303_bit0b
+
+
+# net id: e165
+# p137: lb_p3_lxx_stencil_update_stream$valcounter_0$ult$comp$compop::out
+# p140: lb_p3_lxx_stencil_update_stream$valcounter_0$ult$not$lut$lut::bit0
+Tx0606_pe_outb -> Tx0606_out_s3t1b
+Tx0506_in_s1t1b -> Tx0506_out_s3t1b
+Tx0406_in_s1t1b -> Tx0406_out_s0t1b
+Tx0407_in_s2t1b -> Tx0407_out_s3t1b
+Tx0307_in_s1t1b -> Tx0307_out_s2t1b
+Tx0307_out_s2t1b -> Tx0307_bit0b
+
+
+# net id: e169
+# p141: lb_p3_lxx_stencil_update_stream$valcounter_1$add$binop::out
+# p143: lb_p3_lxx_stencil_update_stream$valcounter_1$count$clrMux$mux::data1
+# p150: lb_p3_lxx_stencil_update_stream$valcounter_1$ult$comp$compop::data1
+Tx0205_pe_out -> Tx0205_out_s2t0
+Tx0204_in_s0t0 -> Tx0204_out_s2t0
+Tx0203_in_s0t0 -> Tx0203_out_s1t0
+Tx0203_out_s1t0 -> Tx0203_data1
+Tx0203_in_s0t0 -> Tx0203_out_s3t0
+Tx0103_in_s1t0 -> Tx0103_out_s2t0
+Tx0102_in_s0t0 -> Tx0102_out_s1t0
+Tx0102_out_s1t0 -> Tx0102_data1
+
+
+# net id: e171
+# p149: lb_p3_lxx_stencil_update_stream$valcounter_1$resetOr$lut$lut::out
+# p143: lb_p3_lxx_stencil_update_stream$valcounter_1$count$clrMux$mux::bit0
+Tx0101_pe_outb -> Tx0101_out_s0t1b
+Tx0102_in_s2t1b -> Tx0102_bit0b
+
+
+# net id: e172
+# p143: lb_p3_lxx_stencil_update_stream$valcounter_1$count$clrMux$mux::out
+# p144: lb_p3_lxx_stencil_update_stream$valcounter_1$count$enMux$mux::data0
+Tx0102_pe_out -> Tx0102_out_s1t1
+Tx0202_in_s3t1 -> Tx0202_out_s0t1
+Tx0203_in_s2t1 -> Tx0203_out_s1t1
+Tx0303_in_s3t1 -> Tx0303_out_s2t1
+Tx0303_out_s2t1 -> Tx0303_data0
+
+
+# net id: e173
+# p144: lb_p3_lxx_stencil_update_stream$valcounter_1$count$enMux$mux::out
+# r145: lb_p3_lxx_stencil_update_stream$valcounter_1$count$reg0::reg
+Tx0303_pe_out -> Tx0303_out_s0t2
+Tx0304_in_s2t2 -> Tx0304_out_s1t2
+Tx0404_in_s3t2 -> Tx0404_out_s0t2
+Tx0405_in_s2t2 -> Tx0405_out_s1t2 (r)
+
+
+# net id: e176
+# p153: lb_p3_lxx_stencil_update_stream$valcounter_1$ult$not$lut$lut::out
+# p149: lb_p3_lxx_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit0
+Tx0103_pe_outb -> Tx0103_out_s2t0b
+Tx0102_in_s0t0b -> Tx0102_out_s2t0b
+Tx0101_in_s0t0b -> Tx0101_out_s2t0b
+Tx0101_out_s2t0b -> Tx0101_bit0b
+
+
+# net id: e177
+# p150: lb_p3_lxx_stencil_update_stream$valcounter_1$ult$comp$compop::out
+# p153: lb_p3_lxx_stencil_update_stream$valcounter_1$ult$not$lut$lut::bit0
+Tx0203_pe_outb -> Tx0203_out_s3t1b
+Tx0103_in_s1t1b -> Tx0103_out_s2t1b
+Tx0103_out_s2t1b -> Tx0103_bit0b
+
+
+# net id: e181
+# p157: lb_p3_lxx_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::out
+# p155: lb_p3_lxx_stencil_update_stream$valid_andr$_join$lut$lut::bit0
+Tx0405_pe_outb -> Tx0405_out_s1t2b
+Tx0505_in_s3t2b -> Tx0505_out_s2t2b
+Tx0505_out_s2t2b -> Tx0505_bit0b
+
+
+# net id: e187
+# m168: lb_p3_lxy_stencil_update_stream$lbmem_1_0$cgramem::valid
+# m172: lb_p3_lxy_stencil_update_stream$lbmem_2_0$cgramem::wen
+Tx0604_validb -> Tx0604_out_s1t0b
+Tx0704_in_s3t0b -> Tx0704_out_s2t0b
+Tx0704_out_s2t0b -> Tx0704_wenb
+
+
+# net id: e190
+# p174: lb_p3_lxy_stencil_update_stream$valcompare_0$compop::out
+# p205: lb_p3_lxy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit1
+Tx0C09_pe_outb -> Tx0C09_out_s0t0b
+Tx0C0A_in_s2t0b -> Tx0C0A_out_s0t0b
+Tx0C0B_in_s2t0b -> Tx0C0B_out_s3t0b
+Tx0B0B_in_s1t0b -> Tx0B0B_out_s3t0b
+Tx0A0B_in_s1t0b -> Tx0A0B_bit1b
+
+
+# net id: e191
+# r180: lb_p3_lxy_stencil_update_stream$valcounter_0$count$reg0::reg
+# p174: lb_p3_lxy_stencil_update_stream$valcompare_0$compop::data1
+# p176: lb_p3_lxy_stencil_update_stream$valcounter_0$add$binop::data0
+# p179: lb_p3_lxy_stencil_update_stream$valcounter_0$count$enMux$mux::data1
+Tx0A0A_in_s2t2 -> Tx0A0A_out_s1t2
+Tx0B0A_in_s3t2 -> Tx0B0A_out_s2t2
+Tx0B09_in_s0t2 -> Tx0B09_out_s1t2
+Tx0C09_in_s3t2 -> Tx0C09_out_s1t2
+Tx0C09_out_s1t2 -> Tx0C09_data1
+Tx0A0A_in_s2t2 -> Tx0A0A_out_s0t2
+Tx0A0B_in_s2t2 -> Tx0A0B_out_s3t2
+Tx090B_in_s1t2 -> Tx090B_out_s2t2
+Tx090B_out_s2t2 -> Tx090B_data0
+Tx090B_in_s1t2 -> Tx090B_out_s3t2
+Tx080B_in_s1t2 -> Tx080B_out_s3t2
+Tx070B_in_s1t2 -> Tx070B_out_s3t2
+Tx060B_in_s1t2 -> Tx060B_data1
+
+
+# net id: e192
+# p175: lb_p3_lxy_stencil_update_stream$valcompare_1$compop::out
+# p203: lb_p3_lxy_stencil_update_stream$valid_andr$_join$lut$lut::bit1
+Tx090F_pe_outb -> Tx090F_out_s2t0b
+Tx090E_in_s0t0b -> Tx090E_out_s1t0b
+Tx0A0E_in_s3t0b -> Tx0A0E_out_s1t0b
+Tx0B0E_in_s3t0b -> Tx0B0E_out_s1t0b
+Tx0C0E_in_s3t0b -> Tx0C0E_out_s2t0b
+Tx0C0D_in_s0t0b -> Tx0C0D_out_s1t0b
+Tx0D0D_in_s3t0b -> Tx0D0D_out_s1t0b
+Tx0D0D_out_s1t0b -> Tx0D0D_bit1b
+
+
+# net id: e193
+# r193: lb_p3_lxy_stencil_update_stream$valcounter_1$count$reg0::reg
+# p175: lb_p3_lxy_stencil_update_stream$valcompare_1$compop::data1
+# p189: lb_p3_lxy_stencil_update_stream$valcounter_1$add$binop::data0
+# p192: lb_p3_lxy_stencil_update_stream$valcounter_1$count$enMux$mux::data1
+Tx0A0B_in_s3t2 -> Tx0A0B_out_s0t2
+Tx0A0C_in_s2t2 -> Tx0A0C_out_s3t2
+Tx090C_in_s1t2 -> Tx090C_out_s0t2
+Tx090D_in_s2t2 -> Tx090D_out_s1t2
+Tx090D_out_s1t2 -> Tx090D_data1
+Tx090D_in_s2t2 -> Tx090D_out_s0t2
+Tx090E_in_s2t2 -> Tx090E_out_s0t2
+Tx090F_in_s2t2 -> Tx090F_out_s1t2
+Tx090F_out_s1t2 -> Tx090F_data1
+Tx090E_in_s2t2 -> Tx090E_out_s1t2
+Tx0A0E_in_s3t2 -> Tx0A0E_out_s1t2
+Tx0B0E_in_s3t2 -> Tx0B0E_out_s1t2
+Tx0C0E_in_s3t2 -> Tx0C0E_out_s2t2
+Tx0C0E_out_s2t2 -> Tx0C0E_data0
+
+
+# net id: e195
+# p176: lb_p3_lxy_stencil_update_stream$valcounter_0$add$binop::out
+# p178: lb_p3_lxy_stencil_update_stream$valcounter_0$count$clrMux$mux::data1
+# p185: lb_p3_lxy_stencil_update_stream$valcounter_0$ult$comp$compop::data1
+Tx090B_pe_out -> Tx090B_out_s2t0
+Tx090A_in_s0t0 -> Tx090A_out_s3t0
+Tx080A_in_s1t0 -> Tx080A_out_s2t0
+Tx0809_in_s0t0 -> Tx0809_out_s1t0
+Tx0809_out_s1t0 -> Tx0809_data1
+Tx090B_pe_out -> Tx090B_out_s0t0
+Tx090C_in_s2t0 -> Tx090C_out_s0t0
+Tx090D_in_s2t0 -> Tx090D_out_s3t0
+Tx080D_in_s1t0 -> Tx080D_out_s0t0
+Tx080E_in_s2t0 -> Tx080E_out_s1t0
+Tx080E_out_s1t0 -> Tx080E_data1
+
+
+# net id: e197
+# p184: lb_p3_lxy_stencil_update_stream$valcounter_0$resetOr$lut$lut::out
+# p178: lb_p3_lxy_stencil_update_stream$valcounter_0$count$clrMux$mux::bit0
+Tx060D_pe_outb -> Tx060D_out_s2t0b
+Tx060C_in_s0t0b -> Tx060C_out_s1t0b
+Tx070C_in_s3t0b -> Tx070C_out_s2t0b
+Tx070B_in_s0t0b -> Tx070B_out_s2t0b
+Tx070A_in_s0t0b -> Tx070A_out_s1t0b
+Tx080A_in_s3t0b -> Tx080A_out_s2t0b
+Tx0809_in_s0t0b -> Tx0809_out_s2t0b
+Tx0809_out_s2t0b -> Tx0809_bit0b
+
+
+# net id: e198
+# p178: lb_p3_lxy_stencil_update_stream$valcounter_0$count$clrMux$mux::out
+# p179: lb_p3_lxy_stencil_update_stream$valcounter_0$count$enMux$mux::data0
+Tx0809_pe_out -> Tx0809_out_s0t0
+Tx080A_in_s2t0 -> Tx080A_out_s0t0
+Tx080B_in_s2t0 -> Tx080B_out_s3t0
+Tx070B_in_s1t0 -> Tx070B_out_s3t0
+Tx060B_in_s1t0 -> Tx060B_out_s2t0
+Tx060B_out_s2t0 -> Tx060B_data0
+
+
+# net id: e199
+# p179: lb_p3_lxy_stencil_update_stream$valcounter_0$count$enMux$mux::out
+# r180: lb_p3_lxy_stencil_update_stream$valcounter_0$count$reg0::reg
+Tx060B_pe_out -> Tx060B_out_s2t2
+Tx060A_in_s0t2 -> Tx060A_out_s2t2
+Tx0609_in_s0t2 -> Tx0609_out_s1t2
+Tx0709_in_s3t2 -> Tx0709_out_s1t2
+Tx0809_in_s3t2 -> Tx0809_out_s1t2
+Tx0909_in_s3t2 -> Tx0909_out_s1t2
+Tx0A09_in_s3t2 -> Tx0A09_out_s0t2 (r)
+
+
+# net id: e202
+# p188: lb_p3_lxy_stencil_update_stream$valcounter_0$ult$not$lut$lut::out
+# p184: lb_p3_lxy_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit0
+# p192: lb_p3_lxy_stencil_update_stream$valcounter_1$count$enMux$mux::bit0
+Tx080B_pe_outb -> Tx080B_out_s0t1b
+Tx080C_in_s2t1b -> Tx080C_out_s1t1b
+Tx090C_in_s3t1b -> Tx090C_out_s0t1b
+Tx090D_in_s2t1b -> Tx090D_bit0b
+Tx080C_in_s2t1b -> Tx080C_out_s0t1b
+Tx080D_in_s2t1b -> Tx080D_out_s3t1b
+Tx070D_in_s1t1b -> Tx070D_out_s3t1b
+Tx060D_in_s1t1b -> Tx060D_out_s2t1b
+Tx060D_out_s2t1b -> Tx060D_bit0b
+
+
+# net id: e203
+# p185: lb_p3_lxy_stencil_update_stream$valcounter_0$ult$comp$compop::out
+# p188: lb_p3_lxy_stencil_update_stream$valcounter_0$ult$not$lut$lut::bit0
+Tx080E_pe_outb -> Tx080E_out_s2t2b
+Tx080D_in_s0t2b -> Tx080D_out_s2t2b
+Tx080C_in_s0t2b -> Tx080C_out_s2t2b
+Tx080B_in_s0t2b -> Tx080B_out_s2t2b
+Tx080B_out_s2t2b -> Tx080B_bit0b
+
+
+# net id: e207
+# p189: lb_p3_lxy_stencil_update_stream$valcounter_1$add$binop::out
+# p191: lb_p3_lxy_stencil_update_stream$valcounter_1$count$clrMux$mux::data1
+# p198: lb_p3_lxy_stencil_update_stream$valcounter_1$ult$comp$compop::data1
+Tx0C0E_pe_out -> Tx0C0E_out_s3t1
+Tx0B0E_in_s1t1 -> Tx0B0E_out_s3t1
+Tx0A0E_in_s1t1 -> Tx0A0E_out_s2t1
+Tx0A0D_in_s0t1 -> Tx0A0D_out_s3t1
+Tx090D_in_s1t1 -> Tx090D_out_s3t1
+Tx080D_in_s1t1 -> Tx080D_out_s2t1
+Tx080C_in_s0t1 -> Tx080C_out_s3t1
+Tx070C_in_s1t1 -> Tx070C_out_s2t1
+Tx070B_in_s0t1 -> Tx070B_out_s2t1
+Tx070A_in_s0t1 -> Tx070A_out_s1t1
+Tx070A_out_s1t1 -> Tx070A_data1
+Tx070A_in_s0t1 -> Tx070A_out_s2t1
+Tx0709_in_s0t1 -> Tx0709_out_s1t1
+Tx0709_out_s1t1 -> Tx0709_data1
+
+
+# net id: e209
+# p197: lb_p3_lxy_stencil_update_stream$valcounter_1$resetOr$lut$lut::out
+# p191: lb_p3_lxy_stencil_update_stream$valcounter_1$count$clrMux$mux::bit0
+Tx0605_pe_outb -> Tx0605_out_s0t0b
+Tx0606_in_s2t0b -> Tx0606_out_s1t0b
+Tx0706_in_s3t0b -> Tx0706_out_s0t0b
+Tx0707_in_s2t0b -> Tx0707_out_s0t0b
+Tx0708_in_s2t0b -> Tx0708_out_s0t0b
+Tx0709_in_s2t0b -> Tx0709_bit0b
+
+
+# net id: e210
+# p191: lb_p3_lxy_stencil_update_stream$valcounter_1$count$clrMux$mux::out
+# p192: lb_p3_lxy_stencil_update_stream$valcounter_1$count$enMux$mux::data0
+Tx0709_pe_out -> Tx0709_out_s0t0
+Tx070A_in_s2t0 -> Tx070A_out_s0t0
+Tx070B_in_s2t0 -> Tx070B_out_s0t0
+Tx070C_in_s2t0 -> Tx070C_out_s0t0
+Tx070D_in_s2t0 -> Tx070D_out_s1t0
+Tx080D_in_s3t0 -> Tx080D_out_s1t0
+Tx090D_in_s3t0 -> Tx090D_out_s2t0
+Tx090D_out_s2t0 -> Tx090D_data0
+
+
+# net id: e211
+# p192: lb_p3_lxy_stencil_update_stream$valcounter_1$count$enMux$mux::out
+# r193: lb_p3_lxy_stencil_update_stream$valcounter_1$count$reg0::reg
+Tx090D_pe_out -> Tx090D_out_s2t2
+Tx090C_in_s0t2 -> Tx090C_out_s2t2
+Tx090B_in_s0t2 -> Tx090B_out_s1t2 (r)
+
+
+# net id: e214
+# p201: lb_p3_lxy_stencil_update_stream$valcounter_1$ult$not$lut$lut::out
+# p197: lb_p3_lxy_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit0
+Tx0909_pe_outb -> Tx0909_out_s2t1b
+Tx0908_in_s0t1b -> Tx0908_out_s2t1b
+Tx0907_in_s0t1b -> Tx0907_out_s2t1b
+Tx0906_in_s0t1b -> Tx0906_out_s2t1b
+Tx0905_in_s0t1b -> Tx0905_out_s3t1b
+Tx0805_in_s1t1b -> Tx0805_out_s3t1b
+Tx0705_in_s1t1b -> Tx0705_out_s3t1b
+Tx0605_in_s1t1b -> Tx0605_out_s2t1b
+Tx0605_out_s2t1b -> Tx0605_bit0b
+
+
+# net id: e215
+# p198: lb_p3_lxy_stencil_update_stream$valcounter_1$ult$comp$compop::out
+# p201: lb_p3_lxy_stencil_update_stream$valcounter_1$ult$not$lut$lut::bit0
+Tx070A_pe_outb -> Tx070A_out_s2t0b
+Tx0709_in_s0t0b -> Tx0709_out_s1t0b
+Tx0809_in_s3t0b -> Tx0809_out_s1t0b
+Tx0909_in_s3t0b -> Tx0909_out_s2t0b
+Tx0909_out_s2t0b -> Tx0909_bit0b
+
+
+# net id: e219
+# p205: lb_p3_lxy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::out
+# p203: lb_p3_lxy_stencil_update_stream$valid_andr$_join$lut$lut::bit0
+Tx0A0B_pe_outb -> Tx0A0B_out_s0t0b
+Tx0A0C_in_s2t0b -> Tx0A0C_out_s1t0b
+Tx0B0C_in_s3t0b -> Tx0B0C_out_s1t0b
+Tx0C0C_in_s3t0b -> Tx0C0C_out_s1t0b
+Tx0D0C_in_s3t0b -> Tx0D0C_out_s0t0b
+Tx0D0D_in_s2t0b -> Tx0D0D_bit0b
+
+
+# net id: e225
+# m216: lb_p3_lyy_stencil_update_stream$lbmem_1_0$cgramem::valid
+# m220: lb_p3_lyy_stencil_update_stream$lbmem_2_0$cgramem::wen
+Tx0904_validb -> Tx0904_out_s1t0b
+Tx0A04_in_s3t0b -> Tx0A04_out_s1t0b
+Tx0B04_in_s3t0b -> Tx0B04_out_s1t0b
+Tx0C04_in_s3t0b -> Tx0C04_out_s2t0b
+Tx0C04_out_s2t0b -> Tx0C04_wenb
+
+
+# net id: e228
+# p222: lb_p3_lyy_stencil_update_stream$valcompare_0$compop::out
+# p253: lb_p3_lyy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit1
+Tx0D06_pe_outb -> Tx0D06_out_s0t0b
+Tx0D07_in_s2t0b -> Tx0D07_out_s3t0b
+Tx0C07_in_s1t0b -> Tx0C07_out_s3t0b
+Tx0B07_in_s1t0b -> Tx0B07_out_s3t0b
+Tx0A07_in_s1t0b -> Tx0A07_out_s3t0b
+Tx0907_in_s1t0b -> Tx0907_bit1b
+
+
+# net id: e229
+# r228: lb_p3_lyy_stencil_update_stream$valcounter_0$count$reg0::reg
+# p222: lb_p3_lyy_stencil_update_stream$valcompare_0$compop::data1
+# p224: lb_p3_lyy_stencil_update_stream$valcounter_0$add$binop::data0
+# p227: lb_p3_lyy_stencil_update_stream$valcounter_0$count$enMux$mux::data1
+Tx0B05_in_s3t4 -> Tx0B05_out_s2t4
+Tx0B05_out_s2t4 -> Tx0B05_data0
+Tx0B05_in_s3t4 -> Tx0B05_out_s1t4
+Tx0C05_in_s3t4 -> Tx0C05_out_s0t4
+Tx0C06_in_s2t4 -> Tx0C06_out_s1t4
+Tx0D06_in_s3t4 -> Tx0D06_out_s1t4
+Tx0D06_out_s1t4 -> Tx0D06_data1
+Tx0B05_in_s3t4 -> Tx0B05_out_s0t4
+Tx0B06_in_s2t4 -> Tx0B06_out_s0t4
+Tx0B07_in_s2t4 -> Tx0B07_out_s3t4
+Tx0A07_in_s1t4 -> Tx0A07_out_s3t4
+Tx0907_in_s1t4 -> Tx0907_out_s3t4
+Tx0807_in_s1t4 -> Tx0807_out_s3t4
+Tx0707_in_s1t4 -> Tx0707_data1
+
+
+# net id: e230
+# p223: lb_p3_lyy_stencil_update_stream$valcompare_1$compop::out
+# p251: lb_p3_lyy_stencil_update_stream$valid_andr$_join$lut$lut::bit1
+Tx0A01_pe_outb -> Tx0A01_out_s1t0b
+Tx0B01_in_s3t0b -> Tx0B01_out_s0t0b
+Tx0B02_in_s2t0b -> Tx0B02_out_s1t0b
+Tx0B02_out_s1t0b -> Tx0B02_bit1b
+
+
+# net id: e231
+# r241: lb_p3_lyy_stencil_update_stream$valcounter_1$count$reg0::reg
+# p223: lb_p3_lyy_stencil_update_stream$valcompare_1$compop::data1
+# p237: lb_p3_lyy_stencil_update_stream$valcounter_1$add$binop::data0
+# p240: lb_p3_lyy_stencil_update_stream$valcounter_1$count$enMux$mux::data1
+Tx0C05_in_s0t3 -> Tx0C05_out_s2t3
+Tx0C04_in_s0t3 -> Tx0C04_out_s2t3
+Tx0C03_in_s0t3 -> Tx0C03_out_s2t3
+Tx0C02_in_s0t3 -> Tx0C02_out_s2t3
+Tx0C01_in_s0t3 -> Tx0C01_out_s2t3
+Tx0C01_out_s2t3 -> Tx0C01_data0
+Tx0C01_in_s0t3 -> Tx0C01_out_s3t3
+Tx0B01_in_s1t3 -> Tx0B01_out_s3t3
+Tx0A01_in_s1t3 -> Tx0A01_data1
+Tx0C05_in_s0t3 -> Tx0C05_out_s1t3
+Tx0D05_in_s3t3 -> Tx0D05_out_s0t3
+Tx0D06_in_s2t3 -> Tx0D06_out_s0t3
+Tx0D07_in_s2t3 -> Tx0D07_out_s0t3
+Tx0D08_in_s2t3 -> Tx0D08_out_s3t3
+Tx0C08_in_s1t3 -> Tx0C08_out_s0t3
+Tx0C09_in_s2t3 -> Tx0C09_out_s0t3
+Tx0C0A_in_s2t3 -> Tx0C0A_out_s0t3
+Tx0C0B_in_s2t3 -> Tx0C0B_out_s0t3
+Tx0C0C_in_s2t3 -> Tx0C0C_out_s0t3
+Tx0C0D_in_s2t3 -> Tx0C0D_out_s0t3
+Tx0C0E_in_s2t3 -> Tx0C0E_out_s3t3
+Tx0B0E_in_s1t3 -> Tx0B0E_out_s0t3
+Tx0B0F_in_s2t3 -> Tx0B0F_out_s1t3
+Tx0B0F_out_s1t3 -> Tx0B0F_data1
+
+
+# net id: e233
+# p224: lb_p3_lyy_stencil_update_stream$valcounter_0$add$binop::out
+# p226: lb_p3_lyy_stencil_update_stream$valcounter_0$count$clrMux$mux::data1
+# p233: lb_p3_lyy_stencil_update_stream$valcounter_0$ult$comp$compop::data1
+Tx0B05_pe_out -> Tx0B05_out_s0t3
+Tx0B06_in_s2t3 -> Tx0B06_out_s0t3
+Tx0B07_in_s2t3 -> Tx0B07_out_s0t3
+Tx0B08_in_s2t3 -> Tx0B08_out_s1t3
+Tx0C08_in_s3t3 -> Tx0C08_out_s1t3
+Tx0D08_in_s3t3 -> Tx0D08_out_s0t3
+Tx0D09_in_s2t3 -> Tx0D09_out_s1t3
+Tx0D09_out_s1t3 -> Tx0D09_data1
+Tx0B08_in_s2t3 -> Tx0B08_out_s0t3
+Tx0B09_in_s2t3 -> Tx0B09_out_s0t3
+Tx0B0A_in_s2t3 -> Tx0B0A_out_s0t3
+Tx0B0B_in_s2t3 -> Tx0B0B_out_s0t3
+Tx0B0C_in_s2t3 -> Tx0B0C_out_s0t3
+Tx0B0D_in_s2t3 -> Tx0B0D_out_s0t3
+Tx0B0E_in_s2t3 -> Tx0B0E_out_s1t3
+Tx0B0E_out_s1t3 -> Tx0B0E_data1
+
+
+# net id: e235
+# p232: lb_p3_lyy_stencil_update_stream$valcounter_0$resetOr$lut$lut::out
+# p226: lb_p3_lyy_stencil_update_stream$valcounter_0$count$clrMux$mux::bit0
+Tx0C06_pe_outb -> Tx0C06_out_s0t0b
+Tx0C07_in_s2t0b -> Tx0C07_out_s0t0b
+Tx0C08_in_s2t0b -> Tx0C08_out_s1t0b
+Tx0D08_in_s3t0b -> Tx0D08_out_s0t0b
+Tx0D09_in_s2t0b -> Tx0D09_bit0b
+
+
+# net id: e236
+# p226: lb_p3_lyy_stencil_update_stream$valcounter_0$count$clrMux$mux::out
+# p227: lb_p3_lyy_stencil_update_stream$valcounter_0$count$enMux$mux::data0
+Tx0D09_pe_out -> Tx0D09_out_s3t1
+Tx0C09_in_s1t1 -> Tx0C09_out_s2t1
+Tx0C08_in_s0t1 -> Tx0C08_out_s3t1
+Tx0B08_in_s1t1 -> Tx0B08_out_s3t1
+Tx0A08_in_s1t1 -> Tx0A08_out_s3t1
+Tx0908_in_s1t1 -> Tx0908_out_s2t1
+Tx0907_in_s0t1 -> Tx0907_out_s3t1
+Tx0807_in_s1t1 -> Tx0807_out_s3t1
+Tx0707_in_s1t1 -> Tx0707_out_s2t1
+Tx0707_out_s2t1 -> Tx0707_data0
+
+
+# net id: e237
+# p227: lb_p3_lyy_stencil_update_stream$valcounter_0$count$enMux$mux::out
+# r228: lb_p3_lyy_stencil_update_stream$valcounter_0$count$reg0::reg
+Tx0707_pe_out -> Tx0707_out_s2t4
+Tx0706_in_s0t4 -> Tx0706_out_s1t4
+Tx0806_in_s3t4 -> Tx0806_out_s1t4
+Tx0906_in_s3t4 -> Tx0906_out_s2t4
+Tx0905_in_s0t4 -> Tx0905_out_s1t4
+Tx0A05_in_s3t4 -> Tx0A05_out_s1t4 (r)
+
+
+# net id: e240
+# p236: lb_p3_lyy_stencil_update_stream$valcounter_0$ult$not$lut$lut::out
+# p232: lb_p3_lyy_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit0
+# p240: lb_p3_lyy_stencil_update_stream$valcounter_1$count$enMux$mux::bit0
+Tx0C0F_pe_outb -> Tx0C0F_out_s3t1b
+Tx0B0F_in_s1t1b -> Tx0B0F_out_s2t1b
+Tx0B0F_out_s2t1b -> Tx0B0F_bit0b
+Tx0C0F_pe_outb -> Tx0C0F_out_s2t1b
+Tx0C0E_in_s0t1b -> Tx0C0E_out_s2t1b
+Tx0C0D_in_s0t1b -> Tx0C0D_out_s2t1b
+Tx0C0C_in_s0t1b -> Tx0C0C_out_s2t1b
+Tx0C0B_in_s0t1b -> Tx0C0B_out_s2t1b
+Tx0C0A_in_s0t1b -> Tx0C0A_out_s2t1b
+Tx0C09_in_s0t1b -> Tx0C09_out_s2t1b
+Tx0C08_in_s0t1b -> Tx0C08_out_s2t1b
+Tx0C07_in_s0t1b -> Tx0C07_out_s2t1b
+Tx0C06_in_s0t1b -> Tx0C06_out_s2t1b
+Tx0C06_out_s2t1b -> Tx0C06_bit0b
+
+
+# net id: e241
+# p233: lb_p3_lyy_stencil_update_stream$valcounter_0$ult$comp$compop::out
+# p236: lb_p3_lyy_stencil_update_stream$valcounter_0$ult$not$lut$lut::bit0
+Tx0B0E_pe_outb -> Tx0B0E_out_s1t1b
+Tx0C0E_in_s3t1b -> Tx0C0E_out_s0t1b
+Tx0C0F_in_s2t1b -> Tx0C0F_bit0b
+
+
+# net id: e245
+# p237: lb_p3_lyy_stencil_update_stream$valcounter_1$add$binop::out
+# p239: lb_p3_lyy_stencil_update_stream$valcounter_1$count$clrMux$mux::data1
+# p246: lb_p3_lyy_stencil_update_stream$valcounter_1$ult$comp$compop::data1
+Tx0C01_pe_out -> Tx0C01_out_s0t3
+Tx0C02_in_s2t3 -> Tx0C02_out_s0t3
+Tx0C03_in_s2t3 -> Tx0C03_out_s0t3
+Tx0C04_in_s2t3 -> Tx0C04_out_s0t3
+Tx0C05_in_s2t3 -> Tx0C05_out_s0t3
+Tx0C06_in_s2t3 -> Tx0C06_out_s0t3
+Tx0C07_in_s2t3 -> Tx0C07_out_s0t3
+Tx0C08_in_s2t3 -> Tx0C08_out_s3t3
+Tx0B08_in_s1t3 -> Tx0B08_out_s3t3
+Tx0A08_in_s1t3 -> Tx0A08_out_s3t3
+Tx0908_in_s1t3 -> Tx0908_out_s3t3
+Tx0808_in_s1t3 -> Tx0808_out_s3t3
+Tx0708_in_s1t3 -> Tx0708_out_s3t3
+Tx0608_in_s1t3 -> Tx0608_out_s0t3
+Tx0609_in_s2t3 -> Tx0609_out_s1t3
+Tx0609_out_s1t3 -> Tx0609_data1
+Tx0A08_in_s1t3 -> Tx0A08_out_s0t3
+Tx0A09_in_s2t3 -> Tx0A09_out_s0t3
+Tx0A0A_in_s2t3 -> Tx0A0A_out_s0t3
+Tx0A0B_in_s2t3 -> Tx0A0B_out_s0t3
+Tx0A0C_in_s2t3 -> Tx0A0C_out_s0t3
+Tx0A0D_in_s2t3 -> Tx0A0D_out_s0t3
+Tx0A0E_in_s2t3 -> Tx0A0E_out_s1t3
+Tx0A0E_out_s1t3 -> Tx0A0E_data1
+
+
+# net id: e247
+# p245: lb_p3_lyy_stencil_update_stream$valcounter_1$resetOr$lut$lut::out
+# p239: lb_p3_lyy_stencil_update_stream$valcounter_1$count$clrMux$mux::bit0
+Tx040D_pe_outb -> Tx040D_out_s1t1b
+Tx050D_in_s3t1b -> Tx050D_out_s1t1b
+Tx060D_in_s3t1b -> Tx060D_out_s1t1b
+Tx070D_in_s3t1b -> Tx070D_out_s1t1b
+Tx080D_in_s3t1b -> Tx080D_out_s1t1b
+Tx090D_in_s3t1b -> Tx090D_out_s0t1b
+Tx090E_in_s2t1b -> Tx090E_out_s1t1b
+Tx0A0E_in_s3t1b -> Tx0A0E_out_s2t1b
+Tx0A0E_out_s2t1b -> Tx0A0E_bit0b
+
+
+# net id: e248
+# p239: lb_p3_lyy_stencil_update_stream$valcounter_1$count$clrMux$mux::out
+# p240: lb_p3_lyy_stencil_update_stream$valcounter_1$count$enMux$mux::data0
+Tx0A0E_pe_out -> Tx0A0E_out_s1t0
+Tx0B0E_in_s3t0 -> Tx0B0E_out_s0t0
+Tx0B0F_in_s2t0 -> Tx0B0F_data0
+
+
+# net id: e249
+# p240: lb_p3_lyy_stencil_update_stream$valcounter_1$count$enMux$mux::out
+# r241: lb_p3_lyy_stencil_update_stream$valcounter_1$count$reg0::reg
+Tx0B0F_pe_out -> Tx0B0F_out_s2t3
+Tx0B0E_in_s0t3 -> Tx0B0E_out_s2t3
+Tx0B0D_in_s0t3 -> Tx0B0D_out_s2t3
+Tx0B0C_in_s0t3 -> Tx0B0C_out_s2t3
+Tx0B0B_in_s0t3 -> Tx0B0B_out_s2t3
+Tx0B0A_in_s0t3 -> Tx0B0A_out_s2t3
+Tx0B09_in_s0t3 -> Tx0B09_out_s2t3
+Tx0B08_in_s0t3 -> Tx0B08_out_s2t3
+Tx0B07_in_s0t3 -> Tx0B07_out_s1t3
+Tx0C07_in_s3t3 -> Tx0C07_out_s2t3
+Tx0C06_in_s0t3 -> Tx0C06_out_s2t3 (r)
+
+
+# net id: e252
+# p249: lb_p3_lyy_stencil_update_stream$valcounter_1$ult$not$lut$lut::out
+# p245: lb_p3_lyy_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit0
+Tx070E_pe_outb -> Tx070E_out_s3t0b
+Tx060E_in_s1t0b -> Tx060E_out_s3t0b
+Tx050E_in_s1t0b -> Tx050E_out_s3t0b
+Tx040E_in_s1t0b -> Tx040E_out_s2t0b
+Tx040D_in_s0t0b -> Tx040D_out_s2t0b
+Tx040D_out_s2t0b -> Tx040D_bit0b
+
+
+# net id: e253
+# p246: lb_p3_lyy_stencil_update_stream$valcounter_1$ult$comp$compop::out
+# p249: lb_p3_lyy_stencil_update_stream$valcounter_1$ult$not$lut$lut::bit0
+Tx0609_pe_outb -> Tx0609_out_s1t0b
+Tx0709_in_s3t0b -> Tx0709_out_s0t0b
+Tx070A_in_s2t0b -> Tx070A_out_s0t0b
+Tx070B_in_s2t0b -> Tx070B_out_s0t0b
+Tx070C_in_s2t0b -> Tx070C_out_s0t0b
+Tx070D_in_s2t0b -> Tx070D_out_s0t0b
+Tx070E_in_s2t0b -> Tx070E_bit0b
+
+
+# net id: e257
+# p253: lb_p3_lyy_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::out
+# p251: lb_p3_lyy_stencil_update_stream$valid_andr$_join$lut$lut::bit0
+Tx0907_pe_outb -> Tx0907_out_s1t0b
+Tx0A07_in_s3t0b -> Tx0A07_out_s1t0b
+Tx0B07_in_s3t0b -> Tx0B07_out_s2t0b
+Tx0B06_in_s0t0b -> Tx0B06_out_s2t0b
+Tx0B05_in_s0t0b -> Tx0B05_out_s2t0b
+Tx0B04_in_s0t0b -> Tx0B04_out_s2t0b
+Tx0B03_in_s0t0b -> Tx0B03_out_s2t0b
+Tx0B02_in_s0t0b -> Tx0B02_out_s2t0b
+Tx0B02_out_s2t0b -> Tx0B02_bit0b
+
+
+# net id: e261
+# r256: lb_padded_2_stencil_update_stream$lb1d_0$reg_1::reg
+# r257: lb_padded_2_stencil_update_stream$lb1d_0$reg_2::reg
+# p308: mul_676_677_678$binop::data0
+Tx0302_in_s2t0 -> Tx0302_out_s1t0
+Tx0402_in_s3t0 -> Tx0402_out_s1t0
+Tx0502_in_s3t0 -> Tx0502_out_s2t0
+Tx0501_in_s0t0 -> Tx0501_out_s2t0
+Tx0501_out_s2t0 -> Tx0501_data0
+Tx0501_in_s0t0 -> Tx0501_out_s1t0
+Tx0601_in_s3t0 -> Tx0601_out_s1t0
+Tx0701_in_s3t0 -> Tx0701_out_s1t0
+Tx0801_in_s3t0 -> Tx0801_out_s0t0 (r)
+
+
+# net id: e262
+# r257: lb_padded_2_stencil_update_stream$lb1d_0$reg_2::reg
+# p335: sub_655_657_658$binop::data1
+# p336: sub_671_673_674$binop::data0
+Tx0802_in_s2t0 -> Tx0802_out_s0t0
+Tx0803_in_s2t0 -> Tx0803_out_s0t0
+Tx0804_in_s2t0 -> Tx0804_out_s1t0
+Tx0904_in_s3t0 -> Tx0904_out_s1t0
+Tx0A04_in_s3t0 -> Tx0A04_out_s0t0
+Tx0A05_in_s2t0 -> Tx0A05_data0
+Tx0A04_in_s3t0 -> Tx0A04_out_s1t0
+Tx0B04_in_s3t0 -> Tx0B04_out_s1t0
+Tx0C04_in_s3t0 -> Tx0C04_out_s1t0
+Tx0D04_in_s3t0 -> Tx0D04_out_s2t0
+Tx0D03_in_s0t0 -> Tx0D03_out_s1t0
+Tx0D03_out_s1t0 -> Tx0D03_data1
+
+
+# net id: e263
+# m264: lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem::rdata
+# r258: lb_padded_2_stencil_update_stream$lb1d_1$reg_1::reg
+# m268: lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem::wdata
+# p306: mul_653_649_654$binop::data0
+Tx0B04_rdata -> Tx0B04_out_s1t2
+Tx0C04_in_s3t2 -> Tx0C04_out_s1t2
+Tx0D04_in_s3t2 -> Tx0D04_out_s2t2
+Tx0D04_out_s2t2 -> Tx0D04_wdata
+Tx0B04_rdata -> Tx0B04_out_s3t2
+Tx0A04_in_s1t2 -> Tx0A04_out_s3t2
+Tx0904_in_s1t2 -> Tx0904_out_s3t2
+Tx0804_in_s1t2 -> Tx0804_out_s3t2
+Tx0704_in_s1t2 -> Tx0704_out_s3t2
+Tx0604_in_s1t2 -> Tx0604_out_s2t2
+Tx0603_in_s0t2 -> Tx0603_out_s2t2
+Tx0602_in_s0t2 -> Tx0602_out_s2t2
+Tx0602_out_s2t2 -> Tx0602_data0
+Tx0601_in_s0t2 -> Tx0601_out_s1t2 (r)
+
+
+# net id: e264
+# r258: lb_padded_2_stencil_update_stream$lb1d_1$reg_1::reg
+# p305: mul_648_649_650$binop::data0
+Tx0701_in_s3t2 -> Tx0701_out_s0t2
+Tx0702_in_s2t2 -> Tx0702_out_s0t2
+Tx0703_in_s2t2 -> Tx0703_data0
+
+
+# net id: e266
+# m268: lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem::rdata
+# r260: lb_padded_2_stencil_update_stream$lb1d_2$reg_1::reg
+# p333: sub_643_645_646$binop::data0
+# p338: sub_686_688_689$binop::data1
+Tx0D04_rdata -> Tx0D04_out_s2t3
+Tx0D03_in_s0t3 -> Tx0D03_out_s2t3
+Tx0D02_in_s0t3 -> Tx0D02_out_s3t3
+Tx0C02_in_s1t3 -> Tx0C02_data1
+Tx0C02_in_s1t3 -> Tx0C02_out_s3t3
+Tx0B02_in_s1t3 -> Tx0B02_out_s3t3
+Tx0A02_in_s1t3 -> Tx0A02_out_s3t3
+Tx0902_in_s1t3 -> Tx0902_out_s0t3 (r)
+Tx0902_in_s1t3 -> Tx0902_out_s3t3
+Tx0802_in_s1t3 -> Tx0802_out_s2t3
+Tx0802_out_s2t3 -> Tx0802_data0
+
+
+# net id: e267
+# r260: lb_padded_2_stencil_update_stream$lb1d_2$reg_1::reg
+# r261: lb_padded_2_stencil_update_stream$lb1d_2$reg_2::reg
+# p309: mul_681_677_682$binop::data0
+Tx0903_in_s2t3 -> Tx0903_out_s0t3
+Tx0904_in_s2t3 -> Tx0904_out_s0t3
+Tx0905_in_s2t3 -> Tx0905_out_s0t3
+Tx0906_in_s2t3 -> Tx0906_out_s1t3
+Tx0A06_in_s3t3 -> Tx0A06_out_s0t3
+Tx0A07_in_s2t3 -> Tx0A07_out_s1t3 (r)
+Tx0905_in_s2t3 -> Tx0905_out_s1t3
+Tx0A05_in_s3t3 -> Tx0A05_out_s2t3
+Tx0A04_in_s0t3 -> Tx0A04_out_s1t3
+Tx0B04_in_s3t3 -> Tx0B04_out_s1t3
+Tx0C04_in_s3t3 -> Tx0C04_out_s1t3
+Tx0D04_in_s3t3 -> Tx0D04_out_s0t3
+Tx0D05_in_s2t3 -> Tx0D05_data0
+
+
+# net id: e268
+# r261: lb_padded_2_stencil_update_stream$lb1d_2$reg_2::reg
+# p333: sub_643_645_646$binop::data1
+# p336: sub_671_673_674$binop::data1
+Tx0B07_in_s3t3 -> Tx0B07_out_s2t3
+Tx0B06_in_s0t3 -> Tx0B06_out_s3t3
+Tx0A06_in_s1t3 -> Tx0A06_out_s2t3
+Tx0A05_in_s0t3 -> Tx0A05_out_s1t3
+Tx0A05_out_s1t3 -> Tx0A05_data1
+Tx0A05_in_s0t3 -> Tx0A05_out_s3t3
+Tx0905_in_s1t3 -> Tx0905_out_s3t3
+Tx0805_in_s1t3 -> Tx0805_out_s2t3
+Tx0804_in_s0t3 -> Tx0804_out_s2t3
+Tx0803_in_s0t3 -> Tx0803_out_s2t3
+Tx0802_in_s0t3 -> Tx0802_out_s1t3
+Tx0802_out_s1t3 -> Tx0802_data1
+
+
+# net id: e271
+# m264: lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem::valid
+# m268: lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem::wen
+Tx0B04_validb -> Tx0B04_out_s1t1b
+Tx0C04_in_s3t1b -> Tx0C04_out_s1t1b
+Tx0D04_in_s3t1b -> Tx0D04_out_s2t1b
+Tx0D04_out_s2t1b -> Tx0D04_wenb
+
+
+# net id: e272
+# p304: lb_padded_2_stencil_update_stream_wen2_lutcnst::out
+# m264: lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem::wen
+Tx0D01_pe_outb -> Tx0D01_out_s3t0b
+Tx0C01_in_s1t0b -> Tx0C01_out_s0t0b
+Tx0C02_in_s2t0b -> Tx0C02_out_s3t0b
+Tx0B02_in_s1t0b -> Tx0B02_out_s0t0b
+Tx0B03_in_s2t0b -> Tx0B03_out_s0t0b
+Tx0B04_in_s2t0b -> Tx0B04_wenb
+
+
+# net id: e275
+# p270: lb_padded_2_stencil_update_stream$valcompare_0$compop::out
+# p301: lb_padded_2_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::bit1
+Tx0106_pe_outb -> Tx0106_out_s1t1b
+Tx0206_in_s3t1b -> Tx0206_out_s2t1b
+Tx0205_in_s0t1b -> Tx0205_out_s1t1b
+Tx0305_in_s3t1b -> Tx0305_out_s1t1b
+Tx0305_out_s1t1b -> Tx0305_bit1b
+
+
+# net id: e276
+# r276: lb_padded_2_stencil_update_stream$valcounter_0$count$reg0::reg
+# p270: lb_padded_2_stencil_update_stream$valcompare_0$compop::data1
+# p272: lb_padded_2_stencil_update_stream$valcounter_0$add$binop::data0
+# p275: lb_padded_2_stencil_update_stream$valcounter_0$count$enMux$mux::data1
+Tx0406_in_s0t3 -> Tx0406_out_s2t3
+Tx0406_out_s2t3 -> Tx0406_data0
+Tx0406_in_s0t3 -> Tx0406_out_s3t3
+Tx0306_in_s1t3 -> Tx0306_out_s3t3
+Tx0206_in_s1t3 -> Tx0206_out_s3t3
+Tx0106_in_s1t3 -> Tx0106_data1
+Tx0206_in_s1t3 -> Tx0206_out_s0t3
+Tx0207_in_s2t3 -> Tx0207_out_s0t3
+Tx0208_in_s2t3 -> Tx0208_out_s0t3
+Tx0209_in_s2t3 -> Tx0209_out_s0t3
+Tx020A_in_s2t3 -> Tx020A_out_s0t3
+Tx020B_in_s2t3 -> Tx020B_out_s1t3
+Tx020B_out_s1t3 -> Tx020B_data1
+
+
+# net id: e277
+# p271: lb_padded_2_stencil_update_stream$valcompare_1$compop::out
+# p299: lb_padded_2_stencil_update_stream$valid_andr$_join$lut$lut::bit1
+Tx0401_pe_outb -> Tx0401_out_s3t0b
+Tx0301_in_s1t0b -> Tx0301_bit1b
+
+
+# net id: e278
+# r289: lb_padded_2_stencil_update_stream$valcounter_1$count$reg0::reg
+# p271: lb_padded_2_stencil_update_stream$valcompare_1$compop::data1
+# p285: lb_padded_2_stencil_update_stream$valcounter_1$add$binop::data0
+# p288: lb_padded_2_stencil_update_stream$valcounter_1$count$enMux$mux::data1
+Tx0103_in_s2t3 -> Tx0103_out_s1t3
+Tx0203_in_s3t3 -> Tx0203_out_s2t3
+Tx0202_in_s0t3 -> Tx0202_out_s1t3
+Tx0202_out_s1t3 -> Tx0202_data1
+Tx0203_in_s3t3 -> Tx0203_out_s1t3
+Tx0303_in_s3t3 -> Tx0303_out_s2t3
+Tx0302_in_s0t3 -> Tx0302_out_s2t3
+Tx0301_in_s0t3 -> Tx0301_out_s3t3
+Tx0201_in_s1t3 -> Tx0201_out_s2t3
+Tx0201_out_s2t3 -> Tx0201_data0
+Tx0301_in_s0t3 -> Tx0301_out_s1t3
+Tx0401_in_s3t3 -> Tx0401_out_s1t3
+Tx0401_out_s1t3 -> Tx0401_data1
+
+
+# net id: e280
+# p272: lb_padded_2_stencil_update_stream$valcounter_0$add$binop::out
+# p274: lb_padded_2_stencil_update_stream$valcounter_0$count$clrMux$mux::data1
+# p281: lb_padded_2_stencil_update_stream$valcounter_0$ult$comp$compop::data1
+Tx0406_pe_out -> Tx0406_out_s0t4
+Tx0407_in_s2t4 -> Tx0407_out_s0t4
+Tx0408_in_s2t4 -> Tx0408_out_s0t4
+Tx0409_in_s2t4 -> Tx0409_out_s1t4
+Tx0509_in_s3t4 -> Tx0509_out_s0t4
+Tx050A_in_s2t4 -> Tx050A_out_s1t4
+Tx050A_out_s1t4 -> Tx050A_data1
+Tx060A_in_s3t4 -> Tx060A_out_s1t4
+Tx070A_in_s3t4 -> Tx070A_out_s1t4
+Tx080A_in_s3t4 -> Tx080A_out_s1t4
+Tx080A_out_s1t4 -> Tx080A_data1
+
+
+# net id: e282
+# p280: lb_padded_2_stencil_update_stream$valcounter_0$resetOr$lut$lut::out
+# p274: lb_padded_2_stencil_update_stream$valcounter_0$count$clrMux$mux::bit0
+Tx0409_pe_outb -> Tx0409_out_s0t1b
+Tx040A_in_s2t1b -> Tx040A_out_s1t1b
+Tx050A_in_s3t1b -> Tx050A_out_s2t1b
+Tx050A_out_s2t1b -> Tx050A_bit0b
+
+
+# net id: e283
+# p274: lb_padded_2_stencil_update_stream$valcounter_0$count$clrMux$mux::out
+# p275: lb_padded_2_stencil_update_stream$valcounter_0$count$enMux$mux::data0
+Tx050A_pe_out -> Tx050A_out_s3t2
+Tx040A_in_s1t2 -> Tx040A_out_s3t2
+Tx030A_in_s1t2 -> Tx030A_out_s0t2
+Tx030B_in_s2t2 -> Tx030B_out_s3t2
+Tx020B_in_s1t2 -> Tx020B_out_s2t2
+Tx020B_out_s2t2 -> Tx020B_data0
+
+
+# net id: e285
+# p275: lb_padded_2_stencil_update_stream$valcounter_0$count$enMux$mux::out
+# r276: lb_padded_2_stencil_update_stream$valcounter_0$count$reg0::reg
+Tx020B_pe_out -> Tx020B_out_s2t3
+Tx020A_in_s0t3 -> Tx020A_out_s2t3
+Tx0209_in_s0t3 -> Tx0209_out_s2t3
+Tx0208_in_s0t3 -> Tx0208_out_s2t3
+Tx0207_in_s0t3 -> Tx0207_out_s1t3
+Tx0307_in_s3t3 -> Tx0307_out_s1t3
+Tx0407_in_s3t3 -> Tx0407_out_s2t3 (r)
+
+
+# net id: e288
+# p284: lb_padded_2_stencil_update_stream$valcounter_0$ult$not$lut$lut::out
+# p280: lb_padded_2_stencil_update_stream$valcounter_0$resetOr$lut$lut::bit0
+# p288: lb_padded_2_stencil_update_stream$valcounter_1$count$enMux$mux::bit0
+Tx090A_pe_outb -> Tx090A_out_s2t0b
+Tx0909_in_s0t0b -> Tx0909_out_s3t0b
+Tx0809_in_s1t0b -> Tx0809_out_s3t0b
+Tx0709_in_s1t0b -> Tx0709_out_s3t0b
+Tx0609_in_s1t0b -> Tx0609_out_s3t0b
+Tx0509_in_s1t0b -> Tx0509_out_s3t0b
+Tx0409_in_s1t0b -> Tx0409_out_s2t0b
+Tx0409_out_s2t0b -> Tx0409_bit0b
+Tx0408_in_s0t0b -> Tx0408_out_s2t0b
+Tx0407_in_s0t0b -> Tx0407_out_s2t0b
+Tx0406_in_s0t0b -> Tx0406_out_s2t0b
+Tx0405_in_s0t0b -> Tx0405_out_s2t0b
+Tx0404_in_s0t0b -> Tx0404_out_s2t0b
+Tx0403_in_s0t0b -> Tx0403_out_s2t0b
+Tx0402_in_s0t0b -> Tx0402_out_s3t0b
+Tx0302_in_s1t0b -> Tx0302_out_s3t0b
+Tx0202_in_s1t0b -> Tx0202_out_s2t0b
+Tx0202_out_s2t0b -> Tx0202_bit0b
+
+
+# net id: e289
+# p281: lb_padded_2_stencil_update_stream$valcounter_0$ult$comp$compop::out
+# p284: lb_padded_2_stencil_update_stream$valcounter_0$ult$not$lut$lut::bit0
+Tx080A_pe_outb -> Tx080A_out_s1t1b
+Tx090A_in_s3t1b -> Tx090A_out_s2t1b
+Tx090A_out_s2t1b -> Tx090A_bit0b
+
+
+# net id: e293
+# p285: lb_padded_2_stencil_update_stream$valcounter_1$add$binop::out
+# p287: lb_padded_2_stencil_update_stream$valcounter_1$count$clrMux$mux::data1
+# p294: lb_padded_2_stencil_update_stream$valcounter_1$ult$comp$compop::data1
+Tx0201_pe_out -> Tx0201_out_s0t2
+Tx0202_in_s2t2 -> Tx0202_out_s1t2
+Tx0302_in_s3t2 -> Tx0302_out_s1t2
+Tx0402_in_s3t2 -> Tx0402_out_s1t2
+Tx0402_out_s1t2 -> Tx0402_data1
+Tx0502_in_s3t2 -> Tx0502_out_s0t2
+Tx0503_in_s2t2 -> Tx0503_out_s1t2
+Tx0603_in_s3t2 -> Tx0603_out_s1t2
+Tx0703_in_s3t2 -> Tx0703_out_s0t2
+Tx0704_in_s2t2 -> Tx0704_out_s0t2
+Tx0705_in_s2t2 -> Tx0705_out_s1t2
+Tx0705_out_s1t2 -> Tx0705_data1
+
+
+# net id: e295
+# p293: lb_padded_2_stencil_update_stream$valcounter_1$resetOr$lut$lut::out
+# p287: lb_padded_2_stencil_update_stream$valcounter_1$count$clrMux$mux::bit0
+Tx0901_pe_outb -> Tx0901_out_s3t0b
+Tx0801_in_s1t0b -> Tx0801_out_s3t0b
+Tx0701_in_s1t0b -> Tx0701_out_s3t0b
+Tx0601_in_s1t0b -> Tx0601_out_s3t0b
+Tx0501_in_s1t0b -> Tx0501_out_s0t0b
+Tx0502_in_s2t0b -> Tx0502_out_s3t0b
+Tx0402_in_s1t0b -> Tx0402_out_s2t0b
+Tx0402_out_s2t0b -> Tx0402_bit0b
+
+
+# net id: e296
+# p287: lb_padded_2_stencil_update_stream$valcounter_1$count$clrMux$mux::out
+# p288: lb_padded_2_stencil_update_stream$valcounter_1$count$enMux$mux::data0
+Tx0402_pe_out -> Tx0402_out_s3t2
+Tx0302_in_s1t2 -> Tx0302_out_s3t2
+Tx0202_in_s1t2 -> Tx0202_out_s2t2
+Tx0202_out_s2t2 -> Tx0202_data0
+
+
+# net id: e297
+# p288: lb_padded_2_stencil_update_stream$valcounter_1$count$enMux$mux::out
+# r289: lb_padded_2_stencil_update_stream$valcounter_1$count$reg0::reg
+Tx0202_pe_out -> Tx0202_out_s3t3
+Tx0102_in_s1t3 -> Tx0102_out_s0t3 (r)
+
+
+# net id: e300
+# p297: lb_padded_2_stencil_update_stream$valcounter_1$ult$not$lut$lut::out
+# p293: lb_padded_2_stencil_update_stream$valcounter_1$resetOr$lut$lut::bit0
+Tx0801_pe_outb -> Tx0801_out_s1t0b
+Tx0901_in_s3t0b -> Tx0901_out_s2t0b
+Tx0901_out_s2t0b -> Tx0901_bit0b
+
+
+# net id: e301
+# p294: lb_padded_2_stencil_update_stream$valcounter_1$ult$comp$compop::out
+# p297: lb_padded_2_stencil_update_stream$valcounter_1$ult$not$lut$lut::bit0
+Tx0705_pe_outb -> Tx0705_out_s1t0b
+Tx0805_in_s3t0b -> Tx0805_out_s2t0b
+Tx0804_in_s0t0b -> Tx0804_out_s2t0b
+Tx0803_in_s0t0b -> Tx0803_out_s2t0b
+Tx0802_in_s0t0b -> Tx0802_out_s2t0b
+Tx0801_in_s0t0b -> Tx0801_out_s2t0b
+Tx0801_out_s2t0b -> Tx0801_bit0b
+
+
+# net id: e305
+# p301: lb_padded_2_stencil_update_stream$valid_andr$opN_0$_join$lut$lut::out
+# p299: lb_padded_2_stencil_update_stream$valid_andr$_join$lut$lut::bit0
+Tx0305_pe_outb -> Tx0305_out_s2t1b
+Tx0304_in_s0t1b -> Tx0304_out_s2t1b
+Tx0303_in_s0t1b -> Tx0303_out_s2t1b
+Tx0302_in_s0t1b -> Tx0302_out_s2t1b
+Tx0301_in_s0t1b -> Tx0301_out_s2t1b
+Tx0301_out_s2t1b -> Tx0301_bit0b
+
+
+# net id: e308
+# p305: mul_648_649_650$binop::out
+# p334: sub_646_650_651$binop::data1
+Tx0703_pe_out -> Tx0703_out_s1t2
+Tx0803_in_s3t2 -> Tx0803_out_s1t2
+Tx0803_out_s1t2 -> Tx0803_data1
+
+
+# net id: e309
+# p320: smax_663_664_665$cgramax::out
+# p307: mul_666_666_667$binop::data0
+# p307: mul_666_666_667$binop::data1
+# p310: mul_694_695_696$binop::data0
+Tx0507_pe_out -> Tx0507_out_s2t0
+Tx0506_in_s0t0 -> Tx0506_out_s2t0
+Tx0505_in_s0t0 -> Tx0505_out_s2t0
+Tx0504_in_s0t0 -> Tx0504_out_s2t0
+Tx0503_in_s0t0 -> Tx0503_out_s2t0
+Tx0503_out_s2t0 -> Tx0503_data0
+Tx0507_pe_out -> Tx0507_out_s0t0
+Tx0508_in_s2t0 -> Tx0508_out_s3t0
+Tx0408_in_s1t0 -> Tx0408_out_s0t0
+Tx0409_in_s2t0 -> Tx0409_out_s0t0
+Tx040A_in_s2t0 -> Tx040A_out_s0t0
+Tx040B_in_s2t0 -> Tx040B_data0
+Tx040B_in_s2t0 -> Tx040B_out_s1t0
+Tx040B_out_s1t0 -> Tx040B_data1
+
+
+# net id: e310
+# p309: mul_681_677_682$binop::out
+# p337: sub_679_682_683$binop::data1
+Tx0D05_pe_out -> Tx0D05_out_s0t1
+Tx0D06_in_s2t1 -> Tx0D06_out_s0t1
+Tx0D07_in_s2t1 -> Tx0D07_out_s3t1
+Tx0C07_in_s1t1 -> Tx0C07_data1
+
+
+# net id: e311
+# p321: smax_691_692_693$cgramax::out
+# p310: mul_694_695_696$binop::data1
+# p311: mul_699_699_700$binop::data0
+# p311: mul_699_699_700$binop::data1
+Tx0B09_pe_out -> Tx0B09_out_s2t2
+Tx0B08_in_s0t2 -> Tx0B08_out_s2t2
+Tx0B07_in_s0t2 -> Tx0B07_out_s2t2
+Tx0B06_in_s0t2 -> Tx0B06_out_s2t2
+Tx0B05_in_s0t2 -> Tx0B05_out_s2t2
+Tx0B04_in_s0t2 -> Tx0B04_out_s2t2
+Tx0B03_in_s0t2 -> Tx0B03_out_s3t2
+Tx0A03_in_s1t2 -> Tx0A03_out_s2t2
+Tx0A02_in_s0t2 -> Tx0A02_out_s2t2
+Tx0A02_out_s2t2 -> Tx0A02_data0
+Tx0A02_in_s0t2 -> Tx0A02_out_s1t2
+Tx0A02_out_s1t2 -> Tx0A02_data1
+Tx0A03_in_s1t2 -> Tx0A03_out_s3t2
+Tx0903_in_s1t2 -> Tx0903_out_s3t2
+Tx0803_in_s1t2 -> Tx0803_out_s3t2
+Tx0703_in_s1t2 -> Tx0703_out_s3t2
+Tx0603_in_s1t2 -> Tx0603_out_s3t2
+Tx0503_in_s1t2 -> Tx0503_data1
+
+
+# net id: e312
+# p312: mul_762_763_765$binop::out
+# p339: sub_765_767_768$binop::data0
+Tx0209_pe_out -> Tx0209_out_s0t2
+Tx020A_in_s2t2 -> Tx020A_out_s0t2
+Tx020B_in_s2t2 -> Tx020B_out_s0t2
+Tx020C_in_s2t2 -> Tx020C_out_s0t2
+Tx020D_in_s2t2 -> Tx020D_out_s1t2
+Tx030D_in_s3t2 -> Tx030D_out_s1t2
+Tx040D_in_s3t2 -> Tx040D_out_s1t2
+Tx050D_in_s3t2 -> Tx050D_out_s0t2
+Tx050E_in_s2t2 -> Tx050E_out_s1t2
+Tx060E_in_s3t2 -> Tx060E_out_s0t2
+Tx060F_in_s2t2 -> Tx060F_data0
+
+
+# net id: e313
+# p314: mul_766_766_767$binop::out
+# p339: sub_765_767_768$binop::data1
+Tx0607_pe_out -> Tx0607_out_s0t0
+Tx0608_in_s2t0 -> Tx0608_out_s0t0
+Tx0609_in_s2t0 -> Tx0609_out_s0t0
+Tx060A_in_s2t0 -> Tx060A_out_s0t0
+Tx060B_in_s2t0 -> Tx060B_out_s0t0
+Tx060C_in_s2t0 -> Tx060C_out_s0t0
+Tx060D_in_s2t0 -> Tx060D_out_s0t0
+Tx060E_in_s2t0 -> Tx060E_out_s0t0
+Tx060F_in_s2t0 -> Tx060F_out_s1t0
+Tx060F_out_s1t0 -> Tx060F_data1
+
+
+# net id: e314
+# p319: slt_788_773_789$not$lut$lut::out
+# p315: mux_789_790_791$mux::bit0
+Tx050F_pe_outb -> Tx050F_out_s3t1b
+Tx040F_in_s1t1b -> Tx040F_out_s2t1b
+Tx040E_in_s0t1b -> Tx040E_out_s2t1b
+Tx040E_out_s2t1b -> Tx040E_bit0b
+
+
+# net id: e315
+# p316: slt_788_773_789$comp$compop::out
+# p319: slt_788_773_789$not$lut$lut::bit0
+Tx030F_pe_outb -> Tx030F_out_s1t0b
+Tx040F_in_s3t0b -> Tx040F_out_s1t0b
+Tx050F_in_s3t0b -> Tx050F_out_s2t0b
+Tx050F_out_s2t0b -> Tx050F_bit0b
+
+
+# net id: e316
+# p328: smax_786_787_788$cgramax::out
+# p316: slt_788_773_789$comp$compop::data0
+Tx010F_pe_out -> Tx010F_out_s1t0
+Tx020F_in_s3t0 -> Tx020F_out_s1t0
+Tx030F_in_s3t0 -> Tx030F_out_s2t0
+Tx030F_out_s2t0 -> Tx030F_data0
+
+
+# net id: e319
+# p329: smin_661_662_663$min_mux$mux::out
+# p320: smax_663_664_665$cgramax::data0
+Tx0603_pe_out -> Tx0603_out_s0t2
+Tx0604_in_s2t2 -> Tx0604_out_s0t2
+Tx0605_in_s2t2 -> Tx0605_out_s0t2
+Tx0606_in_s2t2 -> Tx0606_out_s0t2
+Tx0607_in_s2t2 -> Tx0607_out_s3t2
+Tx0507_in_s1t2 -> Tx0507_out_s2t2
+Tx0507_out_s2t2 -> Tx0507_data0
+
+
+# net id: e320
+# p331: smin_689_690_691$min_mux$mux::out
+# p321: smax_691_692_693$cgramax::data0
+Tx0B06_pe_out -> Tx0B06_out_s0t1
+Tx0B07_in_s2t1 -> Tx0B07_out_s0t1
+Tx0B08_in_s2t1 -> Tx0B08_out_s0t1
+Tx0B09_in_s2t1 -> Tx0B09_data0
+
+
+# net id: e321
+# p322: smax_774_775_776$cgramax::out
+# p323: smax_776_777_778$cgramax::data0
+Tx070D_pe_out -> Tx070D_out_s0t0
+Tx070E_in_s2t0 -> Tx070E_out_s0t0
+Tx070F_in_s2t0 -> Tx070F_data0
+
+
+# net id: e322
+# p323: smax_776_777_778$cgramax::out
+# p324: smax_778_779_780$cgramax::data0
+Tx070F_pe_out -> Tx070F_out_s3t0
+Tx060F_in_s1t0 -> Tx060F_out_s3t0
+Tx050F_in_s1t0 -> Tx050F_out_s3t0
+Tx040F_in_s1t0 -> Tx040F_out_s3t0
+Tx030F_in_s1t0 -> Tx030F_out_s3t0
+Tx020F_in_s1t0 -> Tx020F_out_s2t0
+Tx020F_out_s2t0 -> Tx020F_data0
+
+
+# net id: e323
+# p324: smax_778_779_780$cgramax::out
+# p325: smax_780_781_782$cgramax::data0
+Tx020F_pe_out -> Tx020F_out_s1t1
+Tx030F_in_s3t1 -> Tx030F_out_s1t1
+Tx040F_in_s3t1 -> Tx040F_out_s2t1
+Tx040F_out_s2t1 -> Tx040F_data0
+
+
+# net id: e324
+# p325: smax_780_781_782$cgramax::out
+# p326: smax_782_783_784$cgramax::data0
+Tx040F_pe_out -> Tx040F_out_s3t2
+Tx030F_in_s1t2 -> Tx030F_out_s2t2
+Tx030E_in_s0t2 -> Tx030E_out_s2t2
+Tx030E_out_s2t2 -> Tx030E_data0
+
+
+# net id: e325
+# p326: smax_782_783_784$cgramax::out
+# p327: smax_784_785_786$cgramax::data0
+Tx030E_pe_out -> Tx030E_out_s3t2
+Tx020E_in_s1t2 -> Tx020E_out_s3t2
+Tx010E_in_s1t2 -> Tx010E_out_s2t2
+Tx010E_out_s2t2 -> Tx010E_data0
+
+
+# net id: e326
+# p327: smax_784_785_786$cgramax::out
+# p328: smax_786_787_788$cgramax::data0
+Tx010E_pe_out -> Tx010E_out_s0t1
+Tx010F_in_s2t1 -> Tx010F_data0
+
+
+# net id: e327
+# p330: smin_661_662_663$scomp$compop::out
+# p329: smin_661_662_663$min_mux$mux::bit0
+Tx0502_pe_outb -> Tx0502_out_s1t0b
+Tx0602_in_s3t0b -> Tx0602_out_s0t0b
+Tx0603_in_s2t0b -> Tx0603_bit0b
+
+
+# net id: e328
+# p332: smin_689_690_691$scomp$compop::out
+# p331: smin_689_690_691$min_mux$mux::bit0
+Tx0B03_pe_outb -> Tx0B03_out_s0t1b
+Tx0B04_in_s2t1b -> Tx0B04_out_s0t1b
+Tx0B05_in_s2t1b -> Tx0B05_out_s0t1b
+Tx0B06_in_s2t1b -> Tx0B06_bit0b
+
+
+# net id: e329
+# p338: sub_686_688_689$binop::out
+# p331: smin_689_690_691$min_mux$mux::data0
+# p332: smin_689_690_691$scomp$compop::data0
+Tx0C02_pe_out -> Tx0C02_out_s0t2
+Tx0C03_in_s2t2 -> Tx0C03_out_s3t2
+Tx0B03_in_s1t2 -> Tx0B03_out_s2t2
+Tx0B03_out_s2t2 -> Tx0B03_data0
+Tx0B03_in_s1t2 -> Tx0B03_out_s0t2
+Tx0B04_in_s2t2 -> Tx0B04_out_s0t2
+Tx0B05_in_s2t2 -> Tx0B05_out_s0t2
+Tx0B06_in_s2t2 -> Tx0B06_data0
+
+
+# net id: e330
+# p333: sub_643_645_646$binop::out
+# p334: sub_646_650_651$binop::data0
+Tx0802_pe_out -> Tx0802_out_s0t2
+Tx0803_in_s2t2 -> Tx0803_data0
+
+
+# net id: e331
+# p339: sub_765_767_768$binop::out
+# p340: sub_768_771_772$binop::data0
+Tx060F_pe_out -> Tx060F_out_s2t0
+Tx060E_in_s0t0 -> Tx060E_out_s2t0
+Tx060E_out_s2t0 -> Tx060E_data0
+

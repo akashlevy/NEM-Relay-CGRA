@@ -1,0 +1,539 @@
+//; my $reg_inputs = parameter(Name=>'reg_inputs', val=> 1, List=>[1, 0], doc=>'Add register on the inputs');
+//; my $reg_out    = parameter(Name=>'reg_out', val=> 1, List=>[1, 0], doc=>'Add register on the outputs');
+//;
+//; my $reg_red_inp = 1;
+//; my $reg_red_out = 1;
+//;
+//; my $use_reduce           = parameter(Name=>'use_reduce',           val=>0, List=>[1, 0], doc=>'0 - no reduce PE, 1 - add reduce PE');
+//; my $use_extra_reduce_inp = parameter(Name=>'use_extra_reduce_inp', val=>0, List=>[1, 0], doc=>'0 - 4 input local reduction, 1 - 5 input reduction for chaining');
+//; my $reduce_use_abs       = parameter(Name=>'reduce_use_abs',       val=>0, List=>[1, 0], doc=>'reduce_use_abs');
+//; my $reduce_just_mult     = parameter(Name=>'reduce_just_mult',     val=>1, List=>[1, 0], doc=>'reduce_just_mult');
+//;
+//;
+//; my $use_add   = parameter(Name=>'use_add',  val=> 2, List=>[2, 1, 0], doc=>'0 - no adders, 1 - simple ADDs, 2 - SAD');
+//; my $use_cntr  = parameter(Name=>'use_cntr', val=> 1, List=>[1, 0],  doc=>'0 - no counter mode, 1 - enable counter mode');
+//; my $use_bool  = parameter(Name=>'use_bool', Val=> 1, List=>[1, 0], Doc=>"0 - no booleans, 1 - simple gates");
+//; my $lut_inps  = parameter(Name=>'lut_inps', Val=> 3, Min=>0, Step=>1, Max=>16,
+//;                                                      Doc=>"0 - no LUT, 1-16 - uses LUTs with that number of inputs");
+//; my $use_shift = parameter(Name=>'use_shift', val=> 1, List=>[1, 0], doc=>'Use shift operations');
+//; my $mult_mode = parameter(Name=>'mult_mode', val=> 2, List=>[2, 1, 0], doc=>'Use MAD(2) or MULT(1) or None(0)');
+//; my $use_div   = parameter(Name=>'use_div',   val=> 0, List=>[1, 0],  doc=>'0 - no divide, 1 - enable iterrative divide');
+//; my $en_double = parameter(Name=>'en_double', val=> 0, List=>[1, 0], doc=>'1 - 32b supported, 0 - No 32b support');
+//;
+//; my $en_opt   = parameter(Name=>'en_opt', val=> 1, List=>[1, 0], doc=>'Use shifter area optimization?');
+//; my $en_trick = parameter(Name=>'en_trick', val=> 0, List=>[1, 0], doc=>'Shiter sharing trick in double presition');
+//; my $use_relu  = parameter(Name=>'use_relu',  val=> 1, List=>[1, 0],  doc=>'0 - no relu, 1 - enable relu');
+//;
+//; my $use_flip  = $self->parameter(name=>'use_flip', val=> 0, List=>[1, 0], doc=>'Add option to flip inputs?');
+//;
+//; my $config = parameter(Name=>'config',  val=> "3_1_double_div_mult32_reduce" , doc=>'configuration');
+//;
+//;
+//;# $config = "2_1";
+//;# $config = "3_1";
+//;# $config = "3_1_double";
+//;# $config = "3_1_double_shftTrick";
+//;# $config = "3_1_double_div";
+//;# $config = "3_1_double_div_mult32";
+//;# $config = "3_1_double_div_mult32_reduce";
+//;# $config = "3_1_double_div_mult32_reduce_flip";
+//;# $config = "2_1_double_div_mult32_reduce";
+//;# $config = "2_1_double_div_mult32_reduce_chain";
+//;# $config = "2_1_double_div_mult32_reduce_chain_flip";
+//;
+//;
+//;# $config = "3_1_double_div_shftOpt";
+//;# $config = "3_1_double_div_shftOpt_mult32_reduce_noAbs";
+//;# $config = "2_1_double_div_shftOpt_mult32_reduce_chain_noAbs";
+//;
+//; if($config eq "2_1") {
+//;    $use_add   = 1;
+//;    $use_cntr  = 0;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 1;
+//;    $use_div   = 0;
+//;    $en_double = 0;
+//; } elsif ($config eq "3_1") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 0;
+//;    $en_double = 0;
+//; } elsif ($config eq "3_1_double") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 0;
+//;    $en_double = 1;
+//; } elsif ($config eq "3_1_double_shftTrick") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 0;
+//;    $en_double = 1;
+//;#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//;    $en_opt    = 0;
+//;    $en_trick  = 1;
+//; } elsif ($config eq "3_1_double_div") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//; } elsif ($config eq "3_1_double_div_mult32") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 0;
+//;    $reduce_use_abs       = 0;
+//;    $reduce_just_mult     = 1;
+//; } elsif ($config eq "3_1_double_div_mult32_reduce") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 0;
+//;    $reduce_use_abs       = 1;
+//;    $reduce_just_mult     = 0;
+//; } elsif ($config eq "3_1_double_div_mult32_reduce_flip") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;    $use_flip  = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 0;
+//;    $reduce_use_abs       = 1;
+//;    $reduce_just_mult     = 0;
+//; } elsif ($config eq "3_1_double_div_mult32_reduce_noAbs") {
+//;    $use_add   = 2;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 2;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 0;
+//;    $reduce_use_abs       = 0;
+//;    $reduce_just_mult     = 0;
+//; } elsif ($config eq "2_1_double_div_mult32_reduce") {
+//;    $use_add   = 1;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 1;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 0;
+//;    $reduce_use_abs       = 1;
+//;    $reduce_just_mult     = 0;
+//; } elsif ($config eq "2_1_double_div_mult32_reduce_chain") {
+//;    $use_add   = 1;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 1;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 1;
+//;    $reduce_use_abs       = 1;
+//;    $reduce_just_mult     = 0;
+//; } elsif ($config eq "2_1_double_div_mult32_reduce_chain_flip") {
+//;    $use_add   = 1;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 1;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;    $use_flip  = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 1;
+//;    $reduce_use_abs       = 1;
+//;    $reduce_just_mult     = 0;
+//; } elsif ($config eq "2_1_double_div_mult32_reduce_chain_noAbs") {
+//;    $use_add   = 1;
+//;    $use_cntr  = 1;
+//;    $use_bool  = 1;
+//;    $use_shift = 1;
+//;    $mult_mode = 1;
+//;    $use_div   = 1;
+//;    $en_double = 1;
+//;
+//;    $use_reduce           = 1;
+//;    $use_extra_reduce_inp = 1;
+//;    $reduce_use_abs       = 0;
+//;    $reduce_just_mult     = 0;
+//; }
+//;
+//;
+//;
+//; my $debug = $self->parameter(name=>'debug', val=> 0, List=>[1, 0], doc=>'Generate extra code for debug');
+//;
+//; my $use_c_input = ($use_add > 1) or ($mult_mode > 1) or ($lut_inps > 3);
+//;
+//; parameter(Name=>'use_reduce_chain', Val=>$use_extra_reduce_inp , Force=>1, doc=>"use_reduce_chain ?");
+//; parameter(Name=>'use_c_input', Val=>$use_c_input , Force=>1, doc=>"use_c_input ?");
+/*
+
+$config = `$config`
+
+
+    use_add   = `$use_add  `;
+    use_cntr  = `$use_cntr `;
+    use_bool  = `$use_bool `;
+    use_shift = `$use_shift`;
+    mult_mode = `$mult_mode`;
+    use_div   = `$use_div  `;
+    en_double = `$en_double`;
+
+
+    use_reduce           = `$use_reduce`
+    use_extra_reduce_inp = `$use_extra_reduce_inp`
+    reduce_use_abs       = `$reduce_use_abs`
+    reduce_just_mult     = `$reduce_just_mult`
+
+*/
+module   `mname`  #(
+  parameter DataWidth = 16
+) (
+  input                         clk,
+  input                         rst_n,
+  input         [3:0]           clk_en,
+
+  input         [31:0]          cfg_d,
+  input         [10:0]          cfg_a,
+  input                         cfg_en,
+
+
+  input  [3:0][DataWidth-1:0]   op_a,
+  input  [3:0][DataWidth-1:0]   op_b,
+//; if($use_c_input) {
+  input  [3:0][DataWidth-1:0]   op_c,
+//;}
+//; if($use_extra_reduce_inp){
+  input  [2*DataWidth-1:0]        reduce_extra_inp_in,
+//;}
+
+
+  input  [3:0]                  op_d_p,
+  input  [3:0]                  op_e_p,
+  input  [3:0]                  op_f_p,
+
+
+  output logic [3:0][DataWidth-1:0]  res_out  ,
+  output logic [3:0]                 res_p_out
+);
+
+logic [3:0][DataWidth-1:0]  res  ;
+logic [3:0]                 res_p;
+
+logic [3:0][DataWidth-1:0]        pe_a_in;
+logic [3:0][DataWidth-1:0]        pe_b_in;
+//; if($use_c_input) {
+logic [3:0][DataWidth-1:0]        pe_c_in;
+//;}
+
+
+logic [3:0][DataWidth-1:0]  pe_res;
+//; if($en_double & ($mult_mode > 0)) {
+logic [3:0][2*DataWidth-1:0] mult_res;
+//;}
+
+//; if($en_double & ($mult_mode > 0) & ($use_reduce == 0)) {
+logic [3:0][2*DataWidth-1:0] nc_mult_res;
+assign nc_mult_res = mult_res;
+//;}
+
+logic en_chain_inp;
+
+logic [15:0] op_code;
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    op_code <= 'h0;
+  end else if(cfg_en && (&cfg_a)) begin
+    op_code <= cfg_d[15:0];
+  end
+end
+
+logic [15:0] nc_op_code;
+assign       nc_op_code = op_code;
+
+//; if($use_extra_reduce_inp){
+  logic [2*DataWidth-1:0]  reduce_extra_inp;
+
+//; my $inp_l = generate_base('test_opt_reg', 'test_opt_reg_reduce_inp_l');
+`$inp_l->mname()` #(.DataWidth(DataWidth)) `$inp_l->iname()`
+(
+  .clk        (clk),
+  .clk_en     (clk_en[0]),
+  .rst_n      (rst_n),
+  .load       (cfg_en && (cfg_a == 8'hF0)),
+  .val        (cfg_d[DataWidth-1:0]),
+  .mode       (op_code[15:14]),
+  .data_in    (reduce_extra_inp_in[DataWidth-1:0]),
+  .res        (reduce_extra_inp[DataWidth-1:0])
+);
+//; my $inp_h = generate_base('test_opt_reg', 'test_opt_reg_reduce_inp_h');
+`$inp_h->mname()` #(.DataWidth(DataWidth)) `$inp_h->iname()`
+(
+  .clk        (clk),
+  .clk_en     (clk_en[0]),
+  .rst_n      (rst_n),
+  .load       (cfg_en && (cfg_a == 8'hF1)),
+  .val        (cfg_d[DataWidth-1:0]),
+  .mode       (op_code[15:14]),
+  .data_in    (reduce_extra_inp_in[2*DataWidth-1:DataWidth]),
+  .res        (reduce_extra_inp[2*DataWidth-1:DataWidth])
+);
+//;}
+
+
+assign en_chain_inp = (op_code[8:7] == 2'b11);
+
+//; if($use_reduce) {
+logic reduce_en;
+logic en_mult32;
+//logic en_conv16;
+
+assign en_mult32    = (op_code[8:7] == 2'b00);
+//assign en_conv16    = (op_code[8:7] == 2'b01);
+
+assign reduce_en = |op_code[6:0];
+
+
+always_comb begin
+  pe_a_in = op_a;
+  pe_b_in = op_b;
+//; if($use_c_input) {
+  pe_c_in = op_c;
+//; }
+
+  if (en_mult32) begin
+    pe_a_in[1] = pe_a_in[0];
+    pe_b_in[2] = pe_b_in[0];
+    pe_a_in[3] = pe_a_in[2];
+    pe_b_in[3] = pe_b_in[1];
+  end else if (en_chain_inp) begin
+    pe_b_in[1] = pe_res[0];
+    pe_b_in[3] = pe_res[2];
+  end
+end
+
+
+//; } else {
+
+
+always_comb begin
+  pe_a_in = op_a;
+  pe_b_in = op_b;
+//; if($use_c_input) {
+  pe_c_in = op_c;
+//; }
+
+  if (en_chain_inp) begin
+    pe_b_in[1] = pe_res[0];
+    pe_b_in[3] = pe_res[2];
+  end
+end
+
+//;}
+
+//; if($en_double) {
+logic [1:0][`$use_add -1`:0] carry_chain;
+logic [1:0]      cmpr_eq_chain;
+//;}
+//; if($use_div > 0) {
+logic [1:0][DataWidth-1:0] div_lsb;
+logic [1:0]                nc_div_lsb_msb;
+logic [1:0][DataWidth-1:0] div_oper_msb;
+logic [1:0][DataWidth-1:0] div_oper_lsb;
+
+assign nc_div_lsb_msb[0] = div_lsb[0][DataWidth-1];
+assign nc_div_lsb_msb[1] = div_lsb[1][DataWidth-1];
+
+assign div_oper_lsb[0] =  {pe_a_in[1][DataWidth-2:0], pe_a_in[0][DataWidth-1]};
+assign div_oper_msb[0] =  {div_lsb[0][DataWidth-2:0], pe_a_in[0][DataWidth-2]};
+
+assign div_oper_lsb[1] =  {pe_a_in[3][DataWidth-2:0], pe_a_in[2][DataWidth-1]};
+assign div_oper_msb[1] =  {div_lsb[1][DataWidth-2:0], pe_a_in[2][DataWidth-2]};
+//;}
+
+//; my $chain_i = 0;
+//; for (my $i=0;$i<4; $i++) {
+//; my $is_msb = ($i)%2;
+//; my $PE = generate('test_pe', 'comp_pe'.$i, reg_inputs=>$reg_inputs, reg_out=>$reg_out,
+//;                      "use_bool"=>$use_bool, "lut_inps"=>$lut_inps, "use_add"=>$use_add,
+//;                         "use_cntr" => $use_cntr, "use_shift"=>$use_shift, "mult_mode"=>$mult_mode,
+//;                         "use_div" => $use_div, "is_msb"=>$is_msb, "en_double" => $en_double,
+//;                         "use_relu" => $use_relu, "en_opt"=>$en_opt, "en_trick"=>$en_trick,
+//;                          "use_flip" => $use_flip,
+//;                         "debug"=>$debug);
+`$PE->mname()` #(.DataWidth(DataWidth)) `$PE->iname()`
+(
+//; if($is_msb) {
+//MSB
+//;} else {
+//LSB
+//;}
+  .clk       (clk),
+  .rst_n     (rst_n),
+  .clk_en    (clk_en[`$i`]),
+
+  .cfg_d     (cfg_d),
+  .cfg_a     (cfg_a[7:0]),
+  .cfg_en    (cfg_en & (cfg_a[10:8]==3'h`$i`)), //'
+
+  .data0   (pe_a_in[`$i`]),
+//; if($en_double & $use_shift & !$is_msb) {
+  .op_a_shift (pe_a_in[`$i+1`]),
+//; } elsif($en_double & $use_shift & $is_msb) {
+  .op_a_shift (pe_a_in[`$i-1`]),
+//; }
+  .data1   (pe_b_in[`$i`]),
+//;if($use_c_input) {
+  .data2   (pe_c_in[`$i`]),
+//;}
+
+//; if($en_double & ($use_add > 0) & !$is_msb) {
+  .res_p_msb   (res_p[`$i+1`]),
+  .carry_out   (carry_chain[`$chain_i`]),
+  .cmpr_eq_out (cmpr_eq_chain[`$chain_i`]),
+//; } elsif($en_double & ($use_add > 0) & $is_msb) {
+  .carry_in   (carry_chain[`$chain_i`]),
+  .cmpr_eq_in (cmpr_eq_chain[`$chain_i`]),
+//; }
+//; if($use_div > 0) {
+//;   if($is_msb) {
+//  .div_low_msb (pe_a_in[`$i-1`][DataWidth-1:DataWidth-2]),
+//  .div_ci    (div_lsb[`$chain_i`]),
+//  .div_co    (div_msb[`$chain_i`]),
+  .div_oper    (div_oper_msb[`$chain_i`]),
+//;   } else {
+//;     if(!$en_double) {
+  .res_p_msb   (res_p[`$i+1`]),
+//;     }
+//  .div_ci    (div_msb[`$chain_i`]),
+  .div_oper  (div_oper_lsb[`$chain_i`]),
+  .div_co    (div_lsb[`$chain_i`]),
+//; }
+
+
+//;}
+
+  .bit0 (op_d_p[`$i`]),
+  .bit1 (op_e_p[`$i`]),
+  .bit2 (op_f_p[`$i`]),
+
+  .res       (pe_res[`$i`]),
+//; if($en_double & ($mult_mode > 0)) {
+  .mult_res  (mult_res[`$i`]),
+//;}
+  .res_p     (res_p[`$i`])
+);
+
+//;   if(($i)%2 == 1) {
+//;     $chain_i=$chain_i+1;
+//;   }
+//; }
+
+//; if($use_reduce) {
+logic [4*DataWidth - 1:0] reduce_res;
+logic [2*DataWidth - 1:0] reduce_inp [3:0];
+genvar g_i;
+generate
+  for (g_i = 0; g_i < 4; g_i = g_i + 1) begin : GEN_RED_IN
+//; if ($reg_red_inp) {
+    always_ff @(posedge clk or negedge rst_n) begin
+      if(~rst_n) begin
+        reduce_inp[g_i] <= 'h0;
+      end else begin
+//; if($en_double & $mult_mode > 0) {
+        reduce_inp[g_i] <= en_mult32 ? mult_res[g_i] : { {DataWidth{1'b0}},pe_res[g_i]};
+//;} else {
+        reduce_inp[g_i] <= { {DataWidth{1'b0}},pe_res[g_i]};
+//;}
+      end
+    end
+//; } elsif($en_double & $mult_mode > 0) {
+      assign reduce_inp[g_i] = en_mult32 ? mult_res[g_i] : { {DataWidth{1'b0}},pe_res[g_i]};
+//;} else {
+      assign reduce_inp[g_i] = { {DataWidth{1'b0}},pe_res[g_i]};
+//;}
+  end
+endgenerate
+
+//; my $dut_red = generate_base('test_pe_red', 'dut_red', reg_out => $reg_red_out,
+//;                            use_extra_inp => $use_extra_reduce_inp,
+//;                            use_abs => $reduce_use_abs, just_mult => $reduce_just_mult, debug => $debug);
+
+`$dut_red->mname()` #(.DataWidth(2*DataWidth)) `$dut_red->iname()`
+(
+//;if($reg_red_out){
+  .clk       (clk),
+  .rst_n     (rst_n),
+//;}
+  .op_code (op_code[6:0]),
+
+  .op_a (reduce_inp[0]),
+  .op_b (reduce_inp[1]),
+  .op_c (reduce_inp[2]),
+  .op_d (reduce_inp[3]),
+//; if($use_extra_reduce_inp){
+  .op_e (reduce_extra_inp),
+//;}
+
+  .res  (reduce_res)
+);
+
+
+
+assign res[0] = reduce_en ? reduce_res[3*DataWidth-1:2*DataWidth] : pe_res[0];
+assign res[2] = reduce_en ? reduce_res[4*DataWidth-1:3*DataWidth] : pe_res[2];
+
+assign res[1] = reduce_en ? reduce_res[DataWidth-1:0] : pe_res[1];
+assign res[3] = reduce_en ? reduce_res[2*DataWidth-1:DataWidth] : pe_res[3];
+//; } else {
+
+assign res = pe_res;
+//;}
+
+
+  assign res_p_out = res_p;
+  assign res_out   = res;
+
+
+endmodule
+
+

@@ -1,0 +1,58 @@
+//; use POSIX qw(ceil floor);
+//; sub CeilLog2{ceil(log(shift)/log(2));}
+//; my $use_ff   = parameter(Name=>'use_ff', val=> 1, List=>[1, 0], doc=>'Add optional register');
+//; my $num_inp  = parameter(Name=>'num_inp', val=> 4, Min=>1, doc=>'Number of inputs');
+//; my $sel_bits = CeilLog2($num_inp);
+module `mname`  #(
+  parameter DataWidth = 16
+) (
+//; if($use_ff) {
+  input                        clk,
+  input                        rst_n,
+//; }
+
+
+//; for(my $i = 0 ;$i<$num_inp; $i=$i+1) {
+  input  [DataWidth-1:0]       data_in_`$i`,
+//;}
+
+  input  [`$sel_bits-1`:0]            sel,
+//; if($use_ff) {
+  input                        reg_en,
+//; }
+
+  output logic [DataWidth-1:0] res
+);
+
+  logic [DataWidth-1:0] res_w;
+  integer j;
+
+  always_comb begin
+    res_w = 'hX;
+
+    case(sel)
+//; for(my $i = 0 ;$i<$num_inp; $i=$i+1) {
+      `$sel_bits`'d`$i`: res_w = data_in_`$i`;
+//;}
+      default: res_w = 'hX;
+    endcase // sel
+  end
+
+//; if($use_ff) {
+  logic [DataWidth-1:0] res_reg;
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if(~rst_n) begin
+      res_reg <= 16'h0;
+    end else if(reg_en) begin
+      res_reg <= res_w;
+    end
+  end
+
+  assign res = reg_en ? res_reg : res_w;
+//; } else {
+    assign res = res_w;
+//;}
+
+endmodule
+

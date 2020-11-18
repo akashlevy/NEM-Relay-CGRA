@@ -1,0 +1,123 @@
+//; my $width = parameter(Name=>'width', val=> 16, doc=>'Bus width for SB');
+//; my $IO    = parameter(Name=>'IO', val=> 6, doc=>'IO Count for SB'); 
+//; my $i;
+//; my $side;
+//; my @sides = ("N", "E", "S", "W");
+//; my $size = scalar @sides;
+
+module `mname` (
+clk, rst_n,
+//; ## PE Inputs ##
+IN_PE,
+//; ## registering, feedthrough and direction configurations ##
+//; ## Order is N ==> 0..IO-1, E ==> 0..IO..1, S ==> 0..IO-1, W ==> 0..IO-1 (Direction order is as array order) ##
+//; ## dir_sel is 2-bit for each mux ##
+reg_sel, ft_sel, dir_sel,
+//; ## Enable for the SB (Connects to the registers) ##
+cfg_en,
+//; ## Input and Output Data Buses ##
+//; foreach $side (@sides) {
+//;  for($i=0; $i<$IO; $i++) {
+//;   if($i==$IO-1) {
+OUT_`$i`_`$side`, IN_`$i`_`$side`
+//;   }
+//;   else {
+OUT_`$i`_`$side`, IN_`$i`_`$side`,
+//;   }
+//;  }
+//; }
+);
+
+input  clk;
+input  rst_n;
+input  [`$size*$IO-1`:0] ft_sel;
+input  [`$size*$IO-1`:0] reg_sel;
+input  [`$size*$IO*2-1`:0] dir_sel;
+input  cfg_en;
+
+input  [`$width-1`:0] IN_PE;
+
+//; foreach $side (@sides) {
+//; for($i=0; $i<$IO; $i++) {
+output [`$width-1`:0] OUT_`$i`_`$side`;
+input  [`$width-1`:0] IN_`$i`_`$side`;
+//; }
+//; } 
+
+//; for($i=0; $i<$IO*$size; $i++) {
+wire [`$width-1`:0] ft_mux_out_`$i`_sig;
+wire [`$width-1`:0] ft_mux_out_`$i`_reg;
+wire [`$width-1`:0] dir_sel_mux_out_`$i`_sig;
+//;}
+
+//; ## Selects either registered or non-registered output ##
+//; my $count = 0;
+//; foreach $side (@sides) {
+//; for($i=0; $i<$IO; $i++) {
+case(reg_sel[`$count`]) 
+    1'b0    : OUT_`$i`_`$side` = ft_mux_out_`$count`_sig;
+    1'b1    : OUT_`$i`_`$side` = ft_mux_out_`$count`_reg;
+    default : OUT_`$i`_`$side` = ft_mux_out_`$count`_sig; 
+endcase 
+
+//; ## Registers the output of FT Mux ##
+always_ff @(posedge clk or negedge rst_n) begin
+  if(~rst_n) begin
+    ft_mux_out_`$count`_reg <= `$width`'b0;
+  end else if (cfg_en) begin
+    ft_mux_out_`$count`_reg <= ft_mux_out_`$count`_sig; 
+  end
+end
+
+//; my $IN_ft;
+//; if ($side =~ m/N/) {$IN_ft = "IN_${i}_S"};
+//; if ($side =~ m/S/) {$IN_ft = "IN_${i}_N"};
+//; if ($side =~ m/E/) {$IN_ft = "IN_${i}_W"};
+//; if ($side =~ m/W/) {$IN_ft = "IN_${i}_E"};
+
+case(ft_sel[`$count`]) 
+    1'b0    : ft_mux_out_`$count`_sig  = dir_sel_mux_out_`$count`_sig;
+    1'b1    : ft_mux_out_`$count`_sig  = `$IN_ft`;
+    default : ft_mux_out_`$count`_sig  = dir_sel_mux_out_`$count`_sig;
+endcase 
+
+//; ## Selects the input from a particular diretion or PE ##
+//; my $dir0;
+//; my $dir1;
+//; my $dir2;
+//; if ($side =~ m/N/) {
+//; $dir0 = $sides[1];
+//; $dir1 = $sides[2];
+//; $dir2 = $sides[3];
+//; }
+//;
+//; if ($side =~ m/E/) {
+//; $dir0 = $sides[0];
+//; $dir1 = $sides[2];
+//; $dir2 = $sides[3];
+//; }
+//;
+//; if ($side =~ m/S/) {
+//; $dir0 = $sides[0];
+//; $dir1 = $sides[1];
+//; $dir2 = $sides[3];
+//; }
+//;
+//; if ($side =~ m/W/) {
+//; $dir0 = $sides[0];
+//; $dir1 = $sides[1];
+//; $dir2 = $sides[2];
+//; }
+
+case(dir_sel[`$count*2+1` : `$count*2`]) 
+    2'b00   : dir_sel_mux_out_`$count`_sig  = IN_`$i`_`$dir0`;
+    2'b01   : dir_sel_mux_out_`$count`_sig  = IN_`$i`_`$dir1`;
+    2'b10   : dir_sel_mux_out_`$count`_sig  = IN_`$i`_`$dir2`;
+    2'b11   : dir_sel_mux_out_`$count`_sig  = IN_PE;
+    default : dir_sel_mux_out_`$count`_sig  = IN_`$i`_`$dir0`;
+endcase 
+
+//;  $count++;
+//; }
+//; } 
+endmodule 

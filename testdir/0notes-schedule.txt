@@ -1,0 +1,121 @@
+PRELIMINARY TASKS: 27h/6d
+
+- update the schedule total 3h
+-- install excel on computer     1h
+-- import schedule to excel      2h
+
+- merge latest verilog changes from nikhil      6h/1.5d
+-- snapshot srdev
+-- make sure srdev runs all existing tests (srtest)
+-- merge nbdev => srdev
+-- make sure srdev runs all existing tests (srtest)
+-- merge srdev => master
+-- done!
+
+- upgrade existing unit tests to use new i/o regime 18h/5d
+-- milestone: unit tests run using new io/sequence      6h
+--- identify new io sequence                               1h
+--- modify genbsb to use new io sequence                   2h
+--- modify run.csh to use new io sequence (bypass io hack) 2h
+-- milestone: travis tests run using new io/sequence   12h
+--- modify serpent to implement new io sequence in travis tests  8h
+--- work w/pnr guys to implement new io sequence in travis tests 4h
+
+
+
+
+PROPOSED TESTING SCHEDULE (4-hour days): 24 weeks
+
+    - Cadence port     2w
+    - PE UNIT TESTS    5w
+    - PE FINAL UPGRADE 4w
+    - BASIC ROUTING    2w
+    - ADV ROUTING      4w
+    - HARRIS           1w
+    - Each add'l app   1w
+    - Parallel tests   1w
+    - Stall/debug    3-4w
+
+
+TASK BREAKDOWN BELOW:
+
+==============================================================================
+Cadence port 2w
+   Want all tests running equally on Verilog and Cadence platforms
+
+
+==============================================================================
+PE UNIT TESTS: 4w (94h)
+
+Subtasks: 134h
+  H8v1             1.1w (44h)
+  H16v1            1.0w (20h)
+  misc tasks       1.5w (30h)
+
+Definitions
+  H8v1    H8+1v0+LUT working for all PE ops
+  H16v1   Same as H8v1 except testing 16-bit vectors
+  H8+1v0  H8v0 plus 1bit checks (res AND res_p)
+  H8v0    8-bit harness working w/ PE-op subset (add, mul,...?)
+
+
+Subtask breakdown
+
+  Subtask H8v1:  44h              Milestone
+    H8v0               2d ( 8h)   running continuously in bg on kiwi
+    H8+1v0             4d (16h)   running continuously in bg on kiwi
+    H8+1v0+LUT/H8v1    5d (20h)   running continuously in bg on kiwi
+
+
+  Subtask H16v1: 20h              Milestone
+    H16v1              1w (20h)   running continuously in bg on kiwi
+
+
+  Misc subtasks: 30h
+    opt-reg bug             2d   (8h)
+    IO upgrade/verilog      2.5d (10h)
+    IO upgrade/test harness 3d   (12h)
+
+
+==============================================================================
+PE FINAL UPGRADE: 80h (4w)
+- 40h to get all unit tests running with final PE verilog and specs
+- 40h(?) to get existing travis tests running
+
+
+
+========================================================================
+BASIC ROUTING: 2w (40h)
+
+SIO: 4d (16h)
+VI:  2d ( 8h)
+VIO: 3d (12h)
+
+
+* SIO: Unit tests w/variable tile placement, always same i/o
+* VI:  SIO w/random input pin
+* VIO: VI plus random output pins
+
+
+========================================================================
+ADVANCED ROUTING: 4w
+
+Generate random DAGs (BSB):   1w (40h)
+Build/run random DAGs (GOLD): 1w
+Build/run random DAGs (BSA):  1w
+Final test harness:           1w
+
+
+========================================================================
+HARRIS added to existing system tests: 1w
+
+- plus 1w for each additional app
+
+
+========================================================================
+Infrastructure for running multiple tests in parallel: 1w
+
+
+========================================================================
+Testing for global stall/debugging: 3-4w
+

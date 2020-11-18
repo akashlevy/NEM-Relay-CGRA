@@ -1,0 +1,8 @@
+*~
+*.pyc
+*#
+/hardware/generator_z/top/genesis_verif
+/hardware/generator_z/top/genesis_work
+*.out
+*.log
+nems/vcd

@@ -1,0 +1,209 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "sub_632_636_637$binop" -> "add_637_640_641$binop.data.in.0";
+    "mul_639_635_640$binop" -> "add_637_640_641$binop.data.in.1";
+    "add_637_640_641$binop" -> "sub_641_643_644$binop.data.in.0";
+    "sub_641_643_644$binop" -> "add_644_646_647$binop.data.in.0";
+    "INPUT" -> "add_644_646_647$binop.data.in.1";
+    "add_644_646_647$binop" -> "mul_649_649_650$binop.data.in.0";
+    "add_644_646_647$binop" -> "mul_649_649_650$binop.data.in.1";
+    "add_644_646_647$binop" -> "mul_699_701_702$binop.data.in.0";
+    "const0_0" -> "add_651_652_653$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_2$reg_2" -> "add_651_652_653$binop.data.in.1";
+    "add_651_652_653$binop" -> "add_654_655_656$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_2$reg_1" -> "add_654_655_656$binop.data.in.1";
+    "add_654_655_656$binop" -> "add_657_658_659$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$cgramem" -> "add_657_658_659$binop.data.in.1";
+    "add_657_658_659$binop" -> "add_660_661_662$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_1$reg_2" -> "add_660_661_662$binop.data.in.1";
+    "add_660_661_662$binop" -> "add_663_664_665$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_1$reg_1" -> "add_663_664_665$binop.data.in.1";
+    "add_663_664_665$binop" -> "add_666_667_668$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem" -> "add_666_667_668$binop.data.in.1";
+    "add_666_667_668$binop" -> "add_669_670_671$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_0$reg_2" -> "add_669_670_671$binop.data.in.1";
+    "add_669_670_671$binop" -> "add_672_673_674$binop.data.in.0";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_0$reg_1" -> "add_672_673_674$binop.data.in.1";
+    "add_672_673_674$binop" -> "add_675_676_677$binop.data.in.0";
+    "mul_649_649_650$binop" -> "add_675_676_677$binop.data.in.1";
+    "add_675_676_677$binop" -> "ashr_760_763_764$binop.data.in.0";
+    "sub_679_681_682$binop" -> "add_682_686_687$binop.data.in.0";
+    "mul_684_685_686$binop" -> "add_682_686_687$binop.data.in.1";
+    "add_682_686_687$binop" -> "sub_687_690_691$binop.data.in.0";
+    "sub_687_690_691$binop" -> "add_691_693_694$binop.data.in.0";
+    "INPUT" -> "add_691_693_694$binop.data.in.1";
+    "add_691_693_694$binop" -> "sub_694_696_697$binop.data.in.0";
+    "const0_0$1" -> "add_703_704_705$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_2$reg_2" -> "add_703_704_705$binop.data.in.1";
+    "add_703_704_705$binop" -> "add_706_707_708$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_2$reg_1" -> "add_706_707_708$binop.data.in.1";
+    "add_706_707_708$binop" -> "add_709_710_711$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$cgramem" -> "add_709_710_711$binop.data.in.1";
+    "add_709_710_711$binop" -> "add_712_713_714$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_1$reg_2" -> "add_712_713_714$binop.data.in.1";
+    "add_712_713_714$binop" -> "add_715_716_717$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_1$reg_1" -> "add_715_716_717$binop.data.in.1";
+    "add_715_716_717$binop" -> "add_718_719_720$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem" -> "add_718_719_720$binop.data.in.1";
+    "add_718_719_720$binop" -> "add_721_722_723$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_0$reg_2" -> "add_721_722_723$binop.data.in.1";
+    "add_721_722_723$binop" -> "add_724_725_726$binop.data.in.0";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_0$reg_1" -> "add_724_725_726$binop.data.in.1";
+    "add_724_725_726$binop" -> "add_727_728_729$binop.data.in.0";
+    "mul_699_701_702$binop" -> "add_727_728_729$binop.data.in.1";
+    "add_727_728_729$binop" -> "ashr_762_763_768$binop.data.in.0";
+    "const0_0$2" -> "add_733_734_735$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_2$reg_2" -> "add_733_734_735$binop.data.in.1";
+    "add_733_734_735$binop" -> "add_736_737_738$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_2$reg_1" -> "add_736_737_738$binop.data.in.1";
+    "add_736_737_738$binop" -> "add_739_740_741$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$cgramem" -> "add_739_740_741$binop.data.in.1";
+    "add_739_740_741$binop" -> "add_742_743_744$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_1$reg_2" -> "add_742_743_744$binop.data.in.1";
+    "add_742_743_744$binop" -> "add_745_746_747$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_1$reg_1" -> "add_745_746_747$binop.data.in.1";
+    "add_745_746_747$binop" -> "add_748_749_750$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem" -> "add_748_749_750$binop.data.in.1";
+    "add_748_749_750$binop" -> "add_751_752_753$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_0$reg_2" -> "add_751_752_753$binop.data.in.1";
+    "add_751_752_753$binop" -> "add_754_755_756$binop.data.in.0";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_0$reg_1" -> "add_754_755_756$binop.data.in.1";
+    "add_754_755_756$binop" -> "add_757_758_759$binop.data.in.0";
+    "mul_731_731_732$binop" -> "add_757_758_759$binop.data.in.1";
+    "add_757_758_759$binop" -> "ashr_761_763_765$binop.data.in.0";
+    "ashr_760_763_764$binop" -> "add_764_765_766$binop.data.in.0";
+    "ashr_761_763_765$binop" -> "add_764_765_766$binop.data.in.1";
+    "add_764_765_766$binop" -> "mul_766_766_771$binop.data.in.0";
+    "add_764_765_766$binop" -> "mul_766_766_771$binop.data.in.1";
+    "const7__763" -> "ashr_760_763_764$binop.data.in.1";
+    "ashr_760_763_764$binop" -> "mul_764_765_767$binop.data.in.0";
+    "const7__763$1" -> "ashr_761_763_765$binop.data.in.1";
+    "ashr_761_763_765$binop" -> "mul_764_765_767$binop.data.in.1";
+    "const7__763$2" -> "ashr_762_763_768$binop.data.in.1";
+    "ashr_762_763_768$binop" -> "mul_768_768_769$binop.data.in.0";
+    "ashr_762_763_768$binop" -> "mul_768_768_769$binop.data.in.1";
+    "mul_766_766_771$binop" -> "ashr_771_772_773$binop.data.in.0";
+    "const4__772" -> "ashr_771_772_773$binop.data.in.1";
+    "ashr_771_772_773$binop" -> "sub_770_773_774$binop.data.in.1";
+    "bitand_791_792_793$c0" -> "bitand_791_792_793$lut$lut.bit.in.2";
+    "slt_790_775_791$not$lut$lut" -> "bitand_791_792_793$lut$lut.bit.in.0"; # lut_value 0x55
+    "sle100_775_792$compop" -> "bitand_791_792_793$lut$lut.bit.in.1"; # lut_value 0x00
+    "bitand_791_792_793$lut$lut" -> "mux_793_794_795$mux.bit.in.0"; # lut_value 0x88
+    "const0__795" -> "mux_793_794_795$mux.data.in.0";
+    "const100_100" -> "sle100_775_792$compop.data.in.0";
+    "const255__794" -> "mux_793_794_795$mux.data.in.1";
+    "const2__635$1" -> "mul_639_635_640$binop.data.in.1";
+    "const2__635" -> "mul_634_635_636$binop.data.in.1";
+    "const2__685$1" -> "mul_689_685_690$binop.data.in.1";
+    "const2__685" -> "mul_684_685_686$binop.data.in.1";
+    "mux_793_794_795$mux" -> "OUTPUT"; # lut_value 0x00
+    "INPUT" -> "lb_padded_2_stencil_update_stream$lb1d_0$reg_1";
+    "INPUT" -> "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem";
+    "mul_649_649_650$binop" -> "lb_grad_xx_2_stencil_update_stream$lb1d_0$reg_1";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_0$reg_1" -> "lb_grad_xx_2_stencil_update_stream$lb1d_0$reg_2";
+    "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_grad_xx_2_stencil_update_stream$lb1d_1$reg_1";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_1$reg_1" -> "lb_grad_xx_2_stencil_update_stream$lb1d_1$reg_2";
+    "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$cgramem" -> "lb_grad_xx_2_stencil_update_stream$lb1d_2$reg_1";
+    "lb_grad_xx_2_stencil_update_stream$lb1d_2$reg_1" -> "lb_grad_xx_2_stencil_update_stream$lb1d_2$reg_2";
+    "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$cgramem";
+    "mul_649_649_650$binop" -> "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem"; # fifo_depth 484
+    "lb_grad_xx_2_stencil_update_stream_wen1_lutcnst" -> "lb_grad_xx_2_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+    "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$c0_lutcnst" -> "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$c1_lutcnst" -> "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$cgramem.ren"; # lut_value 0x3f
+    "lb_grad_xx_2_stencil_update_stream_wen_lutcnst" -> "lb_grad_xx_2_stencil_update_stream$lbmem_2_0$cgramem.wen"; # lut_value 0x3f
+    "mul_699_701_702$binop" -> "lb_grad_xy_2_stencil_update_stream$lb1d_0$reg_1";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_0$reg_1" -> "lb_grad_xy_2_stencil_update_stream$lb1d_0$reg_2";
+    "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_grad_xy_2_stencil_update_stream$lb1d_1$reg_1";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_1$reg_1" -> "lb_grad_xy_2_stencil_update_stream$lb1d_1$reg_2";
+    "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$cgramem" -> "lb_grad_xy_2_stencil_update_stream$lb1d_2$reg_1";
+    "lb_grad_xy_2_stencil_update_stream$lb1d_2$reg_1" -> "lb_grad_xy_2_stencil_update_stream$lb1d_2$reg_2";
+    "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$cgramem";
+    "mul_699_701_702$binop" -> "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem"; # fifo_depth 484
+    "lb_grad_xy_2_stencil_update_stream_wen_lutcnst" -> "lb_grad_xy_2_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+    "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$c0_lutcnst" -> "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$c1_lutcnst" -> "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$cgramem.ren"; # lut_value 0x3f
+    "lb_grad_xy_2_stencil_update_stream_wen1_lutcnst" -> "lb_grad_xy_2_stencil_update_stream$lbmem_2_0$cgramem.wen"; # lut_value 0x3f
+    "mul_731_731_732$binop" -> "lb_grad_yy_2_stencil_update_stream$lb1d_0$reg_1";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_0$reg_1" -> "lb_grad_yy_2_stencil_update_stream$lb1d_0$reg_2";
+    "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_grad_yy_2_stencil_update_stream$lb1d_1$reg_1";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_1$reg_1" -> "lb_grad_yy_2_stencil_update_stream$lb1d_1$reg_2";
+    "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$cgramem" -> "lb_grad_yy_2_stencil_update_stream$lb1d_2$reg_1";
+    "lb_grad_yy_2_stencil_update_stream$lb1d_2$reg_1" -> "lb_grad_yy_2_stencil_update_stream$lb1d_2$reg_2";
+    "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$cgramem";
+    "mul_731_731_732$binop" -> "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem"; # fifo_depth 484
+    "lb_grad_yy_2_stencil_update_stream_wen1_lutcnst" -> "lb_grad_yy_2_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+    "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$c0_lutcnst" -> "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$c1_lutcnst" -> "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$cgramem.ren"; # lut_value 0x3f
+    "lb_grad_yy_2_stencil_update_stream_wen_lutcnst" -> "lb_grad_yy_2_stencil_update_stream$lbmem_2_0$cgramem.wen"; # lut_value 0x3f
+    "sub_770_773_774$binop" -> "lb_p3_cim_stencil_update_stream$lb1d_0$reg_1";
+    "lb_p3_cim_stencil_update_stream$lb1d_0$reg_1" -> "lb_p3_cim_stencil_update_stream$lb1d_0$reg_2";
+    "lb_p3_cim_stencil_update_stream$lb1d_0$reg_1" -> "smax_786_787_788$cgramax.data.in.1";
+    "lb_p3_cim_stencil_update_stream$lb1d_0$reg_2" -> "smax_784_785_786$cgramax.data.in.1";
+    "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_p3_cim_stencil_update_stream$lb1d_1$reg_1";
+    "lb_p3_cim_stencil_update_stream$lb1d_1$reg_1" -> "lb_p3_cim_stencil_update_stream$lb1d_1$reg_2";
+    "lb_p3_cim_stencil_update_stream$lb1d_1$reg_1" -> "sle100_775_792$compop.data.in.1";
+    "lb_p3_cim_stencil_update_stream$lb1d_1$reg_1" -> "slt_790_775_791$comp$compop.data.in.1";
+    "lb_p3_cim_stencil_update_stream$lb1d_1$reg_2" -> "smax_780_781_782$cgramax.data.in.1";
+    "lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem" -> "lb_p3_cim_stencil_update_stream$lb1d_2$reg_1";
+    "lb_p3_cim_stencil_update_stream$lb1d_2$reg_1" -> "lb_p3_cim_stencil_update_stream$lb1d_2$reg_2";
+    "lb_p3_cim_stencil_update_stream$lb1d_2$reg_1" -> "smax_776_777_778$cgramax.data.in.1";
+    "lb_p3_cim_stencil_update_stream$lb1d_2$reg_2" -> "smax_776_777_778$cgramax.data.in.0";
+    "lb_p3_cim_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_p3_cim_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem";
+    "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem" -> "smax_782_783_784$cgramax.data.in.1";
+    "sub_770_773_774$binop" -> "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem"; # fifo_depth 482
+    "lb_p3_cim_stencil_update_stream_wen1_lutcnst" -> "lb_p3_cim_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+    "lb_p3_cim_stencil_update_stream$lbmem_2_0$c0_lutcnst" -> "lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_p3_cim_stencil_update_stream$lbmem_2_0$c1_lutcnst" -> "lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem.ren"; # lut_value 0x3f
+    "lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem" -> "smax_778_779_780$cgramax.data.in.1";
+    "lb_p3_cim_stencil_update_stream_wen_lutcnst" -> "lb_p3_cim_stencil_update_stream$lbmem_2_0$cgramem.wen"; # lut_value 0x3f
+    "lb_padded_2_stencil_update_stream$lb1d_0$reg_1" -> "lb_padded_2_stencil_update_stream$lb1d_0$reg_2";
+    "lb_padded_2_stencil_update_stream$lb1d_0$reg_1" -> "mul_684_685_686$binop.data.in.0";
+    "lb_padded_2_stencil_update_stream$lb1d_0$reg_2" -> "sub_641_643_644$binop.data.in.1";
+    "lb_padded_2_stencil_update_stream$lb1d_0$reg_2" -> "sub_679_681_682$binop.data.in.0";
+    "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_padded_2_stencil_update_stream$lb1d_1$reg_1";
+    "lb_padded_2_stencil_update_stream$lb1d_1$reg_1" -> "lb_padded_2_stencil_update_stream$lb1d_1$reg_2";
+    "lb_padded_2_stencil_update_stream$lb1d_1$reg_2" -> "mul_634_635_636$binop.data.in.0";
+    "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem" -> "lb_padded_2_stencil_update_stream$lb1d_2$reg_1";
+    "lb_padded_2_stencil_update_stream$lb1d_2$reg_1" -> "lb_padded_2_stencil_update_stream$lb1d_2$reg_2";
+    "lb_padded_2_stencil_update_stream$lb1d_2$reg_1" -> "mul_689_685_690$binop.data.in.0";
+    "lb_padded_2_stencil_update_stream$lb1d_2$reg_2" -> "sub_629_631_632$binop.data.in.1";
+    "lb_padded_2_stencil_update_stream$lb1d_2$reg_2" -> "sub_679_681_682$binop.data.in.1";
+    "lb_padded_2_stencil_update_stream$lbmem_1_0$c0_lutcnst" -> "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_padded_2_stencil_update_stream$lbmem_1_0$c1_lutcnst" -> "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem.ren"; # lut_value 0x3f
+    "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem" -> "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem";
+    "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem" -> "mul_639_635_640$binop.data.in.0";
+    "lb_padded_2_stencil_update_stream_wen1_lutcnst" -> "lb_padded_2_stencil_update_stream$lbmem_1_0$cgramem.wen"; # lut_value 0x3f
+    "lb_padded_2_stencil_update_stream$lbmem_2_0$c0_lutcnst" -> "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem.cg_en"; # lut_value 0x00
+    "lb_padded_2_stencil_update_stream$lbmem_2_0$c1_lutcnst" -> "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem.ren"; # lut_value 0x3f
+    "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem" -> "sub_629_631_632$binop.data.in.0";
+    "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem" -> "sub_694_696_697$binop.data.in.1";
+    "lb_padded_2_stencil_update_stream_wen_lutcnst" -> "lb_padded_2_stencil_update_stream$lbmem_2_0$cgramem.wen"; # lut_value 0x3f
+    "mul_634_635_636$binop" -> "sub_632_636_637$binop.data.in.1";
+    "mul_689_685_690$binop" -> "sub_687_690_691$binop.data.in.1";
+    "sub_694_696_697$binop" -> "mul_699_701_702$binop.data.in.1";
+    "sub_694_696_697$binop" -> "mul_731_731_732$binop.data.in.0";
+    "sub_694_696_697$binop" -> "mul_731_731_732$binop.data.in.1";
+    "mul_764_765_767$binop" -> "sub_767_769_770$binop.data.in.0";
+    "mul_768_768_769$binop" -> "sub_767_769_770$binop.data.in.1";
+    "slt_790_775_791$comp$compop" -> "slt_790_775_791$not$lut$lut.bit.in.0"; # lut_value 0x00
+    "smax_788_789_790$cgramax" -> "slt_790_775_791$comp$compop.data.in.0"; # lut_value 0x00
+    "slt_790_775_791$not$c0" -> "slt_790_775_791$not$lut$lut.bit.in.2";
+    "slt_790_775_791$not$c01" -> "slt_790_775_791$not$lut$lut.bit.in.1";
+    "smax_776_777_778$cgramax" -> "smax_778_779_780$cgramax.data.in.0"; # lut_value 0x00
+    "smax_778_779_780$cgramax" -> "smax_780_781_782$cgramax.data.in.0"; # lut_value 0x00
+    "smax_780_781_782$cgramax" -> "smax_782_783_784$cgramax.data.in.0"; # lut_value 0x00
+    "smax_782_783_784$cgramax" -> "smax_784_785_786$cgramax.data.in.0"; # lut_value 0x00
+    "smax_784_785_786$cgramax" -> "smax_786_787_788$cgramax.data.in.0"; # lut_value 0x00
+    "smax_786_787_788$cgramax" -> "smax_788_789_790$cgramax.data.in.0"; # lut_value 0x00
+    "sub_770_773_774$binop" -> "smax_788_789_790$cgramax.data.in.1";
+    "sub_629_631_632$binop" -> "sub_632_636_637$binop.data.in.0";
+    "sub_767_769_770$binop" -> "sub_770_773_774$binop.data.in.0";
+}

@@ -1,0 +1,23 @@
+To run synthesis flow:
+1. Copy all rtl to be synthesized to a directory called gen/
+2. Make sure a directory called synth/ exists (or create it)
+3. Run `source run_synthesis.csh <module_name>`
+(module_name should probably be pe_tile_new_unq1)
+4. View the results in synth/<module_name>/
+
+To run reports on pre-synthesized design:
+1. Make sure a directory called synth/ exists with your synthesized design
+2. Run `source run_report.csh <module_name>`
+
+To generate the merged SAIF files from scratch:
+1. Put the bitstreams into bitstreams/ directory
+2. Go to pyscripts/ directory
+3. Run `python gen_active_pes_from_bsa.py`
+4. Run `python gen_merge_saif_cmd.py`
+5. Run `source saif_gen.csh` on a CAD server from saif/ directory
+6. Go to pyscripts/ directory
+7. Run `python saif_rename_instances.py`
+8. Run `python gen_merge_saif_cmd.py`
+9. Use `gzip *` in both saif/active and saif/active_renamed
+10. Copy the generated command into the `scripts/synthesize.tcl` file
+11. Run the synthesis flow described above

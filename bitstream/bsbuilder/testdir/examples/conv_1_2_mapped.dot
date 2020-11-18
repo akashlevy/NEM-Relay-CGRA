@@ -1,0 +1,13 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "const0__304" -> "add_305_309_310$binop.data.in.0";
+    "mul_307_308_309$binop" -> "add_305_309_310$binop.data.in.1";
+    "add_305_309_310$binop" -> "add_311_315_316$binop.data.in.0";
+    "mul_313_314_315$binop" -> "add_311_315_316$binop.data.in.1";
+    "add_311_315_316$binop" -> "OUTPUT";
+    "const5__308" -> "mul_307_308_309$binop.data.in.1";
+    "const5__314" -> "mul_313_314_315$binop.data.in.1";
+    "INPUT" -> "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_1";
+    "INPUT" -> "mul_313_314_315$binop.data.in.0";
+    "lb_p4_clamped_stencil_update_stream$lb1d_0$reg_1" -> "mul_307_308_309$binop.data.in.0";
+}

@@ -1,0 +1,6 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+    "const2__348" -> "mul_347_348_349_PE.data.in.1";
+    "mul_347_348_349_PE" -> "OUTPUT";
+    "INPUT" -> "mul_347_348_349_PE.data.in.0";
+}

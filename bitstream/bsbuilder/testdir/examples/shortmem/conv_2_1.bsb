@@ -1,0 +1,78 @@
+
+# CONSTANTS
+# const0__334::add_335_339_340$binop.data.in.0 T41_op2
+# const7__338::mul_337_338_339$binop.data.in.1 T42_op2
+# const7__344::mul_343_344_345$binop.data.in.1 T21_op2
+
+# REGISTERS []
+
+# PE tiles
+T21_mul(wire,const7__344)  # mul_343_344_345$binop
+T40_add(wire,wire)         # add_341_345_346$binop
+T41_add(wire,const0__334)  # add_335_339_340$binop
+T42_mul(wire,const7__338)  # mul_337_338_339$binop
+
+# LUT tiles for wen_lut's [25]
+T25_lutFF(const0,const0,const0)
+
+# MEM tiles
+T24_mem_10   # lb_p4csus$lbmem_1_0$cgramem fifo_depth=10
+
+# ROUTING
+
+# INPUT::lb_p4csus$lbmem_1_0$cgramem
+T21_in_s2t0 -> T21_out_s0t0
+T22_in_s2t0 -> T22_out_s0t0
+T23_in_s2t0 -> T23_out_s0t0
+T24_in_s2t0 -> T24_mem_in
+
+# wen_lut::lb_p4csus$lbmem_1_0$cgramem
+T25_pe_out_b0 -> T25_out_s2t0_b0
+T24_in_s0t0_b0 -> T24_out_s2t0_b0
+T24_out_s2t0_b0 -> T24_wen
+
+# INPUT::mul_343_344_345$binop.data.in.0
+T21_in_s2t0 -> T21_op1
+
+# add_335_339_340$binop::add_341_345_346$binop.data.in.0
+T41_pe_out -> T41_out_s2t2
+T40_in_s0t2 -> T40_out_s2t2
+T40_out_s2t2 -> T40_op1
+
+# add_341_345_346$binop::OUTPUT
+T40_pe_out -> T40_out_s0t0
+T41_in_s2t0 -> T41_out_s0t0
+T42_in_s2t0 -> T42_out_s0t0
+T43_in_s2t0 -> T43_out_s0t0
+T44_in_s2t0 -> T44_out_s0t0
+T45_in_s2t0 -> T45_out_s0t0
+T46_in_s2t0 -> T46_out_s0t0
+T47_in_s2t0 -> T47_out_s0t0
+T48_in_s2t0 -> T48_out_s0t0
+T49_in_s2t0 -> T49_out_s0t0
+T50_in_s2t0 -> T50_out_s0t0
+T51_in_s2t0 -> T51_out_s0t0
+T52_in_s2t0 -> T52_out_s0t0
+T53_in_s2t0 -> T53_out_s0t0
+T54_in_s2t0 -> T54_out_s0t0
+T55_in_s2t0 -> T55_out_s3t0
+T36_in_s1t0 -> T36_out_s0t0
+
+# lb_p4csus$lbmem_1_0$cgramem::mul_337_338_339$binop.data.in.0
+T24_mem_out -> T24_out_s1t0
+T43_in_s3t0 -> T43_out_s2t0
+T42_in_s0t0 -> T42_out_s2t0
+T42_out_s2t0 -> T42_op1
+
+# mul_337_338_339$binop::add_335_339_340$binop.data.in.1
+T42_pe_out -> T42_out_s2t1
+T41_in_s0t1 -> T41_out_s2t1
+T41_out_s2t1 -> T41_op1
+
+# mul_343_344_345$binop::add_341_345_346$binop.data.in.1
+T21_pe_out -> T21_out_s1t3
+T40_in_s3t3 -> T40_out_s1t3
+T40_out_s1t3 -> T40_op2
+
+# INPUT  tile  21 ( 2, 2) / in_BUS16_S2_T0 / wire_2_1_BUS16_S0_T0
+# OUTPUT tile  36 ( 2,17) / out_0_BUS16_S0_T0 / wire_2_17_BUS16_S0_T0

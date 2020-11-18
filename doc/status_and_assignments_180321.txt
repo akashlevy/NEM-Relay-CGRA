@@ -1,0 +1,72 @@
+Notes from Wednesday's hackathon 3/21/2018        Today at 8:35 AM
+To AHA List 
+
+Here is my best effort at a raw transcription of the whiteboard + our discussion from wednesday's hackathon...broken down into five categories: 1) not implemented, 2) broken, 3) never tested, 4) tested a little, and 5) other.  (Note, below, "<s>" means strikethrough.)
+
+----------------------------------------
+NOT IMPLEMENTED
+<s>LoadingDataFlow</s> (Artem has a fix)
+Virtualization
+1 bit not fanout to all tracks
+
+----------------------------------------
+BROKEN
+output pads
+single bit inputs and outputs
+verilator inout/tristate
+Yosys interfaces etc.
+FIFOs
+
+----------------------------------------
+NEVER TESTED
+timing
+clock
+valid networks
+
+global signal network (ross)
+stalls (ross)
+memory stalls (ross)
+
+global controller (alex)
+loading configuration (alex)
+
+<s>single bit operation</s> (lenny)
+IO (steve and caleb)
+RAM modes (ross)
+
+gate level stuff
+
+----------------------------------------
+TESTED A LITTLE
+LUTs
+linebuffers
+<s>ops</s> (lenny)
+reg modes
+single test-flags <lenny)
+
+switch box
+connection box
+[cross reg config]
+
+----------------------------------------
+OTHER TASKS / NAMES
+
+Lenny -> ops (+ reg modes)
+Jeff -> test halide ops
+
+dataflow when stalled (taeyoung)
+synthesis -> Alex
+
+Ross -> figure out stall signals
+- global signals
+- stalls
+- memory stalls
+- linebuffers
+- RAM mode etc.
+
+IO pad tests -> generate board_info, randomize testbench -> Steve and Caleb
+
+- writing config regs while clock stopped -> see LoadingDataFlow, above
+- BIST for memories?
+- chain_enable (part of testing memory)
+

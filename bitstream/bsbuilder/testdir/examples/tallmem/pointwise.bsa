@@ -1,0 +1,84 @@
+F1000015 00000002
+# data[(15, 0)] : init `data1` reg with const `2`
+
+FF000015 0002F00B
+# data[(5, 0)] : alu_op = mul
+# data[(6, 6)] : unsigned=0x0
+# data[(15, 12] : flag_sel: PE_FLAG_PE=0xF
+# data[(17, 16)]: data0: REG_BYPASS=0x2
+# data[(19, 18)]: data1: REG_CONST= 0x0
+
+00020015 00000000
+# data[(3, 0)] : @ tile (2, 2) connect wire 0 (in_BUS16_S2_T0) to data0
+
+00080015 00000003
+# data[(1, 0)] : @ tile (2, 2) connect wire 3 (pe_out_res) to out_BUS16_S0_T0
+
+00080016 00000001
+# data[(1, 0)] : @ tile (2, 3) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00080017 00000001
+# data[(1, 0)] : @ tile (2, 4) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00020018 00000001
+# data[(1, 0)] : @ tile (2, 5) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+
+00080019 00000001
+# data[(1, 0)] : @ tile (2, 6) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008001A 00000001
+# data[(1, 0)] : @ tile (2, 7) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008001B 00000001
+# data[(1, 0)] : @ tile (2, 8) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0002001C 00000001
+# data[(1, 0)] : @ tile (2, 9) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+
+0008001D 00000001
+# data[(1, 0)] : @ tile (2, 10) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008001E 00000001
+# data[(1, 0)] : @ tile (2, 11) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+0008001F 00000001
+# data[(1, 0)] : @ tile (2, 12) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00020020 00000001
+# data[(1, 0)] : @ tile (2, 13) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+
+00080021 00000001
+# data[(1, 0)] : @ tile (2, 14) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00080022 00000001
+# data[(1, 0)] : @ tile (2, 15) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00080023 00000001
+# data[(1, 0)] : @ tile (2, 16) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S0_T0
+
+00020024 00000001
+# data[(1, 0)] : @ tile (2, 17) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_S0_T0
+
+# INPUT  tile  21 ( 2, 2) / in_BUS16_S2_T0 / wire_2_1_BUS16_S0_T0
+# OUTPUT tile  36 ( 2,17) / out_0_BUS16_S0_T0 / wire_2_17_BUS16_S0_T0
+
+# Configure side 0 (right side) io1bit tiles as 16bit output bus;
+# assumes output is tile 36 (io16bit_0x24)
+
+00000026 00000001
+00000034 00000001
+00000046 00000001
+00000054 00000001
+00000066 00000001
+00000074 00000001
+00000086 00000001
+00000094 00000001
+000000A6 00000001
+000000B4 00000001
+000000C6 00000001
+000000D4 00000001
+000000E6 00000001
+000000F4 00000001
+00000106 00000001
+00000114 00000001
+

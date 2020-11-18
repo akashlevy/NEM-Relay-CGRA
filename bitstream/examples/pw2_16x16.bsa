@@ -1,0 +1,123 @@
+# top_tb.cpp:
+#             pads_out = 
+#                 (top->pad_S0_T0_out  << 15) |
+#                 (top->pad_S0_T1_out  << 14) |
+#                 (top->pad_S0_T2_out  << 13) |
+#                 (top->pad_S0_T3_out  << 12) |
+#                 (top->pad_S0_T4_out  << 11) |
+#                 (top->pad_S0_T5_out  << 10) |
+#                 (top->pad_S0_T6_out  <<  9) |
+#                 (top->pad_S0_T7_out  <<  8) |
+#                 (top->pad_S0_T8_out  <<  7) |
+#                 (top->pad_S0_T9_out  <<  6) |
+#                 (top->pad_S0_T10_out <<  5) |
+#                 (top->pad_S0_T11_out <<  4) |
+#                 (top->pad_S0_T12_out <<  3) |
+#                 (top->pad_S0_T13_out <<  2) |
+#                 (top->pad_S0_T14_out <<  1) |
+#                 (top->pad_S0_T15_out <<  0) |
+#                 0;
+
+# cgra_info.txt:
+#   <tile type='io1bit' tile_addr='0x26' ... name='pad_S0_T0'>
+#     <tri feature_address='0' reg_address='0' bitl='0' bith='0'>
+#         <direction sel='0'>in</direction>  <!--input-->
+#         <direction sel='1'>out</direction> <!--output-->
+#     <mux feature_address='0' reg_address='0' bitl='1' bith='1'>
+#         <src sel='0'>16</src> <!-- 16 bit mode -->
+#         <src sel='1'>1</src>  <!--  1 bit mode -->
+#   <tile type='io1bit' tile_addr='0x34' row='3' col='19' tracks='BUS1:1 BUS16:0' name='pad_S0_T1'>
+# % grep pad_S0 $top/cgra_info.txt | sed 's/row.*16.0./.../'
+#   <tile type='io1bit' tile_addr='0x26' ... name='pad_S0_T0'>
+#   <tile type='io1bit' tile_addr='0x34' ... name='pad_S0_T1'>
+#   <tile type='io1bit' tile_addr='0x46' ... name='pad_S0_T2'>
+#   <tile type='io1bit' tile_addr='0x54' ... name='pad_S0_T3'>
+#   <tile type='io1bit' tile_addr='0x66' ... name='pad_S0_T4'>
+#   <tile type='io1bit' tile_addr='0x74' ... name='pad_S0_T5'>
+#   <tile type='io1bit' tile_addr='0x86' ... name='pad_S0_T6'>
+#   <tile type='io1bit' tile_addr='0x94' ... name='pad_S0_T7'>
+#   <tile type='io1bit' tile_addr='0xA6' ... name='pad_S0_T8'>
+#   <tile type='io1bit' tile_addr='0xB4' ... name='pad_S0_T9'>
+#   <tile type='io1bit' tile_addr='0xC6' ... name='pad_S0_T10'>
+#   <tile type='io1bit' tile_addr='0xD4' ... name='pad_S0_T11'>
+#   <tile type='io1bit' tile_addr='0xE6' ... name='pad_S0_T12'>
+#   <tile type='io1bit' tile_addr='0xF4' ... name='pad_S0_T13'>
+#   <tile type='io1bit' tile_addr='0x106' ... name='pad_S0_T14'>
+#   <tile type='io1bit' tile_addr='0x114' ... name='pad_S0_T15'>
+# % grep pad_S0 $top/cgra_info.txt | sed 's/.*0x/000000/' | sed "s/'.*/ 00000001/"
+00000026 00000001
+00000034 00000001
+00000046 00000001
+00000054 00000001
+00000066 00000001
+00000074 00000001
+00000086 00000001
+00000094 00000001
+000000A6 00000001
+000000B4 00000001
+000000C6 00000001
+000000D4 00000001
+000000E6 00000001
+000000F4 00000001
+00000106 00000001
+00000114 00000001
+##############################################################################
+
+FF000015 0002000B
+# data[(4, 0)] : alu_op = mul
+# data[(17, 16)]: data0: REG_BYPASS
+# data[(19, 18)]: data1: REG_CONST
+
+F1000015 00000002
+# const == 2
+
+00020015 00000000
+# data[(3, 0)] : @ tile (2, 2) connect wire 0 (in_BUS16_S2_T0) to data0
+
+00030015 00000005
+# data[(3, 0)] : @ tile (2, 2) connect wire 5 (out_BUS16_S1_T0) to data1
+
+
+00080015 00000003
+# data[(1, 0)] : @ tile (2, 2) connect wire 3 (pe_out_res) to out_BUS16_S0_T0
+
+
+########################################################################
+# Straight through row 2, west to east
+########################################################################
+00080016 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+00080017 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+00020018 00000001
+# data[(1, 0)] : @ tile (2, 5) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_0_0
+
+00080019 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+0008001A 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+0008001B 00000001
+# data[(3, 2)] : @ tile (2, 3) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+0002001C 00000001
+# data[(1, 0)] : @ tile (2, 5) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_0_0
+
+0008001D 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+0008001E 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+0008001F 00000001
+# data[(3, 2)] : @ tile (2, 3) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+00020020 00000001
+# data[(1, 0)] : @ tile (2, 5) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_0_0
+
+00080021 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+00080022 00000001
+# data[(1, 0)] : @ tile (2, 2) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+00080023 00000001
+# data[(3, 2)] : @ tile (2, 3) connect wire 1 (in_BUS1_S2_T0) to out_BUS16_S0_T0
+00020024 00000001
+# data[(1, 0)] : @ tile (2, 5) connect wire 1 (in_0_BUS16_S2_T0) to out_0_BUS16_0_0
+
+# INPUT  tile  40 (3,2) /  in_BUS16_S2_T0 / wire_3_1_BUS16_S0_T0
+# OUTPUT tile  24 (2,5) / out_BUS16_S5_T1 / wire_3_5_BUS16_S1_T1

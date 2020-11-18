@@ -1,0 +1,1799 @@
+make test_4x4_gray_small |& tee /tmp/test_4x4_gray_small.log
+make[1]: Entering directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+bitstream=../../bitstream/examples/cd387-good.bs; \
+	image=gray_small;              \
+	cd ../verilator/generator_z_tb;	        \
+	./run.csh -gen top_tb.cpp        \
+	   -config ${bitstream}          \
+	   -input  io/${image}.png        \
+	   -output /tmp/${image}_out.raw   \
+	   -nclocks 3M
+
+Bitstream appears to have embedded i/o information (as it should).  Decoded:
+if ( 0 ) then
+../../bitstream/decoder/decode.py -newmem /tmp/cd387-good.bs.swizzled
+endif
+unset echo
+
+# I/O Summary:
+# OUTPUT tile  0 (0,0) /  in_s1t1 / wire_1_0_BUS16_S3_T1
+# INPUT  tile  2 (0,2) / out_s1t0 / wire_0_2_BUS16_S1_T0
+  <io name='ioin' type='source'>
+    <wire_name>wire_0_2_BUS16_S1_T0</wire_name>
+  <io name='ioout' type='sink'>
+    <wire_name>wire_1_0_BUS16_S3_T1</wire_name>
+
+Will strip out IO hack from '../../bitstream/examples/cd387-good.bs'
+to create clean bitstream '/tmp/bs.txt'
+
+< F1000000 FFFFFFFF
+< FF000000 000000FF
+< F0000002 FFFFFFFF
+< F1000002 FFFFFFFF
+< FF000002 000000F0
+
+Running with the following switches:
+./run.csh top_tb.cpp \
+   -gen                    \
+   -config   /tmp/bs.txt   \
+   -input    io/gray_small.png  \
+   -output   /tmp/gray_small_out.raw    \
+   -nclocks  3M                 \
+/usr/bin/verilator
+
+Building CGRA because you asked for it with '-gen'...
+
+/tmp/Genesis2/Genesis2Tools/bin/Genesis2.pl
+
+Generator run.csh looks like this:
+# To generate fabric with memories, do -
+# setenv CGRA_GEN_USE_MEM 1
+# 
+# @Caleb: For providing registers on all outputs of all SBs, do-
+# setenv CGRA_GEN_ALL_REG 1
+
+Genesis2.pl -parse -generate -top top -input\
+  ../sb/sb.vp \
+  ../cb/cb.vp \
+  ../pe_tile/pe_tile.vp top.vp \
+  \
+  ../pe_new/pe/rtl/test_pe.svp \
+  ../pe_new/pe/rtl/test_mult_add.svp \
+  ../pe_new/pe/rtl/test_full_add.svp \
+  ../pe_new/pe/rtl/test_lut.svp      \
+  ../pe_new/pe/rtl/test_opt_reg.svp  \
+  ../pe_tile_new/pe_tile_new.vp \
+  \
+  ../memory_tile/memory_tile.vp \
+  ../memory_core/memory_core.vp \
+  ../memory_core/mem.vp
+
+
+-----------------------------------------------
+--- Genesis Is Starting Work On Your Design ---
+-----------------------------------------------
+
+-----------------------------------------------
+|            Genesis Release Info             |
+|  $Change: 11904 $ --- $Date: 2013/08/03 $   |
+-----------------------------------------------
+
+---------------------------------------------------------------------------
+    !! THIS VERSION OF GENESIS2 IS NOT FOR ANY COMMERCIAL USE !!
+     FOR COMMERCIAL LICENSE CONTACT SHACHAM@ALUMNI.STANFORD.EDU
+---------------------------------------------------------------------------
+
+Genesis2::Manager->execute: Starting Source File Parsing Phase
+Genesis2::Manager->parse_files: Now parsing file ../sb/sb.vp
+Genesis2::Manager->parse_files: Now parsing file ../cb/cb.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile/pe_tile.vp
+Genesis2::Manager->parse_files: Now parsing file top.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_pe.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_mult_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_full_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_lut.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_opt_reg.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile_new/pe_tile_new.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_tile/memory_tile.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/memory_core.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/mem.vp
+Genesis2::Manager->execute: Done With Source File Parsing Phase
+
+Genesis2::Manager->execute: Starting Verilog Code Generation Phase
+Genesis2::ConfigHandler->SetPrmOverrides: Now processing command line parameter overrides
+Genesis2::Manager->gen_verilog: Starting code generation from module top
+Genesis2::Manager->execute: Done With Verilog Code Generation Phase
+
+Genesis2::Manager->execute: Starting Auxiliary File Generation Phase
+Genesis2::Manager->execute: Done With Auxiliary File Generation Phase
+
+-----------------------------------------------
+--- Genesis Finished Generating Your Design ---
+-----------------------------------------------
+
+
+--------------------------------------------------------------------
+Here is what I built (it's supposed to look like an array of tiles).
+
+    --------------------------------------------
+    t0#0_0#0    t0#0_1#0    t0#0_2#0    t0#0_3#0    
+    t0#1_0#0    t0#1_1#0    t0#1_2#0    t0#1_3#0    
+    t0#2_0#0    t0#2_1#0    t0#2_2#0    t0#2_3#0    
+    t0#3_0#0    t0#3_1#0    t0#3_2#0    t0#3_3#0    
+    --------------------------------------------
+
+Each tile is designated as <tile_type>#<tile_loc(x,y)>#<tile_section>
+E.g. current default in top.vp calls stamp_pattern(top) where top is defined as
+
+    $tile_pattern {'p1'} = "t0_3_2 t1_1_1";
+    $tile_pattern {'top'} = "p1_2_4";
+    $tile_pattern {'p1'} = "t0_1_1";
+    $tile_pattern {'top'} = "p1_4_4";
+
+ resulting in a 4x4 grid of "t0" tiles, where each tile looks like
+
+    $tile_config->{ 't0' } = {
+          type => 'pe_tile_new',
+          sides => $sides,
+          is_bidi => 0,
+          bus_config => $bus_config,
+          cb_connections => $cb_connections,
+          has_constant => 1,
+          tile_height => 1,
+          tile_width => 1,
+          reg_inputs => 1,
+          reg_out => 0, 
+          use_add => 1,
+          bool_inps => 1,
+          use_shift => 1,
+          mult_mode => 1,
+          sb_fs => $sb_fs,
+
+-rw-r--r-- 1 steveri users 199813 Jun 12 09:41 cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 examples/cgra_info_v2_8x8+mem.txt
+
+DIFF
+-rw-r--r-- 1 steveri users 199813 Jun 12 09:41 ../../hardware/generator_z/top//cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem.txt
+
+Use existing config bitstream '/tmp/bs.txt'...
+
+BITSTREAM:
+00020000 00000001
+00020001 00000000
+00050001 00003000
+F1000001 00000002
+FF000001 0000800B
+00050002 00000C00
+01050004 00000000
+00050005 00800000
+00050006 00200000
+
+------------------------------------------------------------------------
+BEGIN find input and output wires
+
+  USING I/O WIRE NAMES DERIVED FROM BITSTREAM
+
+  IN  wire_0_2_BUS16_S1_T0
+  OUT wire_1_0_BUS16_S3_T1
+
+  inwires  = wire_0_2_BUS16_S1_T0
+  outwires = wire_1_0_BUS16_S3_T1
+
+END find input and output wires
+
+------------------------------------------------------------------------
+
+BEGIN top.v manipulation (won't be needed after we figure out io pads)...
+
+Inserting wirenames into verilog top module '../../hardware/generator_z/top/genesis_verif/top.v'...
+
+difffff
+  Adding ports for verilator inputs and outputs...
+    wire_0_2_BUS16_S1_T0...
+    wire_1_0_BUS16_S3_T1...
+
+    218,219c218,219
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+------------------------------------------------------
+  Adding verilator input declarations...
+    wire_0_2_BUS16_S1_T0...
+
+    218,219c218,219
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+    242c242
+    < // VERILATOR_IN0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+------------------------------------------------------
+  Adding verilator output declarations...
+    wire_1_0_BUS16_S3_T1...
+
+  Disconnecting input wires from internal net...
+    wire_0_2_BUS16_S1_T0...
+
+Changes to top.v:
+
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+
+
+    < // VERILATOR_IN0
+    < // VERILATOR_OUT0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+    > output [15:0] wire_1_0_BUS16_S3_T1; // VERILATOR_OUT0
+
+
+    < .out_BUS16_S1_T0(wire_0_2_BUS16_S1_T0),
+    ---
+    > .out_BUS16_S1_T0(),
+
+
+To see all changes in context, try:
+  diff --side-by-side -W 100 /tmp/top.v.orig ../../hardware/generator_z/top/genesis_verif/top.v | less
+
+END top.v manipulation
+
+------------------------------------------------------------------------
+
+Building the verilator simulator executable...
+
+  SRAM hack
+
+
+verilator -Wall -Wno-fatal --cc --exe top_tb.cpp -y   \
+  ../../hardware/generator_z/top/genesis_verif cb_unq1.v cb_unq2.v   \
+  pe_tile_new_unq1.v pe_tile_new_unq2.v sb_unq1.v sb_unq2.v sb_unq3.v sb_unq4.v   \
+  top.v --top-module top  \
+
+%Warning1 Ignoring warnings about unoptimizable circularities in switchbox wires (see SR for explainer).
+%Warning2 To get the flavor of all the warnings, just showing first 40 lines of output.
+%Warning3 See /tmp/verilator.out for full log.
+
+%Warning-PINNOCONNECT: ../../hardware/generator_z/top/genesis_verif/top.v:1328: Cell pin is not connected: out_BUS16_S1_T0
+%Warning-PINNOCONNECT: Use "/* verilator lint_off PINNOCONNECT */" and lint_on around source to disable this message.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:185: Operator CASE expects 16 bits on the Case expression, but Case expression's SEL generates 5 bits.
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:79: Bits of signal are not used: op_code[11:10,7:5]
+
+------------------------------------------------------------------------
+
+Build the simulator...
+
+# Build testbench
+
+make \
+  VM_USER_CFLAGS='-DINWIRE=top->wire_0_2_BUS16_S1_T0 -DOUTWIRE=top->wire_1_0_BUS16_S3_T1' \
+  -j -C obj_dir/ -f Vtop.mk Vtop
+
+TODO/FIXME this only works if there is exactly ONE each INWIRE and OUTWIRE!!
+
+make[2]: Entering directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o top_tb.o ../top_tb.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop.cpp Vtop_pe_tile_new_unq2.cpp > Vtop__ALLcls.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop__Syms.cpp > Vtop__ALLsup.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLcls.o Vtop__ALLcls.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLsup.o Vtop__ALLsup.cpp
+      Archiving Vtop__ALL.a ...
+ar r Vtop__ALL.a Vtop__ALLcls.o Vtop__ALLsup.o
+ar: creating Vtop__ALL.a
+ranlib Vtop__ALL.a
+g++    top_tb.o verilated.o Vtop__ALL.a    -o Vtop -lm -lstdc++  2>&1 | c++filt
+make[2]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+
+------------------------------------------------------------------------
+
+Run the simulator...
+
+  First prepare input and output files...
+  Converting input file 'io/gray_small.png' to '.raw'...
+  io/myconvert.csh io/gray_small.png /tmp/input.raw
+
+  Converted io/gray_small.png to /tmp/input.raw...to verify result, do:
+  gwenview /tmp/verify.pgm
+
+# Run executable simulation
+ TIME NOW: Mon Jun 12 09:41:05 PDT 2017
+obj_dir/Vtop -config /tmp/bs.txt -input /tmp/input.raw -output /tmp/gray_small_out.raw -nclocks 3000000
+tee /tmp/run.log.11674
+
+
+Hi there!  I am the simulatory thingy.
+  - Will run for 3000000 cycles or until eof(input)
+  - Found config filename '/tmp/bs.txt'
+  - Found input filename '/tmp/input.raw'
+  - Found output filename '/tmp/gray_small_out.raw'
+NOTE no trace file was requested.
+
+Executed 0K cycles...
+00000: reset=1
+00001: reset=1
+00002: reset=1
+00003: reset=1
+00004: reset=0
+
+00005: scanned config data 00020000 00000001
+00006: scanned config data 00020001 00000000
+00007: scanned config data 00050001 00003000
+00008: scanned config data F1000001 00000002
+00009: scanned config data FF000001 0000800B
+00010: scanned config data 00050002 00000C00
+00011: scanned config data 01050004 00000000
+00012: scanned config data 00050005 00800000
+00013: scanned config data 00050006 00200000
+
+00014: Two times 11 = 22  *PASS*
+00015: Two times 11 = 22  *PASS*
+00016: Two times 13 = 26  *PASS*
+00017: Two times 14 = 28  *PASS*
+00018: Two times 16 = 32  *PASS*
+00019: Two times 17 = 34  *PASS*
+00020: Two times 19 = 38  *PASS*
+00021: Two times 22 = 44  *PASS*
+00022: Two times 23 = 46  *PASS*
+00023: Two times 27 = 54  *PASS*
+00024: Two times 30 = 60  *PASS*
+00025: Two times 30 = 60  *PASS*
+00026: Two times 31 = 62  *PASS*
+00027: Two times 32 = 64  *PASS*
+00028: Two times 36 = 72  *PASS*
+00029: Two times 37 = 74  *PASS*
+00030: Two times 38 = 76  *PASS*
+00031: Two times 41 = 82  *PASS*
+00032: Two times 41 = 82  *PASS*
+00033: Two times 43 = 86  *PASS*
+00034: Two times 42 = 84  *PASS*
+00035: Two times 43 = 86  *PASS*
+00036: Two times 41 = 82  *PASS*
+00037: Two times 43 = 86  *PASS*
+00038: Two times 45 = 90  *PASS*
+00039: Two times 46 = 92  *PASS*
+00040: ...
+Executed 100K cycles...
+
+INFO Simulation ran for 109070 cycles
+
+unset echo
+ TIME NOW: Mon Jun 12 09:41:11 PDT 2017
+
+# Show output vs. input; output should be 2x input for most common testbench
+
+od -t u1 /tmp/input.raw
+0000000  11  11  13  14  16  17  19  22  23  27  30  30  31  32  36  37
+0000020  38  41  41  43  42  43  41  43  45  46  45  45  46  46  46  45
+0000040  48  47  49  45  45  45  44  41  41  41  38  34  31  29  26  25
+0000060  25  24  22  18  17  15  14  12  12  12  10   9   7   6   5   5
+0000100   4   4   3   3   3   3   2   2   2   2   2   2   2   2   1   2
+0000120   1   1   1   1   2   2   2   2   3   2   3   5   4   4   6   7
+0000140  10  10  10  13  13  15  15  15  15  16  16  16  16  16  17  15
+0000160  14  13  13  14  13  13  11  13  10  12  11  11  11  11  11  10
+0000200  11  11  10  11   9   9   8   8   7   8   6   6   6   5   5   5
+0000220   6   6   6   5   5   6   5   5   6   6   6   6   5   4   4   5
+
+od -t u1 /tmp/gray_small_out.raw
+0000000  22  22  26  28  32  34  38  44  46  54  60  60  62  64  72  74
+0000020  76  82  82  86  84  86  82  86  90  92  90  90  92  92  92  90
+0000040  96  94  98  90  90  90  88  82  82  82  76  68  62  58  52  50
+0000060  50  48  44  36  34  30  28  24  24  24  20  18  14  12  10  10
+0000100   8   8   6   6   6   6   4   4   4   4   4   4   4   4   2   4
+0000120   2   2   2   2   4   4   4   4   6   4   6  10   8   8  12  14
+0000140  20  20  20  26  26  30  30  30  30  32  32  32  32  32  34  30
+0000160  28  26  26  28  26  26  22  26  20  24  22  22  22  22  22  20
+0000200  22  22  20  22  18  18  16  16  14  16  12  12  12  10  10  10
+0000220  12  12  12  10  10  12  10  10  12  12  12  12  10   8   8  10
+
+************************************************************************
+NOTE: If you want to clean up after yourself you'll want to do this:
+
+  ./run.csh -clean
+  pushd ../../hardware/generator_z/top; ./genesis_clean.cmd; popd
+
+************************************************************************
+
+make[1]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+make test_8x8_gray_small |& tee /tmp/test_8x8_gray_small.log
+make[1]: Entering directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+bitstream=../../bitstream/examples/cd387-newmem-8x8.bs; \
+	image=gray_small;              \
+	cd ../verilator/generator_z_tb;	        \
+	./run.csh -gen top_tb.cpp -usemem\
+	   -config ${bitstream}          \
+	   -input  io/${image}.png        \
+	   -output /tmp/${image}_out.raw   \
+	   -nclocks 3M
+
+Bitstream appears to have embedded i/o information (as it should).  Decoded:
+if ( 0 ) then
+../../bitstream/decoder/decode.py -newmem /tmp/cd387-newmem-8x8.bs.swizzled
+endif
+unset echo
+
+# I/O Summary:
+# OUTPUT tile  0 (0,0) /  in_s1t1 / wire_1_0_BUS16_S3_T1
+# INPUT  tile  2 (0,2) / out_s1t0 / wire_0_2_BUS16_S1_T0
+  <io name='ioin' type='source'>
+    <wire_name>wire_0_2_BUS16_S1_T0</wire_name>
+  <io name='ioout' type='sink'>
+    <wire_name>wire_1_0_BUS16_S3_T1</wire_name>
+
+Will strip out IO hack from '../../bitstream/examples/cd387-newmem-8x8.bs'
+to create clean bitstream '/tmp/bs.txt'
+
+< F1000000 FFFFFFFF
+< FF000000 000000FF
+< F0000002 FFFFFFFF
+< F1000002 FFFFFFFF
+< FF000002 000000F0
+
+Running with the following switches:
+./run.csh top_tb.cpp \
+   -gen                    \
+   -config   /tmp/bs.txt   \
+   -input    io/gray_small.png  \
+   -output   /tmp/gray_small_out.raw    \
+   -nclocks  3M                 \
+/usr/bin/verilator
+
+Building CGRA because you asked for it with '-gen'...
+
+/tmp/Genesis2/Genesis2Tools/bin/Genesis2.pl
+
+Generator run.csh looks like this:
+# To generate fabric with memories, do -
+# setenv CGRA_GEN_USE_MEM 1
+# 
+# @Caleb: For providing registers on all outputs of all SBs, do-
+# setenv CGRA_GEN_ALL_REG 1
+
+Genesis2.pl -parse -generate -top top -input\
+  ../sb/sb.vp \
+  ../cb/cb.vp \
+  ../pe_tile/pe_tile.vp top.vp \
+  \
+  ../pe_new/pe/rtl/test_pe.svp \
+  ../pe_new/pe/rtl/test_mult_add.svp \
+  ../pe_new/pe/rtl/test_full_add.svp \
+  ../pe_new/pe/rtl/test_lut.svp      \
+  ../pe_new/pe/rtl/test_opt_reg.svp  \
+  ../pe_tile_new/pe_tile_new.vp \
+  \
+  ../memory_tile/memory_tile.vp \
+  ../memory_core/memory_core.vp \
+  ../memory_core/mem.vp
+
+
+-----------------------------------------------
+--- Genesis Is Starting Work On Your Design ---
+-----------------------------------------------
+
+-----------------------------------------------
+|            Genesis Release Info             |
+|  $Change: 11904 $ --- $Date: 2013/08/03 $   |
+-----------------------------------------------
+
+---------------------------------------------------------------------------
+    !! THIS VERSION OF GENESIS2 IS NOT FOR ANY COMMERCIAL USE !!
+     FOR COMMERCIAL LICENSE CONTACT SHACHAM@ALUMNI.STANFORD.EDU
+---------------------------------------------------------------------------
+
+Genesis2::Manager->execute: Starting Source File Parsing Phase
+Genesis2::Manager->parse_files: Now parsing file ../sb/sb.vp
+Genesis2::Manager->parse_files: Now parsing file ../cb/cb.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile/pe_tile.vp
+Genesis2::Manager->parse_files: Now parsing file top.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_pe.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_mult_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_full_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_lut.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_opt_reg.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile_new/pe_tile_new.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_tile/memory_tile.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/memory_core.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/mem.vp
+Genesis2::Manager->execute: Done With Source File Parsing Phase
+
+Genesis2::Manager->execute: Starting Verilog Code Generation Phase
+Genesis2::ConfigHandler->SetPrmOverrides: Now processing command line parameter overrides
+Genesis2::Manager->gen_verilog: Starting code generation from module top
+Genesis2::Manager->execute: Done With Verilog Code Generation Phase
+
+Genesis2::Manager->execute: Starting Auxiliary File Generation Phase
+Genesis2::Manager->execute: Done With Auxiliary File Generation Phase
+
+-----------------------------------------------
+--- Genesis Finished Generating Your Design ---
+-----------------------------------------------
+
+
+--------------------------------------------------------------------
+Here is what I built (it's supposed to look like an array of tiles).
+
+    --------------------------------------------
+    t0#0_0#0    t0#0_1#0    t0#0_2#0    t1#0_3#0    t0#0_4#0    t0#0_5#0    t0#0_6#0    t1#0_7#0    
+    t0#1_0#0    t0#1_1#0    t0#1_2#0    t1#0_3#1    t0#1_4#0    t0#1_5#0    t0#1_6#0    t1#0_7#1    
+    t0#2_0#0    t0#2_1#0    t0#2_2#0    t1#2_3#0    t0#2_4#0    t0#2_5#0    t0#2_6#0    t1#2_7#0    
+    t0#3_0#0    t0#3_1#0    t0#3_2#0    t1#2_3#1    t0#3_4#0    t0#3_5#0    t0#3_6#0    t1#2_7#1    
+    t0#4_0#0    t0#4_1#0    t0#4_2#0    t1#4_3#0    t0#4_4#0    t0#4_5#0    t0#4_6#0    t1#4_7#0    
+    t0#5_0#0    t0#5_1#0    t0#5_2#0    t1#4_3#1    t0#5_4#0    t0#5_5#0    t0#5_6#0    t1#4_7#1    
+    t0#6_0#0    t0#6_1#0    t0#6_2#0    t1#6_3#0    t0#6_4#0    t0#6_5#0    t0#6_6#0    t1#6_7#0    
+    t0#7_0#0    t0#7_1#0    t0#7_2#0    t1#6_3#1    t0#7_4#0    t0#7_5#0    t0#7_6#0    t1#6_7#1    
+    --------------------------------------------
+
+Each tile is designated as <tile_type>#<tile_loc(x,y)>#<tile_section>
+E.g. current default in top.vp calls stamp_pattern(top) where top is defined as
+
+    $tile_pattern {'p1'} = "t0_3_2 t1_1_1";
+    $tile_pattern {'top'} = "p1_2_4";
+    $tile_pattern {'p1'} = "t0_1_1";
+    $tile_pattern {'top'} = "p1_4_4";
+
+ resulting in a 4x4 grid of "t0" tiles, where each tile looks like
+
+    $tile_config->{ 't0' } = {
+          type => 'pe_tile_new',
+          sides => $sides,
+          is_bidi => 0,
+          bus_config => $bus_config,
+          cb_connections => $cb_connections,
+          has_constant => 1,
+          tile_height => 1,
+          tile_width => 1,
+          reg_inputs => 1,
+          reg_out => 0, 
+          use_add => 1,
+          bool_inps => 1,
+          use_shift => 1,
+          mult_mode => 1,
+          sb_fs => $sb_fs,
+
+-rw-r--r-- 1 steveri users 812693 Jun 12 09:41 cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 examples/cgra_info_v2_8x8+mem.txt
+
+DIFF
+-rw-r--r-- 1 steveri users 812693 Jun 12 09:41 ../../hardware/generator_z/top//cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem.txt
+
+Use existing config bitstream '/tmp/bs.txt'...
+
+BITSTREAM:
+00020000 00000001
+00020001 00000000
+00050001 00003000
+F1000001 00000002
+FF000001 0000800B
+00050002 00000C00
+01050008 00000000
+00050009 00800000
+0005000A 00200000
+
+------------------------------------------------------------------------
+BEGIN find input and output wires
+
+  USING I/O WIRE NAMES DERIVED FROM BITSTREAM
+
+  IN  wire_0_2_BUS16_S1_T0
+  OUT wire_1_0_BUS16_S3_T1
+
+  inwires  = wire_0_2_BUS16_S1_T0
+  outwires = wire_1_0_BUS16_S3_T1
+
+END find input and output wires
+
+------------------------------------------------------------------------
+
+BEGIN top.v manipulation (won't be needed after we figure out io pads)...
+
+Inserting wirenames into verilog top module '../../hardware/generator_z/top/genesis_verif/top.v'...
+
+difffff
+  Adding ports for verilator inputs and outputs...
+    wire_0_2_BUS16_S1_T0...
+    wire_1_0_BUS16_S3_T1...
+
+    382,383c382,383
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+------------------------------------------------------
+  Adding verilator input declarations...
+    wire_0_2_BUS16_S1_T0...
+
+    382,383c382,383
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+    406c406
+    < // VERILATOR_IN0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+------------------------------------------------------
+  Adding verilator output declarations...
+    wire_1_0_BUS16_S3_T1...
+
+  Disconnecting input wires from internal net...
+    wire_0_2_BUS16_S1_T0...
+
+Changes to top.v:
+
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+
+
+    < // VERILATOR_IN0
+    < // VERILATOR_OUT0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+    > output [15:0] wire_1_0_BUS16_S3_T1; // VERILATOR_OUT0
+
+
+    < .out_BUS16_S1_T0(wire_0_2_BUS16_S1_T0),
+    ---
+    > .out_BUS16_S1_T0(),
+
+
+To see all changes in context, try:
+  diff --side-by-side -W 100 /tmp/top.v.orig ../../hardware/generator_z/top/genesis_verif/top.v | less
+
+END top.v manipulation
+
+------------------------------------------------------------------------
+
+Building the verilator simulator executable...
+
+  SRAM hack
+-rw-r--r-- 1 steveri users 956 Jun 12 09:41 ../../hardware/generator_z/top/genesis_verif/sram_512w_16b.v
+
+
+verilator -Wall -Wno-fatal --cc --exe top_tb.cpp -y   \
+  ../../hardware/generator_z/top/genesis_verif cb_unq1.v cb_unq2.v cb_unq3.v   \
+  cb_unq4.v memory_core_unq1.v memory_tile_unq1.v mem_unq1.v pe_tile_new_unq1.v   \
+  pe_tile_new_unq2.v sb_unq1.v sb_unq2.v sb_unq3.v sb_unq4.v sb_unq5.v   \
+  sram_512w_16b.v top.v --top-module top  \
+
+%Warning1 Ignoring warnings about unoptimizable circularities in switchbox wires (see SR for explainer).
+%Warning2 To get the flavor of all the warnings, just showing first 40 lines of output.
+%Warning3 See /tmp/verilator.out for full log.
+
+%Warning-ASSIGNDLY: ../../hardware/generator_z/top/genesis_verif/mem_unq1.v:63: Unsupported: Ignoring delay on this assignment/primitive.
+%Warning-ASSIGNDLY: Use "/* verilator lint_off ASSIGNDLY */" and lint_on around source to disable this message.
+%Warning-PINNOCONNECT: ../../hardware/generator_z/top/genesis_verif/top.v:3492: Cell pin is not connected: out_BUS16_S1_T0
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:185: Operator CASE expects 16 bits on the Case expression, but Case expression's SEL generates 5 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:153: Operator SHIFTR expects 16 bits on the LHS, but LHS's SEL generates 13 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:243: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'input_count' generates 2 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:243: Operator SUB expects 16 bits on the LHS, but LHS's SEL generates 13 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:243: Operator SUB expects 16 bits on the RHS, but RHS's SEL generates 3 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:261: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'input_count' generates 2 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:261: Operator EQ expects 16 bits on the RHS, but RHS's SEL generates 13 bits.
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:479: Signal is not used: sb_wire_out_0_BUS1_1_0
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:481: Signal is not used: sb_wire_out_0_BUS1_1_1
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:483: Signal is not used: sb_wire_out_0_BUS1_1_2
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:485: Signal is not used: sb_wire_out_0_BUS1_1_3
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:487: Signal is not used: sb_wire_out_0_BUS1_1_4
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:540: Signal is not driven: sb_wire_in_1_BUS1_3_0
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:542: Signal is not driven: sb_wire_in_1_BUS1_3_1
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:544: Signal is not driven: sb_wire_in_1_BUS1_3_2
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:546: Signal is not driven: sb_wire_in_1_BUS1_3_3
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:548: Signal is not driven: sb_wire_in_1_BUS1_3_4
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:559: Signal is not used: sb_wire_out_0_BUS16_1_0
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:561: Signal is not used: sb_wire_out_0_BUS16_1_1
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:563: Signal is not used: sb_wire_out_0_BUS16_1_2
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:565: Signal is not used: sb_wire_out_0_BUS16_1_3
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:567: Signal is not used: sb_wire_out_0_BUS16_1_4
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:620: Signal is not driven: sb_wire_in_1_BUS16_3_0
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:622: Signal is not driven: sb_wire_in_1_BUS16_3_1
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:624: Signal is not driven: sb_wire_in_1_BUS16_3_2
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:626: Signal is not driven: sb_wire_in_1_BUS16_3_3
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:628: Signal is not driven: sb_wire_in_1_BUS16_3_4
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:74: Bits of signal are not used: config_addr[23:0]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:93: Bits of signal are not used: config_mem[31:20]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:112: Bits of signal are not used: mem_addr[15:9]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:113: Bits of signal are not used: addr_d1[15:10,8:0]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:79: Bits of signal are not used: op_code[11:10,7:5]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/mem_unq1.v:61: Signal is not used: clk_d
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:209: Case values incompletely covered (example pattern 0x5)
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:226: Case values incompletely covered (example pattern 0x5)
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:243: Case values incompletely covered (example pattern 0x5)
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:260: Case values incompletely covered (example pattern 0x5)
+
+------------------------------------------------------------------------
+
+Build the simulator...
+
+# Build testbench
+
+make \
+  VM_USER_CFLAGS='-DINWIRE=top->wire_0_2_BUS16_S1_T0 -DOUTWIRE=top->wire_1_0_BUS16_S3_T1' \
+  -j -C obj_dir/ -f Vtop.mk Vtop
+
+TODO/FIXME this only works if there is exactly ONE each INWIRE and OUTWIRE!!
+
+make[2]: Entering directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o top_tb.o ../top_tb.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop.cpp Vtop_memory_tile_unq1.cpp Vtop_pe_tile_new_unq1.cpp Vtop_pe_tile_new_unq2.cpp > Vtop__ALLcls.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop__Syms.cpp > Vtop__ALLsup.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLsup.o Vtop__ALLsup.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLcls.o Vtop__ALLcls.cpp
+      Archiving Vtop__ALL.a ...
+ar r Vtop__ALL.a Vtop__ALLcls.o Vtop__ALLsup.o
+ar: creating Vtop__ALL.a
+ranlib Vtop__ALL.a
+g++    top_tb.o verilated.o Vtop__ALL.a    -o Vtop -lm -lstdc++  2>&1 | c++filt
+make[2]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+
+------------------------------------------------------------------------
+
+Run the simulator...
+
+  First prepare input and output files...
+  Converting input file 'io/gray_small.png' to '.raw'...
+  io/myconvert.csh io/gray_small.png /tmp/input.raw
+
+  Converted io/gray_small.png to /tmp/input.raw...to verify result, do:
+  gwenview /tmp/verify.pgm
+
+# Run executable simulation
+ TIME NOW: Mon Jun 12 09:41:30 PDT 2017
+obj_dir/Vtop -config /tmp/bs.txt -input /tmp/input.raw -output /tmp/gray_small_out.raw -nclocks 3000000
+tee /tmp/run.log.11881
+
+
+Hi there!  I am the simulatory thingy.
+  - Will run for 3000000 cycles or until eof(input)
+  - Found config filename '/tmp/bs.txt'
+  - Found input filename '/tmp/input.raw'
+  - Found output filename '/tmp/gray_small_out.raw'
+NOTE no trace file was requested.
+
+Executed 0K cycles...
+00000: reset=1
+00001: reset=1
+00002: reset=1
+00003: reset=1
+00004: reset=0
+
+00005: scanned config data 00020000 00000001
+00006: scanned config data 00020001 00000000
+00007: scanned config data 00050001 00003000
+00008: scanned config data F1000001 00000002
+00009: scanned config data FF000001 0000800B
+00010: scanned config data 00050002 00000C00
+00011: scanned config data 01050008 00000000
+00012: scanned config data 00050009 00800000
+00013: scanned config data 0005000A 00200000
+
+00014: Two times 11 = 22  *PASS*
+00015: Two times 11 = 22  *PASS*
+00016: Two times 13 = 26  *PASS*
+00017: Two times 14 = 28  *PASS*
+00018: Two times 16 = 32  *PASS*
+00019: Two times 17 = 34  *PASS*
+00020: Two times 19 = 38  *PASS*
+00021: Two times 22 = 44  *PASS*
+00022: Two times 23 = 46  *PASS*
+00023: Two times 27 = 54  *PASS*
+00024: Two times 30 = 60  *PASS*
+00025: Two times 30 = 60  *PASS*
+00026: Two times 31 = 62  *PASS*
+00027: Two times 32 = 64  *PASS*
+00028: Two times 36 = 72  *PASS*
+00029: Two times 37 = 74  *PASS*
+00030: Two times 38 = 76  *PASS*
+00031: Two times 41 = 82  *PASS*
+00032: Two times 41 = 82  *PASS*
+00033: Two times 43 = 86  *PASS*
+00034: Two times 42 = 84  *PASS*
+00035: Two times 43 = 86  *PASS*
+00036: Two times 41 = 82  *PASS*
+00037: Two times 43 = 86  *PASS*
+00038: Two times 45 = 90  *PASS*
+00039: Two times 46 = 92  *PASS*
+00040: ...
+Executed 100K cycles...
+
+INFO Simulation ran for 109070 cycles
+
+unset echo
+ TIME NOW: Mon Jun 12 09:42:30 PDT 2017
+
+# Show output vs. input; output should be 2x input for most common testbench
+
+od -t u1 /tmp/input.raw
+0000000  11  11  13  14  16  17  19  22  23  27  30  30  31  32  36  37
+0000020  38  41  41  43  42  43  41  43  45  46  45  45  46  46  46  45
+0000040  48  47  49  45  45  45  44  41  41  41  38  34  31  29  26  25
+0000060  25  24  22  18  17  15  14  12  12  12  10   9   7   6   5   5
+0000100   4   4   3   3   3   3   2   2   2   2   2   2   2   2   1   2
+0000120   1   1   1   1   2   2   2   2   3   2   3   5   4   4   6   7
+0000140  10  10  10  13  13  15  15  15  15  16  16  16  16  16  17  15
+0000160  14  13  13  14  13  13  11  13  10  12  11  11  11  11  11  10
+0000200  11  11  10  11   9   9   8   8   7   8   6   6   6   5   5   5
+0000220   6   6   6   5   5   6   5   5   6   6   6   6   5   4   4   5
+
+od -t u1 /tmp/gray_small_out.raw
+0000000  22  22  26  28  32  34  38  44  46  54  60  60  62  64  72  74
+0000020  76  82  82  86  84  86  82  86  90  92  90  90  92  92  92  90
+0000040  96  94  98  90  90  90  88  82  82  82  76  68  62  58  52  50
+0000060  50  48  44  36  34  30  28  24  24  24  20  18  14  12  10  10
+0000100   8   8   6   6   6   6   4   4   4   4   4   4   4   4   2   4
+0000120   2   2   2   2   4   4   4   4   6   4   6  10   8   8  12  14
+0000140  20  20  20  26  26  30  30  30  30  32  32  32  32  32  34  30
+0000160  28  26  26  28  26  26  22  26  20  24  22  22  22  22  22  20
+0000200  22  22  20  22  18  18  16  16  14  16  12  12  12  10  10  10
+0000220  12  12  12  10  10  12  10  10  12  12  12  12  10   8   8  10
+
+************************************************************************
+NOTE: If you want to clean up after yourself you'll want to do this:
+
+  ./run.csh -clean
+  pushd ../../hardware/generator_z/top; ./genesis_clean.cmd; popd
+
+************************************************************************
+
+make[1]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+make test_4x4_gray       |& tee /tmp/test_4x4_gray.log
+make[1]: Entering directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+bitstream=../../bitstream/examples/cd387-good.bs; \
+	image=gray;                    \
+	cd ../verilator/generator_z_tb;	        \
+	./run.csh -gen top_tb.cpp        \
+	   -config ${bitstream}          \
+	   -input  io/${image}.png        \
+	   -output /tmp/${image}_out.raw   \
+	   -nclocks 3M
+
+Bitstream appears to have embedded i/o information (as it should).  Decoded:
+if ( 0 ) then
+../../bitstream/decoder/decode.py -newmem /tmp/cd387-good.bs.swizzled
+endif
+unset echo
+
+# I/O Summary:
+# OUTPUT tile  0 (0,0) /  in_s1t1 / wire_1_0_BUS16_S3_T1
+# INPUT  tile  2 (0,2) / out_s1t0 / wire_0_2_BUS16_S1_T0
+  <io name='ioin' type='source'>
+    <wire_name>wire_0_2_BUS16_S1_T0</wire_name>
+  <io name='ioout' type='sink'>
+    <wire_name>wire_1_0_BUS16_S3_T1</wire_name>
+
+Will strip out IO hack from '../../bitstream/examples/cd387-good.bs'
+to create clean bitstream '/tmp/bs.txt'
+
+< F1000000 FFFFFFFF
+< FF000000 000000FF
+< F0000002 FFFFFFFF
+< F1000002 FFFFFFFF
+< FF000002 000000F0
+
+Running with the following switches:
+./run.csh top_tb.cpp \
+   -gen                    \
+   -config   /tmp/bs.txt   \
+   -input    io/gray.png  \
+   -output   /tmp/gray_out.raw    \
+   -nclocks  3M                 \
+/usr/bin/verilator
+
+Building CGRA because you asked for it with '-gen'...
+
+/tmp/Genesis2/Genesis2Tools/bin/Genesis2.pl
+
+Generator run.csh looks like this:
+# To generate fabric with memories, do -
+# setenv CGRA_GEN_USE_MEM 1
+# 
+# @Caleb: For providing registers on all outputs of all SBs, do-
+# setenv CGRA_GEN_ALL_REG 1
+
+Genesis2.pl -parse -generate -top top -input\
+  ../sb/sb.vp \
+  ../cb/cb.vp \
+  ../pe_tile/pe_tile.vp top.vp \
+  \
+  ../pe_new/pe/rtl/test_pe.svp \
+  ../pe_new/pe/rtl/test_mult_add.svp \
+  ../pe_new/pe/rtl/test_full_add.svp \
+  ../pe_new/pe/rtl/test_lut.svp      \
+  ../pe_new/pe/rtl/test_opt_reg.svp  \
+  ../pe_tile_new/pe_tile_new.vp \
+  \
+  ../memory_tile/memory_tile.vp \
+  ../memory_core/memory_core.vp \
+  ../memory_core/mem.vp
+
+
+-----------------------------------------------
+--- Genesis Is Starting Work On Your Design ---
+-----------------------------------------------
+
+-----------------------------------------------
+|            Genesis Release Info             |
+|  $Change: 11904 $ --- $Date: 2013/08/03 $   |
+-----------------------------------------------
+
+---------------------------------------------------------------------------
+    !! THIS VERSION OF GENESIS2 IS NOT FOR ANY COMMERCIAL USE !!
+     FOR COMMERCIAL LICENSE CONTACT SHACHAM@ALUMNI.STANFORD.EDU
+---------------------------------------------------------------------------
+
+Genesis2::Manager->execute: Starting Source File Parsing Phase
+Genesis2::Manager->parse_files: Now parsing file ../sb/sb.vp
+Genesis2::Manager->parse_files: Now parsing file ../cb/cb.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile/pe_tile.vp
+Genesis2::Manager->parse_files: Now parsing file top.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_pe.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_mult_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_full_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_lut.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_opt_reg.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile_new/pe_tile_new.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_tile/memory_tile.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/memory_core.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/mem.vp
+Genesis2::Manager->execute: Done With Source File Parsing Phase
+
+Genesis2::Manager->execute: Starting Verilog Code Generation Phase
+Genesis2::ConfigHandler->SetPrmOverrides: Now processing command line parameter overrides
+Genesis2::Manager->gen_verilog: Starting code generation from module top
+Genesis2::Manager->execute: Done With Verilog Code Generation Phase
+
+Genesis2::Manager->execute: Starting Auxiliary File Generation Phase
+Genesis2::Manager->execute: Done With Auxiliary File Generation Phase
+
+-----------------------------------------------
+--- Genesis Finished Generating Your Design ---
+-----------------------------------------------
+
+
+--------------------------------------------------------------------
+Here is what I built (it's supposed to look like an array of tiles).
+
+    --------------------------------------------
+    t0#0_0#0    t0#0_1#0    t0#0_2#0    t0#0_3#0    
+    t0#1_0#0    t0#1_1#0    t0#1_2#0    t0#1_3#0    
+    t0#2_0#0    t0#2_1#0    t0#2_2#0    t0#2_3#0    
+    t0#3_0#0    t0#3_1#0    t0#3_2#0    t0#3_3#0    
+    --------------------------------------------
+
+Each tile is designated as <tile_type>#<tile_loc(x,y)>#<tile_section>
+E.g. current default in top.vp calls stamp_pattern(top) where top is defined as
+
+    $tile_pattern {'p1'} = "t0_3_2 t1_1_1";
+    $tile_pattern {'top'} = "p1_2_4";
+    $tile_pattern {'p1'} = "t0_1_1";
+    $tile_pattern {'top'} = "p1_4_4";
+
+ resulting in a 4x4 grid of "t0" tiles, where each tile looks like
+
+    $tile_config->{ 't0' } = {
+          type => 'pe_tile_new',
+          sides => $sides,
+          is_bidi => 0,
+          bus_config => $bus_config,
+          cb_connections => $cb_connections,
+          has_constant => 1,
+          tile_height => 1,
+          tile_width => 1,
+          reg_inputs => 1,
+          reg_out => 0, 
+          use_add => 1,
+          bool_inps => 1,
+          use_shift => 1,
+          mult_mode => 1,
+          sb_fs => $sb_fs,
+
+-rw-r--r-- 1 steveri users 199813 Jun 12 09:42 cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 examples/cgra_info_v2_8x8+mem.txt
+
+DIFF
+-rw-r--r-- 1 steveri users 199813 Jun 12 09:42 ../../hardware/generator_z/top//cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem.txt
+
+Use existing config bitstream '/tmp/bs.txt'...
+
+BITSTREAM:
+00020000 00000001
+00020001 00000000
+00050001 00003000
+F1000001 00000002
+FF000001 0000800B
+00050002 00000C00
+01050004 00000000
+00050005 00800000
+00050006 00200000
+
+------------------------------------------------------------------------
+BEGIN find input and output wires
+
+  USING I/O WIRE NAMES DERIVED FROM BITSTREAM
+
+  IN  wire_0_2_BUS16_S1_T0
+  OUT wire_1_0_BUS16_S3_T1
+
+  inwires  = wire_0_2_BUS16_S1_T0
+  outwires = wire_1_0_BUS16_S3_T1
+
+END find input and output wires
+
+------------------------------------------------------------------------
+
+BEGIN top.v manipulation (won't be needed after we figure out io pads)...
+
+Inserting wirenames into verilog top module '../../hardware/generator_z/top/genesis_verif/top.v'...
+
+difffff
+  Adding ports for verilator inputs and outputs...
+    wire_0_2_BUS16_S1_T0...
+    wire_1_0_BUS16_S3_T1...
+
+    218,219c218,219
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+------------------------------------------------------
+  Adding verilator input declarations...
+    wire_0_2_BUS16_S1_T0...
+
+    218,219c218,219
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+    242c242
+    < // VERILATOR_IN0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+------------------------------------------------------
+  Adding verilator output declarations...
+    wire_1_0_BUS16_S3_T1...
+
+  Disconnecting input wires from internal net...
+    wire_0_2_BUS16_S1_T0...
+
+Changes to top.v:
+
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+
+
+    < // VERILATOR_IN0
+    < // VERILATOR_OUT0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+    > output [15:0] wire_1_0_BUS16_S3_T1; // VERILATOR_OUT0
+
+
+    < .out_BUS16_S1_T0(wire_0_2_BUS16_S1_T0),
+    ---
+    > .out_BUS16_S1_T0(),
+
+
+To see all changes in context, try:
+  diff --side-by-side -W 100 /tmp/top.v.orig ../../hardware/generator_z/top/genesis_verif/top.v | less
+
+END top.v manipulation
+
+------------------------------------------------------------------------
+
+Building the verilator simulator executable...
+
+  SRAM hack
+
+
+verilator -Wall -Wno-fatal --cc --exe top_tb.cpp -y   \
+  ../../hardware/generator_z/top/genesis_verif cb_unq1.v cb_unq2.v   \
+  pe_tile_new_unq1.v pe_tile_new_unq2.v sb_unq1.v sb_unq2.v sb_unq3.v sb_unq4.v   \
+  top.v --top-module top  \
+
+%Warning1 Ignoring warnings about unoptimizable circularities in switchbox wires (see SR for explainer).
+%Warning2 To get the flavor of all the warnings, just showing first 40 lines of output.
+%Warning3 See /tmp/verilator.out for full log.
+
+%Warning-PINNOCONNECT: ../../hardware/generator_z/top/genesis_verif/top.v:1328: Cell pin is not connected: out_BUS16_S1_T0
+%Warning-PINNOCONNECT: Use "/* verilator lint_off PINNOCONNECT */" and lint_on around source to disable this message.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:185: Operator CASE expects 16 bits on the Case expression, but Case expression's SEL generates 5 bits.
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:79: Bits of signal are not used: op_code[11:10,7:5]
+
+------------------------------------------------------------------------
+
+Build the simulator...
+
+# Build testbench
+
+make \
+  VM_USER_CFLAGS='-DINWIRE=top->wire_0_2_BUS16_S1_T0 -DOUTWIRE=top->wire_1_0_BUS16_S3_T1' \
+  -j -C obj_dir/ -f Vtop.mk Vtop
+
+TODO/FIXME this only works if there is exactly ONE each INWIRE and OUTWIRE!!
+
+make[2]: Entering directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o top_tb.o ../top_tb.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop.cpp Vtop_pe_tile_new_unq2.cpp > Vtop__ALLcls.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop__Syms.cpp > Vtop__ALLsup.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLcls.o Vtop__ALLcls.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLsup.o Vtop__ALLsup.cpp
+      Archiving Vtop__ALL.a ...
+ar r Vtop__ALL.a Vtop__ALLcls.o Vtop__ALLsup.o
+ar: creating Vtop__ALL.a
+ranlib Vtop__ALL.a
+g++    top_tb.o verilated.o Vtop__ALL.a    -o Vtop -lm -lstdc++  2>&1 | c++filt
+make[2]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+
+------------------------------------------------------------------------
+
+Run the simulator...
+
+  First prepare input and output files...
+  Converting input file 'io/gray.png' to '.raw'...
+  io/myconvert.csh io/gray.png /tmp/input.raw
+
+  Converted io/gray.png to /tmp/input.raw...to verify result, do:
+  gwenview /tmp/verify.pgm
+
+# Run executable simulation
+ TIME NOW: Mon Jun 12 09:42:36 PDT 2017
+obj_dir/Vtop -config /tmp/bs.txt -input /tmp/input.raw -output /tmp/gray_out.raw -nclocks 3000000
+tee /tmp/run.log.12443
+
+
+Hi there!  I am the simulatory thingy.
+  - Will run for 3000000 cycles or until eof(input)
+  - Found config filename '/tmp/bs.txt'
+  - Found input filename '/tmp/input.raw'
+  - Found output filename '/tmp/gray_out.raw'
+NOTE no trace file was requested.
+
+Executed 0K cycles...
+00000: reset=1
+00001: reset=1
+00002: reset=1
+00003: reset=1
+00004: reset=0
+
+00005: scanned config data 00020000 00000001
+00006: scanned config data 00020001 00000000
+00007: scanned config data 00050001 00003000
+00008: scanned config data F1000001 00000002
+00009: scanned config data FF000001 0000800B
+00010: scanned config data 00050002 00000C00
+00011: scanned config data 01050004 00000000
+00012: scanned config data 00050005 00800000
+00013: scanned config data 00050006 00200000
+
+00014: Two times 9 = 18  *PASS*
+00015: Two times 10 = 20  *PASS*
+00016: Two times 9 = 18  *PASS*
+00017: Two times 11 = 22  *PASS*
+00018: Two times 9 = 18  *PASS*
+00019: Two times 8 = 16  *PASS*
+00020: Two times 11 = 22  *PASS*
+00021: Two times 12 = 24  *PASS*
+00022: Two times 11 = 22  *PASS*
+00023: Two times 8 = 16  *PASS*
+00024: Two times 11 = 22  *PASS*
+00025: Two times 10 = 20  *PASS*
+00026: Two times 11 = 22  *PASS*
+00027: Two times 17 = 34  *PASS*
+00028: Two times 14 = 28  *PASS*
+00029: Two times 12 = 24  *PASS*
+00030: Two times 13 = 26  *PASS*
+00031: Two times 12 = 24  *PASS*
+00032: Two times 10 = 20  *PASS*
+00033: Two times 15 = 30  *PASS*
+00034: Two times 12 = 24  *PASS*
+00035: Two times 14 = 28  *PASS*
+00036: Two times 11 = 22  *PASS*
+00037: Two times 15 = 30  *PASS*
+00038: Two times 15 = 30  *PASS*
+00039: Two times 13 = 26  *PASS*
+00040: ...
+Executed 100K cycles...
+Executed 200K cycles...
+Executed 300K cycles...
+Executed 400K cycles...
+Executed 500K cycles...
+Executed 600K cycles...
+Executed 700K cycles...
+Executed 800K cycles...
+Executed 900K cycles...
+Executed 1000K cycles...
+Executed 1100K cycles...
+Executed 1200K cycles...
+Executed 1300K cycles...
+Executed 1400K cycles...
+Executed 1500K cycles...
+Executed 1600K cycles...
+Executed 1700K cycles...
+Executed 1800K cycles...
+Executed 1900K cycles...
+Executed 2000K cycles...
+Executed 2100K cycles...
+Executed 2200K cycles...
+Executed 2300K cycles...
+Executed 2400K cycles...
+Executed 2500K cycles...
+Executed 2600K cycles...
+Executed 2700K cycles...
+Executed 2800K cycles...
+Executed 2900K cycles...
+unset echo
+ TIME NOW: Mon Jun 12 09:45:47 PDT 2017
+
+# Show output vs. input; output should be 2x input for most common testbench
+
+od -t u1 /tmp/input.raw
+0000000   9  10   9  11   9   8  11  12  11   8  11  10  11  17  14  12
+0000020  13  12  10  15  12  14  11  15  15  13  12  14  14  11  11  14
+0000040  13  18  20  12  16  13  17  16  14  18  19  20  16  20  28  21
+0000060  19  24  18  20  22  26  23  19  21  29  24  23  33  33  29  30
+0000100  26  30  39  31  29  33  25  28  36  29  30  32  28  26  26  31
+0000120  23  26  32  30  35  38  36  31  33  41  33  26  36  41  36  32
+0000140  31  41  36  32  39  36  34  35  34  42  40  35  48  36  33  37
+0000160  42  42  38  42  40  40  42  39  44  39  47  40  41  33  44  37
+0000200  40  38  39  43  35  31  43  41  39  43  46  39  34  38  44  46
+0000220  45  43  49  41  38  48  49  42  43  38  51  47  41  47  52  45
+
+od -t u1 /tmp/gray_out.raw
+0000000  18  20  18  22  18  16  22  24  22  16  22  20  22  34  28  24
+0000020  26  24  20  30  24  28  22  30  30  26  24  28  28  22  22  28
+0000040  26  36  40  24  32  26  34  32  28  36  38  40  32  40  56  42
+0000060  38  48  36  40  44  52  46  38  42  58  48  46  66  66  58  60
+0000100  52  60  78  62  58  66  50  56  72  58  60  64  56  52  52  62
+0000120  46  52  64  60  70  76  72  62  66  82  66  52  72  82  72  64
+0000140  62  82  72  64  78  72  68  70  68  84  80  70  96  72  66  74
+0000160  84  84  76  84  80  80  84  78  88  78  94  80  82  66  88  74
+0000200  80  76  78  86  70  62  86  82  78  86  92  78  68  76  88  92
+0000220  90  86  98  82  76  96  98  84  86  76 102  94  82  94 104  90
+
+************************************************************************
+NOTE: If you want to clean up after yourself you'll want to do this:
+
+  ./run.csh -clean
+  pushd ../../hardware/generator_z/top; ./genesis_clean.cmd; popd
+
+************************************************************************
+
+make[1]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+make test_8x8_gray       |& tee /tmp/test_8x8_gray.log
+make[1]: Entering directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+bitstream=../../bitstream/examples/cd387-newmem-8x8.bs; \
+	image=gray;                    \
+	cd ../verilator/generator_z_tb;	        \
+	./run.csh -gen top_tb.cpp -usemem\
+	   -config ${bitstream}          \
+	   -input  io/${image}.png        \
+	   -output /tmp/${image}_out.raw   \
+	   -nclocks 3M
+
+Bitstream appears to have embedded i/o information (as it should).  Decoded:
+if ( 0 ) then
+../../bitstream/decoder/decode.py -newmem /tmp/cd387-newmem-8x8.bs.swizzled
+endif
+unset echo
+
+# I/O Summary:
+# OUTPUT tile  0 (0,0) /  in_s1t1 / wire_1_0_BUS16_S3_T1
+# INPUT  tile  2 (0,2) / out_s1t0 / wire_0_2_BUS16_S1_T0
+  <io name='ioin' type='source'>
+    <wire_name>wire_0_2_BUS16_S1_T0</wire_name>
+  <io name='ioout' type='sink'>
+    <wire_name>wire_1_0_BUS16_S3_T1</wire_name>
+
+Will strip out IO hack from '../../bitstream/examples/cd387-newmem-8x8.bs'
+to create clean bitstream '/tmp/bs.txt'
+
+< F1000000 FFFFFFFF
+< FF000000 000000FF
+< F0000002 FFFFFFFF
+< F1000002 FFFFFFFF
+< FF000002 000000F0
+
+Running with the following switches:
+./run.csh top_tb.cpp \
+   -gen                    \
+   -config   /tmp/bs.txt   \
+   -input    io/gray.png  \
+   -output   /tmp/gray_out.raw    \
+   -nclocks  3M                 \
+/usr/bin/verilator
+
+Building CGRA because you asked for it with '-gen'...
+
+/tmp/Genesis2/Genesis2Tools/bin/Genesis2.pl
+
+Generator run.csh looks like this:
+# To generate fabric with memories, do -
+# setenv CGRA_GEN_USE_MEM 1
+# 
+# @Caleb: For providing registers on all outputs of all SBs, do-
+# setenv CGRA_GEN_ALL_REG 1
+
+Genesis2.pl -parse -generate -top top -input\
+  ../sb/sb.vp \
+  ../cb/cb.vp \
+  ../pe_tile/pe_tile.vp top.vp \
+  \
+  ../pe_new/pe/rtl/test_pe.svp \
+  ../pe_new/pe/rtl/test_mult_add.svp \
+  ../pe_new/pe/rtl/test_full_add.svp \
+  ../pe_new/pe/rtl/test_lut.svp      \
+  ../pe_new/pe/rtl/test_opt_reg.svp  \
+  ../pe_tile_new/pe_tile_new.vp \
+  \
+  ../memory_tile/memory_tile.vp \
+  ../memory_core/memory_core.vp \
+  ../memory_core/mem.vp
+
+
+-----------------------------------------------
+--- Genesis Is Starting Work On Your Design ---
+-----------------------------------------------
+
+-----------------------------------------------
+|            Genesis Release Info             |
+|  $Change: 11904 $ --- $Date: 2013/08/03 $   |
+-----------------------------------------------
+
+---------------------------------------------------------------------------
+    !! THIS VERSION OF GENESIS2 IS NOT FOR ANY COMMERCIAL USE !!
+     FOR COMMERCIAL LICENSE CONTACT SHACHAM@ALUMNI.STANFORD.EDU
+---------------------------------------------------------------------------
+
+Genesis2::Manager->execute: Starting Source File Parsing Phase
+Genesis2::Manager->parse_files: Now parsing file ../sb/sb.vp
+Genesis2::Manager->parse_files: Now parsing file ../cb/cb.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile/pe_tile.vp
+Genesis2::Manager->parse_files: Now parsing file top.vp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_pe.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_mult_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_full_add.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_lut.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_new/pe/rtl/test_opt_reg.svp
+Genesis2::Manager->parse_files: Now parsing file ../pe_tile_new/pe_tile_new.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_tile/memory_tile.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/memory_core.vp
+Genesis2::Manager->parse_files: Now parsing file ../memory_core/mem.vp
+Genesis2::Manager->execute: Done With Source File Parsing Phase
+
+Genesis2::Manager->execute: Starting Verilog Code Generation Phase
+Genesis2::ConfigHandler->SetPrmOverrides: Now processing command line parameter overrides
+Genesis2::Manager->gen_verilog: Starting code generation from module top
+Genesis2::Manager->execute: Done With Verilog Code Generation Phase
+
+Genesis2::Manager->execute: Starting Auxiliary File Generation Phase
+Genesis2::Manager->execute: Done With Auxiliary File Generation Phase
+
+-----------------------------------------------
+--- Genesis Finished Generating Your Design ---
+-----------------------------------------------
+
+
+--------------------------------------------------------------------
+Here is what I built (it's supposed to look like an array of tiles).
+
+    --------------------------------------------
+    t0#0_0#0    t0#0_1#0    t0#0_2#0    t1#0_3#0    t0#0_4#0    t0#0_5#0    t0#0_6#0    t1#0_7#0    
+    t0#1_0#0    t0#1_1#0    t0#1_2#0    t1#0_3#1    t0#1_4#0    t0#1_5#0    t0#1_6#0    t1#0_7#1    
+    t0#2_0#0    t0#2_1#0    t0#2_2#0    t1#2_3#0    t0#2_4#0    t0#2_5#0    t0#2_6#0    t1#2_7#0    
+    t0#3_0#0    t0#3_1#0    t0#3_2#0    t1#2_3#1    t0#3_4#0    t0#3_5#0    t0#3_6#0    t1#2_7#1    
+    t0#4_0#0    t0#4_1#0    t0#4_2#0    t1#4_3#0    t0#4_4#0    t0#4_5#0    t0#4_6#0    t1#4_7#0    
+    t0#5_0#0    t0#5_1#0    t0#5_2#0    t1#4_3#1    t0#5_4#0    t0#5_5#0    t0#5_6#0    t1#4_7#1    
+    t0#6_0#0    t0#6_1#0    t0#6_2#0    t1#6_3#0    t0#6_4#0    t0#6_5#0    t0#6_6#0    t1#6_7#0    
+    t0#7_0#0    t0#7_1#0    t0#7_2#0    t1#6_3#1    t0#7_4#0    t0#7_5#0    t0#7_6#0    t1#6_7#1    
+    --------------------------------------------
+
+Each tile is designated as <tile_type>#<tile_loc(x,y)>#<tile_section>
+E.g. current default in top.vp calls stamp_pattern(top) where top is defined as
+
+    $tile_pattern {'p1'} = "t0_3_2 t1_1_1";
+    $tile_pattern {'top'} = "p1_2_4";
+    $tile_pattern {'p1'} = "t0_1_1";
+    $tile_pattern {'top'} = "p1_4_4";
+
+ resulting in a 4x4 grid of "t0" tiles, where each tile looks like
+
+    $tile_config->{ 't0' } = {
+          type => 'pe_tile_new',
+          sides => $sides,
+          is_bidi => 0,
+          bus_config => $bus_config,
+          cb_connections => $cb_connections,
+          has_constant => 1,
+          tile_height => 1,
+          tile_width => 1,
+          reg_inputs => 1,
+          reg_out => 0, 
+          use_add => 1,
+          bool_inps => 1,
+          use_shift => 1,
+          mult_mode => 1,
+          sb_fs => $sb_fs,
+
+-rw-r--r-- 1 steveri users 812693 Jun 12 09:45 cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 examples/cgra_info_v2_8x8+mem.txt
+
+DIFF
+-rw-r--r-- 1 steveri users 812693 Jun 12 09:45 ../../hardware/generator_z/top//cgra_info.txt
+-rw-r--r-- 1 steveri users  52591 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v0_2x2.txt
+-rw-r--r-- 1 steveri users 199509 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v1_4x4.txt
+-rw-r--r-- 1 steveri users 206053 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4+reg.txt
+-rw-r--r-- 1 steveri users 199813 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_4x4.txt
+-rw-r--r-- 1 steveri users 829333 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem+reg.txt
+-rw-r--r-- 1 steveri users 812693 Jun  8 14:11 ../../hardware/generator_z/top//examples/cgra_info_v2_8x8+mem.txt
+
+Use existing config bitstream '/tmp/bs.txt'...
+
+BITSTREAM:
+00020000 00000001
+00020001 00000000
+00050001 00003000
+F1000001 00000002
+FF000001 0000800B
+00050002 00000C00
+01050008 00000000
+00050009 00800000
+0005000A 00200000
+
+------------------------------------------------------------------------
+BEGIN find input and output wires
+
+  USING I/O WIRE NAMES DERIVED FROM BITSTREAM
+
+  IN  wire_0_2_BUS16_S1_T0
+  OUT wire_1_0_BUS16_S3_T1
+
+  inwires  = wire_0_2_BUS16_S1_T0
+  outwires = wire_1_0_BUS16_S3_T1
+
+END find input and output wires
+
+------------------------------------------------------------------------
+
+BEGIN top.v manipulation (won't be needed after we figure out io pads)...
+
+Inserting wirenames into verilog top module '../../hardware/generator_z/top/genesis_verif/top.v'...
+
+difffff
+  Adding ports for verilator inputs and outputs...
+    wire_0_2_BUS16_S1_T0...
+    wire_1_0_BUS16_S3_T1...
+
+    382,383c382,383
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+------------------------------------------------------
+  Adding verilator input declarations...
+    wire_0_2_BUS16_S1_T0...
+
+    382,383c382,383
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+    406c406
+    < // VERILATOR_IN0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+------------------------------------------------------
+  Adding verilator output declarations...
+    wire_1_0_BUS16_S3_T1...
+
+  Disconnecting input wires from internal net...
+    wire_0_2_BUS16_S1_T0...
+
+Changes to top.v:
+
+    < // VERILATOR_PORT0
+    < // VERILATOR_PORT1
+    ---
+    > wire_0_2_BUS16_S1_T0, // VERILATOR_PORT0
+    > wire_1_0_BUS16_S3_T1, // VERILATOR_PORT1
+
+
+    < // VERILATOR_IN0
+    < // VERILATOR_OUT0
+    ---
+    > input [15:0] wire_0_2_BUS16_S1_T0; // VERILATOR_IN0
+    > output [15:0] wire_1_0_BUS16_S3_T1; // VERILATOR_OUT0
+
+
+    < .out_BUS16_S1_T0(wire_0_2_BUS16_S1_T0),
+    ---
+    > .out_BUS16_S1_T0(),
+
+
+To see all changes in context, try:
+  diff --side-by-side -W 100 /tmp/top.v.orig ../../hardware/generator_z/top/genesis_verif/top.v | less
+
+END top.v manipulation
+
+------------------------------------------------------------------------
+
+Building the verilator simulator executable...
+
+  SRAM hack
+-rw-r--r-- 1 steveri users 956 Jun 12 09:45 ../../hardware/generator_z/top/genesis_verif/sram_512w_16b.v
+
+
+verilator -Wall -Wno-fatal --cc --exe top_tb.cpp -y   \
+  ../../hardware/generator_z/top/genesis_verif cb_unq1.v cb_unq2.v cb_unq3.v   \
+  cb_unq4.v memory_core_unq1.v memory_tile_unq1.v mem_unq1.v pe_tile_new_unq1.v   \
+  pe_tile_new_unq2.v sb_unq1.v sb_unq2.v sb_unq3.v sb_unq4.v sb_unq5.v   \
+  sram_512w_16b.v top.v --top-module top  \
+
+%Warning1 Ignoring warnings about unoptimizable circularities in switchbox wires (see SR for explainer).
+%Warning2 To get the flavor of all the warnings, just showing first 40 lines of output.
+%Warning3 See /tmp/verilator.out for full log.
+
+%Warning-ASSIGNDLY: ../../hardware/generator_z/top/genesis_verif/mem_unq1.v:63: Unsupported: Ignoring delay on this assignment/primitive.
+%Warning-ASSIGNDLY: Use "/* verilator lint_off ASSIGNDLY */" and lint_on around source to disable this message.
+%Warning-PINNOCONNECT: ../../hardware/generator_z/top/genesis_verif/top.v:3492: Cell pin is not connected: out_BUS16_S1_T0
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:185: Operator CASE expects 16 bits on the Case expression, but Case expression's SEL generates 5 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:153: Operator SHIFTR expects 16 bits on the LHS, but LHS's SEL generates 13 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:243: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'input_count' generates 2 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:243: Operator SUB expects 16 bits on the LHS, but LHS's SEL generates 13 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:243: Operator SUB expects 16 bits on the RHS, but RHS's SEL generates 3 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:261: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'input_count' generates 2 bits.
+%Warning-WIDTH: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:261: Operator EQ expects 16 bits on the RHS, but RHS's SEL generates 13 bits.
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:479: Signal is not used: sb_wire_out_0_BUS1_1_0
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:481: Signal is not used: sb_wire_out_0_BUS1_1_1
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:483: Signal is not used: sb_wire_out_0_BUS1_1_2
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:485: Signal is not used: sb_wire_out_0_BUS1_1_3
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:487: Signal is not used: sb_wire_out_0_BUS1_1_4
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:540: Signal is not driven: sb_wire_in_1_BUS1_3_0
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:542: Signal is not driven: sb_wire_in_1_BUS1_3_1
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:544: Signal is not driven: sb_wire_in_1_BUS1_3_2
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:546: Signal is not driven: sb_wire_in_1_BUS1_3_3
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:548: Signal is not driven: sb_wire_in_1_BUS1_3_4
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:559: Signal is not used: sb_wire_out_0_BUS16_1_0
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:561: Signal is not used: sb_wire_out_0_BUS16_1_1
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:563: Signal is not used: sb_wire_out_0_BUS16_1_2
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:565: Signal is not used: sb_wire_out_0_BUS16_1_3
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:567: Signal is not used: sb_wire_out_0_BUS16_1_4
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:620: Signal is not driven: sb_wire_in_1_BUS16_3_0
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:622: Signal is not driven: sb_wire_in_1_BUS16_3_1
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:624: Signal is not driven: sb_wire_in_1_BUS16_3_2
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:626: Signal is not driven: sb_wire_in_1_BUS16_3_3
+%Warning-UNDRIVEN: ../../hardware/generator_z/top/genesis_verif/memory_tile_unq1.v:628: Signal is not driven: sb_wire_in_1_BUS16_3_4
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:74: Bits of signal are not used: config_addr[23:0]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:93: Bits of signal are not used: config_mem[31:20]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:112: Bits of signal are not used: mem_addr[15:9]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/memory_core_unq1.v:113: Bits of signal are not used: addr_d1[15:10,8:0]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/test_pe_unq1.sv:79: Bits of signal are not used: op_code[11:10,7:5]
+%Warning-UNUSED: ../../hardware/generator_z/top/genesis_verif/mem_unq1.v:61: Signal is not used: clk_d
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:209: Case values incompletely covered (example pattern 0x5)
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:226: Case values incompletely covered (example pattern 0x5)
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:243: Case values incompletely covered (example pattern 0x5)
+%Warning-CASEINCOMPLETE: ../../hardware/generator_z/top/genesis_verif/sb_unq5.v:260: Case values incompletely covered (example pattern 0x5)
+
+------------------------------------------------------------------------
+
+Build the simulator...
+
+# Build testbench
+
+make \
+  VM_USER_CFLAGS='-DINWIRE=top->wire_0_2_BUS16_S1_T0 -DOUTWIRE=top->wire_1_0_BUS16_S3_T1' \
+  -j -C obj_dir/ -f Vtop.mk Vtop
+
+TODO/FIXME this only works if there is exactly ONE each INWIRE and OUTWIRE!!
+
+make[2]: Entering directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o top_tb.o ../top_tb.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop.cpp Vtop_memory_tile_unq1.cpp Vtop_pe_tile_new_unq1.cpp Vtop_pe_tile_new_unq2.cpp > Vtop__ALLcls.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer Vtop__Syms.cpp > Vtop__ALLsup.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLcls.o Vtop__ALLcls.cpp
+g++  -I. -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVL_PRINTF=printf -DVM_TRACE=0 -DVM_COVERAGE=0      -DINWIRE='top->wire_0_2_BUS16_S1_T0' -DOUTWIRE='top->wire_1_0_BUS16_S3_T1'  -c -o Vtop__ALLsup.o Vtop__ALLsup.cpp
+      Archiving Vtop__ALL.a ...
+ar r Vtop__ALL.a Vtop__ALLcls.o Vtop__ALLsup.o
+ar: creating Vtop__ALL.a
+ranlib Vtop__ALL.a
+g++    top_tb.o verilated.o Vtop__ALL.a    -o Vtop -lm -lstdc++  2>&1 | c++filt
+make[2]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/verilator/generator_z_tb/obj_dir'
+
+------------------------------------------------------------------------
+
+Run the simulator...
+
+  First prepare input and output files...
+  Converting input file 'io/gray.png' to '.raw'...
+  io/myconvert.csh io/gray.png /tmp/input.raw
+
+  Converted io/gray.png to /tmp/input.raw...to verify result, do:
+  gwenview /tmp/verify.pgm
+
+# Run executable simulation
+ TIME NOW: Mon Jun 12 09:46:09 PDT 2017
+obj_dir/Vtop -config /tmp/bs.txt -input /tmp/input.raw -output /tmp/gray_out.raw -nclocks 3000000
+tee /tmp/run.log.13556
+
+
+Hi there!  I am the simulatory thingy.
+  - Will run for 3000000 cycles or until eof(input)
+  - Found config filename '/tmp/bs.txt'
+  - Found input filename '/tmp/input.raw'
+  - Found output filename '/tmp/gray_out.raw'
+NOTE no trace file was requested.
+
+Executed 0K cycles...
+00000: reset=1
+00001: reset=1
+00002: reset=1
+00003: reset=1
+00004: reset=0
+
+00005: scanned config data 00020000 00000001
+00006: scanned config data 00020001 00000000
+00007: scanned config data 00050001 00003000
+00008: scanned config data F1000001 00000002
+00009: scanned config data FF000001 0000800B
+00010: scanned config data 00050002 00000C00
+00011: scanned config data 01050008 00000000
+00012: scanned config data 00050009 00800000
+00013: scanned config data 0005000A 00200000
+
+00014: Two times 9 = 18  *PASS*
+00015: Two times 10 = 20  *PASS*
+00016: Two times 9 = 18  *PASS*
+00017: Two times 11 = 22  *PASS*
+00018: Two times 9 = 18  *PASS*
+00019: Two times 8 = 16  *PASS*
+00020: Two times 11 = 22  *PASS*
+00021: Two times 12 = 24  *PASS*
+00022: Two times 11 = 22  *PASS*
+00023: Two times 8 = 16  *PASS*
+00024: Two times 11 = 22  *PASS*
+00025: Two times 10 = 20  *PASS*
+00026: Two times 11 = 22  *PASS*
+00027: Two times 17 = 34  *PASS*
+00028: Two times 14 = 28  *PASS*
+00029: Two times 12 = 24  *PASS*
+00030: Two times 13 = 26  *PASS*
+00031: Two times 12 = 24  *PASS*
+00032: Two times 10 = 20  *PASS*
+00033: Two times 15 = 30  *PASS*
+00034: Two times 12 = 24  *PASS*
+00035: Two times 14 = 28  *PASS*
+00036: Two times 11 = 22  *PASS*
+00037: Two times 15 = 30  *PASS*
+00038: Two times 15 = 30  *PASS*
+00039: Two times 13 = 26  *PASS*
+00040: ...
+Executed 100K cycles...
+Executed 200K cycles...
+Executed 300K cycles...
+Executed 400K cycles...
+Executed 500K cycles...
+Executed 600K cycles...
+Executed 700K cycles...
+Executed 800K cycles...
+Executed 900K cycles...
+Executed 1000K cycles...
+Executed 1100K cycles...
+Executed 1200K cycles...
+Executed 1300K cycles...
+Executed 1400K cycles...
+Executed 1500K cycles...
+Executed 1600K cycles...
+Executed 1700K cycles...
+Executed 1800K cycles...
+Executed 1900K cycles...
+Executed 2000K cycles...
+Executed 2100K cycles...
+Executed 2200K cycles...
+Executed 2300K cycles...
+Executed 2400K cycles...
+Executed 2500K cycles...
+Executed 2600K cycles...
+Executed 2700K cycles...
+Executed 2800K cycles...
+Executed 2900K cycles...
+unset echo
+ TIME NOW: Mon Jun 12 10:14:47 PDT 2017
+
+# Show output vs. input; output should be 2x input for most common testbench
+
+od -t u1 /tmp/input.raw
+0000000   9  10   9  11   9   8  11  12  11   8  11  10  11  17  14  12
+0000020  13  12  10  15  12  14  11  15  15  13  12  14  14  11  11  14
+0000040  13  18  20  12  16  13  17  16  14  18  19  20  16  20  28  21
+0000060  19  24  18  20  22  26  23  19  21  29  24  23  33  33  29  30
+0000100  26  30  39  31  29  33  25  28  36  29  30  32  28  26  26  31
+0000120  23  26  32  30  35  38  36  31  33  41  33  26  36  41  36  32
+0000140  31  41  36  32  39  36  34  35  34  42  40  35  48  36  33  37
+0000160  42  42  38  42  40  40  42  39  44  39  47  40  41  33  44  37
+0000200  40  38  39  43  35  31  43  41  39  43  46  39  34  38  44  46
+0000220  45  43  49  41  38  48  49  42  43  38  51  47  41  47  52  45
+
+od -t u1 /tmp/gray_out.raw
+0000000  18  20  18  22  18  16  22  24  22  16  22  20  22  34  28  24
+0000020  26  24  20  30  24  28  22  30  30  26  24  28  28  22  22  28
+0000040  26  36  40  24  32  26  34  32  28  36  38  40  32  40  56  42
+0000060  38  48  36  40  44  52  46  38  42  58  48  46  66  66  58  60
+0000100  52  60  78  62  58  66  50  56  72  58  60  64  56  52  52  62
+0000120  46  52  64  60  70  76  72  62  66  82  66  52  72  82  72  64
+0000140  62  82  72  64  78  72  68  70  68  84  80  70  96  72  66  74
+0000160  84  84  76  84  80  80  84  78  88  78  94  80  82  66  88  74
+0000200  80  76  78  86  70  62  86  82  78  86  92  78  68  76  88  92
+0000220  90  86  98  82  76  96  98  84  86  76 102  94  82  94 104  90
+
+************************************************************************
+NOTE: If you want to clean up after yourself you'll want to do this:
+
+  ./run.csh -clean
+  pushd ../../hardware/generator_z/top; ./genesis_clean.cmd; popd
+
+************************************************************************
+
+make[1]: Leaving directory `/nobackup/steveri/github/CGRAGenerator/testdir'
+
+/tmp/test_4x4_gray.log:00014: Two times 9 = 18  *PASS*
+/tmp/test_8x8_gray.log:00014: Two times 9 = 18  *PASS*
+/tmp/test_4x4_gray_small.log:00014: Two times 11 = 22  *PASS*
+/tmp/test_8x8_gray_small.log:00014: Two times 11 = 22  *PASS*

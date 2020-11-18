@@ -1,0 +1,4 @@
+./test_sb.svp
+./test_sb_dir.svp
+#./test_mux.svp
+./test_mux_var.svp

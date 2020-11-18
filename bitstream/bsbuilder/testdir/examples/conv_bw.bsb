@@ -1,0 +1,265 @@
+
+# CONSTANTS
+# const0_0::add_466_470_471$binop.data.in.0 Tx0405_op2
+# const0_0$1::mul_492_493_494$binop.data.in.1 Tx0406_op2
+# const11_11::mul_468_469_470$binop.data.in.1 Tx0305_op2
+# const12_12::mul_486_487_488$binop.data.in.1 Tx0206_op2
+# const13_13::mul_504_505_506$binop.data.in.1 Tx0102_op2
+# const14_14::mul_474_475_476$binop.data.in.1 Tx0306_op2
+# const16_16::mul_510_511_512$binop.data.in.1 Tx0501_op2
+# const17_17::mul_480_481_482$binop.data.in.1 Tx0303_op2
+# const18_18::mul_498_499_500$binop.data.in.1 Tx0103_op2
+# const19_19::mul_516_517_518$binop.data.in.1 Tx0101_op2
+
+# REGISTERS ['Tx0101_out_s1t0', 'Tx0104_out_s0t2', 'Tx0204_out_s0t4', 'Tx0305_op1', 'Tx0206_op1', 'Tx0102_op1']
+
+# PE tiles
+Tx0102_mul(reg,const13_13) # mul_504_505_506$binop
+Tx0201_add(wire,wire)      # add_490_494_495$binop
+Tx0302_add(wire,wire)      # add_478_482_483$binop
+Tx0303_mul(wire,const17_17) # mul_480_481_482$binop
+Tx0401_add(wire,wire)      # add_502_506_507$binop
+Tx0405_add(wire,const0_0)  # add_466_470_471$binop
+Tx0306_mul(wire,const14_14) # mul_474_475_476$binop
+Tx0301_add(wire,wire)      # add_496_500_501$binop
+Tx0103_mul(wire,const18_18) # mul_498_499_500$binop
+Tx0502_add(wire,wire)      # add_514_518_519$binop
+Tx0402_add(wire,wire)      # add_508_512_513$binop
+Tx0202_add(wire,wire)      # add_484_488_489$binop
+Tx0206_mul(reg,const12_12) # mul_486_487_488$binop
+Tx0305_mul(reg,const11_11) # mul_468_469_470$binop
+Tx0406_mul(wire,const0_0$1) # mul_492_493_494$binop
+Tx0101_mul(wire,const19_19) # mul_516_517_518$binop
+Tx0501_mul(wire,const16_16) # mul_510_511_512$binop
+Tx0505_add(wire,wire)      # add_472_476_477$binop
+
+# LUT tiles for wen_lut's [261, 517]
+Tx0105_lutFF(const0,const0,const0)
+Tx0205_lutFF(const0,const0,const0)
+
+# MEM tiles
+Tx0104_mem_64 # lb_p4csus$lbmem_1_0$cgramem fifo_depth=64
+Tx0204_mem_64 # lb_p4csus$lbmem_2_0$cgramem fifo_depth=64
+
+# ROUTING
+
+# INPUT::lb_p4csus$lb1d_0$reg_1
+Tx0101_in_s3t0 -> Tx0101_out_s1t0 (r)
+
+# INPUT::lb_p4csus$lbmem_1_0$cgramem
+Tx0101_in_s3t0 -> Tx0101_out_s0t0
+Tx0102_in_s2t0 -> Tx0102_out_s0t0
+Tx0103_in_s2t0 -> Tx0103_out_s0t0
+Tx0104_in_s2t0 -> Tx0104_mem_in
+
+# wen_lut::lb_p4csus$lbmem_1_0$cgramem
+Tx0105_pe_out_b0 -> Tx0105_out_s2t0_b0
+Tx0104_in_s0t0_b0 -> Tx0104_out_s2t0_b0
+Tx0104_out_s2t0_b0 -> Tx0104_wen
+
+# INPUT::mul_516_517_518$binop.data.in.0
+Tx0101_in_s3t0 -> Tx0101_out_s2t0
+Tx0101_out_s2t0 -> Tx0101_op1
+
+# add_466_470_471$binop::add_472_476_477$binop.data.in.0
+Tx0405_pe_out -> Tx0405_out_s1t3
+Tx0505_in_s3t3 -> Tx0505_out_s2t3
+Tx0505_out_s2t3 -> Tx0505_op1
+
+# add_472_476_477$binop::add_478_482_483$binop.data.in.0
+Tx0505_pe_out -> Tx0505_out_s2t4
+Tx0504_in_s0t4 -> Tx0504_out_s2t4
+Tx0503_in_s0t4 -> Tx0503_out_s2t4
+Tx0502_in_s0t4 -> Tx0502_out_s3t4
+Tx0402_in_s1t4 -> Tx0402_out_s3t4
+Tx0302_in_s1t4 -> Tx0302_op2
+
+# add_478_482_483$binop::add_484_488_489$binop.data.in.0
+Tx0302_pe_out -> Tx0302_out_s3t1
+Tx0202_in_s1t1 -> Tx0202_out_s2t1
+Tx0202_out_s2t1 -> Tx0202_op1
+
+# add_484_488_489$binop::add_490_494_495$binop.data.in.0
+Tx0202_pe_out -> Tx0202_out_s2t2
+Tx0201_in_s0t2 -> Tx0201_out_s2t2
+Tx0201_out_s2t2 -> Tx0201_op1
+
+# add_490_494_495$binop::add_496_500_501$binop.data.in.0
+Tx0201_pe_out -> Tx0201_out_s1t3
+Tx0301_in_s3t3 -> Tx0301_out_s2t3
+Tx0301_out_s2t3 -> Tx0301_op1
+
+# add_496_500_501$binop::add_502_506_507$binop.data.in.0
+Tx0301_pe_out -> Tx0301_out_s1t4
+Tx0401_in_s3t4 -> Tx0401_out_s2t4
+Tx0401_out_s2t4 -> Tx0401_op1
+
+# add_502_506_507$binop::add_508_512_513$binop.data.in.0
+Tx0401_pe_out -> Tx0401_out_s0t0
+Tx0402_in_s2t0 -> Tx0402_op1
+
+# add_508_512_513$binop::add_514_518_519$binop.data.in.0
+Tx0402_pe_out -> Tx0402_out_s1t1
+Tx0502_in_s3t1 -> Tx0502_out_s2t1
+Tx0502_out_s2t1 -> Tx0502_op1
+
+# add_514_518_519$binop::OUTPUT
+Tx0502_pe_out -> Tx0502_out_s0t0
+Tx0503_in_s2t0 -> Tx0503_out_s0t0
+Tx0504_in_s2t0 -> Tx0504_out_s0t0
+Tx0505_in_s2t0 -> Tx0505_out_s0t0
+Tx0506_in_s2t0 -> Tx0506_out_s0t0
+Tx0507_in_s2t0 -> Tx0507_out_s0t0
+Tx0508_in_s2t0 -> Tx0508_out_s0t0
+Tx0509_in_s2t0 -> Tx0509_out_s0t0
+Tx050A_in_s2t0 -> Tx050A_out_s0t0
+Tx050B_in_s2t0 -> Tx050B_out_s0t0
+Tx050C_in_s2t0 -> Tx050C_out_s0t0
+Tx050D_in_s2t0 -> Tx050D_out_s0t0
+Tx050E_in_s2t0 -> Tx050E_out_s0t0
+Tx050F_in_s2t0 -> Tx050F_out_s0t0
+Tx0510_in_s2t0 -> Tx0510_out_s3t0
+Tx0410_in_s1t0 -> Tx0410_out_s3t0
+Tx0310_in_s1t0 -> Tx0310_out_s3t0
+Tx0210_in_s1t0 -> Tx0210_out_s3t0
+Tx0110_in_s1t0 -> Tx0110_out_s0t0
+
+# lb_p4csus$lb1d_0$reg_1::lb_p4csus$lb1d_0$reg_2
+Tx0201_in_s3t0 -> Tx0201_out_s0t0
+Tx0202_in_s2t0 -> Tx0202_out_s3t0
+Tx0102_in_s1t0 -> Tx0102_out_s2t0
+Tx0102_out_s2t0 -> Tx0102_op1 (r)
+
+# lb_p4csus$lb1d_0$reg_1::mul_510_511_512$binop.data.in.0
+Tx0201_in_s3t0 -> Tx0201_out_s1t0
+Tx0301_in_s3t0 -> Tx0301_out_s1t0
+Tx0401_in_s3t0 -> Tx0401_out_s1t0
+Tx0501_in_s3t0 -> Tx0501_out_s2t0
+Tx0501_out_s2t0 -> Tx0501_op1
+
+# lb_p4csus$lb1d_0$reg_2::mul_504_505_506$binop.data.in.0
+# Tx0102_op1 (r) 
+
+# lb_p4csus$lb1d_1$reg_1::lb_p4csus$lb1d_1$reg_2
+Tx0105_in_s2t2 -> Tx0105_out_s1t2
+Tx0205_in_s3t2 -> Tx0205_out_s0t2
+Tx0206_in_s2t2 -> Tx0206_op1 (r)
+
+# lb_p4csus$lb1d_1$reg_1::mul_492_493_494$binop.data.in.0
+Tx0105_in_s2t2 -> Tx0105_out_s0t2
+Tx0106_in_s2t2 -> Tx0106_out_s1t2
+Tx0206_in_s3t2 -> Tx0206_out_s1t2
+Tx0306_in_s3t2 -> Tx0306_out_s1t2
+Tx0406_in_s3t2 -> Tx0406_out_s2t2
+Tx0406_out_s2t2 -> Tx0406_op1
+
+# lb_p4csus$lb1d_1$reg_2::mul_486_487_488$binop.data.in.0
+# Tx0206_op1 (r) 
+
+# lb_p4csus$lb1d_2$reg_1::lb_p4csus$lb1d_2$reg_2
+Tx0205_in_s2t4 -> Tx0205_out_s1t4
+Tx0305_in_s3t4 -> Tx0305_out_s2t4
+Tx0305_out_s2t4 -> Tx0305_op1 (r)
+
+# lb_p4csus$lb1d_2$reg_1::mul_474_475_476$binop.data.in.0
+Tx0205_in_s2t4 -> Tx0205_out_s1t4
+Tx0305_in_s3t4 -> Tx0305_out_s0t4
+Tx0306_in_s2t4 -> Tx0306_op1
+
+# lb_p4csus$lb1d_2$reg_2::mul_468_469_470$binop.data.in.0
+# Tx0305_op1 (r) 
+
+# lb_p4csus$lbmem_1_0$cgramem::lb_p4csus$lb1d_1$reg_1
+Tx0104_mem_out -> Tx0104_out_s0t2 (r)
+
+# lb_p4csus$lbmem_1_0$cgramem::lb_p4csus$lbmem_2_0$cgramem
+Tx0104_mem_out -> Tx0104_out_s1t0
+Tx0204_in_s3t0 -> Tx0204_out_s2t0
+Tx0204_out_s2t0 -> Tx0204_mem_in
+
+# wen_lut::lb_p4csus$lbmem_2_0$cgramem
+Tx0205_pe_out_b0 -> Tx0205_out_s2t0_b0
+Tx0204_in_s0t0_b0 -> Tx0204_out_s2t0_b0
+Tx0204_out_s2t0_b0 -> Tx0204_wen
+
+# lb_p4csus$lbmem_1_0$cgramem::mul_498_499_500$binop.data.in.0
+Tx0104_mem_out -> Tx0104_out_s2t1
+Tx0103_in_s0t1 -> Tx0103_out_s2t1
+Tx0103_out_s2t1 -> Tx0103_op1
+
+# lb_p4csus$lbmem_2_0$cgramem::lb_p4csus$lb1d_2$reg_1
+Tx0204_mem_out -> Tx0204_out_s0t4 (r)
+
+# lb_p4csus$lbmem_2_0$cgramem::mul_480_481_482$binop.data.in.0
+Tx0204_mem_out -> Tx0204_out_s1t3
+Tx0304_in_s3t3 -> Tx0304_out_s2t3
+Tx0303_in_s0t3 -> Tx0303_out_s2t3
+Tx0303_out_s2t3 -> Tx0303_op1
+
+# mul_468_469_470$binop::add_466_470_471$binop.data.in.1
+Tx0305_pe_out -> Tx0305_out_s1t2
+Tx0405_in_s3t2 -> Tx0405_out_s2t2
+Tx0405_out_s2t2 -> Tx0405_op1
+
+# mul_474_475_476$binop::add_472_476_477$binop.data.in.1
+Tx0306_pe_out -> Tx0306_out_s1t0
+Tx0406_in_s3t0 -> Tx0406_out_s1t0
+Tx0506_in_s3t0 -> Tx0506_out_s2t0
+Tx0505_in_s0t0 -> Tx0505_out_s1t0
+Tx0505_out_s1t0 -> Tx0505_op2
+
+# mul_480_481_482$binop::add_478_482_483$binop.data.in.1
+Tx0303_pe_out -> Tx0303_out_s2t0
+Tx0302_in_s0t0 -> Tx0302_out_s2t0
+Tx0302_out_s2t0 -> Tx0302_op1
+
+# mul_486_487_488$binop::add_484_488_489$binop.data.in.1
+Tx0206_pe_out -> Tx0206_out_s2t2
+Tx0205_in_s0t2 -> Tx0205_out_s2t2
+Tx0204_in_s0t2 -> Tx0204_out_s2t2
+Tx0203_in_s0t2 -> Tx0203_out_s2t2
+Tx0202_in_s0t2 -> Tx0202_out_s1t2
+Tx0202_out_s1t2 -> Tx0202_op2
+
+# mul_492_493_494$binop::add_490_494_495$binop.data.in.1
+Tx0406_pe_out -> Tx0406_out_s2t3
+Tx0405_in_s0t3 -> Tx0405_out_s2t3
+Tx0404_in_s0t3 -> Tx0404_out_s2t3
+Tx0403_in_s0t3 -> Tx0403_out_s2t3
+Tx0402_in_s0t3 -> Tx0402_out_s2t3
+Tx0401_in_s0t3 -> Tx0401_out_s3t3
+Tx0301_in_s1t3 -> Tx0301_out_s3t3
+Tx0201_in_s1t3 -> Tx0201_op2
+
+# mul_498_499_500$binop::add_496_500_501$binop.data.in.1
+Tx0103_pe_out -> Tx0103_out_s1t1
+Tx0203_in_s3t1 -> Tx0203_out_s1t1
+Tx0303_in_s3t1 -> Tx0303_out_s2t1
+Tx0302_in_s0t1 -> Tx0302_out_s2t1
+Tx0301_in_s0t1 -> Tx0301_out_s1t1
+Tx0301_out_s1t1 -> Tx0301_op2
+
+# mul_504_505_506$binop::add_502_506_507$binop.data.in.1
+Tx0102_pe_out -> Tx0102_out_s1t1
+Tx0202_in_s3t1 -> Tx0202_out_s1t1
+Tx0302_in_s3t1 -> Tx0302_out_s1t1
+Tx0402_in_s3t1 -> Tx0402_out_s2t1
+Tx0401_in_s0t1 -> Tx0401_out_s1t1
+Tx0401_out_s1t1 -> Tx0401_op2
+
+# mul_510_511_512$binop::add_508_512_513$binop.data.in.1
+Tx0501_pe_out -> Tx0501_out_s0t1
+Tx0502_in_s2t1 -> Tx0502_out_s3t1
+Tx0402_in_s1t1 -> Tx0402_op2
+
+# mul_516_517_518$binop::add_514_518_519$binop.data.in.1
+Tx0101_pe_out -> Tx0101_out_s0t4
+Tx0102_in_s2t4 -> Tx0102_out_s1t4
+Tx0202_in_s3t4 -> Tx0202_out_s1t4
+Tx0302_in_s3t4 -> Tx0302_out_s1t4
+Tx0402_in_s3t4 -> Tx0402_out_s1t4
+Tx0502_in_s3t4 -> Tx0502_out_s1t4
+Tx0502_out_s1t4 -> Tx0502_op2
+
+# INPUT  tile 257 ( 1, 1) / in_BUS16_S3_T0 / wire_0_1_BUS16_S1_T0
+# OUTPUT tile 272 ( 1,16) / out_0_BUS16_S0_T0 / wire_1_16_BUS16_S0_T0

@@ -1,0 +1,41 @@
+#!/bin/csh -f
+
+if ("$1" == "--help") then
+  echo "'utest' by itself does this:"
+  echo "TEN SEQUENTIAL TESTS"
+  echo '  utest all --repeat 1 --vectype seq --nvecs 10'
+  echo "TEN RANDOM TESTS"
+  echo '  utest all --repeat 1 --vectype rand --nvecs 10'
+  exit
+endif
+
+# Other switches (e.g. '-v') get passed straight through to utest.py, see below.
+
+
+set scriptpath = `readlink -f $0`
+set scriptpath = $scriptpath:h
+
+# Scriptpath should be $gen/testdir/unit_tests...right?
+set gen = `cd $scriptpath/../..; pwd`
+
+alias utest.py $scriptpath/utest.py
+
+set tmpdir = `mktemp -d /tmp/utest-XXX`
+echo cd $tmpdir
+cd $tmpdir
+
+echo "TEN SEQUENTIAL TESTS"
+# Maybe the '$*' will enable e.g. 'utest --trace' (even though it maybe makes no sense?)
+utest.py all --repeat 1 --vectype seq --nvecs 10 $* || exit 13
+
+echo ""
+echo "================================================================"
+echo "TEN RANDOM TESTS"
+# Maybe the '$*' will enable e.g. 'utest --trace' (even though it maybe makes no sense?)
+utest.py all --nogen --repeat 1 --vectype rand --nvecs 10 $* || exit 13
+
+echo /bin/rm -rf $tmpdir
+/bin/rm -rf $tmpdir
+
+
+

@@ -1,0 +1,6147 @@
+<!--------------------------------------------------------------------------
+# (ntracks) = total # of tracks; each NESW side has ntracks/4 tracks
+#
+# (input wirename) =  [NSEW]_i\[n\] where n = (0,1,2,...ntracks-1) or "PE"
+# (output wirename) = [NSEW]_o\[n\] where n = (0,1,2,...ntracks-1)
+# "PE" => output from PE associated with the current switchbox
+# 
+# Template for connectivity matrix for e.g. 4x4 matrix of <sb> switchboxes:
+#   <sb x='0' y='0' trk_cnt='(ntracks-1)'
+#     <dir name='N'>
+#       <mux>
+#         <src>'(input wirename)'</src>
+#         <src>'(input wirename)'</src>
+#         <src>'(input wirename)'</src>
+# 	...
+#         <snk>'(output wirename)'</snk>
+#       </mux>
+#       <mux> ...
+#       <mux> ...
+#       <mux> ...
+#     <dir name='S'>
+#       ...
+#     <dir name='E'>
+#       ...
+#     <dir name='W'>
+#       ...
+#   </sb>
+#   <sb x='1' y='0' trk_cnt='(ntracks-1)'
+#   <sb x='2' y='0' trk_cnt='(ntracks-1)'
+#   ...
+#   <sb x='3' y='2' trk_cnt='(ntracks-1)'
+#   <sb x='3' y='3' trk_cnt='(ntracks-1)'
+#
+# Example below:
+-------------------------------------------------------------------------->
+<sb x='0' y='0' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='1' y='0' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='2' y='0' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='3' y='0' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='0' y='1' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='1' y='1' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='2' y='1' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='3' y='1' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='0' y='2' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='1' y='2' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='2' y='2' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='3' y='2' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>W_i[5]</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>W_i[6]</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>S_i[4]</src>
+     <src>W_i[3]</src>
+     <src>N_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>W_i[10]</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='0' y='3' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='1' y='3' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='2' y='3' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>S_i[5]</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>S_i[6]</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>E_i[4]</src>
+     <src>S_i[3]</src>
+     <src>W_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>S_i[10]</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>N_i[3]</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>N_i[4]</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>N_i[11]</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>E_i[5]</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>E_i[6]</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>N_i[4]</src>
+     <src>E_i[3]</src>
+     <src>S_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>E_i[10]</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>
+<sb x='3' y='3' trk_cnt='15'>
+  <dir name='N'>
+    <mux>
+      <snk>N_o[0]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[1]</snk>
+
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+     <src>W_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[2]</snk>
+
+     <src>E_i[3]</src>
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[3]</snk>
+
+     <src>S_i[3]</src>
+    </mux>
+    <mux>
+      <snk>N_o[4]</snk>
+
+     <src>S_i[4]</src>
+    </mux>
+    <mux>
+      <snk>N_o[5]</snk>
+
+     <src>E_i[0]</src>
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[6]</snk>
+
+     <src>E_i[1]</src>
+     <src>S_i[0]</src>
+     <src>W_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[7]</snk>
+
+     <src>S_i[7]</src>
+    </mux>
+    <mux>
+      <snk>N_o[8]</snk>
+
+     <src>S_i[8]</src>
+    </mux>
+    <mux>
+      <snk>N_o[9]</snk>
+
+     <src>S_i[9]</src>
+    </mux>
+    <mux>
+      <snk>N_o[10]</snk>
+
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+     <src>W_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>N_o[11]</snk>
+
+     <src>S_i[11]</src>
+    </mux>
+    <mux>
+      <snk>N_o[12]</snk>
+
+     <src>S_i[12]</src>
+    </mux>
+    <mux>
+      <snk>N_o[13]</snk>
+
+     <src>S_i[13]</src>
+    </mux>
+    <mux>
+      <snk>N_o[14]</snk>
+
+     <src>S_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='E'>
+    <mux>
+      <snk>E_o[0]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[1]</snk>
+
+     <src>S_i[2]</src>
+     <src>W_i[1]</src>
+     <src>N_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[2]</snk>
+
+     <src>S_i[3]</src>
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[3]</snk>
+
+     <src>W_i[3]</src>
+    </mux>
+    <mux>
+      <snk>E_o[4]</snk>
+
+     <src>W_i[4]</src>
+    </mux>
+    <mux>
+      <snk>E_o[5]</snk>
+
+     <src>S_i[0]</src>
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[6]</snk>
+
+     <src>S_i[1]</src>
+     <src>W_i[0]</src>
+     <src>N_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[7]</snk>
+
+     <src>W_i[7]</src>
+    </mux>
+    <mux>
+      <snk>E_o[8]</snk>
+
+     <src>W_i[8]</src>
+    </mux>
+    <mux>
+      <snk>E_o[9]</snk>
+
+     <src>W_i[9]</src>
+    </mux>
+    <mux>
+      <snk>E_o[10]</snk>
+
+     <src>S_i[5]</src>
+     <src>W_i[4]</src>
+     <src>N_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>E_o[11]</snk>
+
+     <src>W_i[11]</src>
+    </mux>
+    <mux>
+      <snk>E_o[12]</snk>
+
+     <src>W_i[12]</src>
+    </mux>
+    <mux>
+      <snk>E_o[13]</snk>
+
+     <src>W_i[13]</src>
+    </mux>
+    <mux>
+      <snk>E_o[14]</snk>
+
+     <src>W_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='S'>
+    <mux>
+      <snk>S_o[0]</snk>
+
+     <src>W_i[1]</src>
+     <src>N_i[0]</src>
+     <src>E_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[1]</snk>
+
+     <src>W_i[2]</src>
+     <src>N_i[1]</src>
+     <src>E_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[2]</snk>
+
+     <src>W_i[3]</src>
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[3]</snk>
+
+     <src>W_i[4]</src>
+     <src>N_i[3]</src>
+     <src>E_i[0]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[4]</snk>
+
+     <src>W_i[5]</src>
+     <src>N_i[4]</src>
+     <src>E_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[5]</snk>
+
+     <src>N_i[5]</src>
+    </mux>
+    <mux>
+      <snk>S_o[6]</snk>
+
+     <src>N_i[6]</src>
+    </mux>
+    <mux>
+      <snk>S_o[7]</snk>
+
+     <src>N_i[7]</src>
+    </mux>
+    <mux>
+      <snk>S_o[8]</snk>
+
+     <src>N_i[8]</src>
+    </mux>
+    <mux>
+      <snk>S_o[9]</snk>
+
+     <src>N_i[9]</src>
+    </mux>
+    <mux>
+      <snk>S_o[10]</snk>
+
+     <src>N_i[10]</src>
+    </mux>
+    <mux>
+      <snk>S_o[11]</snk>
+
+     <src>W_i[0]</src>
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>S_o[12]</snk>
+
+     <src>N_i[12]</src>
+    </mux>
+    <mux>
+      <snk>S_o[13]</snk>
+
+     <src>N_i[13]</src>
+    </mux>
+    <mux>
+      <snk>S_o[14]</snk>
+
+     <src>N_i[14]</src>
+    </mux>
+  </dir>
+  <dir name='W'>
+    <mux>
+      <snk>W_o[0]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[1]</snk>
+
+     <src>N_i[2]</src>
+     <src>E_i[1]</src>
+     <src>S_i[2]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[2]</snk>
+
+     <src>N_i[3]</src>
+     <src>E_i[2]</src>
+     <src>S_i[1]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[3]</snk>
+
+     <src>E_i[3]</src>
+    </mux>
+    <mux>
+      <snk>W_o[4]</snk>
+
+     <src>E_i[4]</src>
+    </mux>
+    <mux>
+      <snk>W_o[5]</snk>
+
+     <src>N_i[0]</src>
+     <src>E_i[5]</src>
+     <src>S_i[4]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[6]</snk>
+
+     <src>N_i[1]</src>
+     <src>E_i[0]</src>
+     <src>S_i[3]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[7]</snk>
+
+     <src>E_i[7]</src>
+    </mux>
+    <mux>
+      <snk>W_o[8]</snk>
+
+     <src>E_i[8]</src>
+    </mux>
+    <mux>
+      <snk>W_o[9]</snk>
+
+     <src>E_i[9]</src>
+    </mux>
+    <mux>
+      <snk>W_o[10]</snk>
+
+     <src>N_i[5]</src>
+     <src>E_i[4]</src>
+     <src>S_i[5]</src>
+      <src>PE</src>
+    </mux>
+    <mux>
+      <snk>W_o[11]</snk>
+
+     <src>E_i[11]</src>
+    </mux>
+    <mux>
+      <snk>W_o[12]</snk>
+
+     <src>E_i[12]</src>
+    </mux>
+    <mux>
+      <snk>W_o[13]</snk>
+
+     <src>E_i[13]</src>
+    </mux>
+    <mux>
+      <snk>W_o[14]</snk>
+
+     <src>E_i[14]</src>
+    </mux>
+  </dir>
+</sb>

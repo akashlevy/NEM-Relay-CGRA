@@ -1,0 +1,151 @@
+To run the tests
+
+mkdir tmpdir; cd tmpdir
+../utest.py --help
+
+
+utest.py --help
+
+mkdir tmpdir
+cd tmpdir; ../utest.py
+
+* pat's simulator thingy
+** https://github.com/phanrahan/pe
+**  pe/tests/test_pe.py
+** mounted here: /nobackup/steveri/github/pe
+
+------------------------------------------------------------------------
+'sub' appears to be broken in BOTH patpy and cgra(!)
+spec says 'eq' function yields 'a+b' but it actually seems to give 'a'
+
+patpy functions missing/broken:
+- mul
+- abs
+
+
+
+
+
+
+
+
+
+
+==============================================================================
+OLD
+everything below this line is OLD
+
+
+REGISTER PROBLEMS: in gen_bsb_files.py, verilog crashes if try to use
+register on op1 instead of op2
+
+# THIS ONE CRASHES!!
+# BAD reg op1 ba
+OP_TEMPLATE='''
+  #DELAY 1,1
+  #
+  self.in -> T11_in_s2t0
+  T11_in_s2t0 -> T11_op1 (r)
+  T11_in_s2t0 -> T11_out_s1t0
+  T11_out_s1t0 -> T11_op2
+  T11_OPNAME(reg,wire)
+  T11_pe_out -> T11_out_s0t1 -> self.out
+
+# GOOD reg op2 ab
+OP_TEMPLATE='''
+  #DELAY 1,1
+  #
+  self.in -> T11_in_s2t0
+  T11_in_s2t0 -> T11_op1
+  T11_in_s2t0 -> T11_out_s1t0
+  T11_out_s1t0 -> T11_op2 (r)
+  T11_OPNAME(wire,reg)
+  T11_pe_out -> T11_out_s0t1 -> self.out
+'''
+
+
+
+
+
+
+
+NEXT:
+- run ../utests.py
+- debug
+
+
+A (new?) plan:
+
+1. Build utest.py --help DONE
+2. Implement utest.py --help 
+2a. Always build all bsb files DONE
+2b. 
+
+
+
+
+Now:
+        Makefile
+	./gen_tests.py
+	./do_tests.csh
+
+Next:
+  cd tmpdir
+  ../gen_bsb_files.py DONE
+  ../gen_bsa_files.py
+  ../do_tests 1000
+
+
+==============================================================================
+DONE
+
+unknown ops
+  cd tmpdir1
+  ../gen_bsa_files.csh
+  => SHOULD COMPLAIN ABOUT UNKNOWN OPS e.g. xor
+
+
+
+
+
+
+
+==============================================================================
+List of ops from verilog:
+% grep localparam $top/../pe_new/pe/rtl/test_pe_comp.svp | grep _OP
+localparam PE_ADD_OP     = 6'h0;
+localparam PE_SUB_OP     = 6'h1;
+localparam PE_ABS_OP     = 6'h3;
+localparam PE_GTE_MAX_OP = 6'h4;
+localparam PE_LTE_MIN_OP = 6'h5;
+localparam PE_EQ_OP      = 6'h6;
+localparam PE_SEL_OP     = 6'h8;
+localparam PE_RSHFT_OP   = 6'hF;
+localparam PE_LSHFT_OP   = 6'h11;
+localparam PE_MULT_0_OP  = 6'hB;
+localparam PE_MULT_1_OP  = 6'hC;
+localparam PE_MULT_2_OP  = 6'hD;
+localparam PE_OR_OP      = 6'h12;
+localparam PE_AND_OP     = 6'h13;
+localparam PE_XOR_OP     = 6'h14;
+no
+localparam PE_CNTR_OP    = 6'h18;
+localparam PE_DIV_OP     = 6'h19;
+
+
+List of ops from coreir
+
+
+TODO
+* list of ops from coreir
+* list of ops from spec
+
+* pat's simulator thingy
+** https://github.com/phanrahan/pe
+**  pe/tests/test_pe.py
+
+
+DONE
+* list of five apps from isca paper: harris, fast, fcam, isp, stereo
+* list of ops from verilog DONE ish
+

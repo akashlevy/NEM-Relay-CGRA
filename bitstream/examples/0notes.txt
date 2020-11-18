@@ -1,0 +1,12 @@
+Convolution (box filter) bitstreams
+
+- convfixed
+  This one is the best so far.  With memhack and allones input, it
+  does something semi-readable, puts out sixes.
+
+- debugconv
+  An older bitstream, I think this is the one with MUL999 weirdness.
+
+- conv_bitstream_new
+  An even older bitstream, has wires to nowhere I think.
+

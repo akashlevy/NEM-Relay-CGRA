@@ -1,0 +1,7 @@
+//; use POSIX;
+
+module `mname` (); 
+//;my $filename = "TILE".$self->mname();
+//;open(TILEINFO, ">$filename") or die "Couldn't open file $filename, $!";
+//;close TILEINFO;
+endmodule

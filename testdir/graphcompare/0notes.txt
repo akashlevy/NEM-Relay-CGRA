@@ -1,0 +1,101 @@
+GOAL:
+  graphcompare.csh <-v> file1 file2 <cgra_info_file>
+
+where (file1, file2) can be json, dot or bsa.  
+
+For best results, bsa file needs updated cgra_info file on command line
+
+EXAMPLES:
+  graphcompare.csh bw_annotated gold/bw_annotated ../cgra_info.txt
+  graphcompare.csh bw_design_top.json bw_annotated ../cgra_info.txt
+  graphcompare.csh bw_design_top.json gold/bw_design_top.json
+
+
+
+TOOLS NEEDED:
+  convert2dot.csh foo.json foo.json.dot
+  convert2dot.csh foo.bsa  foo.bsa.dot cgra_info.txt
+  dotsummary.py foo.json.dot > foo.json.dotsum
+
+
+
+
+
+
+------------------------------------------------------------------------------
+To compare two files f[12]_mapped.json:
+
+  ./mapcompare f1_mapped.json f2_mapped.json
+
+...which basically does this:
+
+  json2dot.py < file1_mapped.json > file1_mapped.dot
+  dotsummary.py < file1_mapped.dot > file1_mapped.dotsummary
+
+
+-----
+To compare two bs files:
+
+./bscompare.csh file1.bsa file2.bsa cgra_info.txt
+
+
+
+
+
+
+
+
+==============================================================================
+See "dotcompare.py"
+
+DONE:
+0. make a directory where to play; $gen/testdir/graphcompare maybe
+1. Start with good, bad 'bsa' files
+2. Turn them into good, bad 'dot' files
+3. Read 'dot' files into python using homemade reader
+4. Sort the nodes to make a node-count file
+     1node: 35
+     2node: 17
+     3node: 8
+  or maybe
+     1  2  3  4  5 6  7  8
+     35 17 8  0  0  0 0  0
+
+
+
+
+
+maybe try this:
+
+  set viz = /nobackup/steveri/github/CGRAGenerator/bitstream/visualizer
+  set f = tmp662-bad
+  set f = tmp663-good
+
+  $viz/bsview.py -cgra_info examples/cgra_info.txt \
+    examples/$f.bsa -dot /tmp/$f.dot
+
+  dot /tmp/$f.dot -Tpdf > /tmp/$f.pdf
+  xpdf /tmp/$f.pdf
+
+  # pdfjam --scale 0.8 --offset '-4.5cm 2.5cm' $f.pdf
+  pdfjam --scale 0.8 /tmp/$f.pdf -o /tmp/$f-pdfjam.pdf
+  xpdf /tmp/$f-pdfjam.pdf
+  lp -d gala -h gala /tmp/$f-pdfjam.pdf
+
+
+
+
+
+------------------------------------------------------------------------------
+NOTES
+
+  cd $viz
+  bsview.py -dot ~/tmpdir/tmp663-good.bsa\
+    -cgra_info $top/examples/cgra_info_v2_8x8+mem+reg.txt\
+    | & grep DOT\
+    | sed 's/DOT//'\
+    > ~/tmpdir/tmp.dot
+  echo '}' >> ~/tmpdir/tmp.dot
+  dot ~/tmpdir/tmp.dot -Tpdf > ~/tmpdir/tmp.pdf
+  xpdf ~/tmpdir/tmp.pdf
+

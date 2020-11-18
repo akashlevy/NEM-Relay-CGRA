@@ -1,0 +1,5 @@
+./test_pe.svp
+./test_lut.svp
+./test_full_add.svp
+./test_mult_add.svp
+./test_opt_reg.svp

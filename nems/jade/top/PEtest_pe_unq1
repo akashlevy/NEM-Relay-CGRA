@@ -1,0 +1,121 @@
+        <opcode reg_address='0xff' bith='5' bitl='0'>
+            <op sel='0x00' name='add'>
+                pe_out_res=op_a+op_b+op_d
+                comp_res_p=(op_a+op_b+op_d) gte 2^16
+            </op> 
+            <op sel='0x01' name='sub'>
+                pe_out_res=op_a+~op_b+1
+                comp_res_p=(op_a+~op_b+1) gte 2^16
+            </op> 
+            <op sel='0x03' name='abs'>
+                pe_out_res=(op_a lt 0)?(0-op_a):op_a
+                comp_res_p=op_a[15]
+            </op> 
+            <op sel='0x04' name='gte_max'>
+                pe_out_res=(op_a gte op_b)?op_a:op_b
+                comp_res_p=op_a gte op_b
+            </op> 
+            <op sel='0x05' name='lte_min'>
+                pe_out_res=(op_a lte op_b)?op_a:op_b
+                comp_res_p=op_a lte op_b
+            </op> 
+            <op sel='0x08' name='sel'>
+                pe_out_res=op_d?op_a:op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x0b' name='mult_0'>
+                pe_out_res=(op_a*op_b)[15:0]
+                comp_res_p=(op_a*op_b+op_c) gte 2^16
+            </op> 
+            <op sel='0x0c' name='mult_1'>
+                pe_out_res=(op_a*op_b)[23:8]
+                comp_res_p=(op_a*op_b+op_c) gte 2^24
+            </op> 
+            <op sel='0x0d' name='mult_2'>
+                pe_out_res=(op_a*op_b)[31:16]
+                comp_res_p=0
+            </op> 
+            <op sel='0x0f' name='rshft'>
+                pe_out_res=op_a rshft op_b[3:0]
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x11' name='lshft'>
+                pe_out_res=op_a lshft op_b[3:0]
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x12' name='or'>
+                pe_out_res=op_a|op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x13' name='and'>
+                pe_out_res=op_a and op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x14' name='xor'>
+                pe_out_res=op_a^op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+        </opcode>
+        <opcode reg_address='0xff' bith='6' bitl='6'>signed</opcode>
+        <opcode reg_address='0xff' bith='9' bitl='9'>acc_en</opcode>
+        <opcode reg_address='0xff' bith='11' bitl='10'>irq_en</opcode>
+        <opcode reg_address='0xff' bith='15' bitl='12'>flag_sel</opcode>
+        <mux reg_address='0xff' snk='res_p' bith='15' bitl='12'>
+            <src sel='0x0'>Z</src>
+            <src sel='0x1'>~Z</src>
+            <src sel='0x2'>C</src>
+            <src sel='0x3'>~C</src>
+            <src sel='0x4'>N</src>
+            <src sel='0x5'>~N</src>
+            <src sel='0x6'>V</src>
+            <src sel='0x7'>~V</src>
+            <src sel='0x8'>C and ~Z</src>
+            <src sel='0x9'>~C or Z</src>
+            <src sel='0xa'>N==V</src>
+            <src sel='0xb'>N!=V</src>
+            <src sel='0xc'>~Z and (N==V)</src>
+            <src sel='0xd'>Z or (N!=V)</src>
+            <src sel='0xe'>lut code</src>
+            <src sel='0xf'>comp_res_p</src>
+        </mux>
+        <mux reg_address='0xff' snk='op_a' bith='17' bitl='16'>
+            <src sel='0'>reg_a</src> 
+            <src sel='1'>reg_a</src> 
+            <src sel='2'>data0</src> 
+            <src sel='3'>reg_a</src> 
+        </mux>
+        <mux reg_address='0xff' snk='op_b' bith='20' bitl='18'>
+            <src sel='0'>reg_b</src> 
+            <src sel='1'>reg_b</src> 
+            <src sel='2'>data1</src> 
+            <src sel='3'>reg_b</src> 
+        </mux>
+        <mux reg_address='0xff' snk='op_d' bith='25' bitl='24'>
+            <src sel='0'>reg_d</src> 
+            <src sel='1'>reg_d</src> 
+            <src sel='2'>bit0</src> 
+            <src sel='3'>reg_d</src> 
+        </mux>
+        <mux reg_address='0xff' snk='op_e' bith='27' bitl='26'>
+            <src sel='0'>reg_e</src> 
+            <src sel='1'>reg_e</src> 
+            <src sel='2'>bit1</src> 
+            <src sel='3'>reg_e</src> 
+        </mux>
+        <mux reg_address='0xff' snk='op_f' bith='29' bitl='28'>
+            <src sel='0'>reg_f</src> 
+            <src sel='1'>reg_f</src> 
+            <src sel='2'>bit2</src> 
+            <src sel='3'>reg_f</src> 
+        </mux>
+        <mux snk='read_data'>
+            <src sel='00'>lut</src>
+            <src sel='E0'>debug_data</src>
+            <src sel='E1'>debug_bit</src>
+            <src sel='F0'>reg_a</src>
+            <src sel='F1'>reg_b</src>
+            <src sel='F3'>reg_d</src>
+            <src sel='F4'>reg_e</src>
+            <src sel='F5'>reg_f</src>
+            <src sel='FF'>op_code</src>
+        </mux>

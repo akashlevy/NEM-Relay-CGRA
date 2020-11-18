@@ -1,0 +1,315 @@
+//; my $num_res    = parameter(Name=>'num_res', val=> 1, Min=>1, doc=>'Number of result inputs');
+//;
+//; my $mux_recipe = parameter(Name=>'mux_recipe', val=> ('$i+1; $i; $N-$i'), doc=>'MUX parrten');
+//;
+//; my $segments        = parameter(Name=>'segments', val=> ('1=>0.5, 2=> 0.3, 4=>0.0, 8=>0.2'), doc=>'Frequency of the wire segments');
+//; my $tracks_per_tile = parameter(Name=>'tracks_per_tile', val=> 6, Min=>1, doc=>'Number of tracks that start here');
+//;
+//;# my $segments        = parameter(Name=>'segments', val=> ('1=>1.0, 2=> 0.0, 4=>0.0, 8=>0.0'), doc=>'Frequency of the wire segments');
+//;# my $tracks_per_tile = parameter(Name=>'tracks_per_tile', val=> 15, Min=>1, doc=>'Number of tracks that start here');
+//;
+//; my $tile_x          = parameter(Name=>'tile_x', val=> 3, Min=>0, doc=>'X position of this tile in chips geometry');
+//; my $tile_y          = parameter(Name=>'tile_y', val=> 1, Min=>0, doc=>'Y position of this tile in chips geometry');
+//;
+//; my $connect_en = parameter(Name=>'connect_en', val=> 0, List=>[0,1] , doc=>'Enable generation of connectivity matrix?');
+//;
+//; use List::Util 'sum';
+//; use POSIX qw(floor);
+//;
+//;###########################################################################
+//; my %freq  = eval("($segments)");
+//; my %wires_cnt;
+//;
+//; my $patern_len = 1;
+//;
+//;foreach my $l (sort keys %freq) {
+//;  $wires_cnt{$l} = floor(0.5 + $tracks_per_tile * $freq{$l});
+//;
+//;  if($wires_cnt{$l} > 0) {
+//;    $patern_len = $l;
+//;  }
+//;}
+//;my $origin_tracks = sum values %wires_cnt;
+//;
+//;if($origin_tracks != $tracks_per_tile){
+//;  error("Can't use $tracks_per_tile total new tracks with the given frequencies. Try $origin_tracks new tracks instead.")
+//;}
+//;
+//;my @patern_mask;
+//;
+//;for (my $p=0; $p < $patern_len; $p = $p + 1){
+//;  $patern_mask[$p] = "";
+//;  my $pat = "";
+//;
+//;  foreach my $l (sort keys %wires_cnt) {
+//;    for (my $i=0; $i < $l; $i = $i + 1){
+//;      if($i==($p%$l)) {
+//;        $pat = $pat . ("1" x $wires_cnt{$l}) ;#($wires_cnt{$l}*"1");
+//;      } else {
+//;        $pat = $pat . ("0" x $wires_cnt{$l}) ; #($wires_cnt{$l}*"0");
+//;      }
+//;    }
+//;
+//;    #$pat = $pat . "|"
+//;  }
+//;
+//;  $patern_mask[$p] = $pat;
+//;}
+//;
+//;###########################################################################
+//;my $N = length($patern_mask[0]);
+//;
+/*
+Culculated number of segments starting at this tile:
+//;foreach my $l (sort keys %wires_cnt) {
+  `$l` length => `$wires_cnt{$l}`
+//;}
+------------------------------------------------------------
+Possible patterns":
+//;for (my $p=0; $p < $patern_len; $p = $p + 1){
+//; my $pref = "  ";
+//; if( $p==($tile_x)%$patern_len ) { $pref = "**"; }
+//; if( $p==$patern_len - 1 - ($tile_x)%$patern_len ) {$pref = "\$*";}
+//; if( $p==($tile_y)%$patern_len ) {$pref = "@@";}
+//; if( $p==$patern_len - 1 - ($tile_y)%$patern_len ) {$pref = "\$@";}
+//;
+`$pref``$p` : `$patern_mask[$p]`
+//;}
+------------------------------------------------------------
+
+*/
+//Segments: `$segments`, new tracks: `$tracks_per_tile `
+module `mname`  #(
+  parameter Width   = 16
+) (
+  input               clk,
+  input               rst_n,
+
+  input        [15:0] cfg_d,
+  input        [7:0]  cfg_a,
+  input               cfg_en,
+
+
+  input        [`$N-1`:0][Width - 1:0] in_n,//in_n,
+  input        [`$N-1`:0][Width - 1:0] in_e,//in_e,
+  input        [`$N-1`:0][Width - 1:0] in_s,//in_s,
+  input        [`$N-1`:0][Width - 1:0] in_w,//in_w,
+
+  input        [ `$num_res-1`:0][Width - 1:0] res,
+
+  output logic [`$N-1`:0][Width - 1:0] out_n,//out_n,
+  output logic [`$N-1`:0][Width - 1:0] out_e,//out_e,
+  output logic [`$N-1`:0][Width - 1:0] out_s,//out_s,
+  output logic [`$N-1`:0][Width - 1:0] out_w//out_w
+);
+
+
+logic [`$N-1`:0][2:0] cfg_N;
+logic [`$N-1`:0][2:0] cfg_E;
+logic [`$N-1`:0][2:0] cfg_S;
+logic [`$N-1`:0][2:0] cfg_W;
+
+genvar g;
+
+
+generate
+  for (g=0; g < `$N`; g = g + 1) begin : test_sb_config
+    always_ff @(posedge clk or negedge rst_n) begin
+      if(~rst_n) begin
+        cfg_N[g] <= 3'h0;
+        cfg_E[g] <= 3'h0;
+        cfg_S[g] <= 3'h0;
+        cfg_W[g] <= 3'h0;
+      end else if(cfg_en && (cfg_a[7:0]==g)) begin
+        cfg_N[g] <= cfg_d[2:0];
+        cfg_E[g] <= cfg_d[2+ 4:0+ 4];
+        cfg_S[g] <= cfg_d[2+ 8:0+ 8];
+        cfg_W[g] <= cfg_d[2+12:0+12];
+      end
+    end
+  end
+endgenerate
+
+//; my $dir_N = generate('test_sb_dir', 'test_sb_dir_N', "connect_en" => $connect_en,
+//;                      "num_res"=>$num_res, "mux_recipe" => $mux_recipe, mask=> $patern_mask[($tile_x)%$patern_len]);
+//; my $dir_E = generate('test_sb_dir', 'test_sb_dir_E', "connect_en" => $connect_en,
+//;                       "num_res"=>$num_res, "mux_recipe" => $mux_recipe, mask=> $patern_mask[($tile_y)%$patern_len]);
+//; my $dir_S = generate('test_sb_dir', 'test_sb_dir_S', "connect_en" => $connect_en,
+//;                       "num_res"=>$num_res, "mux_recipe" => $mux_recipe, mask=> $patern_mask[$patern_len - 1 - ($tile_x)%$patern_len]);
+//; my $dir_W = generate('test_sb_dir', 'test_sb_dir_W', "connect_en" => $connect_en,
+//;                       "num_res"=>$num_res, "mux_recipe" => $mux_recipe, mask=> $patern_mask[$patern_len - 1 - ($tile_y)%$patern_len]);
+//;
+
+`$dir_N->mname()` #(.Width(Width)) `$dir_N->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+  .cfg      (cfg_N),
+
+  .in_right (in_e),
+  .in_oppos (in_s),
+  .in_left  (in_w),
+  .res      (res),
+
+  .out      (out_n)
+);
+
+`$dir_E->mname()` #(.Width(Width)) `$dir_E->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+  .cfg      (cfg_E),
+
+  .in_right (in_s),
+  .in_oppos (in_w),
+  .in_left  (in_n),
+  .res      (res),
+
+  .out      (out_e)
+);
+
+
+`$dir_S->mname()` #(.Width(Width)) `$dir_S->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+  .cfg      (cfg_S),
+
+  .in_right (in_w),
+  .in_oppos (in_n),
+  .in_left  (in_e),
+  .res      (res),
+
+  .out      (out_s)
+);
+
+
+`$dir_W->mname()` #(.Width(Width)) `$dir_W->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+  .cfg      (cfg_W),
+
+  .in_right (in_n),
+  .in_oppos (in_e),
+  .in_left  (in_s),
+  .res      (res),
+
+  .out      (out_w)
+);
+
+
+endmodule
+
+//;if($connect_en == 1) {
+//;   my $con_matrix_N_ptr = $dir_N->get_param('con_matrix') or error("Pointer is not set!");
+//;   my @con_matrix_N = @{$con_matrix_N_ptr};
+//;   my $con_matrix_E_ptr = $dir_E->get_param('con_matrix') or error("Pointer is not set!");
+//;   my @con_matrix_E = @{$con_matrix_E_ptr};
+//;   my $con_matrix_W_ptr = $dir_N->get_param('con_matrix') or error("Pointer is not set!");
+//;   my @con_matrix_W = @{$con_matrix_W_ptr};
+//;   my $con_matrix_S_ptr = $dir_S->get_param('con_matrix') or error("Pointer is not set!");
+//;   my @con_matrix_S = @{$con_matrix_S_ptr};
+/*
+//; my @dir_list = ("N", "E", "S", "W");
+//; my %iter_hash = ("N" => [@con_matrix_N], "E" => [@con_matrix_E], "S" => [@con_matrix_S], "W" => [@con_matrix_W]);
+//;
+
+//;   ########## Header ##########
+//;   print " snk\\src ||";
+//;   foreach my $k (@dir_list) {
+//;     my $v = $iter_hash{$k};
+//;     for (my $i=0; $i < scalar @$v; $i = $i + 1){
+//;       printf " %s_i[%2d] |", $k, $i;
+//;     }
+//;       print "|";
+//;   }
+//;
+
+//;   ########## Divider ##########
+//;   print "---------++";
+//; 
+//;   foreach my $k (@dir_list) {
+//;     my $v   = $iter_hash{$k};
+//;     my $cnt = scalar @$v;
+//;     for (my $i=0; $i < $cnt; $i = $i + 1){
+//;       printf "---------+";
+//;     }
+//;     print "+";
+//;   }
+
+//;   ########## Rows ##########
+//;   for (my $dir_ind=0; $dir_ind < scalar @dir_list; $dir_ind = $dir_ind + 1){
+//;     my $k = $dir_list[$dir_ind];
+//;     my $v     = $iter_hash{$k};
+//;     my @v_arr = @$v;
+//;     my @dir_list_filt_right = @dir_list[ grep $_ < $dir_ind, 0..$#dir_list ];
+//;     my @dir_list_filt_left  = @dir_list[ grep $_ > $dir_ind, 0..$#dir_list ];
+//;     my @dir_list_filt       = (@dir_list_filt_left, @dir_list_filt_right);
+//;     for (my $i=0; $i < scalar @v_arr; $i = $i + 1){
+//;       my $con_list_ptr = $v_arr[$i];
+//;       my @arr = @$con_list_ptr;
+//;       printf " %s_o[%2d] || ", $k, $i;
+//;       for (my $j=0; $j < (scalar @dir_list_filt); $j = $j + 1){
+//;         my $index = $arr[$j];
+//;         if ($index ne "") {
+//;           printf "%s_i[%2d] , ", $dir_list_filt[$j], $arr[$j];
+//;         }
+//;       }
+//;       my $index = $arr[scalar @dir_list_filt];
+//;       if ($index ne "") {
+//;         printf "PE";
+//;       }
+//;       print "\n";
+//;     }
+//;   }
+
+//;
+//;   for (my $i=0; $i < scalar @con_matrix_N; $i = $i + 1){
+//;     my $row = $con_matrix_N[$i];
+//;
+`$i` : `join(" ",@$row)` | `scalar @$row` |
+//;   }
+
+
+
+############ Connectivity ###############
+//;   my $connectivity = "";
+//;   $connectivity = $connectivity . sprintf("<sb x='%d' y='%d' trk_cnt='%d'>\n",$tile_x,$tile_y,$N);
+//;   for (my $dir_ind=0; $dir_ind < scalar @dir_list; $dir_ind = $dir_ind + 1){
+//;     my $k = $dir_list[$dir_ind];
+//;     my $v     = $iter_hash{$k};
+//;     my @v_arr = @$v;
+//;     my @dir_list_filt_right = @dir_list[ grep $_ < $dir_ind, 0..$#dir_list ];
+//;     my @dir_list_filt_left  = @dir_list[ grep $_ > $dir_ind, 0..$#dir_list ];
+//;     my @dir_list_filt       = (@dir_list_filt_left, @dir_list_filt_right);
+//;     $connectivity = $connectivity . sprintf "  <dir name='%s'>\n",$k;
+//;     for (my $i=0; $i < scalar @v_arr; $i = $i + 1){
+//;       my $con_list_ptr = $v_arr[$i];
+//;       my @arr = @$con_list_ptr;
+//;       $connectivity = $connectivity . sprintf "    <mux>\n";
+//;       $connectivity = $connectivity . sprintf "      <snk>%s_o[%d]</snk>\n\n", $k, $i;
+//;       for (my $j=0; $j < (scalar @dir_list_filt); $j = $j + 1){
+//;         my $index = $arr[$j];
+//;         if ($index ne "") {
+//;           $connectivity = $connectivity . sprintf "     <src>%s_i[%d]</src>\n", $dir_list_filt[$j], $arr[$j];
+//;         }
+//;       }
+//;       my $index = $arr[scalar @dir_list_filt];
+//;       if ($index ne "") {
+//;         $connectivity = $connectivity . sprintf "      <src>PE</src>\n";
+//;       }
+//;       $connectivity = $connectivity . sprintf "    </mux>\n";
+//;     }
+//;     $connectivity = $connectivity . sprintf "  </dir>\n";
+//;   }
+//;   $connectivity = $connectivity . sprintf "</sb>\n";
+//;  
+//;  parameter(Name=>'connectivity', Val=>$connectivity , Force=>1, doc=>"Connectivity info");
+//;   print $connectivity;
+*/
+//;}

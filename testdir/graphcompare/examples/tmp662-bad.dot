@@ -1,0 +1,116 @@
+digraph Diagram {
+  node [shape=box]; # Comment
+
+    # Comment
+  # "T2_MUL"    -> "T2_MUL";   # (tautology)
+    "T1_0x0000" -> "T1_ADD";   
+    "T2_MUL"    -> "T1_ADD";   
+  # "T10_out_s3t2_latch"-> "T10_out_s3t2_latch";# (tautology)
+    "T10_out_s3t2_latch"-> "T2_regA";  
+    "T2_regA"   -> "T2_MUL";   
+    "T2_0x000b" -> "T2_MUL";   
+  # "T15_ADD"   -> "T15_ADD";  # (tautology)
+  # "T10_MUL"   -> "T10_MUL";  # (tautology)
+    "T15_ADD"   -> "T8_ADD";   
+    "T10_MUL"   -> "T8_ADD";   
+  # "T1_ADD"    -> "T1_ADD";   # (tautology)
+  # "T10_MUL"   -> "T10_MUL";  # (tautology)
+    "T17_mem"   -> "T10_out_s3t2_latch";
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+    "T17_mem"   -> "T10_MUL";  
+    "T10_0x0011"-> "T10_MUL";  
+  # "T15_ADD"   -> "T15_ADD";  # (tautology)
+  # "T8_ADD"    -> "T8_ADD";   # (tautology)
+  # "T22_MUL"   -> "T22_MUL";  # (tautology)
+    "T8_ADD"    -> "T14_ADD";  
+    "T22_MUL"   -> "T14_ADD";  
+  # "T14_ADD"   -> "T14_ADD";  # (tautology)
+  # "T22_MUL"   -> "T22_MUL";  # (tautology)
+  # "T1_ADD"    -> "T1_ADD";   # (tautology)
+  # "T16_MUL"   -> "T16_MUL";  # (tautology)
+    "T1_ADD"    -> "T15_ADD";  
+    "T16_MUL"   -> "T15_ADD";  
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+    "T17_mem"   -> "T16_regA"; 
+    "T16_regA"  -> "T16_MUL";  
+    "T16_0x000e"-> "T16_MUL";  
+    "T31_mem"   -> "T17_mem";  
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T23_ADD"   -> "T23_ADD";  # (tautology)
+  # "T29_out_s2t0_latch"-> "T29_out_s2t0_latch";# (tautology)
+    "T29_out_s2t0_latch"-> "T22_regA"; 
+    "T22_regA"  -> "T22_MUL";  
+    "T22_0x000c"-> "T22_MUL";  
+  # "T22_MUL"   -> "T22_MUL";  # (tautology)
+  # "T14_ADD"   -> "T14_ADD";  # (tautology)
+  # "T30_MUL"   -> "T30_MUL";  # (tautology)
+    "T14_ADD"   -> "T23_ADD";  
+    "T30_MUL"   -> "T23_ADD";  
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T30_MUL"   -> "T30_MUL";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T17_mem"   -> "T17_mem";  # (tautology)
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T29_out_s2t0_latch"-> "T29_out_s2t0_latch";# (tautology)
+  # "T23_ADD"   -> "T23_ADD";  # (tautology)
+  # "T29_MUL"   -> "T29_MUL";  # (tautology)
+    "T23_ADD"   -> "T28_ADD";  
+    "T29_MUL"   -> "T28_ADD";  
+  # "T28_ADD"   -> "T28_ADD";  # (tautology)
+    "T31_mem"   -> "T29_out_s2t0_latch";
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+    "T31_mem"   -> "T29_MUL";  
+    "T29_0x0012"-> "T29_MUL";  
+  # "T38_ADD"   -> "T38_ADD";  # (tautology)
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+    "T31_mem"   -> "T30_regA"; 
+    "T30_regA"  -> "T30_MUL";  
+    "T30_0x000f"-> "T30_MUL";  
+    "T38_ADD"   -> "T31_mem";  
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T44_ADD"   -> "T44_ADD";  # (tautology)
+    "T38_ADD"   -> "T37_out_s1t3_latch";
+  # "T44_ADD"   -> "T44_ADD";  # (tautology)
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+  # "T28_ADD"   -> "T28_ADD";  # (tautology)
+  # "T51_MUL"   -> "T51_MUL";  # (tautology)
+    "T28_ADD"   -> "T37_ADD";  
+    "T51_MUL"   -> "T37_ADD";  
+  # "T37_ADD"   -> "T37_ADD";  # (tautology)
+  # "T51_MUL"   -> "T51_MUL";  # (tautology)
+  # "T31_mem"   -> "T31_mem";  # (tautology)
+    "self.in"   -> "T38_ADD";  
+    "T38_0x0000"-> "T38_ADD";  
+  # "T44_ADD"   -> "T44_ADD";  # (tautology)
+  # "T43_MUL"   -> "T43_MUL";  # (tautology)
+    "T44_ADD"   -> "T42_ADD";  
+    "T43_MUL"   -> "T42_ADD";  
+  # "T37_out_s1t3_latch"-> "T37_out_s1t3_latch";# (tautology)
+  # "T44_ADD"   -> "T44_ADD";  # (tautology)
+  # "T37_out_s1t3_latch"-> "T37_out_s1t3_latch";# (tautology)
+    "T37_out_s1t3_latch"-> "T43_MUL";  
+    "T43_0x0013"-> "T43_MUL";  
+  # "T38_ADD"   -> "T38_ADD";  # (tautology)
+  # "T51_MUL"   -> "T51_MUL";  # (tautology)
+  # "T37_ADD"   -> "T37_ADD";  # (tautology)
+  # "T52_MUL"   -> "T52_MUL";  # (tautology)
+    "T37_ADD"   -> "T44_ADD";  
+    "T52_MUL"   -> "T44_ADD";  
+  # "T52_MUL"   -> "T52_MUL";  # (tautology)
+  # "T52_MUL"   -> "T52_MUL";  # (tautology)
+  # "T42_ADD"   -> "T42_ADD";  # (tautology)
+    "T42_ADD"   -> "self.out"; 
+  # "T37_out_s1t3_latch"-> "T37_out_s1t3_latch";# (tautology)
+    "T37_out_s1t3_latch"-> "T51_regA"; 
+    "T51_regA"  -> "T51_MUL";  
+    "T51_0x000d"-> "T51_MUL";  
+  # "T51_MUL"   -> "T51_MUL";  # (tautology)
+  # "T38_ADD"   -> "T38_ADD";  # (tautology)
+    "T38_ADD"   -> "T52_regA"; 
+    "T52_regA"  -> "T52_MUL";  
+    "T52_0x0010"-> "T52_MUL";  
+}

@@ -1,0 +1,39 @@
+
+# CONSTANTS
+# const2__348::mul_347_348_349_PE.data.in.1 Tx0101_op2
+
+# REGISTERS []
+
+# PE tiles
+Tx0101_mul(wire,const2__348) # mul_347_348_349_PE
+
+# LUT tiles for wen_lut's []
+
+# MEM tiles
+
+# ROUTING
+
+# INPUT::mul_347_348_349_PE.data.in.0
+Tx0101_in_s3t0 -> Tx0101_out_s2t0
+Tx0101_out_s2t0 -> Tx0101_op1
+
+# mul_347_348_349_PE::OUTPUT
+Tx0101_pe_out -> Tx0101_out_s0t0
+Tx0102_in_s2t0 -> Tx0102_out_s0t0
+Tx0103_in_s2t0 -> Tx0103_out_s0t0
+Tx0104_in_s2t0 -> Tx0104_out_s0t0
+Tx0105_in_s2t0 -> Tx0105_out_s0t0
+Tx0106_in_s2t0 -> Tx0106_out_s0t0
+Tx0107_in_s2t0 -> Tx0107_out_s0t0
+Tx0108_in_s2t0 -> Tx0108_out_s0t0
+Tx0109_in_s2t0 -> Tx0109_out_s0t0
+Tx010A_in_s2t0 -> Tx010A_out_s0t0
+Tx010B_in_s2t0 -> Tx010B_out_s0t0
+Tx010C_in_s2t0 -> Tx010C_out_s0t0
+Tx010D_in_s2t0 -> Tx010D_out_s0t0
+Tx010E_in_s2t0 -> Tx010E_out_s0t0
+Tx010F_in_s2t0 -> Tx010F_out_s0t0
+Tx0110_in_s2t0 -> Tx0110_out_s0t0
+
+# INPUT  tile 257 ( 1, 1) / in_BUS16_S3_T0 / wire_0_1_BUS16_S1_T0
+# OUTPUT tile 272 ( 1,16) / out_0_BUS16_S0_T0 / wire_1_16_BUS16_S0_T0

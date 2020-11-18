@@ -1,0 +1,32 @@
+FF00000B 0002000B
+# data[(4, 0)] : alu_op = mul
+# data[(17, 16)]: data0: REG_BYPASS
+# data[(19, 18)]: data1: REG_CONST
+
+F100000B 00000002
+# const == 2
+
+0002000B 00000000
+# data[(3, 0)] : @ tile (2, 2) connect wire 0 (in_BUS16_S2_T0) to data0
+
+0003000B 00000005
+# data[(3, 0)] : @ tile (2, 2) connect wire 5 (out_BUS16_S1_T0) to data1
+
+0008000B 0000040C
+# data[(3, 2)] : @ tile (2, 2) connect wire 3 (pe_out_res) to out_BUS16_S0_T1
+# data[(11, 10)] : @ tile (2, 2) connect wire 1 (in_BUS16_S2_T0) to out_BUS16_S1_T0
+
+0008000C 00000004
+# data[(3, 2)] : @ tile (2, 3) connect wire 1 (in_BUS16_S2_T1) to out_BUS16_S0_T1
+
+0008000D 00000004
+# data[(3, 2)] : @ tile (2, 4) connect wire 1 (in_BUS16_S2_T1) to out_BUS16_S0_T1
+
+0002000E 00001000
+# data[(13, 12)] : @ tile (2, 5) connect wire 1 (in_0_BUS16_S2_T1) to sb_wire_in_1_BUS16_3_1
+
+0003000E 00002000
+# data[(13, 12)] : @ tile (2, 5) connect wire 2 (sb_wire_in_1_BUS16_3_1) to out_1_BUS16_S1_T1
+
+# INPUT  tile  11 (2,2) /  in_BUS16_S2_T0 / wire_2_1_BUS16_S0_T0
+# OUTPUT tile  14 (2,5) / out_BUS16_S5_T1 / wire_3_5_BUS16_S1_T1

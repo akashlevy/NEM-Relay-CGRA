@@ -1,0 +1,142 @@
+
+# CONSTANTS
+# const10__152::ult_152_147_153_uge_PE.data.in.0 Tx0102_op1
+# const20__150::ult_147_150_151_uge_PE.data.in.1 Tx0201_op2
+# const50__148::ule_148_147_149_PE.data.in.0 Tx0101_op1
+
+# REGISTERS []
+
+# PE tiles
+Tx0301_lut66(wire,wire,const0_0) # bitxor_149_151_155_lut_bitPE
+Tx0302_lutEE(wire,wire,const0_0) # bitor_154_155_156_lut_bitPE
+Tx0303_lut55(wire,const0_0,const0_0) # bitnot_156_lut_bitPE
+Tx0401_lut55(wire,const0_0,const0_0) # ult_152_147_153_not_lut_bitPE
+Tx0205_lut88(wire,wire,const0_0) # bitand_153_151_154_lut_bitPE
+Tx0101_ule(const50__148,wire) # ule_148_147_149_PE
+Tx0102_uge(const10__152,wire) # ult_152_147_153_uge_PE
+Tx0202_lutCA(wire,wire,wire) # bitmux_157_157_149_lut_bitPE
+Tx0103_lut55(wire,const0_0,const0_0) # ult_147_150_151_not_lut_bitPE
+Tx0201_uge(wire,const20__150) # ult_147_150_151_uge_PE
+
+# LUT tiles for wen_lut's []
+
+# MEM tiles
+
+# IO
+Tx1101_pad(out,1)
+
+# ROUTING
+
+# INPUT::ule_148_147_149_PE.data.in.1
+Tx0101_in_s3t0 -> Tx0101_out_s1t0
+Tx0101_out_s1t0 -> Tx0101_op2
+
+# INPUT::ult_147_150_151_uge_PE.data.in.0
+Tx0101_in_s3t0 -> Tx0101_out_s1t0
+Tx0201_in_s3t0 -> Tx0201_out_s2t0
+Tx0201_out_s2t0 -> Tx0201_op1
+
+# INPUT::ult_152_147_153_uge_PE.data.in.1
+Tx0101_in_s3t0 -> Tx0101_out_s0t0
+Tx0102_in_s2t0 -> Tx0102_out_s1t0
+Tx0102_out_s1t0 -> Tx0102_op2
+
+# bitand_153_151_154_lut_bitPE::bitor_154_155_156_lut_bitPE.bit.in.0
+Tx0205_pe_outb -> Tx0205_out_s1t4b
+Tx0305_in_s3t4b -> Tx0305_out_s2t4b
+Tx0304_in_s0t4b -> Tx0304_out_s2t4b
+Tx0303_in_s0t4b -> Tx0303_out_s2t4b
+Tx0302_in_s0t4b -> Tx0302_out_s2t4b
+Tx0302_out_s2t4b -> Tx0302_bit0
+
+# bitmux_157_157_149_lut_bitPE::OUTPUT_1bit
+Tx0202_pe_outb -> Tx0202_out_s1t0b
+Tx0302_in_s3t0b -> Tx0302_out_s1t0b
+Tx0402_in_s3t0b -> Tx0402_out_s1t0b
+Tx0502_in_s3t0b -> Tx0502_out_s1t0b
+Tx0602_in_s3t0b -> Tx0602_out_s1t0b
+Tx0702_in_s3t0b -> Tx0702_out_s1t0b
+Tx0802_in_s3t0b -> Tx0802_out_s1t0b
+Tx0902_in_s3t0b -> Tx0902_out_s1t0b
+Tx0A02_in_s3t0b -> Tx0A02_out_s1t0b
+Tx0B02_in_s3t0b -> Tx0B02_out_s1t0b
+Tx0C02_in_s3t0b -> Tx0C02_out_s1t0b
+Tx0D02_in_s3t0b -> Tx0D02_out_s1t0b
+Tx0E02_in_s3t0b -> Tx0E02_out_s1t0b
+Tx0F02_in_s3t0b -> Tx0F02_out_s1t0b
+Tx1002_in_s3t0b -> Tx1002_out_s2t0b
+Tx1001_in_s0t0b -> Tx1001_out_s1t0b
+
+# bitnot_156_lut_bitPE::bitmux_157_157_149_lut_bitPE.bit.in.1
+Tx0303_pe_outb -> Tx0303_out_s3t4b
+Tx0203_in_s1t4b -> Tx0203_out_s2t4b
+Tx0202_in_s0t4b -> Tx0202_out_s1t4b
+Tx0202_out_s1t4b -> Tx0202_bit1
+
+# bitnot_156_lut_bitPE::bitmux_157_157_149_lut_bitPE.bit.in.2
+Tx0303_pe_outb -> Tx0303_out_s3t0b
+Tx0203_in_s1t0b -> Tx0203_out_s2t0b
+Tx0202_in_s0t0b -> Tx0202_out_s2t0b
+Tx0202_out_s2t0b -> Tx0202_bit2
+
+# bitor_154_155_156_lut_bitPE::bitnot_156_lut_bitPE.bit.in.0
+Tx0302_pe_outb -> Tx0302_out_s0t3b
+Tx0303_in_s2t3b -> Tx0303_bit0
+
+# bitxor_149_151_155_lut_bitPE::bitor_154_155_156_lut_bitPE.bit.in.1
+Tx0301_pe_outb -> Tx0301_out_s0t2b
+Tx0302_in_s2t2b -> Tx0302_out_s1t2b
+Tx0302_out_s1t2b -> Tx0302_bit1
+
+# ule_148_147_149_PE::bitmux_157_157_149_lut_bitPE.bit.in.0
+Tx0101_pe_outb -> Tx0101_out_s1t0b
+Tx0201_in_s3t0b -> Tx0201_out_s0t0b
+Tx0202_in_s2t0b -> Tx0202_bit0
+
+# ule_148_147_149_PE::bitxor_149_151_155_lut_bitPE.bit.in.0
+Tx0101_pe_outb -> Tx0101_out_s1t1b
+Tx0201_in_s3t1b -> Tx0201_out_s1t1b
+Tx0301_in_s3t1b -> Tx0301_out_s2t1b
+Tx0301_out_s2t1b -> Tx0301_bit0
+
+# ult_147_150_151_not_lut_bitPE::bitand_153_151_154_lut_bitPE.bit.in.1
+Tx0103_pe_outb -> Tx0103_out_s1t2b
+Tx0203_in_s3t2b -> Tx0203_out_s0t2b
+Tx0204_in_s2t2b -> Tx0204_out_s0t2b
+Tx0205_in_s2t2b -> Tx0205_out_s1t2b
+Tx0205_out_s1t2b -> Tx0205_bit1
+
+# ult_147_150_151_not_lut_bitPE::bitxor_149_151_155_lut_bitPE.bit.in.1
+Tx0103_pe_outb -> Tx0103_out_s1t3b
+Tx0203_in_s3t3b -> Tx0203_out_s1t3b
+Tx0303_in_s3t3b -> Tx0303_out_s2t3b
+Tx0302_in_s0t3b -> Tx0302_out_s2t3b
+Tx0301_in_s0t3b -> Tx0301_out_s1t3b
+Tx0301_out_s1t3b -> Tx0301_bit1
+
+# ult_147_150_151_uge_PE::ult_147_150_151_not_lut_bitPE.bit.in.0
+Tx0201_pe_outb -> Tx0201_out_s3t1b
+Tx0101_in_s1t1b -> Tx0101_out_s0t1b
+Tx0102_in_s2t1b -> Tx0102_out_s0t1b
+Tx0103_in_s2t1b -> Tx0103_bit0
+
+# ult_152_147_153_not_lut_bitPE::bitand_153_151_154_lut_bitPE.bit.in.0
+Tx0401_pe_outb -> Tx0401_out_s3t1b
+Tx0301_in_s1t1b -> Tx0301_out_s3t1b
+Tx0201_in_s1t1b -> Tx0201_out_s0t1b
+Tx0202_in_s2t1b -> Tx0202_out_s0t1b
+Tx0203_in_s2t1b -> Tx0203_out_s0t1b
+Tx0204_in_s2t1b -> Tx0204_out_s0t1b
+Tx0205_in_s2t1b -> Tx0205_bit0
+
+# ult_152_147_153_uge_PE::ult_152_147_153_not_lut_bitPE.bit.in.0
+Tx0102_pe_outb -> Tx0102_out_s1t1b
+Tx0202_in_s3t1b -> Tx0202_out_s1t1b
+Tx0302_in_s3t1b -> Tx0302_out_s1t1b
+Tx0402_in_s3t1b -> Tx0402_out_s2t1b
+Tx0401_in_s0t1b -> Tx0401_out_s2t1b
+Tx0401_out_s2t1b -> Tx0401_bit0
+
+# WARNING Using 'OUTPUT_1bit' as OUTPUT node
+# INPUT  tile 257 ( 1, 1) / in_BUS16_S3_T0 / wire_0_1_BUS16_S1_T0
+# OUTPUT tile 4097 (16, 1) / out_BUS16_S1_T0 / wire_16_1_BUS16_S1_T0

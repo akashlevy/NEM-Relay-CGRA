@@ -1,0 +1,196 @@
+///////////////////////////////////////////////////////////////////
+// CGRA memory tile generator
+//
+// Nikhil Bhagdikar
+// (C) Stanford University
+//////////////////////////////////////////////////////////////////
+
+//; my $max_lb   = parameter(Name=>'max_lb', val=> 4,  doc=>'max number of line buffers, fifos, and mem blocks allowed per tile');
+//; my $dwidth   = parameter(Name=>'dwidth', val=> 16, doc=>'word width');
+//; my $ddepth   = parameter(Name=>'ddepth', val=> 4096, doc=>'number of words in the memory');
+//; my $awidth_long   = int(log($ddepth)/log(2));
+//; my $awidth_short   = $awidth_long - int(log($max_lb*2)/log(2));
+
+//; my $READ      = "1'b0";
+//; my $WRITE     = "1'b1";
+//; my $MODE_LB   = "config_mem[1:0]==2'd0";
+//; my $MODE_FIFO = "config_mem[1:0]==2'd1";
+//; my $MODE_MEM  = "config_mem[1:0]==2'd2";
+//; my $TILE_ENABLE    = "config_mem[31]==1'b1";
+//; my $TILE_ADDR = "8'd0";
+
+module `mname`(
+clk,
+config_addr,
+config_data,
+config_en,
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+data_in`$i`,
+data_out`$i`,
+//;}
+reset
+);
+
+input clk;
+input [31:0] config_addr;
+input [31:0] config_data;
+input config_en;
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+input [`$dwidth - 1`:0] data_in`$i`;
+output reg [`$dwidth - 1`:0] data_out`$i`;
+//;}
+input reset;
+
+reg [`$dwidth*$max_lb*2 - 1`:0] mem_data_in;
+wire [`$dwidth*$max_lb*2 - 1`:0] mem_data_out;
+
+// context_enabled_reg one hot representation of enabled contexts
+// eg: 00000101 means contexts 1 and 3 are enabled for read
+// write. Up to 8 contexts are supported.
+wire [7:0] context_enabled_reg;
+
+reg mem_cen;
+reg mem_wen;
+reg [`int(log($max_lb)/log(2))`:0] current_context;
+reg [`$awidth_short - 1`:0] mem_addr;
+
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+reg [`$max_lb*$dwidth*2 - 1`:0] input_accumulate`$i`;
+reg [`$max_lb*$dwidth*2 - 1`:0] output_shift`$i`;
+reg [`$awidth_long-1`:0] context`$i`_read_ptr;
+reg [`$awidth_long-1`:0] context`$i`_write_ptr;
+//;}
+
+reg [31:0] config_mem;
+assign context_enabled_reg = config_mem[23:16];
+
+always @(posedge clk) begin
+  if (reset==1'b1) begin
+    config_mem <= 32'd0;
+  end else begin
+    if (config_en==1'b1) begin
+       case (config_addr[31:24])
+//; for (my $j=0; $j<1; $j=$j+1) {
+         8'd`$j`: config_mem[`($j+1)*32-1`:`$j*32`] <= config_data;
+//; }
+       endcase
+    end
+  end
+end
+
+//Keep track of the mem partition (context) begin currently worked on
+always @(posedge clk) begin
+  if (reset==1'b1) begin
+    current_context <= `int(log($max_lb)/log(2))+1`'d0;
+  end else begin
+    if (`$TILE_ENABLE`) begin
+     current_context <= current_context + 1'b1;
+    end
+  end
+end
+
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+always @(posedge clk) begin
+  input_accumulate`$i` <= {input_accumulate`$i`, data_in`$i`};
+end
+//;}
+
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+always @(posedge clk) begin
+   if (reset==1'b1) begin
+     context`$i`_read_ptr <= `$awidth_long`'d`($i*($ddepth/$max_lb))`;
+     context`$i`_write_ptr <=  `$awidth_long`'d`($i*($ddepth/$max_lb))`;
+   end else begin
+     if (`$TILE_ENABLE` && `$MODE_LB` && current_context=={`int(log($max_lb)/log(2))`'d`$i`,`$READ`}) begin
+       if ((context`$i`_read_ptr + `$awidth_long`'d`$max_lb*2`) < `$awidth_long+1`'d`(($i+1)*($ddepth/$max_lb))`) begin
+         context`$i`_read_ptr <= context`$i`_read_ptr + `$awidth_long`'d`$max_lb*2`;
+       end else begin
+         context`$i`_read_ptr <= `$awidth_long`'d`($i*($ddepth/$max_lb))`;         
+       end
+     end else if (`$TILE_ENABLE` && `$MODE_LB` && current_context=={`int(log($max_lb)/log(2))`'d`$i`,`$WRITE`}) begin
+       if ((context`$i`_write_ptr + `$awidth_long`'d`$max_lb*2`) < `$awidth_long+1`'d`(($i+1)*($ddepth/$max_lb))`) begin
+         context`$i`_write_ptr <= context`$i`_write_ptr + `$awidth_long`'d`$max_lb*2`;
+       end else begin
+         context`$i`_write_ptr <= `$awidth_long`'d`($i*($ddepth/$max_lb))`;         
+       end
+     end
+   end
+end
+//;}
+
+always @(posedge clk) begin
+   if (`$TILE_ENABLE`) begin
+     case (current_context[`int(log($max_lb)/log(2))`:1])
+     //; for (my $i=0;$i<$max_lb;$i=$i+1) {
+     `int(log($max_lb)/log(2))`'d`$i`: begin 
+       mem_cen <= ~context_enabled_reg[`$i`];
+     end
+     //;}
+     endcase
+   end
+end
+
+always @(posedge clk) begin
+   if (`$TILE_ENABLE`) begin
+     mem_wen <= (current_context[0]==`$READ`)?1'b0:1'b1;
+   end
+end
+
+always @(*) begin
+   case (current_context)
+   //; for (my $i=0;$i<$max_lb;$i=$i+1) {
+   {`int(log($max_lb)/log(2))`'d`$i`, `$READ`}: begin 
+     mem_addr <= context`$i`_read_ptr[`$awidth_long - 1`:`int(log($max_lb*2)/log(2))`];
+   end
+   {`int(log($max_lb)/log(2))`'d`$i`, `$WRITE`}: begin 
+     mem_addr <= context`$i`_write_ptr[`$awidth_long - 1`:`int(log($max_lb*2)/log(2))`];
+   end
+   //;}
+   default: begin
+     mem_addr <= `$awidth_short`'d0; 
+   end
+   endcase
+end
+
+always @(*) begin
+     case (current_context[`int(log($max_lb)/log(2))`:1])
+       //; for (my $i=0;$i<$max_lb;$i=$i+1) {
+       `int(log($max_lb)/log(2))`'d`$i`: begin 
+         mem_data_in <= input_accumulate`$i`[`$dwidth*$max_lb*2 - 1`:0]; 
+       end
+       //;}
+     endcase
+end
+
+//; for (my $i=0;$i<$max_lb;$i=$i+1) {
+always @(posedge clk) begin
+   if (`$MODE_LB` && current_context=={`int(log($max_lb)/log(2))`'d`$i`,`$WRITE`}) begin
+     {data_out`$i`, output_shift`$i`} <= {output_shift`$i`[`$max_lb*$dwidth*2 - 1`:`$max_lb*$dwidth*2 - $dwidth`],mem_data_out};
+   end else begin 
+     {data_out`$i`, output_shift`$i`} <= output_shift`$i`<<`$dwidth`;
+   end
+end
+//;}
+
+//; my $mem = generate('mem', 'mem', dwidth => $dwidth, awidth => $awidth_short );
+
+//; for (my $i=0;$i<$max_lb*2;$i=$i+1) {
+//; my $mem_obj = clone($mem, 'mem_inst'.$i);
+`$mem_obj->instantiate()`
+(
+.data_out(mem_data_out[`($i+1)*16 - 1`:`$i*16`]),
+.data_in(mem_data_in[`($i+1)*16 - 1`:`$i*16`]),
+.clk(clk),
+.cen(mem_cen),
+.wen(mem_wen),
+.addr(mem_addr)
+);
+//;}
+
+endmodule
+
+
+
+//;# generate corresponding place and route scripts
+//;# my $pnr = generate_base('mem_tile_pnr', 'mem_tile_pnr', max_lb => $max_lb);
+

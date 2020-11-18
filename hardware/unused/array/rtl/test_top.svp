@@ -1,0 +1,196 @@
+//; my $mux_recipe = parameter(Name=>'mux_recipe', val=> ('$i+1; $i; $N-$i'), doc=>'MUX parrten');
+//;
+//; my $segments        = parameter(Name=>'segments', val=> ('1=>0.5, 2=> 0.3, 4=>0.0, 8=>0.2'), doc=>'Frequency of the wire segments');
+//; my $tracks_per_tile = parameter(Name=>'tracks_per_tile', val=> 6, Min=>1, doc=>'Number of tracks that start here');
+//; my $connect_en      = parameter(Name=>'connect_en', val=> 1, List=>[0,1] , doc=>'Enable generation of connectivity matrix?');
+//;
+//; my $N = 15;
+//;
+//; my $W = 4;
+//; my $H = 4;
+
+module `mname`  #(
+  parameter Width   = 16
+) (
+  input               clk,
+  input               rst_n,
+
+  input        [15:0] cfg_d,
+  input        [15:0] cfg_a,
+  input               cfg_en,
+
+
+  input        [`$H-1`:0][`$N-1`:0][Width - 1:0] pin_in0,
+  input        [`$W-1`:0][`$N-1`:0][Width - 1:0] pin_in1,
+  input        [`$H-1`:0][`$N-1`:0][Width - 1:0] pin_in2,
+  input        [`$W-1`:0][`$N-1`:0][Width - 1:0] pin_in3,
+
+  output logic [`$H-1`:0][`$N-1`:0][Width - 1:0] pin_out0,
+  output logic [`$W-1`:0][`$N-1`:0][Width - 1:0] pin_out1,
+  output logic [`$H-1`:0][`$N-1`:0][Width - 1:0] pin_out2,
+  output logic [`$W-1`:0][`$N-1`:0][Width - 1:0] pin_out3,
+
+
+  input        [`$H-1`:0][`$N-1`:0]              pin_in0_p,
+  input        [`$W-1`:0][`$N-1`:0]              pin_in1_p,
+  input        [`$H-1`:0][`$N-1`:0]              pin_in2_p,
+  input        [`$W-1`:0][`$N-1`:0]              pin_in3_p,
+
+  output logic [`$H-1`:0][`$N-1`:0]              pin_out0_p,
+  output logic [`$W-1`:0][`$N-1`:0]              pin_out1_p,
+  output logic [`$H-1`:0][`$N-1`:0]              pin_out2_p,
+  output logic [`$W-1`:0][`$N-1`:0]              pin_out3_p
+);
+
+
+//;my $in0;
+//;my $in1;
+//;my $in2;
+//;my $in3;
+//;
+//;my $out0;
+//;my $out1;
+//;my $out2;
+//;my $out3;
+//;
+//;my $in0_p;
+//;my $in1_p;
+//;my $in2_p;
+//;my $in3_p;
+//;
+//;my $out0_p;
+//;my $out1_p;
+//;my $out2_p;
+//;my $out3_p;
+//;
+//;
+//;my $connectivity = "";
+//;
+//;for(my $y = 0; $y < $H; $y=$y+1) {
+//;  for(my $x = 0; $x < $W; $x=$x+1) {
+//;
+//;    my $tile   = generate('test_tile', "test_tile_".$x."_".$y, "segments" => $segments, 
+//;                          "connect_en" => $connect_en, "tracks_per_tile"=>$tracks_per_tile,
+//;							 "tile_x"=> $x, "tile_y" =>$y);
+//;    if($connect_en == 1) {
+//;    	 my $tile_con = $tile->get_param('connectivity') or error("Connectivity is not set!");
+//;    	 $connectivity = $connectivity . $tile_con;
+//;	   }
+//;
+//;    $in0 = "pin_in0[".$y."]";
+//;    $in1 = "pin_in1[".$x."]";
+//;    $in2 = "pin_in2[".$y."]";
+//;    $in3 = "pin_in3[".$x."]";
+//;
+//;    $out0 = "pin_out0[".$y."]";
+//;    $out1 = "pin_out1[".$x."]";
+//;    $out2 = "pin_out2[".$y."]";
+//;    $out3 = "pin_out3[".$x."]";
+//;
+//;    $in0_p = "pin_in0_p[".$y."]";
+//;    $in1_p = "pin_in1_p[".$x."]";
+//;    $in2_p = "pin_in2_p[".$y."]";
+//;    $in3_p = "pin_in3_p[".$x."]";
+//;
+//;    $out0_p = "pin_out0_p[".$y."]";
+//;    $out1_p = "pin_out1_p[".$x."]";
+//;    $out2_p = "pin_out2_p[".$y."]";
+//;    $out3_p = "pin_out3_p[".$x."]";
+//;
+//;    if($x>0) {
+//;      $in0 = "out2_".($x-1)."_".$y;
+//;      $in0_p = "out2_p_".($x-1)."_".$y;
+//;
+//;      $out0 = "out0_".$x."_".$y;
+//;      $out0_p = "out0_p_".$x."_".$y;
+//;    }
+//;
+//;    if($x<$W-1) {
+//;      $in2 = "out0_".($x+1)."_".$y;
+//;      $in2_p = "out0_p_".($x+1)."_".$y;
+//;
+//;      $out2 = "out2_".$x."_".$y;
+//;      $out2_p = "out2_p_".$x."_".$y;
+//;    }
+//;
+//;    if($y>0) {
+//;      $in1 = "out3_".$x."_".($y-1);
+//;      $in1_p = "out3_p_".$x."_".($y-1);
+//;
+//;      $out1 = "out1_".$x."_".$y;
+//;      $out1_p = "out1_p_".$x."_".$y;
+//;    }
+//;
+//;    if($y<$H-1) {
+//;      $in3 = "out1_".$x."_".($y+1);
+//;      $in3_p = "out1_p_".$x."_".($y+1);
+//;
+//;      $out3 = "out3_".$x."_".$y;
+//;      $out3_p = "out3_p_".$x."_".$y;
+//;    }
+
+
+//;    if($x<$W-1) {
+logic [`$N-1`:0][Width - 1:0] out0_`$x+1`_`$y`;
+logic [`$N-1`:0]              out0_p_`$x+1`_`$y`;
+logic [`$N-1`:0][Width - 1:0] out2_`$x`_`$y`;
+logic [`$N-1`:0]              out2_p_`$x`_`$y`;
+//;    }
+
+//;    if($y<$H-1) {
+logic [`$N-1`:0][Width - 1:0] out1_`$x`_`$y+1`;
+logic [`$N-1`:0]              out1_p_`$x`_`$y+1`;
+logic [`$N-1`:0][Width - 1:0] out3_`$x`_`$y`;
+logic [`$N-1`:0]              out3_p_`$x`_`$y`;
+//;    }
+
+
+
+
+`$tile->mname()` #(.Width(Width)) `$tile->iname()`
+(
+  .clk      (clk),
+  .rst_n    (rst_n),
+
+
+  .cfg_d    (cfg_d),
+  .cfg_a    (cfg_a[9:0]),
+  .cfg_en   (cfg_en  & (cfg_a[15:10]==(`($x+1)*($y+1)`))),
+
+  .in0      (`$in0`),
+  .in1      (`$in1`),
+  .in2      (`$in2`),
+  .in3      (`$in3`),
+
+  .out0     (`$out0`),
+  .out1     (`$out1`),
+  .out2     (`$out2`),
+  .out3     (`$out3`),
+
+  .in0_p    (`$in0_p`),
+  .in1_p    (`$in1_p`),
+  .in2_p    (`$in2_p`),
+  .in3_p    (`$in3_p`),
+
+  .out0_p   (`$out0_p`),
+  .out1_p   (`$out1_p`),
+  .out2_p   (`$out2_p`),
+  .out3_p   (`$out3_p`)
+);
+
+//;  }
+//;}
+
+
+
+endmodule
+
+//;if($connect_en == 1) {
+/*
+######## Connectivity matrix ##########
+
+//; print $connectivity;
+
+*/
+//;}
+
