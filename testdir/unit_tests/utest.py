@@ -39,13 +39,13 @@ mydir  = os.path.dirname(mypath)
 # cmd = "cd %s; test -d pe || echo no pe (yet)" % mydir
 # print(cmd)
 my_syscall("cd %s; test -d pe || echo 'WARNING no pe (yet); i will install'" % mydir)
-my_syscall("cd %s; test -d pe || echo 'git clone https://github.com/phanrahan/pe.git'" % mydir)
-my_syscall("cd %s; test -d pe ||      (git clone https://github.com/phanrahan/pe.git)" % mydir)
+my_syscall("cd %s; test -d pe || echo 'git clone https://github.com/akashlevy/pe.git'" % mydir)
+my_syscall("cd %s; test -d pe ||      (git clone https://github.com/akashlevy/pe.git)" % mydir)
 
 # How to check out an older version:
 # my_syscall(\
 #  "cd %s; test -d pe || (\
-#    git clone https://github.com/phanrahan/pe.git \
+#    git clone https://github.com/akashlevy/pe.git \
 #    && git -C pe checkout 67cab7ae574eb54c3f78014946d71832b8c631c1)"\
 #  % mydir)
 
