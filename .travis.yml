@@ -42,7 +42,7 @@ script:
   # Fifteen minutes for LT unit tests (background)
 
   # Install python dependencies
-  - pip install pytest numpy delegator.py bit_vector==0.42a0 hwtypes
+  - pip install pytest numpy delegator.py bit_vector==0.42a0 hwtypes==0.0.1
   - pip install git+git://github.com/phanrahan/pe.git
 
   # Run python based tests
