@@ -40,7 +40,7 @@ script:
 
   # Install python dependencies
   - pip install pytest numpy delegator.py bit_vector==0.42a0
-  - pip install git+git://github.com/phanrahan/pe.git@c50b5f6010f9893e4e60db336f5183991ccb2899
+  - pip install git+git://github.com/akashlevy/pe.git
 
   # Run python based tests
   - cd $TRAVIS_BUILD_DIR/tests/test_pe
