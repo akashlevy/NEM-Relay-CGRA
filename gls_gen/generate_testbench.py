@@ -23,7 +23,7 @@ def generate_raw(tile):
         "-radix hex",
         "-64bit",
         "-notime",
-        #"-expression \"Interconnect_tb.clk == 1'b1\"",
+        "-expression \"TOP.v.clk == 1'b1\"",
     ]
     flag_string = ' '.join(flags)
 
@@ -89,6 +89,7 @@ def create_testbench(design, inputs, outputs, input_widths, output_widths, num_t
     tb.write(f'`timescale 1ns/1ps\n')
     tb.write(f'`define NUM_TEST_VECTORS {num_test_vectors}\n')
     tb.write(f'`define ASSIGNMENT_DELAY 0.2 \n')
+    tb.write(f'`define CLK_PERIOD {clock_period} \n')
     tb.write(f'\n')
 
     input_base = 0
@@ -129,7 +130,7 @@ module testbench;
         tb.write(f'    wire [{output_widths[o]-1}:0] {o};\n')
 
     tb.write('''
-    reg  clk;
+    reg  clk_in;
     wire clk_out;
     reg  clk_pass_through;
     wire clk_pass_through_out_bot;
@@ -143,7 +144,7 @@ module testbench;
 
 
     tb.write(f'''
-    {design} dut (
+    {tile_module} dut (
 ''')
 
     for i in inputs+outputs:
@@ -152,26 +153,20 @@ module testbench;
         tb.write(f'''        .VDD(VDD),
         .VSS(VSS),
 ''')
-    if design == 'Tile_PE':
-        tb.write('''        .clk_pass_through(clk_pass_through),
-        .clk_pass_through_out_bot(clk_pass_through_out_bot),
-        .clk_pass_through_out_right(clk_pass_through_out_right),
-''')
 
-    tb.write(f'''        .clk(clk),
-        .clk_out(clk_out)
+    tb.write(f'''        .clk_in(clk_in)
     );
 
-    always #(`CLK_PERIOD/2) clk =~clk;
+    always #(`CLK_PERIOD/2) clk_in =~clk_in;
     
     initial begin
       $readmemh("inputs/test_vectors.txt", test_vectors);
       $readmemh("inputs/test_outputs.txt", test_outputs);
-      clk <= 0;
+      clk_in <= 0;
       test_vector_addr <= 0;
     end
   
-    always @ (posedge clk) begin
+    always @ (posedge clk_in) begin
         test_vector_addr <= # `ASSIGNMENT_DELAY (test_vector_addr + 1); // Don't change the inputs right after the clock edge because that will cause problems in gate level simulation
         test_vector <= test_vectors[test_vector_addr];
         test_output <= test_outputs[test_vector_addr];
