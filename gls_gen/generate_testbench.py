@@ -23,7 +23,7 @@ def generate_raw(tile):
         "-radix hex",
         "-64bit",
         "-notime",
-        "-expression \"Interconnect_tb.clk == 1'b1\"",
+        #"-expression \"Interconnect_tb.clk == 1'b1\"",
     ]
     flag_string = ' '.join(flags)
 
@@ -189,31 +189,31 @@ module testbench;
 
     tb.write('''
     end
-  
-    initial begin
-        $sdf_annotate("inputs/design.sdf", testbench.dut,,"testbench_sdf.log","MAXIMUM");
-    end
 
 endmodule''')
+
+#     tb.write('''
+#     end
+  
+#     initial begin
+#         $sdf_annotate("inputs/design.sdf", testbench.dut,,"testbench_sdf.log","MAXIMUM");
+#     end
+
+# endmodule''')
 
     tb.close()
 
 def main():
     design = design_name
     f = open(f'inputs/tiles_{design}.list', 'r')
-    i = 0
-    for line in f:
-        fields = line.strip().split(',')
-        x = fields[-2]
-        y = fields[-1]
-        tile = f"Tile_X{x}_Y{y}"
+    for i, line in enumerate(f):
+        tile = "pe_0x" + line.strip()
 
         generate_raw(tile) 
         num_test_vectors, input_widths = convert_raw(inputs, "raw_input.csv", f"outputs/tile_tbs/{tile}/test_vectors.txt")
         _, output_widths = convert_raw(outputs, "raw_output.csv", f"outputs/tile_tbs/{tile}/test_outputs.txt")
         if i == 0:
             create_testbench(design, inputs, outputs, input_widths, output_widths, num_test_vectors)
-        i += 1
 
 if __name__ == '__main__':
     main()
