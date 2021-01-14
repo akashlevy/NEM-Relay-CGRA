@@ -95,6 +95,7 @@ function main {
 
   # If travis or kiwi, set env var USE_VERILATOR_HACKS
   use_verilator_hacks_if_travis_or_kiwi $*
+  export USE_VERILATOR_HACKS="TRUE"
 
   # Make sure Genesis2 is available
   find_or_install_genesis2

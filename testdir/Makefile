@@ -107,8 +107,6 @@ travis_test_cascade:
 
 # '$@' turns into 'cascade' or 'harris' as appropriate
 cascade harris: $(CGRA_INFO)
-	export USE_VERILATOR_HACKS=TRUE
-
 	cd $(VERILATOR_TOP); ./run_tbg.csh \
 	  -config ../../bitstream/examples/$@_keyi.bsa \
 	  -input  ../../bitstream/bsbuilder/testdir/examples/$@_input.raw \
