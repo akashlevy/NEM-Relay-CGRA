@@ -107,12 +107,14 @@ travis_test_cascade:
 
 # '$@' turns into 'cascade' or 'harris' as appropriate
 cascade harris: $(CGRA_INFO)
+	export USE_VERILATOR_HACKS=TRUE
+
 	cd $(VERILATOR_TOP); ./run_tbg.csh \
 	  -config ../../bitstream/examples/$@_keyi.bsa \
 	  -input  ../../bitstream/bsbuilder/testdir/examples/$@_input.raw \
 	  -output build/$@_CGRA_out.raw \
 	  -out1   build/$@_CGRA_out1.raw \
-	  -delay 260,0 -nclocks 1M || exit 13
+	  -delay 260,0 -nclocks 1M -trace $@.vcd || exit 13
 
 	cd $(VERILATOR_TOP); python ./bin/keyi_compare.py  \
 	  build/$@_CGRA_out.raw build/$@_CGRA_out1.raw \
