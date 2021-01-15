@@ -74,7 +74,7 @@ def convert_raw(signals, input_file, output_file):
         col[name] = i
 
     # Generate vector form
-    for c in range(1,len(data)):
+    for c in range(len(data)):
         to_write = []
         # Split by signal
         for s in signals:
