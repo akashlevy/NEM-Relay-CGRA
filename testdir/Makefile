@@ -161,3 +161,14 @@ test: $(HARDWARE_TOP)/cgra_info.txt
 	cd $(VERILATOR_TOP);\
 	cmp io/$(IMAGE)_out.raw $(TEMPDIR)/$(IMAGE)_out.raw
 
+vcdtest:
+	cd $(VERILATOR_TOP);\
+	./$(RUN) $(QUIET) -gen    \
+	   -config ../../bitstream/bsbuilder/testdir/examples/$(APP).bsa              \
+	   -input  ../../bitstream/bsbuilder/testdir/examples/$(APP)_input.raw \
+	   -output ./$(APP)_out.raw \
+	   -delay $(DELAY)         \
+	   -nclocks 5M 
+	   -trace $(APP).vcd || echo FAIL
+
+	cmp ./$(APP)_out.raw ../../bitstream/bsbuilder/testdir/examples/$(APP)_halide_out.raw
