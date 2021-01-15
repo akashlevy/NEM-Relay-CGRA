@@ -1,21 +1,25 @@
-from random import random
-import math
-import numpy as np
-import binascii
-import struct
-import os
-import csv
-import re
+# Import python libraries
+import binascii, csv, glob, re, subprocess
 from defines import *
-import subprocess
 
-def generate_raw(tile):
-    sv = open('waveform_to_csv.sh', 'w')
 
-    waveform = 'run'
+# Get active PE tiles from bitstream and write to file
+def get_active_pes(bsfile):
+    bsname = bsfile[:-4] # remove the file extension
+    with open(bsfile) as inf, open(f'{bsname}.tiles', 'w') as outf:
+        for line in inf.readlines():
+            if line[:2] == 'FF':
+                peid = line[4:8]
+                outf.write(peid + '\n')
 
+
+# Commands to generate raw commands
+def generate_raw(app, tile):
+    # Convert signals to flags
     input_signals = ' '.join([f'-signal {scope}.{tile}.{i}' for i in inputs])
     output_signals = ' '.join([f'-signal {scope}.{tile}.{o}' for o in outputs])
+
+    # Convert flag list to argument string
     flags = [
         "-overwrite",
         "-xsub 0",
@@ -23,49 +27,60 @@ def generate_raw(tile):
         "-radix hex",
         "-64bit",
         "-notime",
-        "-expression \"TOP.top.clk == 1'b1\"",
+        f"-expression \"{scope}.clk == 1'b1\"", # take signals when clock is high
     ]
     flag_string = ' '.join(flags)
 
-    sv.write('#!/bin/bash\n')
-    sv.write(f'mkdir -p outputs/tile_tbs/{tile}\n')
-    sv.write(f'if [ ! -f {waveform}.trn ]; then\nsimvisdbutil inputs/{waveform}.vcd -sst2\nfi\n')
-    sv.write(f'simvisdbutil {waveform}.trn {input_signals} -output raw_input.csv {flag_string}\n')
-    sv.write(f'simvisdbutil {waveform}.trn {output_signals} -output raw_output.csv {flag_string}\n')
-    sv.close()
+    # Convert VCD to SST2
+    subprocess.run([f'simvisdbutil inputs/{app}.vcd -sst2'])
+    subprocess.run([f'simvisdbutil {app}_{tile}.trn {input_signals} -output raw_input_{app}_{tile}.csv {flag_string}'])
+    subprocess.run([f'simvisdbutil {app}_{tile}.trn {output_signals} -output raw_output_{app}_{tile}.csv {flag_string}'])
 
-    subprocess.run(['chmod', '+x', 'waveform_to_csv.sh'])
-    subprocess.run(['./waveform_to_csv.sh'])
 
+# Convert raw signals CSV file to test vector file
 def convert_raw(signals, input_file, output_file):
+    # Pattern for recognizing vector size (dim)
     dim_pattern = re.compile("\w*\[(\d+):0\]")
-    raw = open(input_file, "r")
-    f = open(output_file, "w")
 
-    data = list(csv.reader(raw, delimiter=','))
+    # Open input/output files
+    rawfile = open(input_file, "r")
+    outfile = open(output_file, "w")
+
+    # Read in CSV file
+    data = list(csv.reader(rawfile, delimiter=','))
     headers = data[0]
 
+    # Create mappings from name to width and column index
     widths = {}
     col = {}
-    for i,h in enumerate(headers):
+    for i, h in enumerate(headers):
+        # Take signal name without prefix
         name = h.split('.')[-1]
+
+        # If bit width specified
         try:
-            width = int(dim_pattern.match(name).groups()[0]) + 1
-            name = name.replace(f'[{width-1}:0]', '')
-            widths[name] = width
+            # Get name, width from regex
+            widths[name] = int(dim_pattern.match(name).groups()[0]) + 1
+            name = name.replace(f'[{widths[name]-1}:0]', '')
+        # If no bit width specified, set to 1
         except:
             widths[name] = 1
+
+        # Mapping of name to column index
         col[name] = i
 
+    # Generate vector form
     for c in range(1,len(data)):
         to_write = []
+        # Split by signal
         for s in signals:
             value = data[c][col[s]]
 
-            # append leading zeros to pad up to 16 bits (4 hex spaces)
+            # Append leading zeros to pad up to 16 bits (4 hex digits)
             while len(value) % 4 != 0:
                 value = "0"+value
 
+            # Put value in
             term = []
             for i in range(int((len(value) - 1) / 4) + 1):
                 partial_value = value[i*4:min((i+1)*4, len(value)+1)]
@@ -74,141 +89,143 @@ def convert_raw(signals, input_file, output_file):
             for t in term:
                 to_write.append(t)
         to_write.reverse()
-        f.write('_'.join(to_write)+'\n')
+
+        # Separate by underscores to represent different signals
+        outfile.write('_'.join(to_write)+'\n')
              
-    f.close()
-    raw.close()
+    # Close files
+    outfile.close()
+    rawfile.close()
     
+    # Return number of test vectors and width of each one
     num_test_vectors = len(data) - 1
     return num_test_vectors, widths
 
-def create_testbench(design, inputs, outputs, input_widths, output_widths, num_test_vectors):
-    tb = open("testbench.sv", "w")
 
-    # write defines
-    tb.write(f'`timescale 1ns/1ps\n')
-    tb.write(f'`define NUM_TEST_VECTORS {num_test_vectors}\n')
-    tb.write(f'`define ASSIGNMENT_DELAY 0.2 \n')
-    tb.write(f'`define CLK_PERIOD {clock_period} \n')
-    tb.write(f'\n')
-
-    input_base = 0
+# Generates the testbench SystemVerilog file
+def create_testbench(app, inputs, outputs,
+                     input_widths, output_widths, num_test_vectors,
+                     timescale='1ns/1ps', assign_delay=0.2, clock_period=2):
+    # Start from 0 and define input slices
+    input_slices, input_base = '', 0
     for i in inputs:
-        tb.write(f'`define SLICE_{i.upper()} {input_widths[i]-1+input_base}:{input_base}\n')
+        input_slices += f'`define SLICE_{i.upper()} {input_widths[i]-1+input_base}:{input_base}\n'
         input_base += input_widths[i]
         if input_widths[i] % 16 != 0:
             input_base += (16 - input_widths[i] % 16)
-    tb.write('\n')
-    output_base = 0
+
+    # Start from 0 and define output slices
+    output_slices, output_base = '', 0
     for o in outputs:
-        tb.write(f'`define SLICE_{o.upper()} {output_widths[o]-1+output_base}:{output_base}\n')
+        output_slices += f'`define SLICE_{o.upper()} {output_widths[o]-1+output_base}:{output_base}\n'
         output_base += output_widths[o]
         if output_widths[o] % 16 != 0:
             output_base += (16 - output_widths[o] % 16)
 
-    tb.write(f'''
-module testbench;
-
-    localparam ADDR_WIDTH = $clog2(`NUM_TEST_VECTORS);
-   
-    reg [ADDR_WIDTH - 1 : 0] test_vector_addr;
- 
-    reg [{input_base}-1: 0] test_vectors [`NUM_TEST_VECTORS - 1 : 0];
-    reg [{input_base}-1: 0] test_vector;
-
-    reg [{output_base}-1: 0] test_outputs [`NUM_TEST_VECTORS - 1 : 0];
-    reg [{output_base}-1: 0] test_output;
-
-''')
-
+    # Input wires
+    input_wires = ''
     for i in inputs:
         if 'reset' not in i:
-            tb.write(f'    wire [{input_widths[i]-1}:0] {i} = test_vectors[test_vector_addr][`SLICE_{i.upper()}];\n')
+            input_wires += f'    wire [{input_widths[i]-1}:0] {i} = test_vectors[test_vector_addr][`SLICE_{i.upper()}];\n'
         else:
-            tb.write(f'    wire {i} = test_vectors[test_vector_addr][`SLICE_{i.upper()}];\n')
+            input_wires += f'    wire {i} = test_vectors[test_vector_addr][`SLICE_{i.upper()}];\n'
+    
+    # Output wires
+    output_wires = ''
     for o in outputs:
-        tb.write(f'    wire [{output_widths[o]-1}:0] {o};\n')
+        output_wires += f'    wire [{output_widths[o]-1}:0] {o};\n'
 
-    tb.write('''
-    reg  clk_in;
-    wire clk_out;
-    reg  clk_pass_through;
-    wire clk_pass_through_out_bot;
-    wire clk_pass_through_out_right;
-''')
-    if pwr_aware:
-        tb.write('''
+    # Power supplies if power aware gates present
+    pwr_supplies = '''
+    // Power supplies
     supply1 VDD;
     supply0 VSS;
-''')
+    ''' if pwr_aware else ''
 
-
-    tb.write(f'''
-    {tile_module} dut (
-''')
-
+    # DUT I/O and PG pins
+    dut_io
     for i in inputs+outputs:
-        tb.write(f'        .{i}({i}),\n')
+        dut_inst += f'        .{i}({i}),\n' # DUT I/O
     if pwr_aware:
         tb.write(f'''        .VDD(VDD),
-        .VSS(VSS),
-''')
+        .VSS(VSS),\n''')
 
-    tb.write(f'''        .clk_in(clk_in)
-    );
-
-    always #(`CLK_PERIOD/2) clk_in =~clk_in;
-    
-    initial begin
-      $readmemh("inputs/test_vectors.txt", test_vectors);
-      $readmemh("inputs/test_outputs.txt", test_outputs);
-      clk_in <= 0;
-      test_vector_addr <= 0;
-    end
-  
-    always @ (posedge clk_in) begin
-        test_vector_addr <= # `ASSIGNMENT_DELAY (test_vector_addr + 1); // Don't change the inputs right after the clock edge because that will cause problems in gate level simulation
-        test_vector <= test_vectors[test_vector_addr];
-        test_output <= test_outputs[test_vector_addr];
-
-        if (test_vector_addr >= {num_test_vectors}) begin
-            $finish(2);
-        end
-''')
+    # 
+    output_checks = ''
     for o in outputs:
-        tb.write(f'''
+        output_checks += f'''
         if ({o} != test_outputs[test_vector_addr][`SLICE_{o.upper()}] || $isunknown({o})) begin
-            $display("cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
-        end
-''')
+            $display("mismatch cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
+        end\n''')
 
-    tb.write('''
-    end
+    # Template substitution for testbench
+    template = Template(open('templates/testbench.sv.tmpl').read())
+    output = template.substitute(*locals())
+    open('testbench.sv', 'w').write(output)
 
-endmodule''')
+    # Run VCS to create simv executable
+    vcs_cmd = [
+        "vcs",
+        "-sverilog",
+        "-debug",
+        "+vcs+dumpvars+outputs/out.vcd",
+        "testbench.sv",
+        design_file,
+        stdcell_file
+    ]
+    subprocess.run(vcs_cmd)
 
-#     tb.write('''
-#     end
-  
-#     initial begin
-#         $sdf_annotate("inputs/design.sdf", testbench.dut,,"testbench_sdf.log","MAXIMUM");
-#     end
 
-# endmodule''')
+# Run the testbenches that are created
+def run_testbench(input_file, output_file, simout_file):
+    # Copy input vectors and output vectors to inputs/
+    subprocess.run(["cp", "-f", input_file, output_file, "inputs"])
 
-    tb.close()
+    # Run the simulation, print output and write to file
+    simout = subprocess.check_output(["simv"])
+    print(simout)
+    open(simout_file, 'w').write(simout)
 
+
+# Process each tile
 def main():
-    design = design_name
-    f = open(f'inputs/tiles_{design}.list', 'r')
-    for i, line in enumerate(f):
-        tile = "pe_0x" + line.strip()
+    # Parse arguments
+    parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
+    parser.add_argument('app', help="Name of CGRA application to test", type=int)
+    args = parser.parse_args()
+    app = args.app
 
-        generate_raw(tile) 
-        num_test_vectors, input_widths = convert_raw(inputs, "raw_input.csv", f"outputs/tile_tbs/{tile}/test_vectors.txt")
-        _, output_widths = convert_raw(outputs, "raw_output.csv", f"outputs/tile_tbs/{tile}/test_outputs.txt")
-        if i == 0:
-            create_testbench(design, inputs, outputs, input_widths, output_widths, num_test_vectors)
+    # Open tiles
+    print("Converting tiles to vectors...")
+    for i, line in enumerate(open(f'inputs/{app}.tiles', 'r')):
+        # Get full tile name
+        tile = pe_prefix + line.strip()
+        print(f"Processing {tile}...")
 
+        # Generate raw input/output CSVs
+        generate_raw(app, tile) 
+
+        # Convert raw input/output CSVs to test vectors
+        num_test_vectors, input_widths = convert_raw(inputs, "raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
+        _, output_widths = convert_raw(outputs, "raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
+ 
+    # Create testbench
+    print("Creating testbench...")
+    create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors)
+
+    # Run testbench
+    print("Running testbench...")
+    for i, line in enumerate(open(f'inputs/{app}.tiles', 'r')):
+        # Get full tile name
+        tile = pe_prefix + line.strip()
+
+        # Run the testbench
+        run_testbench(f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/{app}_{tile}_results.txt")
+
+    # DONE!
+    print("DONE!")
+
+
+# Run main if called from command line
 if __name__ == '__main__':
     main()

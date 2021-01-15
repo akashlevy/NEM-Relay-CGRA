@@ -1,0 +1,72 @@
+`timescale ${timescale}
+`define NUM_TEST_VECTORS ${num_test_vectors}
+`define ASSIGNMENT_DELAY ${assign_delay}
+`define CLK_PERIOD ${clock_period}
+
+// Input slices
+${input_slices}
+
+// Output slices
+${output_slices}
+
+// Input wires
+${input_wires}
+
+// Output wires
+${output_wires}
+
+// Clock
+reg clk_in;
+${pwr_supplies}
+// DUT
+{tile_module} dut (
+    ${dut}
+    ${power_signals}
+    .clk_in(clk_in)
+    );
+
+
+module testbench;
+    // Address width
+    localparam ADDR_WIDTH = $$clog2(`NUM_TEST_VECTORS);
+   
+    reg [ADDR_WIDTH - 1 : 0] test_vector_addr;
+ 
+    reg [${input_base}-1: 0] test_vectors [`NUM_TEST_VECTORS - 1 : 0];
+    reg [${input_base}-1: 0] test_vector;
+
+    reg [${output_base}-1: 0] test_outputs [`NUM_TEST_VECTORS - 1 : 0];
+    reg [${output_base}-1: 0] test_output;
+
+    // Toggle clock
+    always #(`CLK_PERIOD/2) clk_in =~clk_in;
+    
+    // Read vectors
+    initial begin
+      $$readmemh("inputs/test_vectors.txt", test_vectors);
+      $$readmemh("inputs/test_outputs.txt", test_outputs);
+      clk_in <= 0;
+      test_vector_addr <= 0;
+    end
+  
+    // Stimulate DUT using input vectors
+    always @(posedge clk_in) begin
+        // Don't change the inputs right after the clock edge because that will cause problems in GLS
+        test_vector_addr <= # `ASSIGNMENT_DELAY (test_vector_addr + 1);
+        test_vector <= test_vectors[test_vector_addr];
+        test_output <= test_outputs[test_vector_addr];
+
+        // Finish after last output
+        if (test_vector_addr >= {num_test_vectors}) begin
+            $$finish(2);
+        end
+
+        // Output checks
+        ${output_checks}
+    end
+  
+    // Annotate delays
+    initial begin
+        $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
+    end
+endmodule
