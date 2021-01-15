@@ -7,5 +7,5 @@ pwr_aware = False
 design_file = "design/design.v"
 stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v"
 assign_delay = 0
-clock_period = 5
+clock_period = 5.1
 timescale = '1ns/1ps'
