@@ -73,8 +73,26 @@ def convert_raw(signals, input_file, output_file):
         # Mapping of name to column index
         col[name] = i
 
+    # Start with 0 vector everywhere
+    for s in signals:
+        value = 0
+
+        # Append leading zeros to pad up to 16 bits (4 hex digits)
+        while len(value) % 4 != 0:
+            value = "0"+value
+
+        # Put value in
+        term = []
+        for i in range(int((len(value) - 1) / 4) + 1):
+            partial_value = value[i*4:min((i+1)*4, len(value)+1)]
+            term.append(partial_value)
+        term.reverse()
+        for t in term:
+            to_write.append(t)
+    to_write.reverse()
+
     # Generate vector form
-    for c in range(len(data)):
+    for c in range(1,len(data)):
         to_write = []
         # Split by signal
         for s in signals:
