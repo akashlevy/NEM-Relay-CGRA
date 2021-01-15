@@ -15,7 +15,7 @@ Then, you want to take the input stimuli from the VCD and apply them to the gate
         - Restart terminal or source user profile script (e.g. `.bash_profile`) to activate it
         - `rm miniconda.sh`
     - `pip install pytest numpy delegator.py bit_vector==0.42a0`
-3. Go to `testdir` and run `make <app_name>` to generate the waveform. The VCD output will be in `verilator/generator_z_tb`
+3. Go to `testdir` and run `make vcdtest APP=<app_name>` to generate the waveform. The VCD output will be in `verilator/generator_z_tb`
     - You might need a large amount of RAM for verilator to work
     - On Ubuntu, you can try creating a swap file: https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/
 4. Copy the gate-level netlist and SDF file as `design.v` and `design.sdf` to `gls/design/`
