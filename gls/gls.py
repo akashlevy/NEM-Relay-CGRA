@@ -134,11 +134,13 @@ def create_testbench(app, inputs, outputs,
             input_wires += f'    wire [{input_widths[i]-1}:0] {i} = test_vectors[test_vector_addr][`SLICE_{i.upper()}];\n'
         else:
             input_wires += f'    wire {i} = test_vectors[test_vector_addr][`SLICE_{i.upper()}];\n'
+    input_wires = input_wires.strip()
     
     # Output wires
     output_wires = ''
     for o in outputs:
         output_wires += f'    wire [{output_widths[o]-1}:0] {o};\n'
+    output_wires = output_wires.strip()
 
     # Power supplies if power aware gates present
     pwr_supplies = '''
@@ -154,6 +156,7 @@ def create_testbench(app, inputs, outputs,
     if pwr_aware:
         dut_io += '''        .VDD(VDD),
         .VSS(VSS),\n'''
+    dut_io = dut_io.strip()
 
     # Output checks
     output_checks = ''
@@ -162,6 +165,7 @@ def create_testbench(app, inputs, outputs,
         if ({o} != test_outputs[test_vector_addr][`SLICE_{o.upper()}] || $isunknown({o})) begin
             $display("mismatch cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
         end\n'''
+    output_checks = output_checks.strip()
 
     # Template substitution for testbench
     template = string.Template(open('templates/testbench.sv.tmpl').read())
