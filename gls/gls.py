@@ -1,5 +1,5 @@
 # Import python libraries
-import argparse, binascii, csv, glob, os, re, subprocess
+import argparse, binascii, csv, glob, os, re, string, subprocess
 from defines import *
 
 
@@ -156,7 +156,7 @@ def create_testbench(app, inputs, outputs,
         end\n'''
 
     # Template substitution for testbench
-    template = Template(open('templates/testbench.sv.tmpl').read())
+    template = string.Template(open('templates/testbench.sv.tmpl').read())
     output = template.substitute(**(locals() + globals()))
     open('testbench.sv', 'w').write(output)
 
