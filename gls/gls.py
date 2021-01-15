@@ -241,7 +241,7 @@ def main():
         tile = pe_prefix + line.strip()
 
         # Run the testbench
-        run_testbench(f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/{app}_{tile}_results.txt")
+        run_testbench(f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/test_outputs_{app}_{tile}.txt", f"outputs/{app}_{tile}_results.txt")
 
     # DONE!
     print("DONE!")
