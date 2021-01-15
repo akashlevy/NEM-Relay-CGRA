@@ -215,8 +215,8 @@ def main():
         generate_raw(app, tile) 
 
         # Convert raw input/output CSVs to test vectors
-        num_test_vectors, input_widths = convert_raw(inputs, "raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
-        _, output_widths = convert_raw(outputs, "raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
+        num_test_vectors, input_widths = convert_raw(inputs, f"raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
+        _, output_widths = convert_raw(outputs, f"raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
  
     # Create testbench
     print("Creating testbench...")
