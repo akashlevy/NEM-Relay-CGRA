@@ -157,7 +157,7 @@ def create_testbench(app, inputs, outputs,
 
     # Template substitution for testbench
     template = string.Template(open('templates/testbench.sv.tmpl').read())
-    output = template.substitute(**(locals() + globals()))
+    output = template.substitute(**{**locals(), **globals()})
     open('testbench.sv', 'w').write(output)
 
     # Run VCS to create simv executable
