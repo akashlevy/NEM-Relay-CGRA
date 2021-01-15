@@ -75,7 +75,7 @@ def convert_raw(signals, input_file, output_file):
 
     # Start with 0 vector everywhere
     for s in signals:
-        value = 0
+        value = "0"
 
         # Append leading zeros to pad up to 16 bits (4 hex digits)
         while len(value) % 4 != 0:
