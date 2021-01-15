@@ -1,4 +1,28 @@
-# CGRA Coarse-Grain Reconfigurable Architecture Generator
+# NEM Relay CGRA (Coarse-Grain Reconfigurable Architecture) Generator
+
+## Instructions: RTL Simulation and Gate-Level Simulation (GLS)
+
+The goal is first to get the waveforms as `*.vcd` files using verilator.
+Then, you want to take the input stimuli from the VCD and apply them to the gate-level netlist to get the gate-level activities:
+1. Clone modified TestBenchGenerator:
+    - `git clone https://github.com/akashlevy/TestBenchGenerator.git ../TestBenchGenerator`
+2. Look at `.travis.yml` and install packages as done in there. *Recommended: use Linux for setup.* Current instructions:
+    - `sudo apt-get install csh verilator`
+    - Install Miniconda:
+        - `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;`
+        - `bash miniconda.sh -u -b -p $HOME/miniconda`
+        - Ensure that base is activated automatically
+        - Restart terminal or source user profile script (e.g. `.bash_profile`) to activate it
+        - `rm miniconda.sh`
+    - `pip install pytest numpy delegator.py bit_vector==0.42a0`
+3. Go to `testdir` and run `make <app_name>` to generate the waveform. The VCD output will be in `verilator/generator_z_tb`
+    - You might need a large amount of RAM for verilator to work
+    - On Ubuntu, you can try creating a swap file: https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/
+4. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
+5. Run the testbench for each active PE tile: `python gls.py <app_name>`
+6. **TODO: how to do gate-level simulation**
+
+## Old Info from CGRAGenerator
 
 | Status                       |
 |------------------------------|
