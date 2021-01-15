@@ -48,6 +48,7 @@ module testbench;
       $$readmemh("inputs/test_outputs.txt", test_outputs);
       clk_in <= 0;
       test_vector_addr <= 0;
+      #`CLK_PERIOD
     end
   
     // Stimulate DUT using input vectors
