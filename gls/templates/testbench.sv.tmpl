@@ -67,7 +67,7 @@ module testbench;
     end
   
     // Annotate delays
-    // initial begin
-    //     $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
-    // end
+    initial begin
+        $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
+    end
 endmodule
