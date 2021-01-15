@@ -7,6 +7,6 @@
 *.log
 
 nems/vcd
-gls_gen/csrc
-gls_gen/design
+gls/csrc
+gls/design
 
