@@ -81,7 +81,7 @@ def convert_raw(signals, input_file, output_file):
         to_write = []
         # Split by signal
         for s in signals:
-            value = data[c][col[s]]
+            value = "0" if s == "reset" and c == 5 else data[c][col[s]]
 
             # Append leading zeros to pad up to 16 bits (4 hex digits)
             while len(value) % 4 != 0:
