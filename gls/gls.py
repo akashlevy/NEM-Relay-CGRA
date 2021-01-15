@@ -73,8 +73,11 @@ def convert_raw(signals, input_file, output_file):
         # Mapping of name to column index
         col[name] = i
 
+    # Start with two 0000 vectors for all signals
+    outfile.write(('_'.join(['0000']*len(signals))+'\n')*2)
+
     # Generate vector form
-    for c in range(2,len(data)):
+    for c in range(1,len(data)):
         to_write = []
         # Split by signal
         for s in signals:
