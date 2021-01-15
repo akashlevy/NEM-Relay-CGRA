@@ -147,15 +147,7 @@ def create_testbench(app, inputs, outputs,
     supply0 VSS;
     ''' if pwr_aware else ''
 
-    # DUT I/O and PG pins
-    dut_io
-    for i in inputs+outputs:
-        dut_inst += f'        .{i}({i}),\n' # DUT I/O
-    if pwr_aware:
-        tb.write(f'''        .VDD(VDD),
-        .VSS(VSS),\n''')
-
-    # 
+    # Output checks
     output_checks = ''
     for o in outputs:
         output_checks += f'''
