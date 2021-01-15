@@ -73,9 +73,6 @@ def convert_raw(signals, input_file, output_file):
         # Mapping of name to column index
         col[name] = i
 
-    # Start with two 0000 vectors for all signals
-    outfile.write(('_'.join(['0000']*len(signals))+'\n')*2)
-
     # Generate vector form
     for c in range(1,len(data)):
         to_write = []
@@ -110,9 +107,7 @@ def convert_raw(signals, input_file, output_file):
 
 
 # Generates the testbench SystemVerilog file
-def create_testbench(app, inputs, outputs,
-                     input_widths, output_widths, num_test_vectors,
-                     timescale='1ns/1ps', assign_delay=0.2, clock_period=2):
+def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors):
     # Start from 0 and define input slices
     input_slices, input_base = '', 0
     for i in inputs:
