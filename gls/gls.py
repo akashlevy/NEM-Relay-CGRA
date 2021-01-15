@@ -222,10 +222,10 @@ def main():
             num_test_vectors, input_widths = convert_raw(inputs, f"outputs/raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
         if not os.path.exists(f"outputs/test_outputs_{app}_{tile}.txt"):
             _, output_widths = convert_raw(outputs, f"outputs/raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
- 
-    # Create testbench
-    print("Creating testbench...")
-    create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors)
+    else:
+        # Create testbench
+        print("Creating testbench...")
+        create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors)
 
     # Run testbench
     print("Running testbench...")
