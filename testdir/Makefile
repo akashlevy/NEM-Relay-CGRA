@@ -161,7 +161,7 @@ test: $(HARDWARE_TOP)/cgra_info.txt
 	cd $(VERILATOR_TOP);\
 	cmp io/$(IMAGE)_out.raw $(TEMPDIR)/$(IMAGE)_out.raw
 
-vcdtest:
+vcdtest: $(CGRA_INFO)
 	cd $(VERILATOR_TOP);\
 	./$(RUN) $(QUIET) -gen    \
 	   -config ../../bitstream/bsbuilder/testdir/examples/$(APP).bsa              \
