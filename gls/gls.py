@@ -189,12 +189,13 @@ def create_testbench(app, inputs, outputs,
 # Run the testbenches that are created
 def run_testbench(input_file, output_file, simout_file):
     # Copy input vectors and output vectors to inputs/
-    subprocess.run(["cp", "-f", input_file, output_file, "inputs"])
+    subprocess.run(["cp", "-f", input_file, "inputs/test_vectors.txt"])
+    subprocess.run(["cp", "-f", output_file, "inputs/test_outputs.txt"])
 
     # Run the simulation, print output and write to file
     simout = subprocess.check_output(["simv", "+vcs+initreg+0"])
     print(simout.decode('utf-8'))
-    open(simout_file, 'b').write(simout)
+    open(simout_file, 'wb').write(simout)
 
 
 # Process each tile
