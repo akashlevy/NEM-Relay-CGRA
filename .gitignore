@@ -5,4 +5,8 @@
 /hardware/generator_z/top/genesis_work
 *.out
 *.log
+
 nems/vcd
+gls_gen/csrc
+gls_gen/design
+

@@ -23,7 +23,7 @@ def generate_raw(tile):
         "-radix hex",
         "-64bit",
         "-notime",
-        "-expression \"TOP.v.clk == 1'b1\"",
+        "-expression \"TOP.top.clk == 1'b1\"",
     ]
     flag_string = ' '.join(flags)
 
