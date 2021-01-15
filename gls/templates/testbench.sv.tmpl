@@ -9,22 +9,6 @@ ${input_slices}
 // Output slices
 ${output_slices}
 
-// Input wires
-${input_wires}
-
-// Output wires
-${output_wires}
-
-// Clock
-reg clk_in;
-${pwr_supplies}
-// DUT
-${tile_module} dut (
-    ${dut_io}
-    .clk_in(clk_in)
-    );
-
-
 module testbench;
     // Address width
     localparam ADDR_WIDTH = $$clog2(`NUM_TEST_VECTORS);
@@ -36,6 +20,21 @@ module testbench;
 
     reg [${output_base}-1: 0] test_outputs [`NUM_TEST_VECTORS - 1 : 0];
     reg [${output_base}-1: 0] test_output;
+
+    // Input wires
+    ${input_wires}
+
+    // Output wires
+    ${output_wires}
+
+    // Clock
+    reg clk_in;
+    ${pwr_supplies}
+    // DUT
+    ${tile_module} dut (
+        ${dut_io}
+        .clk_in(clk_in)
+        );
 
     // Toggle clock
     always #(`CLK_PERIOD/2) clk_in =~clk_in;
