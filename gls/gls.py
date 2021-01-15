@@ -31,11 +31,13 @@ def generate_raw(app, tile):
     ]
     flag_string = ' '.join(flags)
 
-    # Convert VCD to SST2
+    # Convert VCD to SST2 (if files do not exist already)
     if not os.path.exists(f'{app}.trn'):
         os.system(f'simvisdbutil inputs/{app}.vcd -sst2')
-    os.system(f'simvisdbutil {app}.trn {input_signals} -output raw_input_{app}_{tile}.csv {flag_string}')
-    os.system(f'simvisdbutil {app}.trn {output_signals} -output raw_output_{app}_{tile}.csv {flag_string}')
+    if not os.path.exists(f'outputs/raw_input_{app}_{tile}.csv'):
+        os.system(f'simvisdbutil {app}.trn {input_signals} -output outputs/raw_input_{app}_{tile}.csv {flag_string}')
+    if not os.path.exists(f'outputs/raw_output_{app}_{tile}.csv'):
+        os.system(f'simvisdbutil {app}.trn {output_signals} -output outputs/raw_output_{app}_{tile}.csv {flag_string}')
 
 
 # Convert raw signals CSV file to test vector file
@@ -109,6 +111,7 @@ def create_testbench(app, inputs, outputs,
                      timescale='1ns/1ps', assign_delay=0.2, clock_period=2):
     # Start from 0 and define input slices
     input_slices, input_base = '', 0
+    print(input_widths[i])
     for i in inputs:
         input_slices += f'`define SLICE_{i.upper()} {input_widths[i]-1+input_base}:{input_base}\n'
         input_base += input_widths[i]
@@ -215,8 +218,8 @@ def main():
         generate_raw(app, tile) 
 
         # Convert raw input/output CSVs to test vectors
-        num_test_vectors, input_widths = convert_raw(inputs, f"raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
-        _, output_widths = convert_raw(outputs, f"raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
+        num_test_vectors, input_widths = convert_raw(inputs, f"outputs/raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
+        _, output_widths = convert_raw(outputs, f"outputs/raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
  
     # Create testbench
     print("Creating testbench...")
