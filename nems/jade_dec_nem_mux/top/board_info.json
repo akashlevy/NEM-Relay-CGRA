@@ -1,9 +1,0 @@
-{
-  "C": "In 16x16 grid, groups 0,1,2,3 map to sides 3,0,1,2 (e,s,w,n) respectively",
-  "C": "Each group maps to a single 16-bit bus (BUS16)",
-  "C": "1-out below means group1/right/side0 pads are outputs",
-  "C": "3-in        means group3/left /side2 pads are inputs",
-
-  "1" : "out",
-  "3" : "in"
-}

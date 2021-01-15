@@ -1,5 +1,0 @@
-       <mode bith='1' bitl='0'>00</mode>
-       <tile_en bith='2' bitl='2'>0</tile_en>
-       <depth bith='15' bitl='3'>0</depth>
-       <almost_count bith='19' bitl='16'>0</almost_count>
-       <chain_enable bith='20' bitl='20'>0</chain_enable>

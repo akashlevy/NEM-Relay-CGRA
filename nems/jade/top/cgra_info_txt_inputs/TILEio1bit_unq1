@@ -1,9 +1,0 @@
-    <io_group>0</io_group>
-    <tri feature_address='0' reg_address='0' bitl='0' bith='0'>
-        <direction sel='0'>in</direction>  <!--input-->
-        <direction sel='1'>out</direction> <!--output-->
-    </tri>
-    <mux feature_address='0' reg_address='0' bitl='1' bith='1'>
-        <src sel='0'>16</src> <!-- 16 bit mode -->
-        <src sel='1'>1</src>  <!--  1 bit mode -->
-    </mux>
