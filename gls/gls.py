@@ -198,7 +198,7 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     open(simout_file, 'wb').write(simout)
 
     # Rename the output
-    subprocess.run(["mv", "outputs/out.vcd" f"outputs/{app}_{tile}_out.vcd"])
+    subprocess.run(["mv", "outputs/out.vcd", f"outputs/{app}_{tile}_out.vcd"])
 
 
 # Process each tile
