@@ -43,7 +43,7 @@ cd $scriptpath
 # Script is maybe in $gen/bitstream/bsbuilder/testdir
 set gen = `(cd ../../..; pwd)`
 set v   = $gen/verilator/generator_z_tb
-alias json2dot $gen/testdir/graphcompare/json2dot.py
+alias json2dot python $gen/testdir/graphcompare/json2dot.py
 
 
 echo "set tmp = $tmp"
