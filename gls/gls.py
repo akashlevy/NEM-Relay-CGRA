@@ -32,9 +32,9 @@ def generate_raw(app, tile):
     flag_string = ' '.join(flags)
 
     # Convert VCD to SST2
-    subprocess.run([f'simvisdbutil inputs/{app}.vcd -sst2'])
-    subprocess.run([f'simvisdbutil {app}_{tile}.trn {input_signals} -output raw_input_{app}_{tile}.csv {flag_string}'])
-    subprocess.run([f'simvisdbutil {app}_{tile}.trn {output_signals} -output raw_output_{app}_{tile}.csv {flag_string}'])
+    os.system([f'simvisdbutil inputs/{app}.vcd -sst2'])
+    os.system([f'simvisdbutil {app}_{tile}.trn {input_signals} -output raw_input_{app}_{tile}.csv {flag_string}'])
+    os.system([f'simvisdbutil {app}_{tile}.trn {output_signals} -output raw_output_{app}_{tile}.csv {flag_string}'])
 
 
 # Convert raw signals CSV file to test vector file
@@ -173,7 +173,7 @@ def create_testbench(app, inputs, outputs,
         design_file,
         stdcell_file
     ]
-    subprocess.run(vcs_cmd)
+    os.system(" ".join(vcs_cmd))
 
 
 # Run the testbenches that are created
