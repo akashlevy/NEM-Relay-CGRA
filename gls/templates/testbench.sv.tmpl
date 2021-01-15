@@ -51,7 +51,7 @@ module testbench;
     end
   
     // Stimulate DUT using input vectors
-    always @(posedge clk_in) begin
+    always @(negedge clk_in) begin
         // Don't change the inputs right after the clock edge because that will cause problems in GLS
         test_vector_addr <= # `ASSIGNMENT_DELAY (test_vector_addr + 1);
         test_vector <= test_vectors[test_vector_addr];
