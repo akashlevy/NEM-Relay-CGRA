@@ -168,7 +168,7 @@ vcdtest:
 	   -input  ../../bitstream/bsbuilder/testdir/examples/$(APP)_input.raw \
 	   -output ./$(APP)_out.raw \
 	   -delay $(DELAY)         \
-	   -nclocks 5M 
+	   -nclocks 5M \
 	   -trace $(APP).vcd || echo FAIL
 
-	cmp ./$(APP)_out.raw ../../bitstream/bsbuilder/testdir/examples/$(APP)_halide_out.raw
+	cmp $(VERILATOR_TOP)/$(APP)_out.raw ../bitstream/bsbuilder/testdir/examples/$(APP)_halide_out.raw
