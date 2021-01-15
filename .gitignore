@@ -9,4 +9,6 @@
 nems/vcd
 gls/csrc
 gls/design
+gls/inputs/*.vcd
+gls/inputs/*.bsa
 
