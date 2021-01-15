@@ -218,14 +218,14 @@ def main():
         generate_raw(app, tile)
 
         # Convert raw input/output CSVs to test vectors (if files do not already exist)
-        if not os.path.exists(f"outputs/test_vectors_{app}_{tile}.txt"):
+        if not os.path.exists(f"outputs/test_vectors_{app}_{tile}.txt") or i == 0:
             num_test_vectors, input_widths = convert_raw(inputs, f"outputs/raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
-        if not os.path.exists(f"outputs/test_outputs_{app}_{tile}.txt"):
+        if not os.path.exists(f"outputs/test_outputs_{app}_{tile}.txt") or i == 0:
             _, output_widths = convert_raw(outputs, f"outputs/raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
-    else:
-        # Create testbench
-        print("Creating testbench...")
-        create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors)
+    
+    # Create testbench
+    print("Creating testbench...")
+    create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors)
 
     # Run testbench
     print("Running testbench...")
