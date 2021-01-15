@@ -156,7 +156,7 @@ def create_testbench(app, inputs, outputs,
         output_checks += f'''
         if ({o} != test_outputs[test_vector_addr][`SLICE_{o.upper()}] || $isunknown({o})) begin
             $display("mismatch cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
-        end\n''')
+        end\n'''
 
     # Template substitution for testbench
     template = Template(open('templates/testbench.sv.tmpl').read())
