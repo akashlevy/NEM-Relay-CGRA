@@ -179,6 +179,7 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "-debug",
         "+vcs+dumpvars+outputs/out.vcd",
         "+vcs+initreg+random",
+        "+neg_tchk",
         "testbench.sv",
         design_file,
         stdcell_file,
