@@ -74,7 +74,7 @@ def convert_raw(signals, input_file, output_file):
         col[name] = i
 
     # Start with two 0000 vectors for all signals
-    #outfile.write(('_'.join(['0000']*len(signals))+'\n')*2)
+    outfile.write(('_'.join(['0000']*len(signals))+'\n')*2)
 
     # Generate vector form
     for c in range(1,len(data)):
@@ -115,7 +115,6 @@ def create_testbench(app, inputs, outputs,
                      timescale='1ns/1ps', assign_delay=0.2, clock_period=2):
     # Start from 0 and define input slices
     input_slices, input_base = '', 0
-    print(input_widths)
     for i in inputs:
         input_slices += f'`define SLICE_{i.upper()} {input_widths[i]-1+input_base}:{input_base}\n'
         input_base += input_widths[i]
