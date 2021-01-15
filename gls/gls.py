@@ -111,7 +111,7 @@ def create_testbench(app, inputs, outputs,
                      timescale='1ns/1ps', assign_delay=0.2, clock_period=2):
     # Start from 0 and define input slices
     input_slices, input_base = '', 0
-    print(input_widths[i])
+    print(input_widths)
     for i in inputs:
         input_slices += f'`define SLICE_{i.upper()} {input_widths[i]-1+input_base}:{input_base}\n'
         input_base += input_widths[i]
@@ -215,11 +215,13 @@ def main():
         print(f"Processing {tile}...")
 
         # Generate raw input/output CSVs
-        generate_raw(app, tile) 
+        generate_raw(app, tile)
 
-        # Convert raw input/output CSVs to test vectors
-        num_test_vectors, input_widths = convert_raw(inputs, f"outputs/raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
-        _, output_widths = convert_raw(outputs, f"outputs/raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
+        # Convert raw input/output CSVs to test vectors (if files do not already exist)
+        if not os.file.exists(f"outputs/test_vectors_{app}_{tile}.txt"):
+            num_test_vectors, input_widths = convert_raw(inputs, f"outputs/raw_input_{app}_{tile}.csv", f"outputs/test_vectors_{app}_{tile}.txt")
+        if not os.file.exists(f"outputs/test_outputs_{app}_{tile}.txt"):
+            _, output_widths = convert_raw(outputs, f"outputs/raw_output_{app}_{tile}.csv", f"outputs/test_outputs_{app}_{tile}.txt")
  
     # Create testbench
     print("Creating testbench...")
