@@ -1,0 +1,1866 @@
+Information: Updating design information... (UID-85)
+Information: Timing loop detected. (OPT-150)
+	test_pe/test_pe_comp/U204/A1 test_pe/test_pe_comp/U204/ZN test_pe/test_pe_comp/U331/A1 test_pe/test_pe_comp/U331/ZN test_pe/U208/I test_pe/U208/Z test_pe/U59/A1 test_pe/U59/ZN test_pe/U318/A1 test_pe/U318/ZN sb_wide/prepipe_tri_1_1_2_1/I sb_wide/prepipe_tri_1_1_2_1/Z sb_wide/pipe_tri_1_1_2_pre/I sb_wide/pipe_tri_1_1_2_pre/Z cb_data1/out_tri_6_2/I cb_data1/out_tri_6_2/Z test_pe/test_opt_reg_file/U14/A1 test_pe/test_opt_reg_file/U14/ZN test_pe/test_opt_reg_file/U61/A1 test_pe/test_opt_reg_file/U61/ZN test_pe/test_pe_comp/test_mult_add/U298/A1 test_pe/test_pe_comp/test_mult_add/U298/ZN test_pe/test_pe_comp/test_mult_add/U309/A1 test_pe/test_pe_comp/test_mult_add/U309/ZN test_pe/test_pe_comp/test_mult_add/U791/A1 test_pe/test_pe_comp/test_mult_add/U791/Z test_pe/test_pe_comp/test_mult_add/U320/A1 test_pe/test_pe_comp/test_mult_add/U320/ZN test_pe/test_pe_comp/test_mult_add/U322/A1 test_pe/test_pe_comp/test_mult_add/U322/ZN test_pe/test_pe_comp/test_mult_add/U333/A1 test_pe/test_pe_comp/test_mult_add/U333/ZN test_pe/test_pe_comp/test_mult_add/U346/A1 test_pe/test_pe_comp/test_mult_add/U346/ZN test_pe/test_pe_comp/test_mult_add/U574/A1 test_pe/test_pe_comp/test_mult_add/U574/ZN test_pe/test_pe_comp/test_mult_add/U573/A1 test_pe/test_pe_comp/test_mult_add/U573/ZN test_pe/test_pe_comp/test_mult_add/U480/A1 test_pe/test_pe_comp/test_mult_add/U480/ZN test_pe/test_pe_comp/test_mult_add/U465/A1 test_pe/test_pe_comp/test_mult_add/U465/ZN test_pe/test_pe_comp/test_mult_add/U1099/A1 test_pe/test_pe_comp/test_mult_add/U1099/ZN test_pe/test_pe_comp/test_mult_add/U138/A1 test_pe/test_pe_comp/test_mult_add/U138/ZN test_pe/test_pe_comp/test_mult_add/U1144/A1 test_pe/test_pe_comp/test_mult_add/U1144/ZN test_pe/test_pe_comp/test_mult_add/U561/A1 test_pe/test_pe_comp/test_mult_add/U561/ZN test_pe/test_pe_comp/test_mult_add/U655/A1 test_pe/test_pe_comp/test_mult_add/U655/ZN test_pe/test_pe_comp/test_mult_add/U954/A1 test_pe/test_pe_comp/test_mult_add/U954/ZN test_pe/test_pe_comp/test_mult_add/U1118/A1 test_pe/test_pe_comp/test_mult_add/U1118/ZN test_pe/test_pe_comp/test_mult_add/U1116/A1 test_pe/test_pe_comp/test_mult_add/U1116/ZN test_pe/test_pe_comp/test_mult_add/U1166/A1 test_pe/test_pe_comp/test_mult_add/U1166/ZN test_pe/test_pe_comp/test_mult_add/U1165/A1 test_pe/test_pe_comp/test_mult_add/U1165/Z test_pe/test_pe_comp/test_mult_add/U388/I test_pe/test_pe_comp/test_mult_add/U388/ZN test_pe/test_pe_comp/U412/A1 test_pe/test_pe_comp/U412/ZN test_pe/test_pe_comp/U146/A1 test_pe/test_pe_comp/U146/ZN test_pe/U116/I test_pe/U116/Z test_pe/U117/A1 test_pe/U117/ZN test_pe/U119/A1 test_pe/U119/ZN sb_wide/prepipe_tri_1_4_14_1/I sb_wide/prepipe_tri_1_4_14_1/Z sb_wide/pipe_tri_1_4_14_pre/I sb_wide/pipe_tri_1_4_14_pre/Z cb_data1/out_tri_9_14/I cb_data1/out_tri_9_14/Z test_pe/test_opt_reg_file/U6/I0 test_pe/test_opt_reg_file/U6/Z test_pe/test_pe_comp/test_mult_add/U1152/I test_pe/test_pe_comp/test_mult_add/U1152/Z test_pe/test_pe_comp/test_mult_add/U282/A1 test_pe/test_pe_comp/test_mult_add/U282/ZN test_pe/test_pe_comp/test_mult_add/U276/A1 test_pe/test_pe_comp/test_mult_add/U276/ZN test_pe/test_pe_comp/test_mult_add/U186/A test_pe/test_pe_comp/test_mult_add/U186/CO test_pe/test_pe_comp/test_mult_add/U233/A1 test_pe/test_pe_comp/test_mult_add/U233/Z test_pe/test_pe_comp/test_mult_add/U562/A test_pe/test_pe_comp/test_mult_add/U562/S test_pe/test_pe_comp/test_mult_add/U126/A1 test_pe/test_pe_comp/test_mult_add/U126/ZN test_pe/test_pe_comp/test_mult_add/U101/A1 test_pe/test_pe_comp/test_mult_add/U101/ZN test_pe/test_pe_comp/test_mult_add/U566/I test_pe/test_pe_comp/test_mult_add/U566/ZN test_pe/test_pe_comp/test_mult_add/U108/A1 test_pe/test_pe_comp/test_mult_add/U108/ZN test_pe/test_pe_comp/test_mult_add/U431/A1 test_pe/test_pe_comp/test_mult_add/U431/ZN 
+Information: Timing loop detected. (OPT-150)
+	test_pe/test_pe_comp/test_mult_add/U897/I test_pe/test_pe_comp/test_mult_add/U897/ZN test_pe/test_pe_comp/test_mult_add/U971/A1 test_pe/test_pe_comp/test_mult_add/U971/ZN test_pe/test_pe_comp/test_mult_add/U906/A1 test_pe/test_pe_comp/test_mult_add/U906/Z test_pe/test_pe_comp/test_mult_add/U420/I test_pe/test_pe_comp/test_mult_add/U420/ZN test_pe/test_pe_comp/U333/A1 test_pe/test_pe_comp/U333/ZN test_pe/test_pe_comp/U342/A1 test_pe/test_pe_comp/U342/ZN test_pe/U123/A1 test_pe/U123/ZN test_pe/U304/A1 test_pe/U304/ZN sb_wide/prepipe_tri_2_3_1_2/I sb_wide/prepipe_tri_2_3_1_2/Z sb_wide/pipe_tri_2_3_1_pre/I sb_wide/pipe_tri_2_3_1_pre/Z cb_data0/out_tri_8_1/I cb_data0/out_tri_8_1/Z test_pe/test_opt_reg_a/U104/A1 test_pe/test_opt_reg_a/U104/ZN test_pe/test_opt_reg_a/U95/I test_pe/test_opt_reg_a/U95/ZN test_pe/test_pe_comp/test_mult_add/U991/I test_pe/test_pe_comp/test_mult_add/U991/Z test_pe/test_pe_comp/test_mult_add/U4/A1 test_pe/test_pe_comp/test_mult_add/U4/ZN test_pe/test_pe_comp/test_mult_add/U397/A1 test_pe/test_pe_comp/test_mult_add/U397/ZN test_pe/test_pe_comp/test_mult_add/U423/A test_pe/test_pe_comp/test_mult_add/U423/S test_pe/test_pe_comp/test_mult_add/U418/A test_pe/test_pe_comp/test_mult_add/U418/CO test_pe/test_pe_comp/test_mult_add/U500/A test_pe/test_pe_comp/test_mult_add/U500/S test_pe/test_pe_comp/test_mult_add/U468/A1 test_pe/test_pe_comp/test_mult_add/U468/ZN test_pe/test_pe_comp/test_mult_add/U948/A1 test_pe/test_pe_comp/test_mult_add/U948/ZN test_pe/test_pe_comp/test_mult_add/U949/A1 test_pe/test_pe_comp/test_mult_add/U949/Z test_pe/test_pe_comp/U327/I test_pe/test_pe_comp/U327/ZN test_pe/test_pe_comp/U321/A1 test_pe/test_pe_comp/U321/ZN test_pe/test_pe_comp/U206/A1 test_pe/test_pe_comp/U206/ZN test_pe/test_pe_comp/U331/A2 test_pe/test_pe_comp/U331/ZN test_pe/U208/I test_pe/U208/Z test_pe/U59/A1 test_pe/U59/ZN test_pe/U318/A1 test_pe/U318/ZN sb_wide/prepipe_tri_1_1_2_1/I sb_wide/prepipe_tri_1_1_2_1/Z sb_wide/pipe_tri_1_1_2_pre/I sb_wide/pipe_tri_1_1_2_pre/Z cb_data1/out_tri_6_2/I cb_data1/out_tri_6_2/Z test_pe/test_opt_reg_file/U14/A1 test_pe/test_opt_reg_file/U14/ZN test_pe/test_opt_reg_file/U61/A1 test_pe/test_opt_reg_file/U61/ZN test_pe/test_pe_comp/test_mult_add/U298/A1 test_pe/test_pe_comp/test_mult_add/U298/ZN test_pe/test_pe_comp/test_mult_add/U309/A1 test_pe/test_pe_comp/test_mult_add/U309/ZN test_pe/test_pe_comp/test_mult_add/U791/A1 test_pe/test_pe_comp/test_mult_add/U791/Z test_pe/test_pe_comp/test_mult_add/U320/A1 test_pe/test_pe_comp/test_mult_add/U320/ZN test_pe/test_pe_comp/test_mult_add/U322/A1 test_pe/test_pe_comp/test_mult_add/U322/ZN test_pe/test_pe_comp/test_mult_add/U333/A1 test_pe/test_pe_comp/test_mult_add/U333/ZN test_pe/test_pe_comp/test_mult_add/U346/A1 test_pe/test_pe_comp/test_mult_add/U346/ZN test_pe/test_pe_comp/test_mult_add/U574/A1 test_pe/test_pe_comp/test_mult_add/U574/ZN test_pe/test_pe_comp/test_mult_add/U573/A1 test_pe/test_pe_comp/test_mult_add/U573/ZN test_pe/test_pe_comp/test_mult_add/U480/A1 test_pe/test_pe_comp/test_mult_add/U480/ZN test_pe/test_pe_comp/test_mult_add/U465/A1 test_pe/test_pe_comp/test_mult_add/U465/ZN test_pe/test_pe_comp/test_mult_add/U1099/A1 test_pe/test_pe_comp/test_mult_add/U1099/ZN test_pe/test_pe_comp/test_mult_add/U138/A1 test_pe/test_pe_comp/test_mult_add/U138/ZN test_pe/test_pe_comp/test_mult_add/U1144/A1 test_pe/test_pe_comp/test_mult_add/U1144/ZN test_pe/test_pe_comp/test_mult_add/U561/A1 test_pe/test_pe_comp/test_mult_add/U561/ZN 
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_2_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_1_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_5_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_10_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_10_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_10_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_14_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_14_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_13_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_13_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_15_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_15_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_12_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_12_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_11_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_7_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_1_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_1_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_2_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_2_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit0/out_tri_9_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_1b/pipe_tri_2_3_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit0/out_tri_8_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit0/out_tri_7_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit0/out_tri_5_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_8_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_7_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_7_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_11_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_11_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_5_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_5_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_6_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_6_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_9_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_9_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_8_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_8_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_3_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_3_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_4_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_4_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit1/out_tri_9_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit1/out_tri_7_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit1/out_tri_5_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_14_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_12_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_13_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_15_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_11_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_1b/pipe_tri_2_1_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit0/out_tri_6_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_3_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_4_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_9_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_9_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_6_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit2/out_tri_9_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit2/out_tri_7_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit2/out_tri_5_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_2_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_9_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_3_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_8_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_3_8_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_8_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_1b/pipe_tri_1_3_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit1/out_tri_8_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_14_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_1_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_5_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_10_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_12_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_13_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_15_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_2_1_7_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_6_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_7_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_3_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_4_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_7_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_9_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_wide/pipe_tri_1_1_6_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_6_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'sb_1b/pipe_tri_1_1_0_pre'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_bit1/out_tri_6_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_2'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_14'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_1'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_5'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_10'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_12'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_13'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_15'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_11'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_7'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data0/out_tri_5_0'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_3'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_4'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_8'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_9'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+Warning: Disabling timing arc between pins 'I' and 'Z' on cell 'cb_data1/out_tri_5_6'
+         to break a timing loop (originally by case_analysis). (OPT-314)
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 10
+        -transition_time
+        -capacitance
+Design : pe_tile_new_unq1
+Version: L-2016.03-SP5-5
+Date   : Tue Oct  1 03:16:08 2019
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: NCCOM   Library: tcbn40lpbwptc
+Wire Load Model Mode: Inactive.
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S2_T2[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_2_2_0_2/I (BUFTD4BWP)                         0.0513    0.0003 *   1.6557 f
+  sb_1b/prepipe_tri_2_2_0_2/Z (BUFTD4BWP)                         0.0256    0.0700     1.7257 f
+  sb_1b/prepipe_tri_2_2_0_out (net)             2       0.0061              0.0000     1.7257 f
+  sb_1b/pipe_tri_2_2_0_pre/I (BUFTD6BWP)                          0.0256    0.0000 *   1.7257 f
+  sb_1b/pipe_tri_2_2_0_pre/Z (BUFTD6BWP)                          0.1659    0.1574     1.8832 f
+  sb_1b/out_2_2[0] (net)                        2       0.1059              0.0000     1.8832 f
+  sb_1b/out_2_2[0] (sb_unq2_0)                                              0.0000     1.8832 f
+  out_BUS1_S2_T2[0] (net)                               0.1059              0.0000     1.8832 f
+  out_BUS1_S2_T2[0] (out)                                         0.1659    0.0056 *   1.8888 f
+  data arrival time                                                                    1.8888
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8888
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0888
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S2_T4[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_2_4_0_2/I (BUFTD3BWP)                         0.0513    0.0003 *   1.6557 f
+  sb_1b/prepipe_tri_2_4_0_2/Z (BUFTD3BWP)                         0.0279    0.0695     1.7252 f
+  sb_1b/prepipe_tri_2_4_0_out (net)             2       0.0059              0.0000     1.7252 f
+  sb_1b/pipe_tri_2_4_0_pre/I (BUFTD6BWP)                          0.0279    0.0000 *   1.7252 f
+  sb_1b/pipe_tri_2_4_0_pre/Z (BUFTD6BWP)                          0.1658    0.1582     1.8834 f
+  sb_1b/out_2_4[0] (net)                        2       0.1058              0.0000     1.8834 f
+  sb_1b/out_2_4[0] (sb_unq2_0)                                              0.0000     1.8834 f
+  out_BUS1_S2_T4[0] (net)                               0.1058              0.0000     1.8834 f
+  out_BUS1_S2_T4[0] (out)                                         0.1658    0.0052 *   1.8886 f
+  data arrival time                                                                    1.8886
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8886
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0886
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S1_T2[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_1_2_0_1/I (BUFTD3BWP)                         0.0513    0.0005 *   1.6559 f
+  sb_1b/prepipe_tri_1_2_0_1/Z (BUFTD3BWP)                         0.0281    0.0697     1.7256 f
+  sb_1b/prepipe_tri_1_2_0_out (net)             2       0.0060              0.0000     1.7256 f
+  sb_1b/pipe_tri_1_2_0_pre/I (BUFTD6BWP)                          0.0281    0.0000 *   1.7256 f
+  sb_1b/pipe_tri_1_2_0_pre/Z (BUFTD6BWP)                          0.1660    0.1584     1.8840 f
+  sb_1b/out_1_2[0] (net)                        3       0.1059              0.0000     1.8840 f
+  sb_1b/out_1_2[0] (sb_unq2_0)                                              0.0000     1.8840 f
+  out_BUS1_S1_T2[0] (net)                               0.1059              0.0000     1.8840 f
+  out_BUS1_S1_T2[0] (out)                                         0.1660    0.0034 *   1.8875 f
+  data arrival time                                                                    1.8875
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8875
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0875
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S2_T0[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_2_0_0_2/I (BUFTD3BWP)                         0.0513    0.0005 *   1.6559 f
+  sb_1b/prepipe_tri_2_0_0_2/Z (BUFTD3BWP)                         0.0280    0.0696     1.7255 f
+  sb_1b/prepipe_tri_2_0_0_out (net)             2       0.0059              0.0000     1.7255 f
+  sb_1b/pipe_tri_2_0_0_pre/I (BUFTD6BWP)                          0.0280    0.0000 *   1.7255 f
+  sb_1b/pipe_tri_2_0_0_pre/Z (BUFTD6BWP)                          0.1661    0.1584     1.8839 f
+  sb_1b/out_2_0[0] (net)                        3       0.1060              0.0000     1.8839 f
+  sb_1b/out_2_0[0] (sb_unq2_0)                                              0.0000     1.8839 f
+  out_BUS1_S2_T0[0] (net)                               0.1060              0.0000     1.8839 f
+  out_BUS1_S2_T0[0] (out)                                         0.1661    0.0035 *   1.8874 f
+  data arrival time                                                                    1.8874
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8874
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0874
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: gout (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/test_debug_bit/data_in[0] (test_debug_reg_DataWidth1_0)           0.0000     1.6554 f
+  test_pe/test_debug_bit/data_in[0] (net)               0.0224              0.0000     1.6554 f
+  test_pe/test_debug_bit/U4/A1 (XOR2D2BWP)                        0.0513    0.0003 *   1.6557 f
+  test_pe/test_debug_bit/U4/Z (XOR2D2BWP)                         0.0308    0.0796     1.7353 r
+  test_pe/test_debug_bit/debug_irq (net)        1       0.0025              0.0000     1.7353 r
+  test_pe/test_debug_bit/debug_irq (test_debug_reg_DataWidth1_0)            0.0000     1.7353 r
+  test_pe/irq_bit (net)                                 0.0025              0.0000     1.7353 r
+  test_pe/U10/A1 (ND2D4BWP)                                       0.0308    0.0000 *   1.7353 r
+  test_pe/U10/ZN (ND2D4BWP)                                       0.0351    0.0245     1.7598 f
+  test_pe/n29 (net)                             1       0.0030              0.0000     1.7598 f
+  test_pe/U12/A2 (ND2D4BWP)                                       0.0351    0.0001 *   1.7598 f
+  test_pe/U12/ZN (ND2D4BWP)                                       0.0269    0.0285     1.7883 r
+  test_pe/irq (net)                             1       0.0038              0.0000     1.7883 r
+  test_pe/irq (test_pe_unq1_0)                                              0.0000     1.7883 r
+  pe_out_irq (net)                                      0.0038              0.0000     1.7883 r
+  U88/A1 (CKND2D8BWP)                                             0.0269    0.0000 *   1.7883 r
+  U88/ZN (CKND2D8BWP)                                             0.0244    0.0249     1.8133 f
+  n586 (net)                                    1       0.0077              0.0000     1.8133 f
+  U89/I (CKND12BWP)                                               0.0244    0.0004 *   1.8136 f
+  U89/ZN (CKND12BWP)                                              0.1050    0.0701     1.8838 r
+  gout (net)                                    1       0.1011              0.0000     1.8838 r
+  gout (out)                                                      0.1050    0.0036 *   1.8873 r
+  data arrival time                                                                    1.8873
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8873
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0873
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S1_T4[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_1_4_0_1/I (BUFTD3BWP)                         0.0513    0.0007 *   1.6561 f
+  sb_1b/prepipe_tri_1_4_0_1/Z (BUFTD3BWP)                         0.0282    0.0697     1.7259 f
+  sb_1b/prepipe_tri_1_4_0_out (net)             2       0.0060              0.0000     1.7259 f
+  sb_1b/pipe_tri_1_4_0_pre/I (BUFTD6BWP)                          0.0282    0.0000 *   1.7259 f
+  sb_1b/pipe_tri_1_4_0_pre/Z (BUFTD6BWP)                          0.1658    0.1583     1.8842 f
+  sb_1b/out_1_4[0] (net)                        3       0.1058              0.0000     1.8842 f
+  sb_1b/out_1_4[0] (sb_unq2_0)                                              0.0000     1.8842 f
+  out_BUS1_S1_T4[0] (net)                               0.1058              0.0000     1.8842 f
+  out_BUS1_S1_T4[0] (out)                                         0.1658    0.0029 *   1.8871 f
+  data arrival time                                                                    1.8871
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8871
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0871
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S3_T2[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_3_2_0_3/I (BUFTD3BWP)                         0.0513    0.0005 *   1.6559 f
+  sb_1b/prepipe_tri_3_2_0_3/Z (BUFTD3BWP)                         0.0286    0.0701     1.7259 f
+  sb_1b/prepipe_tri_3_2_0_out (net)             2       0.0061              0.0000     1.7259 f
+  sb_1b/pipe_tri_3_2_0_pre/I (BUFTD6BWP)                          0.0286    0.0001 *   1.7260 f
+  sb_1b/pipe_tri_3_2_0_pre/Z (BUFTD6BWP)                          0.1629    0.1568     1.8828 f
+  sb_1b/out_3_2[0] (net)                        1       0.1039              0.0000     1.8828 f
+  sb_1b/out_3_2[0] (sb_unq2_0)                                              0.0000     1.8828 f
+  out_BUS1_S3_T2[0] (net)                               0.1039              0.0000     1.8828 f
+  out_BUS1_S3_T2[0] (out)                                         0.1629    0.0036 *   1.8865 f
+  data arrival time                                                                    1.8865
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8865
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0865
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S1_T0[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_1_0_0_1/I (BUFTD4BWP)                         0.0513    0.0005 *   1.6559 f
+  sb_1b/prepipe_tri_1_0_0_1/Z (BUFTD4BWP)                         0.0256    0.0700     1.7260 f
+  sb_1b/prepipe_tri_1_0_0_out (net)             2       0.0061              0.0000     1.7260 f
+  sb_1b/pipe_tri_1_0_0_pre/I (BUFTD6BWP)                          0.0256    0.0000 *   1.7260 f
+  sb_1b/pipe_tri_1_0_0_pre/Z (BUFTD6BWP)                          0.1659    0.1574     1.8835 f
+  sb_1b/out_1_0[0] (net)                        3       0.1059              0.0000     1.8835 f
+  sb_1b/out_1_0[0] (sb_unq2_0)                                              0.0000     1.8835 f
+  out_BUS1_S1_T0[0] (net)                               0.1059              0.0000     1.8835 f
+  out_BUS1_S1_T0[0] (out)                                         0.1659    0.0029 *   1.8863 f
+  data arrival time                                                                    1.8863
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8863
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0863
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S0_T2[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_0_2_0_0/I (BUFTD3BWP)                         0.0513    0.0005 *   1.6559 f
+  sb_1b/prepipe_tri_0_2_0_0/Z (BUFTD3BWP)                         0.0281    0.0697     1.7256 f
+  sb_1b/prepipe_tri_0_2_0_out (net)             2       0.0060              0.0000     1.7256 f
+  sb_1b/pipe_tri_0_2_0_pre/I (BUFTD6BWP)                          0.0281    0.0000 *   1.7257 f
+  sb_1b/pipe_tri_0_2_0_pre/Z (BUFTD6BWP)                          0.1628    0.1566     1.8823 f
+  sb_1b/out_0_2[0] (net)                        1       0.1038              0.0000     1.8823 f
+  sb_1b/out_0_2[0] (sb_unq2_0)                                              0.0000     1.8823 f
+  out_BUS1_S0_T2[0] (net)                               0.1038              0.0000     1.8823 f
+  out_BUS1_S0_T2[0] (out)                                         0.1628    0.0036 *   1.8859 f
+  data arrival time                                                                    1.8859
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8859
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0859
+
+
+  Startpoint: in_BUS16_S2_T0[13]
+              (input port clocked by clk)
+  Endpoint: out_BUS1_S0_T0[0]
+            (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout       Cap     Trans      Incr       Path      Attributes
+  -------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                     0.0000     0.0000
+  clock network delay (ideal)                                               0.0000     0.0000
+  input external delay                                                      0.2000     0.2000 r
+  in_BUS16_S2_T0[13] (in)                                         0.2000    0.0000     0.2000 r
+  in_BUS16_S2_T0[13] (net)                      2       0.0024              0.0000     0.2000 r
+  cb_data0/in_0[13] (cb_unq1_2)                                             0.0000     0.2000 r
+  cb_data0/in_0[13] (net)                               0.0024              0.0000     0.2000 r
+  cb_data0/out_tri_0_13/I (BUFTD4BWP)                             0.2000    0.0000 *   0.2000 r
+  cb_data0/out_tri_0_13/Z (BUFTD4BWP)                             0.0484    0.1084     0.3084 r
+  cb_data0/out[13] (net)                        2       0.0125              0.0000     0.3084 r
+  cb_data0/out[13] (cb_unq1_2)                                              0.0000     0.3084 r
+  data0[13] (net)                                       0.0125              0.0000     0.3084 r
+  test_pe/data0[13] (test_pe_unq1_0)                                        0.0000     0.3084 r
+  test_pe/data0[13] (net)                               0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (test_opt_reg_DataWidth16_0)           0.0000     0.3084 r
+  test_pe/test_opt_reg_a/data_in[13] (net)              0.0125              0.0000     0.3084 r
+  test_pe/test_opt_reg_a/U100/A1 (AOI21D4BWP)                     0.0484    0.0005 *   0.3089 r
+  test_pe/test_opt_reg_a/U100/ZN (AOI21D4BWP)                     0.0299    0.0333     0.3421 f
+  test_pe/test_opt_reg_a/n86 (net)              1       0.0035              0.0000     0.3421 f
+  test_pe/test_opt_reg_a/U5/I (INVD6BWP)                          0.0299    0.0000 *   0.3421 f
+  test_pe/test_opt_reg_a/U5/ZN (INVD6BWP)                         0.0363    0.0324     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (net)          9       0.0142              0.0000     0.3746 r
+  test_pe/test_opt_reg_a/res[13] (test_opt_reg_DataWidth16_0)               0.0000     0.3746 r
+  test_pe/op_a[13] (net)                                0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (test_pe_comp_unq1_0)                       0.0000     0.3746 r
+  test_pe/test_pe_comp/op_a[13] (net)                   0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (test_mult_add_DataWidth16_0)    0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/a[13] (net)        0.0142              0.0000     0.3746 r
+  test_pe/test_pe_comp/test_mult_add/U984/A2 (XNR2D4BWP)          0.0363    0.0006 *   0.3752 r
+  test_pe/test_pe_comp/test_mult_add/U984/ZN (XNR2D4BWP)          0.0549    0.1273     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/n546 (net)    10   0.0161              0.0000     0.5025 f
+  test_pe/test_pe_comp/test_mult_add/U983/B2 (OAI22D4BWP)         0.0549    0.0004 *   0.5029 f
+  test_pe/test_pe_comp/test_mult_add/U983/ZN (OAI22D4BWP)         0.0561    0.0619     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/n191 (net)     1   0.0027              0.0000     0.5648 r
+  test_pe/test_pe_comp/test_mult_add/U270/B (FA1D4BWP)            0.0561    0.0001 *   0.5649 r
+  test_pe/test_pe_comp/test_mult_add/U270/S (FA1D4BWP)            0.0351    0.1462     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/n207 (net)     2   0.0028              0.0000     0.7111 f
+  test_pe/test_pe_comp/test_mult_add/U1079/A2 (XOR3D2BWP)         0.0351    0.0001 *   0.7112 f
+  test_pe/test_pe_comp/test_mult_add/U1079/Z (XOR3D2BWP)          0.0278    0.1266     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/n212 (net)     1   0.0015              0.0000     0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/CI (FA1D1BWP)           0.0278    0.0000 *   0.8378 r
+  test_pe/test_pe_comp/test_mult_add/U287/S (FA1D1BWP)            0.0327    0.0839     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/n215 (net)     1   0.0022              0.0000     0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/B (FA1D4BWP)            0.0327    0.0000 *   0.9217 f
+  test_pe/test_pe_comp/test_mult_add/U290/CO (FA1D4BWP)           0.0348    0.1336     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/n222 (net)     2   0.0051              0.0000     1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/A1 (NR2XD4BWP)         0.0348    0.0001 *   1.0554 f
+  test_pe/test_pe_comp/test_mult_add/U1140/ZN (NR2XD4BWP)         0.0330    0.0315     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/n923 (net)     3   0.0060              0.0000     1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/A1 (OAI21D4BWP)         0.0330    0.0000 *   1.0869 r
+  test_pe/test_pe_comp/test_mult_add/U296/ZN (OAI21D4BWP)         0.0362    0.0330     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/n223 (net)     2   0.0056              0.0000     1.1199 f
+  test_pe/test_pe_comp/test_mult_add/U1117/B (AOI21D4BWP)         0.0362    0.0001 *   1.1200 f
+  test_pe/test_pe_comp/test_mult_add/U1117/ZN (AOI21D4BWP)        0.0498    0.0535     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/n1351 (net)     1   0.0037             0.0000     1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/A2 (CKND2D8BWP)        0.0498    0.0000 *   1.1735 r
+  test_pe/test_pe_comp/test_mult_add/U1116/ZN (CKND2D8BWP)        0.0365    0.0431     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/n1207 (net)     8   0.0144             0.0000     1.2166 f
+  test_pe/test_pe_comp/test_mult_add/U1169/A1 (AOI21D4BWP)        0.0365    0.0005 *   1.2171 f
+  test_pe/test_pe_comp/test_mult_add/U1169/ZN (AOI21D4BWP)        0.0330    0.0313     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/n1422 (net)     1   0.0011             0.0000     1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/A1 (XOR2D2BWP)         0.0330    0.0000 *   1.2484 r
+  test_pe/test_pe_comp/test_mult_add/U1168/Z (XOR2D2BWP)          0.0363    0.0897     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/n1270 (net)     1   0.0035             0.0000     1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/I (INVD6BWP)              0.0363    0.0000 *   1.3381 f
+  test_pe/test_pe_comp/test_mult_add/U9/ZN (INVD6BWP)             0.0274    0.0284     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (net)     2   0.0088           0.0000     1.3664 r
+  test_pe/test_pe_comp/test_mult_add/res[28] (test_mult_add_DataWidth16_0)   0.0000    1.3664 r
+  test_pe/test_pe_comp/mult_res[28] (net)               0.0088              0.0000     1.3664 r
+  test_pe/test_pe_comp/U252/A2 (NR4D4BWP)                         0.0274    0.0001 *   1.3666 r
+  test_pe/test_pe_comp/U252/ZN (NR4D4BWP)                         0.0261    0.0257     1.3922 f
+  test_pe/test_pe_comp/n218 (net)               1       0.0027              0.0000     1.3922 f
+  test_pe/test_pe_comp/U135/A2 (AOI31D4BWP)                       0.0261    0.0001 *   1.3923 f
+  test_pe/test_pe_comp/U135/ZN (AOI31D4BWP)                       0.0685    0.0519     1.4442 r
+  test_pe/test_pe_comp/ovfl (net)               4       0.0054              0.0000     1.4442 r
+  test_pe/test_pe_comp/ovfl (test_pe_comp_unq1_0)                           0.0000     1.4442 r
+  test_pe/V (net)                                       0.0054              0.0000     1.4442 r
+  test_pe/U44/A1 (XNR2D1BWP)                                      0.0685    0.0001 *   1.4442 r
+  test_pe/U44/ZN (XNR2D1BWP)                                      0.0292    0.0823     1.5265 f
+  test_pe/n95 (net)                             2       0.0016              0.0000     1.5265 f
+  test_pe/U84/A1 (ND2D2BWP)                                       0.0292    0.0000 *   1.5265 f
+  test_pe/U84/ZN (ND2D2BWP)                                       0.0228    0.0222     1.5487 r
+  test_pe/n64 (net)                             1       0.0017              0.0000     1.5487 r
+  test_pe/U316/A1 (ND3D3BWP)                                      0.0228    0.0000 *   1.5487 r
+  test_pe/U316/ZN (ND3D3BWP)                                      0.0364    0.0318     1.5805 f
+  test_pe/n280 (net)                            1       0.0025              0.0000     1.5805 f
+  test_pe/U320/A1 (NR2XD3BWP)                                     0.0364    0.0000 *   1.5806 f
+  test_pe/U320/ZN (NR2XD3BWP)                                     0.0324    0.0313     1.6118 r
+  test_pe/n107 (net)                            1       0.0042              0.0000     1.6118 r
+  test_pe/U93/A1 (ND2D8BWP)                                       0.0324    0.0000 *   1.6118 r
+  test_pe/U93/ZN (ND2D8BWP)                                       0.0513    0.0436     1.6554 f
+  test_pe/n291 (net)                           14       0.0224              0.0000     1.6554 f
+  test_pe/res_p (test_pe_unq1_0)                                            0.0000     1.6554 f
+  pe_out_res_p (net)                                    0.0224              0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (sb_unq2_0)                                          0.0000     1.6554 f
+  sb_1b/pe_output_0[0] (net)                            0.0224              0.0000     1.6554 f
+  sb_1b/prepipe_tri_0_0_0_0/I (BUFTD3BWP)                         0.0513    0.0006 *   1.6560 f
+  sb_1b/prepipe_tri_0_0_0_0/Z (BUFTD3BWP)                         0.0289    0.0703     1.7264 f
+  sb_1b/prepipe_tri_0_0_0_out (net)             2       0.0062              0.0000     1.7264 f
+  sb_1b/pipe_tri_0_0_0_pre/I (BUFTD6BWP)                          0.0289    0.0001 *   1.7264 f
+  sb_1b/pipe_tri_0_0_0_pre/Z (BUFTD6BWP)                          0.1619    0.1564     1.8828 f
+  sb_1b/out_0_0[0] (net)                        1       0.1032              0.0000     1.8828 f
+  sb_1b/out_0_0[0] (sb_unq2_0)                                              0.0000     1.8828 f
+  out_BUS1_S0_T0[0] (net)                               0.1032              0.0000     1.8828 f
+  out_BUS1_S0_T0[0] (out)                                         0.1619    0.0014 *   1.8842 f
+  data arrival time                                                                    1.8842
+
+  clock clk (rise edge)                                                     2.0000     2.0000
+  clock network delay (ideal)                                               0.0000     2.0000
+  output external delay                                                    -0.2000     1.8000
+  data required time                                                                   1.8000
+  -------------------------------------------------------------------------------------------------------------------
+  data required time                                                                   1.8000
+  data arrival time                                                                   -1.8842
+  -------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                    -0.0842
+
+
+1

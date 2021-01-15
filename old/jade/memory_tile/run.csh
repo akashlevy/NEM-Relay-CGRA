@@ -1,0 +1,1 @@
+Genesis2.pl -parse -generate -top memory_tile -input ../memory_core/mem.vp ../memory_core/memory_core.vp ../memory_core/fifo_control.vp ../memory_core/linebuffer_control.vp ../memory_core/input_sr.vp ../memory_core/output_sr.vp ../sb/sb.vp ../cb/cb.vp mem_shift_reg.svp memory_tile.vp

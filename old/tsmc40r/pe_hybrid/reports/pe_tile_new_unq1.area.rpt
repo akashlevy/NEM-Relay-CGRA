@@ -1,0 +1,79 @@
+ 
+****************************************
+Report : area
+Design : pe_tile_new_unq1
+Version: L-2016.03-SP5-5
+Date   : Tue Oct  1 03:41:32 2019
+****************************************
+
+Library(s) Used:
+
+    tcbn40lpbwptc (File: /tsmc40r/pdk/2019.05.21_TSMC/tcbn40lpbwp_200a/tcbn40lpbwp_200a_nldm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn40lpbwp_200a/tcbn40lpbwptc.db)
+    hybrid40tt (File: /home/akashl/Hybrid-RRAM-NEMS/model/sismart/devicetest/models/liberty/nldm_hybrid40tt.db)
+
+Number of ports:                         3438
+Number of nets:                          7381
+Number of cells:                         5110
+Number of combinational cells:           3366
+Number of sequential cells:               999
+Number of macros/black boxes:             716
+Number of buf/inv:                       1003
+Number of references:                      35
+
+Combinational area:               4290.400856
+Buf/Inv area:                      967.377611
+Noncombinational area:            2143.083658
+Macro/Black Box area:              505.209617
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                  6938.694131
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  ------------------  ------------------------------ 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes     Design
+--------------------------------  ---------  -------  ---------  ---------  --------  ----------------------------------------------------
+pe_tile_new_unq1                  6938.6941    100.0   200.5668     6.3504    0.0000  pe_tile_new_unq1
+cb_bit0                              0.7056      0.0     0.0000     0.0000    0.7056  cb_unq2_5
+cb_bit1                              0.7056      0.0     0.0000     0.0000    0.7056  cb_unq2_6
+cb_bit2                              0.7056      0.0     0.0000     0.0000    0.7056  cb_unq2_7
+cb_cg_en                             0.7056      0.0     0.0000     0.0000    0.7056  cb_unq2_4
+cb_data0                            11.2896      0.2     0.0000     0.0000   11.2896  cb_unq1_3
+cb_data1                            11.2896      0.2     0.0000     0.0000   11.2896  cb_unq1_2
+sb_1b                              191.7468      2.8    64.9152    95.2560   28.2240  sb_unq2_0
+sb_1b/clk_gate_pipe_0_0_reg          3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_sb_unq2_0
+sb_wide                           2513.8765     36.2   534.8448  1524.0961  451.5840  sb_unq1_0
+sb_wide/clk_gate_pipe_0_0_reg        3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_sb_unq1_0
+test_pe                           4000.7520     57.7   360.2088   174.4596    0.0000  test_pe_unq1_0
+test_pe/clk_gate_op_code_reg         3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_test_pe_unq1_0
+test_pe/test_debug_bit              10.2312      0.1     2.9988     7.2324    0.0000  test_debug_reg_DataWidth1_0
+test_pe/test_debug_data            136.7100      2.0    48.6864    84.6720    0.0000  test_debug_reg_DataWidth16_0
+test_pe/test_debug_data/clk_gate_debug_val_reg
+                                     3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_test_debug_reg_DataWidth16_0
+test_pe/test_lut                    60.8580      0.9    15.1704    42.3360    0.0000  test_lut_DataWidth1_0
+test_pe/test_lut/clk_gate_GEN_LUT[0].lut_reg
+                                     3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_test_lut_DataWidth1_0
+test_pe/test_opt_reg_a             224.3808      3.2   136.3572    84.6720    0.0000  test_opt_reg_DataWidth16_0
+test_pe/test_opt_reg_a/clk_gate_data_in_reg_reg
+                                     3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_test_opt_reg_DataWidth16_0
+test_pe/test_opt_reg_d              14.6412      0.2     9.3492     5.2920    0.0000  test_opt_reg_DataWidth1_3
+test_pe/test_opt_reg_e              13.9356      0.2     8.6436     5.2920    0.0000  test_opt_reg_DataWidth1_5
+test_pe/test_opt_reg_f              13.9356      0.2     8.6436     5.2920    0.0000  test_opt_reg_DataWidth1_4
+test_pe/test_opt_reg_file          202.1544      2.9   114.1308    84.6720    0.0000  test_opt_reg_file_DataWidth16_0
+test_pe/test_opt_reg_file/clk_gate_data_in_reg_reg[0]
+                                     3.3516      0.0     0.0000     3.3516    0.0000  SNPS_CLOCK_GATE_HIGH_test_opt_reg_file_DataWidth16_0
+test_pe/test_pe_comp              2785.8852     40.1   494.4492     0.0000    0.0000  test_pe_comp_unq1_0
+test_pe/test_pe_comp/GEN_ADD[0].full_add
+                                   113.4252      1.6   113.4252     0.0000    0.0000  test_full_add_DataWidth16_0
+test_pe/test_pe_comp/cmpr           12.1716      0.2    12.1716     0.0000    0.0000  test_cmpr_0
+test_pe/test_pe_comp/test_mult_add
+                                  1967.7420     28.4  1967.7420     0.0000    0.0000  test_mult_add_DataWidth16_0
+test_pe/test_pe_comp/test_shifter  198.0972      2.9   198.0972     0.0000    0.0000  test_shifter_unq1_DataWidth16_0
+--------------------------------  ---------  -------  ---------  ---------  --------  ----------------------------------------------------
+Total                                                 4290.4009  2143.0837  505.2096
+
+1

@@ -1,0 +1,56 @@
+            <op sel='0x00' name='add'>
+                pe_out_res=op_a+op_b+op_d
+                comp_res_p=(op_a+op_b+op_d) gte 2^16
+            </op> 
+            <op sel='0x01' name='sub'>
+                pe_out_res=op_a+~op_b+1
+                comp_res_p=(op_a+~op_b+1) gte 2^16
+            </op> 
+            <op sel='0x03' name='abs'>
+                pe_out_res=(op_a lt 0)?(0-op_a):op_a
+                comp_res_p=op_a[15]
+            </op> 
+            <op sel='0x04' name='gte_max'>
+                pe_out_res=(op_a gte op_b)?op_a:op_b
+                comp_res_p=op_a gte op_b
+            </op> 
+            <op sel='0x05' name='lte_min'>
+                pe_out_res=(op_a lte op_b)?op_a:op_b
+                comp_res_p=op_a lte op_b
+            </op> 
+            <op sel='0x08' name='sel'>
+                pe_out_res=op_d?op_a:op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x0b' name='mult_0'>
+                pe_out_res=(op_a*op_b)[15:0]
+                comp_res_p=(op_a*op_b+op_c) gte 2^16
+            </op> 
+            <op sel='0x0c' name='mult_1'>
+                pe_out_res=(op_a*op_b)[23:8]
+                comp_res_p=(op_a*op_b+op_c) gte 2^24
+            </op> 
+            <op sel='0x0d' name='mult_2'>
+                pe_out_res=(op_a*op_b)[31:16]
+                comp_res_p=0
+            </op> 
+            <op sel='0x0f' name='rshft'>
+                pe_out_res=op_a rshft op_b[3:0]
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x11' name='lshft'>
+                pe_out_res=op_a lshft op_b[3:0]
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x12' name='or'>
+                pe_out_res=op_a|op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x13' name='and'>
+                pe_out_res=op_a and op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 
+            <op sel='0x14' name='xor'>
+                pe_out_res=op_a^op_b
+                comp_res_p=(op_a+op_b) gte 2^16
+            </op> 

@@ -1,0 +1,181 @@
+        <sel_width>3</sel_width>
+        <mux snk='out_0_0' reg_address='0' bith='2' bitl='0' default='0'>
+          <src sel='0'>in_1_0</src>
+          <src sel='1'>in_2_0</src>
+          <src sel='2'>in_3_0</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_0_0' reg_address='1' bith='28' bitl='28' default='0' />
+        <mux snk='out_0_1' reg_address='0' bith='5' bitl='3' default='0'>
+          <src sel='0'>in_1_1</src>
+          <src sel='1'>in_2_1</src>
+          <src sel='2'>in_3_1</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_0_1' reg_address='1' bith='29' bitl='29' default='0' />
+        <mux snk='out_0_2' reg_address='0' bith='8' bitl='6' default='0'>
+          <src sel='0'>in_1_2</src>
+          <src sel='1'>in_2_2</src>
+          <src sel='2'>in_3_2</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_0_2' reg_address='1' bith='30' bitl='30' default='0' />
+        <mux snk='out_0_3' reg_address='0' bith='11' bitl='9' default='0'>
+          <src sel='0'>in_1_3</src>
+          <src sel='1'>in_2_3</src>
+          <src sel='2'>in_3_3</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_0_3' reg_address='1' bith='31' bitl='31' default='0' />
+        <mux snk='out_0_4' reg_address='0' bith='14' bitl='12' default='0'>
+          <src sel='0'>in_1_4</src>
+          <src sel='1'>in_2_4</src>
+          <src sel='2'>in_3_4</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_0_4' reg_address='2' bith='0' bitl='0' default='0' />
+        <mux snk='out_1_0' reg_address='0' bith='17' bitl='15' default='0'>
+          <src sel='0'>in_0_0</src>
+          <src sel='1'>in_2_0</src>
+          <src sel='2'>in_3_0</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_1_0' reg_address='2' bith='1' bitl='1' default='0' />
+        <mux snk='out_1_1' reg_address='0' bith='20' bitl='18' default='0'>
+          <src sel='0'>in_0_1</src>
+          <src sel='1'>in_2_1</src>
+          <src sel='2'>in_3_1</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_1_1' reg_address='2' bith='2' bitl='2' default='0' />
+        <mux snk='out_1_2' reg_address='0' bith='23' bitl='21' default='0'>
+          <src sel='0'>in_0_2</src>
+          <src sel='1'>in_2_2</src>
+          <src sel='2'>in_3_2</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_1_2' reg_address='2' bith='3' bitl='3' default='0' />
+        <mux snk='out_1_3' reg_address='0' bith='26' bitl='24' default='0'>
+          <src sel='0'>in_0_3</src>
+          <src sel='1'>in_2_3</src>
+          <src sel='2'>in_3_3</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_1_3' reg_address='2' bith='4' bitl='4' default='0' />
+        <mux snk='out_1_4' reg_address='0' bith='29' bitl='27' default='0'>
+          <src sel='0'>in_0_4</src>
+          <src sel='1'>in_2_4</src>
+          <src sel='2'>in_3_4</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_1_4' reg_address='2' bith='5' bitl='5' default='0' />
+        <mux snk='out_2_0' reg_address='1' bith='32' bitl='30' default='0'>
+          <src sel='0'>in_0_0</src>
+          <src sel='1'>in_1_0</src>
+          <src sel='2'>in_3_0</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_2_0' reg_address='2' bith='6' bitl='6' default='0' />
+        <mux snk='out_2_1' reg_address='1' bith='35' bitl='33' default='0'>
+          <src sel='0'>in_0_1</src>
+          <src sel='1'>in_1_1</src>
+          <src sel='2'>in_3_1</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_2_1' reg_address='2' bith='7' bitl='7' default='0' />
+        <mux snk='out_2_2' reg_address='1' bith='38' bitl='36' default='0'>
+          <src sel='0'>in_0_2</src>
+          <src sel='1'>in_1_2</src>
+          <src sel='2'>in_3_2</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_2_2' reg_address='2' bith='8' bitl='8' default='0' />
+        <mux snk='out_2_3' reg_address='1' bith='41' bitl='39' default='0'>
+          <src sel='0'>in_0_3</src>
+          <src sel='1'>in_1_3</src>
+          <src sel='2'>in_3_3</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_2_3' reg_address='2' bith='9' bitl='9' default='0' />
+        <mux snk='out_2_4' reg_address='1' bith='44' bitl='42' default='0'>
+          <src sel='0'>in_0_4</src>
+          <src sel='1'>in_1_4</src>
+          <src sel='2'>in_3_4</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_2_4' reg_address='2' bith='10' bitl='10' default='0' />
+        <mux snk='out_3_0' reg_address='1' bith='47' bitl='45' default='0'>
+          <src sel='0'>in_0_0</src>
+          <src sel='1'>in_1_0</src>
+          <src sel='2'>in_2_0</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_3_0' reg_address='2' bith='11' bitl='11' default='0' />
+        <mux snk='out_3_1' reg_address='1' bith='50' bitl='48' default='0'>
+          <src sel='0'>in_0_1</src>
+          <src sel='1'>in_1_1</src>
+          <src sel='2'>in_2_1</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_3_1' reg_address='2' bith='12' bitl='12' default='0' />
+        <mux snk='out_3_2' reg_address='1' bith='53' bitl='51' default='0'>
+          <src sel='0'>in_0_2</src>
+          <src sel='1'>in_1_2</src>
+          <src sel='2'>in_2_2</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_3_2' reg_address='2' bith='13' bitl='13' default='0' />
+        <mux snk='out_3_3' reg_address='1' bith='56' bitl='54' default='0'>
+          <src sel='0'>in_0_3</src>
+          <src sel='1'>in_1_3</src>
+          <src sel='2'>in_2_3</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_3_3' reg_address='2' bith='14' bitl='14' default='0' />
+        <mux snk='out_3_4' reg_address='1' bith='59' bitl='57' default='0'>
+          <src sel='0'>in_0_4</src>
+          <src sel='1'>in_1_4</src>
+          <src sel='2'>in_2_4</src>
+          <src sel='3'>pe_output_0</src>
+          <src sel='4'>pe_output_1</src>
+          <src sel='5'>pe_output_2</src>
+        </mux>
+        <reg src='out_3_4' reg_address='2' bith='15' bitl='15' default='0' />

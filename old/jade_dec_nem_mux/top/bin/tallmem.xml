@@ -1,0 +1,10 @@
+<HierarchyTop>
+  <InstanceName>top</InstanceName>
+  <Parameters>
+    <ParameterItem>
+      <Doc></Doc>
+      <Name>mem_tile_height</Name>
+      <Val>2</Val>
+    </ParameterItem>
+  </Parameters>
+</HierarchyTop>

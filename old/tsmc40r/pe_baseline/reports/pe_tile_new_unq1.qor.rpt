@@ -1,0 +1,86 @@
+ 
+****************************************
+Report : qor
+Design : pe_tile_new_unq1
+Version: L-2016.03-SP5-5
+Date   : Tue Oct  1 02:55:35 2019
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              34.00
+  Critical Path Length:          1.62
+  Critical Path Slack:          -0.02
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:         -0.21
+  No. of Violating Paths:       11.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         59
+  Hierarchical Port Count:       2757
+  Leaf Cell Count:               7481
+  Buf/Inv Cell Count:            1494
+  Buf Cell Count:                 201
+  Inv Cell Count:                1293
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      6627
+  Sequential Cell Count:          854
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     8914.550507
+  Noncombinational Area:  4392.183593
+  Buf/Inv Area:           1139.367624
+  Total Buffer Area:           283.65
+  Total Inverter Area:         855.72
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  Net XLength        :       59430.88
+  Net YLength        :       75947.15
+  -----------------------------------
+  Cell Area:             13306.734101
+  Design Area:           13306.734101
+  Net Length        :       135378.03
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          8280
+  Nets With Violations:             2
+  Max Trans Violations:             0
+  Max Cap Violations:               2
+  -----------------------------------
+
+
+  Hostname: r6cad-tsmc40r.stanford.edu
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.00
+  Mapping Optimization:               54.57
+  -----------------------------------------
+  Overall Compile Time:               74.07
+  Overall Compile Wall Clock Time:    75.58
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.02  TNS: 0.21  Number of Violating Paths: 11
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
