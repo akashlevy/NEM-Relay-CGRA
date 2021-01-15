@@ -118,6 +118,7 @@ def create_testbench(app, inputs, outputs,
         input_base += input_widths[i]
         if input_widths[i] % 16 != 0:
             input_base += (16 - input_widths[i] % 16)
+    input_slices = input_slices.strip()
 
     # Start from 0 and define output slices
     output_slices, output_base = '', 0
@@ -126,6 +127,7 @@ def create_testbench(app, inputs, outputs,
         output_base += output_widths[o]
         if output_widths[o] % 16 != 0:
             output_base += (16 - output_widths[o] % 16)
+    output_slices = output_slices.strip()
 
     # Input wires
     input_wires = ''
@@ -143,9 +145,7 @@ def create_testbench(app, inputs, outputs,
     output_wires = output_wires.strip()
 
     # Power supplies if power aware gates present
-    pwr_supplies = '''
-    // Power supplies
-    supply1 VDD;
+    pwr_supplies = '''supply1 VDD;
     supply0 VSS;
     ''' if pwr_aware else ''
 
@@ -178,9 +178,10 @@ def create_testbench(app, inputs, outputs,
         "-sverilog",
         "-debug",
         "+vcs+dumpvars+outputs/out.vcd",
+        "+vcs+initreg+random",
         "testbench.sv",
         design_file,
-        stdcell_file
+        stdcell_file,
     ]
     os.system(" ".join(vcs_cmd))
 
@@ -191,9 +192,9 @@ def run_testbench(input_file, output_file, simout_file):
     subprocess.run(["cp", "-f", input_file, output_file, "inputs"])
 
     # Run the simulation, print output and write to file
-    simout = subprocess.check_output(["simv"])
-    print(simout)
-    open(simout_file, 'w').write(simout)
+    simout = subprocess.check_output(["simv", "+vcs+initreg+0"])
+    print(simout.decode('utf-8'))
+    open(simout_file, 'b').write(simout)
 
 
 # Process each tile
