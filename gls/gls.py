@@ -191,7 +191,7 @@ def run_testbench(input_file, output_file, simout_file):
 def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
-    parser.add_argument('app', help="Name of CGRA application to test", type=int)
+    parser.add_argument('app', help="Name of CGRA application to test", type=str)
     args = parser.parse_args()
     app = args.app
 
