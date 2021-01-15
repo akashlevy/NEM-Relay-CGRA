@@ -18,9 +18,11 @@ Then, you want to take the input stimuli from the VCD and apply them to the gate
 3. Go to `testdir` and run `make <app_name>` to generate the waveform. The VCD output will be in `verilator/generator_z_tb`
     - You might need a large amount of RAM for verilator to work
     - On Ubuntu, you can try creating a swap file: https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/
-4. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
-5. Run the testbench for each active PE tile: `python gls.py <app_name>`
-6. **TODO: how to do gate-level simulation**
+4. Copy the gate-level netlist and SDF file as `design.v` and `design.sdf` to `gls/design/`
+5. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
+6. Copy the bitstream `<app_name>.bsa` for the app to `gls/inputs/`
+7. Run GLS: `python gls.py <app_name>`
+8. **TODO: how to do gate-level simulation**
 
 ## Old Info from CGRAGenerator
 

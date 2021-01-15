@@ -195,6 +195,14 @@ def main():
     args = parser.parse_args()
     app = args.app
 
+    # Create output directory
+    if not os.path.exists('outputs'):
+        os.makedirs('outputs')
+
+    # Extract active PEs from app bitstream
+    print("Extracting active PEs from app bitsream...")
+    get_active_pes(f"inputs/{app}.bsa")
+
     # Open tiles
     print("Converting tiles to vectors...")
     for i, line in enumerate(open(f'inputs/{app}.tiles', 'r')):
