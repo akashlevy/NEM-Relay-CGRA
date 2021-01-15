@@ -1,5 +1,5 @@
 # Import python libraries
-import argparse, binascii, csv, glob, re, subprocess
+import argparse, binascii, csv, glob, os, re, subprocess
 from defines import *
 
 
