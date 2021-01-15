@@ -242,6 +242,7 @@ def main():
     for i, line in enumerate(open(f'inputs/{app}.tiles', 'r')):
         # Get full tile name
         tile = pe_prefix + line.strip()
+        print(f"Processing {tile}...")
 
         # Run the testbench
         run_testbench(app, tile, f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/test_outputs_{app}_{tile}.txt", f"outputs/{app}_{tile}_results.txt")
