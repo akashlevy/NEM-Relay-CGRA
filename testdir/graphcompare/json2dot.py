@@ -1,6 +1,3 @@
-#!/usr/bin/python2
-
-
 # -*- coding: utf-8 -*-
 # python
 
@@ -14,30 +11,30 @@ import sys
 
 my_data = json.loads(sys.stdin.read())
 
-# print my_data
-# print "------------------------------------------------------------------------------"
+# print(my_data)
+# print("------------------------------------------------------------------------------")
 
 instances   = my_data["namespaces"]["global"]["modules"]["DesignTop"]["instances"]
 connections = my_data["namespaces"]["global"]["modules"]["DesignTop"]["connections"]
 
 
 def print_header():
-    print "digraph Diagram {"
-    print "  node [shape=box]; # Comment"
+    print("digraph Diagram {")
+    print("  node [shape=box]; # Comment")
 
 def print_trailer():
-    print "}"
+    print("}")
 
 print_header()
 
 DBG=0
 if DBG:
-    print "INSTANCES"
+    print("INSTANCES")
     for k in instances:
-        # print "%s - %s" % (k, instances[k])
-        # try:    print "%-12s %s" % (k, instances[k]['configargs'])
-        try:    print "%-12s %s" % (k, instances[k]['modargs'])
-        except: print "%-12s %s" % (k, "N/A")
+        # print("%s - %s" % (k, instances[k]))
+        # try:    print("%-12s %s" % (k, instances[k]['configargs']))
+        try:    print("%-12s %s" % (k, instances[k]['modargs']))
+        except: print("%-12s %s" % (k, "N/A"))
 
 def simplify(nodename):
     '''Try to improve readability of dot file e.g.
@@ -122,7 +119,7 @@ def simplify(nodename):
     # Must change node name to 'const5_five_const' maybe
 
     DBG=0
-    if DBG: print "FOO %s" % nodename
+    if DBG: print("FOO %s" % nodename)
 
     has_genref = True
     try: dummy = instances[nodename]['genref']
@@ -135,8 +132,8 @@ def simplify(nodename):
     if has_genref and (instances[nodename]['genref'] == "coreir.const"):
 
         value = instances[nodename]['modargs']['value'][1]
-        if DBG: print "# FOO found const", nodename
-        if DBG: print "# FOO found const value %s %s" % (value, type(value))
+        if DBG: print("# FOO found const", nodename)
+        if DBG: print("# FOO found const value %s %s" % (value, type(value)))
 
         # Old style const value: "2"
         # Old style const value: "16'h0005"
@@ -223,7 +220,7 @@ def to_or_from(nodename):
     parse = re.search("\.out$", nodename)
     if parse:
         # connections go FROM output TO input
-        # print "FOO I think conn goes FROM %s" % nodename
+        # print("FOO I think conn goes FROM %s" % nodename)
         return "from"
 
     parse = re.search("\.in\.\d+$", nodename)
@@ -279,9 +276,9 @@ def find_depth(nodename):
             assert False
 
     k1 = parse.group(1)
-    if DBG: print "# FOO found wdata node", k1
+    if DBG: print("# FOO found wdata node", k1)
     fifo_depth = int(instances[k1]['modargs']['depth'][1])
-    if DBG: print "# FOO found fifo depth", fifo_depth
+    if DBG: print("# FOO found fifo depth", fifo_depth)
     assert fifo_depth > 1 and fifo_depth <= 1024
     annotation = ' # fifo_depth %d' % fifo_depth
     return annotation
@@ -299,29 +296,29 @@ def find_lut_value(nodename):
     # "lut_value":[["BitVector",8],"8'h88"]}
     #   },
 
-    if DBG: print "# FOO found lut", nodename
+    if DBG: print("# FOO found lut", nodename)
     lut_value  =     instances[nodename]['modargs']['lut_value'][1]
-    if DBG: print "# FOO found LUT value", lut_value
+    if DBG: print("# FOO found LUT value", lut_value)
     assert lut_value[0:3] == "8'h"
     annotation = ' # lut_value 0x%s' % lut_value[3:]
     return annotation
 
 ##############################################################################
 if DBG:
-    print "CONNECTIONS"
-    print connections
+    print("CONNECTIONS")
+    print(connections)
 
-if DBG: print "CONNECTIONS"
+if DBG: print("CONNECTIONS")
 for k in connections:
-    if DBG: print "# %s , %s" % (k[0], k[1])
+    if DBG: print("# %s , %s" % (k[0], k[1]))
 
 #     # FIXME temporary bug: onebit_bool generates OUTPUT on lhs
 #     # FIXME shouldn't have to do it anyway, see to/from below
 #     if k[0] == "io1_out_0_0.in":
 #         k[0] = k[1]
 #         k[1] = "io1_out_0_0.in"
-#         if DBG: print "# Oops no that's backwards.  Rearranged:"
-#         if DBG: print "# %s , %s" % (k[0], k[1])
+#         if DBG: print("# Oops no that's backwards.  Rearranged:")
+#         if DBG: print("# %s , %s" % (k[0], k[1]))
 
     # FIXME hacky hack wacky wack - ignore connections to cg_en, ren, wcgw?
     if ignoble_node(k[1]): continue
@@ -348,7 +345,7 @@ for k in connections:
     else:
         annotation = ''
 
-#     # print "  %s" % instances[innode]['modargs']
+#     # print("  %s" % instances[innode]['modargs'])
 # 
 #     # E.g. "# lut_value 0x88"
 #     if re.search('(.*_lut_bitPE)$', from_node):
@@ -379,21 +376,21 @@ for k in connections:
     except: has_lut_value = False
     if has_lut_value: annotation = find_lut_value(from_node)
 
-    print '    "%s" -> "%s";%s' % (from_node, to_node, annotation)
-    if DBG: print ""
+    print('    "%s" -> "%s";%s' % (from_node, to_node, annotation))
+    if DBG: print("")
 
 
 print_trailer()
 
 # mydict = 
 # for k0 in mydict:
-#     print k0
+#     print(k0)
 # #     parse = re.search("u'(.*)'", k0)
 # #     if parse: k0 = parse.group(1)
-#     print mydict[k0]
-# #     print "------------------------------------------------------------------------------"
+#     print(mydict[k0])
+# #     print("------------------------------------------------------------------------------")
 # #     for k1 in my_data[k0]:
-# #         print k1
+# #         print(k1)
 
 
 
