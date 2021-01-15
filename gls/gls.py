@@ -74,7 +74,7 @@ def convert_raw(signals, input_file, output_file):
         col[name] = i
 
     # Start with two 0000 vectors for all signals
-    outfile.write(('_'.join(['0000']*len(signals))+'\n'))
+    #outfile.write(('_'.join(['0000']*len(signals))+'\n'))
 
     # Generate vector form
     for c in range(1,len(data)):
