@@ -162,7 +162,7 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
     output_checks = ''
     for o in outputs:
         output_checks += f'''
-        if ({o} != test_outputs[test_vector_addr][`SLICE_{o.upper()}] || $isunknown({o})) begin
+        if ({o} != test_outputs[test_vector_addr][`SLICE_{o.upper()}] || ($isunknown({o}) && test_vector_addr == 0)) begin
             $display("mismatch cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
         end\n'''
     output_checks = output_checks.strip()
