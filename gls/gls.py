@@ -63,8 +63,9 @@ def convert_raw(signals, input_file, output_file):
         # If bit width specified
         try:
             # Get name, width from regex
-            widths[name] = int(dim_pattern.match(name).groups()[0]) + 1
+            width = int(dim_pattern.match(name).groups()[0]) + 1
             name = name.replace(f'[{widths[name]-1}:0]', '')
+            widths[name] = width
         # If no bit width specified, set to 1
         except:
             widths[name] = 1
