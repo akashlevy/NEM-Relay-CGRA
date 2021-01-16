@@ -16,7 +16,7 @@ app_active_cycle_numbers = {
     "conv_2_1": 66,
     "conv_3_1": 87,
     "conv_bw": 150,
-    "harris": 1097
-    "onebit_bool": 102
+    "harris": 1097,
+    "onebit_bool": 102,
     "pointwise": 41
 }
