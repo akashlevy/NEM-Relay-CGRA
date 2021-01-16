@@ -208,7 +208,7 @@ def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
     parser.add_argument('app', help="Name of CGRA application to test", type=str)
-    parser.add_argument('active_cycle_number', help="Number of cycles after which to measure toggling activity, typically after CGRA configuration", required=False, type=int, default=None)
+    parser.add_argument('-acn', '--active_cycle_number', help="Number of cycles after which to measure toggling activity, typically after CGRA configuration", required=False, type=int, default=None)
     args = parser.parse_args()
 
     # Load app and active cycle number
