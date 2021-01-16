@@ -9,3 +9,14 @@ stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standar
 assign_delay = 0
 clock_period = 5
 timescale = '1ns/1ps'
+
+app_active_cycle_numbers = {
+    "cascade": 510,
+    "conv_1_2": 52,
+    "conv_2_1": 66,
+    "conv_3_1": 87,
+    "conv_bw": 150,
+    "harris": 1097
+    "onebit_bool": 102
+    "pointwise": 41
+}

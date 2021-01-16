@@ -21,8 +21,12 @@ Then, you want to take the input stimuli from the VCD and apply them to the gate
 4. Copy the gate-level netlist and SDF file as `design.v` and `design.sdf` to `gls/design/`
 5. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
 6. Copy the bitstream `<app_name>.bsa` for the app to `gls/inputs/`
-7. Run GLS: `python gls.py <app_name>`
-8. **TODO: how to do gate-level simulation**
+7. Open the VCD and find the cycle number you want to start measuring toggling (activity factor) from
+    - Typically, you want to skip the configuration phase of the CGRA, so choose the cycle that corresponds to the beginning of the usage phase after the end of configuration
+    - For several CGRA applications, this cycle number has been found and stored in `defines.py` for convenience
+    - If you are using one of these CGRA applications, `<active_cycle_number>` is optional in the next step
+8. Run GLS: `python gls.py <app_name> <active_cycle_number>`
+9.  **TODO: how to do gate-level simulation**
 
 ## Old Info from CGRAGenerator
 

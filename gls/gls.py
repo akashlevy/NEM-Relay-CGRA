@@ -199,7 +199,8 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     open(simout_file, 'wb').write(simout)
 
     # Rename the output
-    subprocess.run(["mv", "outputs/out.vcd", f"outputs/{app}_{tile}_out.vcd"])
+    subprocess.run(["mv", "outputs/out.vcd", f"outputs/{app}_{tile}.vcd"])
+    subprocess.run(["mv", "outputs/out.saif", f"outputs/{app}_{tile}.saif"])
 
 
 # Process each tile
@@ -207,8 +208,14 @@ def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
     parser.add_argument('app', help="Name of CGRA application to test", type=str)
+    parser.add_argument('active_cycle_number', help="Number of cycles after which to measure toggling activity, typically after CGRA configuration", required=False, type=int, default=None)
     args = parser.parse_args()
-    app = args.app
+
+    # Load app and active cycle number
+    try:
+        app, active_cycle_number = args.app, args.active_cycle_number if args.active_cycle_number is not None else app_active_cycle_numbers[args.app]
+    except KeyError:
+        sys.exit("Must specify app's active_cycle_number if it is not in defines.py app_active_cycle_numbers dict!")
 
     # Create output directory
     if not os.path.exists('outputs'):
@@ -236,7 +243,7 @@ def main():
     
     # Create testbench
     print("Creating testbench...")
-    create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors)
+    create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors, active_cycle_number)
 
     # Run testbench
     print("Running testbench...")

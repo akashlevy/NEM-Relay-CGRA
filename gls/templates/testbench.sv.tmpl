@@ -2,6 +2,7 @@
 `define NUM_TEST_VECTORS ${num_test_vectors}
 `define ASSIGNMENT_DELAY ${assign_delay}
 `define CLK_PERIOD ${clock_period}
+`define ACTIVE_CYCLE_NUMBER ${active_cycle_number}
 
 // Input slices
 ${input_slices}
@@ -57,8 +58,14 @@ module testbench;
         test_vector <= test_vectors[test_vector_addr];
         test_output <= test_outputs[test_vector_addr];
 
-        // Finish after last output
-        if (test_vector_addr >= ${num_test_vectors}) begin
+        // Start toggling after active_cycle_number
+        if (test_vector_addr == `ACTIVE_CYCLE_NUMBER) begin
+            $$toggle_start;
+        end
+
+        // Stop toggling after last output and finish
+        if (test_vector_addr >= `NUM_TEST_VECTORS) begin
+            $$toggle_stop;
             $$finish(2);
         end
 
@@ -71,12 +78,11 @@ module testbench;
         $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
     end
 
-    // Toggle during certain time only!
-    // $$set_toggle_region(TilePETb);
-    // #(`CONFIG_TIME);
-    // $$toggle_start();
-    // #(`RUN_TIME);
-    // $$toggle_stop();
-    // $$toggle_report("outputs/run.saif", 1e-9, TilePETb);
-    // $$finish(2);
+    // Measure toggling and report to SAIF file
+    $$set_toggle_region(testbench);
+    $$toggle_report("outputs/out.saif", 1e-12, testbench);
+
+    // Dump to VCD
+    $$dumpfile("outputs/out.vcd")
+    $$dumpvars(0, counter_tb)
 endmodule

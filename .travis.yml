@@ -12,8 +12,8 @@ addons:
     # - build-essential
     
 install:
-  # Current working directory: /home/travis/build/StanfordAHA/CGRAGenerator
-  - git clone https://github.com/StanfordAHA/TestBenchGenerator.git
+  # Current working directory: /home/travis/build/akashlevy/CGRAGenerator
+  - git clone https://github.com/akashlevy/TestBenchGenerator.git
       --branch master ../TestBenchGenerator
 
   # Install python for testing infrastructure
