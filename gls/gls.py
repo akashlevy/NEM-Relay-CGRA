@@ -207,7 +207,8 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
 def merge_saif(app):
     app_saifs = glob.glob(f"outputs/{app}_pe_*.saif")
     input_list = " ".join([f"-input {saif} -weight {100 / len(app_saifs)}" for saif in app_saifs])
-    cmd = ["pt_shell", "-x", f"set power_enable_analysis true; current_design ./design/design.v; merge_saif -input_list \"{input_list}\" -simple_merge -strip_path testbench -output outputs/{app}.saif"]
+    prefix = "set power_enable_analysis true; read_verilog design/design.v; current_design testbench"
+    cmd = ["pt_shell", "-x", f"{prefix}; merge_saif -input_list \"{input_list}\" -simple_merge -strip_path testbench -output outputs/{app}.saif"]
     print(" ".join(cmd))
     subprocess.run(cmd)
 
