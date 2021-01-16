@@ -218,7 +218,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
     parser.add_argument('app', help="Name of CGRA application to test", type=str)
     parser.add_argument('-acn', '--active_cycle_number', help="Number of cycles after which to measure toggling activity, typically after CGRA configuration", required=False, type=int, default=None)
-    parser.add_arguments('--merge-saif-only', help="Only do the merge SAIF step")
+    parser.add_arguments('--merge-saif-only', help="Only do the merge SAIF step", required=False, action='store_true')
     args = parser.parse_args()
 
     # Load app and active cycle number
@@ -273,7 +273,7 @@ def main():
     # Merge saifs
     print("Merging saifs...")
     merge_saif(app)
-    
+
     # DONE!
     print("DONE!")
 
