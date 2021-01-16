@@ -83,7 +83,7 @@ module testbench;
         $$toggle_report("outputs/out.saif", 1e-12, testbench);
 
         // Dump to VCD
-        $$dumpfile("outputs/out.vcd")
-        $$dumpvars(0, counter_tb)
+        $$dumpfile("outputs/out.vcd");
+        $$dumpvars(0, counter_tb);
     end
 endmodule
