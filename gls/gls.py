@@ -110,7 +110,7 @@ def convert_raw(signals, input_file, output_file):
 
 
 # Generates the testbench SystemVerilog file
-def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors):
+def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors, active_cycle_number):
     # Start from 0 and define input slices
     input_slices, input_base = '', 0
     for i in inputs:
