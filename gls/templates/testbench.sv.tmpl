@@ -73,16 +73,17 @@ module testbench;
         ${output_checks}
     end
   
-    // Annotate delays
+    // Elaboration tasks
     initial begin
+        // Annotate delays
         $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
+
+        // Measure toggling and report to SAIF file
+        $$set_toggle_region(testbench);
+        $$toggle_report("outputs/out.saif", 1e-12, testbench);
+
+        // Dump to VCD
+        $$dumpfile("outputs/out.vcd")
+        $$dumpvars(0, counter_tb)
     end
-
-    // Measure toggling and report to SAIF file
-    $$set_toggle_region(testbench);
-    $$toggle_report("outputs/out.saif", 1e-12, testbench);
-
-    // Dump to VCD
-    $$dumpfile("outputs/out.vcd")
-    $$dumpvars(0, counter_tb)
 endmodule
