@@ -203,19 +203,34 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     subprocess.run(["mv", "outputs/out.saif", f"outputs/{app}_{tile}.saif"])
 
 
+# Merge saifs of all active tiles
+def merge_saif(app):
+    app_saifs = glob.glob(f"outputs/{app}_pe_*.saif")
+    input_list = " ".join([f"-input {saif} -weight {100 / len(app_saifs)}" for saif in app_saifs])
+    cmd = ["pt_shell", "-x", "merge_saif", "-input_list", input_list, "-simple_merge", "-output", f"outputs/{app}.saif"]
+    print(" ".join(cmd))
+    subprocess.run(cmd)
+
+
 # Process each tile
 def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
     parser.add_argument('app', help="Name of CGRA application to test", type=str)
     parser.add_argument('-acn', '--active_cycle_number', help="Number of cycles after which to measure toggling activity, typically after CGRA configuration", required=False, type=int, default=None)
+    parser.add_arguments('--merge-saif-only', help="Only do the merge SAIF step")
     args = parser.parse_args()
 
     # Load app and active cycle number
     try:
         app, active_cycle_number = args.app, args.active_cycle_number if args.active_cycle_number is not None else app_active_cycle_numbers[args.app]
     except KeyError:
-        sys.exit("Must specify app's active_cycle_number if it is not in defines.py app_active_cycle_numbers dict!")
+        sys.exit("Must specify app's active_cycle_number if it is not in defines.py dict!")
+
+    # If requested to merge saif only
+    if args.merge_saif_only:
+        merge_saif(app)
+        exit(0)
 
     # Create output directory
     if not os.path.exists('outputs'):
@@ -255,6 +270,10 @@ def main():
         # Run the testbench
         run_testbench(app, tile, f"outputs/test_vectors_{app}_{tile}.txt", f"outputs/test_outputs_{app}_{tile}.txt", f"outputs/{app}_{tile}_results.txt")
 
+    # Merge saifs
+    print("Merging saifs...")
+    merge_saif(app)
+    
     # DONE!
     print("DONE!")
 
