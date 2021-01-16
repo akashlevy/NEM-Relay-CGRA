@@ -207,7 +207,7 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
 def merge_saif(app):
     app_saifs = glob.glob(f"outputs/{app}_pe_*.saif")
     input_list = " ".join([f"-input {saif} -weight {100 / len(app_saifs)}" for saif in app_saifs])
-    cmd = ["pt_shell", "-x", "merge_saif", "-input_list", input_list, "-simple_merge", "-output", f"outputs/{app}.saif"]
+    cmd = ["pt_shell", "-x", "merge_saif", "-input_list", f"{input_list}", "-simple_merge", "-output", f"outputs/{app}.saif"]
     print(" ".join(cmd))
     subprocess.run(cmd)
 
