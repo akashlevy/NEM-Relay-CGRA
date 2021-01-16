@@ -60,6 +60,7 @@ module testbench;
 
         // Start toggling after active_cycle_number
         if (test_vector_addr == `ACTIVE_CYCLE_NUMBER) begin
+            $$set_toggle_region(testbench);
             $$toggle_start;
         end
 
@@ -79,7 +80,6 @@ module testbench;
         $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
 
         // Measure toggling and report to SAIF file
-        $$set_toggle_region(testbench);
         $$toggle_report("outputs/out.saif", 1e-12, testbench);
 
         // Dump to VCD
