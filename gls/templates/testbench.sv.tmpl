@@ -62,7 +62,7 @@ module testbench;
         if (test_vector_addr == `ACTIVE_CYCLE_NUMBER) begin
             $$set_toggle_region(testbench);
             $$toggle_start;
-            $$display("Started toggle measurement at %d...", `ACTIVE_CYCLE_NUMBER)
+            $$display("Started toggle measurement at %d...", `ACTIVE_CYCLE_NUMBER);
         end
 
         // Stop toggling after last output and finish
