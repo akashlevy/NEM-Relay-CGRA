@@ -67,6 +67,7 @@ module testbench;
         // Stop toggling after last output and finish
         if (test_vector_addr >= `NUM_TEST_VECTORS) begin
             $$toggle_stop;
+            $$toggle_report("outputs/out.saif", 1e-12, testbench);
             $$finish(2);
         end
 
@@ -78,9 +79,6 @@ module testbench;
     initial begin
         // Annotate delays
         $$sdf_annotate("design/design.sdf", testbench.dut, ,"testbench_sdf.log", "MAXIMUM");
-
-        // Measure toggling and report to SAIF file
-        $$toggle_report("outputs/out.saif", 1e-12, testbench);
 
         // Dump to VCD
         $$dumpfile("outputs/out.vcd");
