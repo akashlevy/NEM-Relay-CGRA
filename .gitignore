@@ -11,6 +11,6 @@
 nems/vcd
 gls/csrc
 gls/design
-gls/inputs/*.bsa
+gls/inputs/*.vcd
 
 verilator/generator_z_tb/build
