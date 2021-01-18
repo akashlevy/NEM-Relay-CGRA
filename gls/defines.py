@@ -20,4 +20,4 @@ app_active_cycle_numbers = {
     "harris": 97,
     "pointwise": 41
 }
-app_active_cycle_numbers = {k: c + 500 for k, c in app_active_cycle_numbers.items()} # NEMS stall delay
+app_active_cycle_numbers = {k: c + 500 - 2 for k, c in app_active_cycle_numbers.items()} # NEMS stall delay
