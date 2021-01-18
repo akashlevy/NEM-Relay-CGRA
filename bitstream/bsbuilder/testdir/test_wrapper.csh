@@ -1,6 +1,6 @@
 #!/bin/csh -f
 
-set scriptpath = `readlink -f $0`
+set scriptpath = `realpath $0`
 set scriptpath = $scriptpath:h
 cd $scriptpath
 

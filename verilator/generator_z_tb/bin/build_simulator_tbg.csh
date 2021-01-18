@@ -18,9 +18,9 @@ if ($#argv) then
   set trace_switch = '--trace'
 
   # tracefile path will be relative to build directory :(
-  # so use absolute path (readlink -f)
+  # so use absolute path (realpath)
   set tracefile = $1
-  set tracefile = `readlink -f $tracefile`
+  set tracefile = `realpath $tracefile`
   set tracefile_switch = "--trace-file-name $tracefile"
 endif
 

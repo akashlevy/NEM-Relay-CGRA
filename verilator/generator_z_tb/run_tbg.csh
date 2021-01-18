@@ -344,9 +344,9 @@ set nclocks = "-nclocks $nclocks"
   ./verify_bitstream_goodness.csh $config || exit 13
 
   # Filenames must be absolute, not relative
-  if (! `expr "$config" : /`) set config = "`pwd`/$config"
-  if (! `expr "$input"  : /`) set input  = "`pwd`/$input"
-  if (! `expr "$output" : /`) set output = "`pwd`/$output"
+  set config = `realpath $config`
+  set input = `realpath $input`
+  set output = `realpath $output`
 
 if (! $?BUILD) then
   echo ""
@@ -491,7 +491,7 @@ pushd build >& /dev/null
   # What does this do?  Turn png into raw maybe?
   # Hm looks like it adds zeroes to end of input file according to DELAY value
   echo python3 $TestBenchGenerator/process_input.py $io_config $input $DELAY
-
+  echo `pwd`
   python3 $TestBenchGenerator/process_input.py $io_config $input $DELAY
 
 #   echo ""

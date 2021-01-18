@@ -88,8 +88,8 @@
           <ImmutableParameters>
             <ParameterItem>
               <Doc></Doc>
-              <Name>SYSCLK_CFG_OPCODE_WIDTH</Name>
-              <Val>5</Val>
+              <Name>SYSCLK_CFG_ADDR_WIDTH</Name>
+              <Val>32</Val>
             </ParameterItem>
             <ParameterItem>
               <Doc></Doc>
@@ -98,8 +98,8 @@
             </ParameterItem>
             <ParameterItem>
               <Doc></Doc>
-              <Name>SYSCLK_CFG_ADDR_WIDTH</Name>
-              <Val>32</Val>
+              <Name>SYSCLK_CFG_OPCODE_WIDTH</Name>
+              <Val>5</Val>
             </ParameterItem>
             <ParameterItem>
               <ArrayType>
@@ -644,8 +644,8 @@
               <BaseModuleName>cfg_ifc</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>Bus data width</Doc>
-                  <Name>DataWidth</Name>
+                  <Doc>Bus address width</Doc>
+                  <Name>AddrWidth</Name>
                   <Range>
                     <Min>1</Min>
                     <Step>1</Step>
@@ -662,8 +662,8 @@
                   <Val>5</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>Bus address width</Doc>
-                  <Name>AddrWidth</Name>
+                  <Doc>Bus data width</Doc>
+                  <Name>DataWidth</Name>
                   <Range>
                     <Min>1</Min>
                     <Step>1</Step>
@@ -932,6 +932,11 @@
                   <BaseModuleName>flop</BaseModuleName>
                   <ImmutableParameters>
                     <ParameterItem>
+                      <Doc>Default value for the register</Doc>
+                      <Name>Default</Name>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
                       <Doc>Type of flop: Constant, Flop, RFlop, EFlop, or REFlop</Doc>
                       <Name>Type</Name>
                       <Range>
@@ -942,11 +947,6 @@
                         <List>REFlop</List>
                       </Range>
                       <Val>RFlop</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Default value for the register</Doc>
-                      <Name>Default</Name>
-                      <Val>0</Val>
                     </ParameterItem>
                     <ParameterItem>
                       <Doc>Signal width</Doc>
@@ -1020,6 +1020,20 @@
                   <BaseModuleName>flop</BaseModuleName>
                   <ImmutableParameters>
                     <ParameterItem>
+                      <Doc>Signal width</Doc>
+                      <Name>Width</Name>
+                      <Range>
+                        <Min>1</Min>
+                        <Step>1</Step>
+                      </Range>
+                      <Val>32</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>Default value for the register</Doc>
+                      <Name>Default</Name>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
                       <Doc>Type of flop: Constant, Flop, RFlop, EFlop, or REFlop</Doc>
                       <Name>Type</Name>
                       <Range>
@@ -1030,20 +1044,6 @@
                         <List>REFlop</List>
                       </Range>
                       <Val>REFlop</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Default value for the register</Doc>
-                      <Name>Default</Name>
-                      <Val>0</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Signal width</Doc>
-                      <Name>Width</Name>
-                      <Range>
-                        <Min>1</Min>
-                        <Step>1</Step>
-                      </Range>
-                      <Val>32</Val>
                     </ParameterItem>
                   </ImmutableParameters>
                   <InstanceName>sc_data_rd_reg</InstanceName>
@@ -1064,6 +1064,20 @@
                   <BaseModuleName>flop</BaseModuleName>
                   <ImmutableParameters>
                     <ParameterItem>
+                      <Doc>Signal width</Doc>
+                      <Name>Width</Name>
+                      <Range>
+                        <Min>1</Min>
+                        <Step>1</Step>
+                      </Range>
+                      <Val>32</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>Default value for the register</Doc>
+                      <Name>Default</Name>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
                       <Doc>Type of flop: Constant, Flop, RFlop, EFlop, or REFlop</Doc>
                       <Name>Type</Name>
                       <Range>
@@ -1074,20 +1088,6 @@
                         <List>REFlop</List>
                       </Range>
                       <Val>REFlop</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Default value for the register</Doc>
-                      <Name>Default</Name>
-                      <Val>0</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Signal width</Doc>
-                      <Name>Width</Name>
-                      <Range>
-                        <Min>1</Min>
-                        <Step>1</Step>
-                      </Range>
-                      <Val>32</Val>
                     </ParameterItem>
                   </ImmutableParameters>
                   <InstanceName>sc_data_reg</InstanceName>
@@ -1172,42 +1172,14 @@
           <BaseModuleName>pe_tile_new</BaseModuleName>
           <ImmutableParameters>
             <ParameterItem>
-              <Doc>0 - no divide, 1 - enable iterrative divide</Doc>
-              <Name>use_div</Name>
+              <Doc>0 - no adders, 1 - simple ADDs, 2 - SAD</Doc>
+              <Name>use_add</Name>
               <Range>
+                <List>2</List>
                 <List>1</List>
                 <List>0</List>
               </Range>
-              <Val>0</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>number of edges for a SB</Doc>
-              <Name>sides</Name>
-              <Val>4</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>binary vector for modifying fanin of sb muxes</Doc>
-              <Name>sb_fs</Name>
-              <Val>10000#10000#10000</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = num_tracks.</Doc>
-              <Name>feedthrough_outputs</Name>
-              <Val>BUS1:00000 BUS16:00000</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>1 - MSB in 32b mode, 0 - LSB result</Doc>
-              <Name>is_msb</Name>
-              <Range>
-                <List>1</List>
-                <List>0</List>
-              </Range>
-              <Val>0</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>number of global signals supported</Doc>
-              <Name>global_signal_count</Name>
-              <Val>4</Val>
+              <Val>1</Val>
             </ParameterItem>
             <ParameterItem>
               <Doc>1 if SB pins are bidi. TBD.</Doc>
@@ -1215,8 +1187,12 @@
               <Val>0</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>set to 1 if the CB has a register to supply a constant </Doc>
-              <Name>has_constant</Name>
+              <Doc>1 - 32b supported, 0 - No 32b support</Doc>
+              <Name>en_double</Name>
+              <Range>
+                <List>1</List>
+                <List>0</List>
+              </Range>
               <Val>0</Val>
             </ParameterItem>
             <ParameterItem>
@@ -1230,8 +1206,17 @@
               <Val>1</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>Add register on the outputs</Doc>
-              <Name>reg_out</Name>
+              <Doc>Use shift operations</Doc>
+              <Name>use_shift</Name>
+              <Range>
+                <List>1</List>
+                <List>0</List>
+              </Range>
+              <Val>1</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>1 - MSB in 32b mode, 0 - LSB result</Doc>
+              <Name>is_msb</Name>
               <Range>
                 <List>1</List>
                 <List>0</List>
@@ -1248,18 +1233,19 @@
               <Val>1</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>0 - no booleans, 1 - simple gates</Doc>
-              <Name>use_bool</Name>
-              <Range>
-                <List>1</List>
-                <List>0</List>
-              </Range>
-              <Val>1</Val>
+              <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = num_tracks.</Doc>
+              <Name>feedthrough_outputs</Name>
+              <Val>BUS1:00000 BUS16:00000</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
-              <Name>cb_connections</Name>
-              <Val>11111111111111</Val>
+              <Doc>number of global signals supported</Doc>
+              <Name>global_signal_count</Name>
+              <Val>4</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
+              <Name>registered_outputs</Name>
+              <Val>BUS1:11111 BUS16:11111</Val>
             </ParameterItem>
             <ParameterItem>
               <Doc>0 - no LUT, 1-16 - uses LUTs with that number of inputs</Doc>
@@ -1277,23 +1263,8 @@
               <Val>BUS16:16b#1_1:1_1:1_1:1_1:1_1 BUS1:1b#1_1:1_1:1_1:1_1:1_1</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>0 - no adders, 1 - simple ADDs, 2 - SAD</Doc>
-              <Name>use_add</Name>
-              <Range>
-                <List>2</List>
-                <List>1</List>
-                <List>0</List>
-              </Range>
-              <Val>1</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
-              <Name>registered_outputs</Name>
-              <Val>BUS1:11111 BUS16:11111</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>1 - 32b supported, 0 - No 32b support</Doc>
-              <Name>en_double</Name>
+              <Doc>0 - no divide, 1 - enable iterrative divide</Doc>
+              <Name>use_div</Name>
               <Range>
                 <List>1</List>
                 <List>0</List>
@@ -1301,13 +1272,42 @@
               <Val>0</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>Use shift operations</Doc>
-              <Name>use_shift</Name>
+              <Doc>binary vector for modifying fanin of sb muxes</Doc>
+              <Name>sb_fs</Name>
+              <Val>10000#10000#10000</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>Add register on the outputs</Doc>
+              <Name>reg_out</Name>
+              <Range>
+                <List>1</List>
+                <List>0</List>
+              </Range>
+              <Val>0</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>number of edges for a SB</Doc>
+              <Name>sides</Name>
+              <Val>4</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>0 - no booleans, 1 - simple gates</Doc>
+              <Name>use_bool</Name>
               <Range>
                 <List>1</List>
                 <List>0</List>
               </Range>
               <Val>1</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>stagger or overlap segments</Doc>
+              <Name>all_segments_for_all_tiles</Name>
+              <Val>1</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
+              <Name>cb_connections</Name>
+              <Val>11111111111111</Val>
             </ParameterItem>
             <ParameterItem>
               <Doc>0 - no counter mode, 1 - enable counter mode</Doc>
@@ -1319,9 +1319,9 @@
               <Val>1</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>stagger or overlap segments</Doc>
-              <Name>all_segments_for_all_tiles</Name>
-              <Val>1</Val>
+              <Doc>set to 1 if the CB has a register to supply a constant </Doc>
+              <Name>has_constant</Name>
+              <Val>0</Val>
             </ParameterItem>
           </ImmutableParameters>
           <InstanceName>pe_0x0101</InstanceName>
@@ -1341,6 +1341,16 @@
               <BaseModuleName>cb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
+                  <Doc>num of tracks for CB</Doc>
+                  <Name>num_tracks</Name>
+                  <Val>10</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>set to 1 if the CB has a register to supply a constant </Doc>
+                  <Name>has_constant</Name>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
                   <Doc>Bus width for CB</Doc>
                   <Name>width</Name>
                   <Val>16</Val>
@@ -1349,16 +1359,6 @@
                   <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
                   <Name>feedthrough_outputs</Name>
                   <Val>11111111111111</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>set to 1 if the CB has a register to supply a constant </Doc>
-                  <Name>has_constant</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>num of tracks for CB</Doc>
-                  <Name>num_tracks</Name>
-                  <Val>10</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>cbwide_base</InstanceName>
@@ -1385,14 +1385,14 @@
                   <Val>11111111111111</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>set to 1 if the CB has a register to supply a constant </Doc>
-                  <Name>has_constant</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>num of tracks for CB</Doc>
                   <Name>num_tracks</Name>
                   <Val>14</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>set to 1 if the CB has a register to supply a constant </Doc>
+                  <Name>has_constant</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>cb1b_base</InstanceName>
@@ -1409,14 +1409,14 @@
               <BaseModuleName>cb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>Bus width for CB</Doc>
-                  <Name>width</Name>
-                  <Val>1</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
                   <Name>feedthrough_outputs</Name>
                   <Val>11111111111111</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>Bus width for CB</Doc>
+                  <Name>width</Name>
+                  <Val>1</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>set to 1 if the CB has a register to supply a constant </Doc>
@@ -1496,14 +1496,14 @@
                   <Val>16</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
-                  <Name>sides</Name>
-                  <Val>4</Val>
+                  <Doc>1 if SB pins are bidi. TBD.</Doc>
+                  <Name>is_bidi</Name>
+                  <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>binary vector for modifying fanin of sb muxes</Doc>
-                  <Name>sb_fs</Name>
-                  <Val>10000#10000#10000</Val>
+                  <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
+                  <Name>registered_outputs</Name>
+                  <Val>11111</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = 0.5*num_tracks.</Doc>
@@ -1511,19 +1511,19 @@
                   <Val>00000</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>1 if SB pins are bidi. TBD.</Doc>
-                  <Name>is_bidi</Name>
-                  <Val>0</Val>
+                  <Doc>binary vector for modifying fanin of sb muxes</Doc>
+                  <Name>sb_fs</Name>
+                  <Val>10000#10000#10000</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
+                  <Name>sides</Name>
+                  <Val>4</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>number of tracks per side for SB. half of these are inputs for unidirectional SB</Doc>
                   <Name>num_tracks</Name>
                   <Val>5</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
-                  <Name>registered_outputs</Name>
-                  <Val>11111</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>Number of PE outputs to be muxed into outgoing driven tracks</Doc>
@@ -1539,9 +1539,9 @@
               <BaseModuleName>sb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>Bus width for SB</Doc>
-                  <Name>width</Name>
-                  <Val>1</Val>
+                  <Doc>number of tracks per side for SB. half of these are inputs for unidirectional SB</Doc>
+                  <Name>num_tracks</Name>
+                  <Val>5</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
@@ -1554,9 +1554,9 @@
                   <Val>10000#10000#10000</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = 0.5*num_tracks.</Doc>
-                  <Name>feedthrough_outputs</Name>
-                  <Val>00000</Val>
+                  <Doc>Number of PE outputs to be muxed into outgoing driven tracks</Doc>
+                  <Name>pe_output_count</Name>
+                  <Val>1</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>1 if SB pins are bidi. TBD.</Doc>
@@ -1564,19 +1564,19 @@
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>number of tracks per side for SB. half of these are inputs for unidirectional SB</Doc>
-                  <Name>num_tracks</Name>
-                  <Val>5</Val>
+                  <Doc>Bus width for SB</Doc>
+                  <Name>width</Name>
+                  <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = 0.5*num_tracks.</Doc>
+                  <Name>feedthrough_outputs</Name>
+                  <Val>00000</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
                   <Name>registered_outputs</Name>
                   <Val>11111</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>Number of PE outputs to be muxed into outgoing driven tracks</Doc>
-                  <Name>pe_output_count</Name>
-                  <Val>1</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>sb_1b</InstanceName>
@@ -1587,36 +1587,17 @@
               <BaseModuleName>test_pe</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>0 - no divide, 1 - enable iterrative divide</Doc>
-                  <Name>use_div</Name>
+                  <Doc>Enable debuging registers?</Doc>
+                  <Name>en_debug</Name>
                   <Range>
-                    <List>1</List>
-                    <List>0</List>
-                  </Range>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>1 - MSB in 32b mode, 0 - LSB result</Doc>
-                  <Name>is_msb</Name>
-                  <Range>
-                    <List>1</List>
-                    <List>0</List>
-                  </Range>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>Use MAD(2) or MULT(1) or None(0)</Doc>
-                  <Name>mult_mode</Name>
-                  <Range>
-                    <List>2</List>
                     <List>1</List>
                     <List>0</List>
                   </Range>
                   <Val>1</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>Add register on the outputs</Doc>
-                  <Name>reg_out</Name>
+                  <Doc>0 - no counter mode, 1 - enable counter mode</Doc>
+                  <Name>use_cntr</Name>
                   <Range>
                     <List>1</List>
                     <List>0</List>
@@ -1633,13 +1614,22 @@
                   <Val>1</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>Add register on the inputs</Doc>
-                  <Name>reg_inputs</Name>
+                  <Doc>Add register on the outputs</Doc>
+                  <Name>reg_out</Name>
                   <Range>
                     <List>1</List>
                     <List>0</List>
                   </Range>
-                  <Val>1</Val>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>0 - no divide, 1 - enable iterrative divide</Doc>
+                  <Name>use_div</Name>
+                  <Range>
+                    <List>1</List>
+                    <List>0</List>
+                  </Range>
+                  <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>0 - no LUT, 1-16 - uses LUTs with that number of inputs</Doc>
@@ -1652,8 +1642,35 @@
                   <Val>3</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>0 - no adders, 1 - simple ADDs, 2 - SAD</Doc>
-                  <Name>use_add</Name>
+                  <Doc>Add register on the inputs</Doc>
+                  <Name>reg_inputs</Name>
+                  <Range>
+                    <List>1</List>
+                    <List>0</List>
+                  </Range>
+                  <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>1 - MSB in 32b mode, 0 - LSB result</Doc>
+                  <Name>is_msb</Name>
+                  <Range>
+                    <List>1</List>
+                    <List>0</List>
+                  </Range>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>Use shift operations</Doc>
+                  <Name>use_shift</Name>
+                  <Range>
+                    <List>1</List>
+                    <List>0</List>
+                  </Range>
+                  <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>Use MAD(2) or MULT(1) or None(0)</Doc>
+                  <Name>mult_mode</Name>
                   <Range>
                     <List>2</List>
                     <List>1</List>
@@ -1671,27 +1688,10 @@
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>Use shift operations</Doc>
-                  <Name>use_shift</Name>
+                  <Doc>0 - no adders, 1 - simple ADDs, 2 - SAD</Doc>
+                  <Name>use_add</Name>
                   <Range>
-                    <List>1</List>
-                    <List>0</List>
-                  </Range>
-                  <Val>1</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>0 - no counter mode, 1 - enable counter mode</Doc>
-                  <Name>use_cntr</Name>
-                  <Range>
-                    <List>1</List>
-                    <List>0</List>
-                  </Range>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>Enable debuging registers?</Doc>
-                  <Name>en_debug</Name>
-                  <Range>
+                    <List>2</List>
                     <List>1</List>
                     <List>0</List>
                   </Range>
@@ -1855,15 +1855,6 @@
                   <BaseModuleName>test_pe_comp</BaseModuleName>
                   <ImmutableParameters>
                     <ParameterItem>
-                      <Doc>0 - no divide, 1 - enable iterrative divide</Doc>
-                      <Name>use_div</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>0</Val>
-                    </ParameterItem>
-                    <ParameterItem>
                       <Doc>Enable overflow signals?</Doc>
                       <Name>en_ovfl</Name>
                       <Range>
@@ -1873,8 +1864,109 @@
                       <Val>1</Val>
                     </ParameterItem>
                     <ParameterItem>
+                      <Doc>Use shifter area optimization?</Doc>
+                      <Name>en_opt</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>0 - no adders, 1 - simple ADDs, 2 - SAD</Doc>
+                      <Name>use_add</Name>
+                      <Range>
+                        <List>2</List>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>1 - 32b supported, 0 - No 32b support</Doc>
+                      <Name>en_double</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>Use MAD(2) or MULT(1) or None(0)</Doc>
+                      <Name>mult_mode</Name>
+                      <Range>
+                        <List>2</List>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>Use shift operations</Doc>
+                      <Name>use_shift</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
                       <Doc>1 - MSB in 32b mode, 0 - LSB result</Doc>
                       <Name>is_msb</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>0 - no max/min, 1 - enable max/min</Doc>
+                      <Name>use_max_min</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>Shiter sharing trick in double presition</Doc>
+                      <Name>en_trick</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>0 - no ABS, 1 - enable ABS</Doc>
+                      <Name>use_abs</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>0 - no divide, 1 - enable iterrative divide</Doc>
+                      <Name>use_div</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>0</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>0 - no booleans, 1 - simple gates</Doc>
+                      <Name>use_bool</Name>
+                      <Range>
+                        <List>1</List>
+                        <List>0</List>
+                      </Range>
+                      <Val>1</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>0 - no counter mode, 1 - enable counter mode</Doc>
+                      <Name>use_cntr</Name>
                       <Range>
                         <List>1</List>
                         <List>0</List>
@@ -1902,98 +1994,6 @@
                     <ParameterItem>
                       <Doc>Generate extra code for debug</Doc>
                       <Name>debug</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>0</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Use MAD(2) or MULT(1) or None(0)</Doc>
-                      <Name>mult_mode</Name>
-                      <Range>
-                        <List>2</List>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>0 - no booleans, 1 - simple gates</Doc>
-                      <Name>use_bool</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>0 - no ABS, 1 - enable ABS</Doc>
-                      <Name>use_abs</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>0 - no adders, 1 - simple ADDs, 2 - SAD</Doc>
-                      <Name>use_add</Name>
-                      <Range>
-                        <List>2</List>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>1 - 32b supported, 0 - No 32b support</Doc>
-                      <Name>en_double</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>0</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Use shift operations</Doc>
-                      <Name>use_shift</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>0 - no counter mode, 1 - enable counter mode</Doc>
-                      <Name>use_cntr</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>0</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>0 - no max/min, 1 - enable max/min</Doc>
-                      <Name>use_max_min</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Use shifter area optimization?</Doc>
-                      <Name>en_opt</Name>
-                      <Range>
-                        <List>1</List>
-                        <List>0</List>
-                      </Range>
-                      <Val>1</Val>
-                    </ParameterItem>
-                    <ParameterItem>
-                      <Doc>Shiter sharing trick in double presition</Doc>
-                      <Name>en_trick</Name>
                       <Range>
                         <List>1</List>
                         <List>0</List>
@@ -2059,6 +2059,15 @@
                       <BaseModuleName>test_shifter</BaseModuleName>
                       <ImmutableParameters>
                         <ParameterItem>
+                          <Doc>Use shifter area optimization?</Doc>
+                          <Name>en_opt</Name>
+                          <Range>
+                            <List>1</List>
+                            <List>0</List>
+                          </Range>
+                          <Val>1</Val>
+                        </ParameterItem>
+                        <ParameterItem>
                           <Doc>1 - MSB in 32b mode, 0 - LSB result</Doc>
                           <Name>is_msb</Name>
                           <Range>
@@ -2075,15 +2084,6 @@
                             <List>0</List>
                           </Range>
                           <Val>0</Val>
-                        </ParameterItem>
-                        <ParameterItem>
-                          <Doc>Use shifter area optimization?</Doc>
-                          <Name>en_opt</Name>
-                          <Range>
-                            <List>1</List>
-                            <List>0</List>
-                          </Range>
-                          <Val>1</Val>
                         </ParameterItem>
                         <ParameterItem>
                           <Doc>Shiter sharing trick in double presition</Doc>
@@ -2161,14 +2161,9 @@
           <BaseModuleName>memory_tile</BaseModuleName>
           <ImmutableParameters>
             <ParameterItem>
-              <Doc>binary vector for modifying fanin of sb muxes</Doc>
-              <Name>sb_fs</Name>
-              <Val>10000#10000#10000</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc>active low binary vector specifying into what tracks can the memory output be injected. Set the bit corresponding to a track to **0** to enable it to carry the injected value. length = number_tracks. MSB = track0. affects only the bus for which memory is being generated, other buses are always completely feedthrough.</Doc>
-              <Name>feedthrough_outputs</Name>
-              <Val>BUS1:00000 BUS16:00000</Val>
+              <Doc>binary vector specifying which of the non-feedthrough outputs above can be registered. set bit to 1 for registering. feedthrough tracks are not registered</Doc>
+              <Name>registered_outputs</Name>
+              <Val>BUS1:11111 BUS16:11111</Val>
             </ParameterItem>
             <ParameterItem>
               <Doc>bus to propagate ren, wen, valid, and almost_full control signals. only one name must be specified.</Doc>
@@ -2181,14 +2176,19 @@
               <Val>4</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>binary vector to specify tracks muxed by cb input to memory.length = num_tracks*2</Doc>
-              <Name>cb_connections</Name>
-              <Val>11111111111111</Val>
+              <Doc>active low binary vector specifying into what tracks can the memory output be injected. Set the bit corresponding to a track to **0** to enable it to carry the injected value. length = number_tracks. MSB = track0. affects only the bus for which memory is being generated, other buses are always completely feedthrough.</Doc>
+              <Name>feedthrough_outputs</Name>
+              <Val>BUS1:00000 BUS16:00000</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>generate mem for a particular bus width. only one name must be specified.</Doc>
-              <Name>gen_mem_for_busname</Name>
-              <Val>BUS16</Val>
+              <Doc>number of words in the memory</Doc>
+              <Name>ddepth</Name>
+              <Val>1024</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc>binary vector for modifying fanin of sb muxes</Doc>
+              <Name>sb_fs</Name>
+              <Val>10000#10000#10000</Val>
             </ParameterItem>
             <ParameterItem>
               <Doc>buses used at global level.</Doc>
@@ -2196,14 +2196,14 @@
               <Val>BUS16:16b#1_1:1_1:1_1:1_1:1_1 BUS1:1b#1_1:1_1:1_1:1_1:1_1</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>binary vector specifying which of the non-feedthrough outputs above can be registered. set bit to 1 for registering. feedthrough tracks are not registered</Doc>
-              <Name>registered_outputs</Name>
-              <Val>BUS1:11111 BUS16:11111</Val>
+              <Doc>generate mem for a particular bus width. only one name must be specified.</Doc>
+              <Name>gen_mem_for_busname</Name>
+              <Val>BUS16</Val>
             </ParameterItem>
             <ParameterItem>
-              <Doc>number of words in the memory</Doc>
-              <Name>ddepth</Name>
-              <Val>1024</Val>
+              <Doc>binary vector to specify tracks muxed by cb input to memory.length = num_tracks*2</Doc>
+              <Name>cb_connections</Name>
+              <Val>11111111111111</Val>
             </ParameterItem>
           </ImmutableParameters>
           <InstanceName>mem_0x0104</InstanceName>
@@ -2254,14 +2254,14 @@
                   <Val>11111111111111</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>set to 1 if the CB has a register to supply a constant </Doc>
-                  <Name>has_constant</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>num of tracks for CB</Doc>
                   <Name>num_tracks</Name>
                   <Val>10</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>set to 1 if the CB has a register to supply a constant </Doc>
+                  <Name>has_constant</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>cb</InstanceName>
@@ -2278,16 +2278,6 @@
               <BaseModuleName>cb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>Bus width for CB</Doc>
-                  <Name>width</Name>
-                  <Val>1</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
-                  <Name>feedthrough_outputs</Name>
-                  <Val>11111111111111</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>set to 1 if the CB has a register to supply a constant </Doc>
                   <Name>has_constant</Name>
                   <Val>0</Val>
@@ -2296,6 +2286,16 @@
                   <Doc>num of tracks for CB</Doc>
                   <Name>num_tracks</Name>
                   <Val>14</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
+                  <Name>feedthrough_outputs</Name>
+                  <Val>11111111111111</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>Bus width for CB</Doc>
+                  <Name>width</Name>
+                  <Val>1</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>cb_ctl</InstanceName>
@@ -2312,16 +2312,6 @@
               <BaseModuleName>cb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>Bus width for CB</Doc>
-                  <Name>width</Name>
-                  <Val>1</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
-                  <Name>feedthrough_outputs</Name>
-                  <Val>11111111111111</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>set to 1 if the CB has a register to supply a constant </Doc>
                   <Name>has_constant</Name>
                   <Val>0</Val>
@@ -2330,6 +2320,16 @@
                   <Doc>num of tracks for CB</Doc>
                   <Name>num_tracks</Name>
                   <Val>14</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.</Doc>
+                  <Name>feedthrough_outputs</Name>
+                  <Val>11111111111111</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>Bus width for CB</Doc>
+                  <Name>width</Name>
+                  <Val>1</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>cb1b_cg</InstanceName>
@@ -2394,14 +2394,14 @@
               <BaseModuleName>sb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
+                  <Doc>1 if SB pins are bidi. TBD.</Doc>
+                  <Name>is_bidi</Name>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
                   <Doc>Bus width for SB</Doc>
                   <Name>width</Name>
                   <Val>1</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
-                  <Name>sides</Name>
-                  <Val>4</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = 0.5*num_tracks.</Doc>
@@ -2409,9 +2409,9 @@
                   <Val>00000</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>1 if SB pins are bidi. TBD.</Doc>
-                  <Name>is_bidi</Name>
-                  <Val>0</Val>
+                  <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
+                  <Name>registered_outputs</Name>
+                  <Val>11111</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>number of tracks per side for SB. half of these are inputs for unidirectional SB</Doc>
@@ -2419,9 +2419,9 @@
                   <Val>5</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
-                  <Name>registered_outputs</Name>
-                  <Val>11111</Val>
+                  <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
+                  <Name>sides</Name>
+                  <Val>4</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>Number of PE outputs to be muxed into outgoing driven tracks</Doc>
@@ -2443,29 +2443,9 @@
               <BaseModuleName>sb</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>Bus width for SB</Doc>
-                  <Name>width</Name>
-                  <Val>16</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
-                  <Name>sides</Name>
-                  <Val>4</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>binary vector for feedthrough output config. Affects all sides. MSB corresponds to output 0 eg: 00000010 means output 7 is feedthrough. Length in bits = 0.5*num_tracks.</Doc>
                   <Name>feedthrough_outputs</Name>
                   <Val>00000</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>1 if SB pins are bidi. TBD.</Doc>
-                  <Name>is_bidi</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
-                  <Doc>number of tracks per side for SB. half of these are inputs for unidirectional SB</Doc>
-                  <Name>num_tracks</Name>
-                  <Val>5</Val>
                 </ParameterItem>
                 <ParameterItem>
                   <Doc>binary vector for registered output config. Affects all sides. MSB corresponds to output 0. Registering feedthrough outputs is ignored.</Doc>
@@ -2473,9 +2453,29 @@
                   <Val>11111</Val>
                 </ParameterItem>
                 <ParameterItem>
+                  <Doc>1 if SB pins are bidi. TBD.</Doc>
+                  <Name>is_bidi</Name>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>Bus width for SB</Doc>
+                  <Name>width</Name>
+                  <Val>16</Val>
+                </ParameterItem>
+                <ParameterItem>
                   <Doc>Number of PE outputs to be muxed into outgoing driven tracks</Doc>
                   <Name>pe_output_count</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>number of tracks per side for SB. half of these are inputs for unidirectional SB</Doc>
+                  <Name>num_tracks</Name>
+                  <Val>5</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>number of edges for a SB, 4 for a sqarish SB</Doc>
+                  <Name>sides</Name>
+                  <Val>4</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>sb1</InstanceName>
@@ -2571,14 +2571,14 @@
                   <BaseModuleName>fifo_control</BaseModuleName>
                   <ImmutableParameters>
                     <ParameterItem>
-                      <Doc>word width</Doc>
-                      <Name>dwidth</Name>
-                      <Val>16</Val>
-                    </ParameterItem>
-                    <ParameterItem>
                       <Doc>number of words in the memory</Doc>
                       <Name>ddepth</Name>
                       <Val>1024</Val>
+                    </ParameterItem>
+                    <ParameterItem>
+                      <Doc>word width</Doc>
+                      <Name>dwidth</Name>
+                      <Val>16</Val>
                     </ParameterItem>
                   </ImmutableParameters>
                   <InstanceName>fifo_control</InstanceName>
@@ -5431,6 +5431,15 @@
             </ParameterItem>
             <ParameterItem>
               <Doc></Doc>
+              <Name>config_data_width</Name>
+              <Range>
+                <Min>1</Min>
+                <Step>1</Step>
+              </Range>
+              <Val>32</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc></Doc>
               <Name>config_addr_width</Name>
               <Range>
                 <Min>1</Min>
@@ -5448,15 +5457,6 @@
                 <List>W</List>
               </Range>
               <Val>N</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc></Doc>
-              <Name>config_data_width</Name>
-              <Range>
-                <Min>1</Min>
-                <Step>1</Step>
-              </Range>
-              <Val>32</Val>
             </ParameterItem>
           </ImmutableParameters>
           <InstanceName>io_side_N_gr_0</InstanceName>
@@ -5476,14 +5476,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0001</InstanceName>
@@ -5548,14 +5548,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0005</InstanceName>
@@ -5566,14 +5566,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0006</InstanceName>
@@ -5584,14 +5584,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0007</InstanceName>
@@ -5602,14 +5602,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0008</InstanceName>
@@ -5674,14 +5674,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x000C</InstanceName>
@@ -5692,14 +5692,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x000D</InstanceName>
@@ -5710,14 +5710,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x000E</InstanceName>
@@ -5728,14 +5728,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>3</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x000F</InstanceName>
@@ -5777,6 +5777,15 @@
             </ParameterItem>
             <ParameterItem>
               <Doc></Doc>
+              <Name>config_data_width</Name>
+              <Range>
+                <Min>1</Min>
+                <Step>1</Step>
+              </Range>
+              <Val>32</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc></Doc>
               <Name>config_addr_width</Name>
               <Range>
                 <Min>1</Min>
@@ -5794,15 +5803,6 @@
                 <List>W</List>
               </Range>
               <Val>E</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc></Doc>
-              <Name>config_data_width</Name>
-              <Range>
-                <Min>1</Min>
-                <Step>1</Step>
-              </Range>
-              <Val>32</Val>
             </ParameterItem>
           </ImmutableParameters>
           <InstanceName>io_side_E_gr_0</InstanceName>
@@ -5840,13 +5840,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -5876,13 +5876,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -5894,13 +5894,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -5948,13 +5948,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -6020,13 +6020,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -6038,13 +6038,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -6074,13 +6074,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -6092,13 +6092,13 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
+                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
+                  <Name>side</Name>
                   <Val>0</Val>
                 </ParameterItem>
                 <ParameterItem>
-                  <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
-                  <Name>side</Name>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
@@ -6113,24 +6113,6 @@
           <BaseModuleName>io_group</BaseModuleName>
           <ImmutableParameters>
             <ParameterItem>
-              <Doc></Doc>
-              <Name>group_num</Name>
-              <Range>
-                <Min>0</Min>
-                <Step>1</Step>
-              </Range>
-              <Val>0</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc></Doc>
-              <Name>config_addr_width</Name>
-              <Range>
-                <Min>1</Min>
-                <Step>1</Step>
-              </Range>
-              <Val>32</Val>
-            </ParameterItem>
-            <ParameterItem>
               <Doc>Which side of the chip are we on?</Doc>
               <Name>side</Name>
               <Range>
@@ -6143,7 +6125,25 @@
             </ParameterItem>
             <ParameterItem>
               <Doc></Doc>
+              <Name>group_num</Name>
+              <Range>
+                <Min>0</Min>
+                <Step>1</Step>
+              </Range>
+              <Val>0</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc></Doc>
               <Name>config_data_width</Name>
+              <Range>
+                <Min>1</Min>
+                <Step>1</Step>
+              </Range>
+              <Val>32</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc></Doc>
+              <Name>config_addr_width</Name>
               <Range>
                 <Min>1</Min>
                 <Step>1</Step>
@@ -6168,14 +6168,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1110</InstanceName>
@@ -6204,14 +6204,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x110E</InstanceName>
@@ -6222,14 +6222,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x110D</InstanceName>
@@ -6240,14 +6240,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x110C</InstanceName>
@@ -6258,14 +6258,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x110B</InstanceName>
@@ -6276,14 +6276,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x110A</InstanceName>
@@ -6294,14 +6294,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1109</InstanceName>
@@ -6312,14 +6312,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1108</InstanceName>
@@ -6330,14 +6330,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1107</InstanceName>
@@ -6366,14 +6366,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1105</InstanceName>
@@ -6384,14 +6384,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1104</InstanceName>
@@ -6402,14 +6402,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1103</InstanceName>
@@ -6420,14 +6420,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1102</InstanceName>
@@ -6438,14 +6438,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>1</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1101</InstanceName>
@@ -6459,24 +6459,6 @@
           <BaseModuleName>io_group</BaseModuleName>
           <ImmutableParameters>
             <ParameterItem>
-              <Doc></Doc>
-              <Name>group_num</Name>
-              <Range>
-                <Min>0</Min>
-                <Step>1</Step>
-              </Range>
-              <Val>0</Val>
-            </ParameterItem>
-            <ParameterItem>
-              <Doc></Doc>
-              <Name>config_addr_width</Name>
-              <Range>
-                <Min>1</Min>
-                <Step>1</Step>
-              </Range>
-              <Val>32</Val>
-            </ParameterItem>
-            <ParameterItem>
               <Doc>Which side of the chip are we on?</Doc>
               <Name>side</Name>
               <Range>
@@ -6489,7 +6471,25 @@
             </ParameterItem>
             <ParameterItem>
               <Doc></Doc>
+              <Name>group_num</Name>
+              <Range>
+                <Min>0</Min>
+                <Step>1</Step>
+              </Range>
+              <Val>0</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc></Doc>
               <Name>config_data_width</Name>
+              <Range>
+                <Min>1</Min>
+                <Step>1</Step>
+              </Range>
+              <Val>32</Val>
+            </ParameterItem>
+            <ParameterItem>
+              <Doc></Doc>
+              <Name>config_addr_width</Name>
               <Range>
                 <Min>1</Min>
                 <Step>1</Step>
@@ -6514,14 +6514,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x1000</InstanceName>
@@ -6550,14 +6550,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0E00</InstanceName>
@@ -6640,14 +6640,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0900</InstanceName>
@@ -6658,14 +6658,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0800</InstanceName>
@@ -6748,14 +6748,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0300</InstanceName>
@@ -6766,14 +6766,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0200</InstanceName>
@@ -6784,14 +6784,14 @@
               <BaseModuleName>io1bit</BaseModuleName>
               <ImmutableParameters>
                 <ParameterItem>
-                  <Doc>specifies the IO group the IO belongs to</Doc>
-                  <Name>io_group</Name>
-                  <Val>0</Val>
-                </ParameterItem>
-                <ParameterItem>
                   <Doc>specifies the side (0=right/1=bottom/2=left/3=top) of the pad on which fabric wires exist </Doc>
                   <Name>side</Name>
                   <Val>2</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>specifies the IO group the IO belongs to</Doc>
+                  <Name>io_group</Name>
+                  <Val>0</Val>
                 </ParameterItem>
               </ImmutableParameters>
               <InstanceName>io1bit_0x0100</InstanceName>

@@ -21,7 +21,7 @@ MAIN:
   if ("$4" != '-o') goto USAGE
   set bsa_out = $5
 
-set scriptpath = `readlink -f $0`
+set scriptpath = `realpath $0`
 set scriptpath = $scriptpath:h
 
 # Script is maybe in $gen/bitstream/bsbuilder

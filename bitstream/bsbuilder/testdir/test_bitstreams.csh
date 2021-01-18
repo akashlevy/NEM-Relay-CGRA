@@ -57,7 +57,7 @@ else
   set bmarks = (pointwise conv_1_2 conv_2_1 conv_3_1 conv_bw onebit_bool)
 endif
 
-set scriptpath = `readlink -f $0`
+set scriptpath = `realpath $0`
 set scriptpath = $scriptpath:h
 cd $scriptpath
 

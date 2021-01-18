@@ -3,7 +3,7 @@
 set VERBOSE
 if ($?VERBOSE) echo $0:t':'
 
-set scriptpath = `readlink -f $0`
+set scriptpath = `realpath $0`
 set scriptpath = $scriptpath:h
 
 # echo $scriptpath

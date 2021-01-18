@@ -14,7 +14,7 @@ if ($?no_readlink) then
   endif
 else
   # set scriptpath = "$0" # No good if symlinks exist maybe
-  set scriptpath = `readlink -f $0`
+  set scriptpath = `realpath $0`
   set scriptpath = $scriptpath:h
 endif
 
