@@ -7,7 +7,8 @@ pwr_aware = False
 design_file = "design/design.v"
 stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v"
 assign_delay = 0
-clock_period = 5.2
+config_clock_period = 10
+clock_period = 4.3
 timescale = '1ns/1ps'
 
 app_active_cycle_numbers = {
@@ -16,7 +17,7 @@ app_active_cycle_numbers = {
     "conv_2_1": 66,
     "conv_3_1": 87,
     "conv_bw": 150,
-    "harris": 1097,
-    "onebit_bool": 102,
+    "harris": 97,
     "pointwise": 41
 }
+app_active_cycle_numbers = [c + 500 for c in app_active_cycle_numbers] # NEMS stall delay

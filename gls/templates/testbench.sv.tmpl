@@ -1,6 +1,7 @@
 `timescale ${timescale}
 `define NUM_TEST_VECTORS ${num_test_vectors}
 `define ASSIGNMENT_DELAY ${assign_delay}
+`define CONFIG_CLK_PERIOD ${config_clock_period}
 `define CLK_PERIOD ${clock_period}
 `define ACTIVE_CYCLE_NUMBER ${active_cycle_number}
 
@@ -41,8 +42,13 @@ module testbench;
         );
 
     // Toggle clock
-    always #(`CLK_PERIOD/2) clk_in =~clk_in;
-    
+    always begin
+        if (test_vector_addr < `ACTIVE_CYCLE_NUMBER) begin
+            #(`CONFIG_CLK_PERIOD/2) clk_in =~clk_in;
+        end else begin
+            #(`CLK_PERIOD/2) clk_in =~clk_in;
+        end
+
     // Read vectors
     initial begin
       $$readmemh("inputs/test_vectors.txt", test_vectors);
