@@ -18,7 +18,8 @@ Then, you want to take the input stimuli from the VCD and apply them to the gate
 3. Go to `testdir` and run `make vcdtest APP=<app_name>` to generate the waveform. The VCD output will be in `verilator/generator_z_tb`
     - You might need a large amount of RAM for verilator to work
     - On Ubuntu, you can try creating a swap file: https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/
-4. Copy the gate-level netlist and SDF file as `design.v` and `design.sdf` to `gls/design/`
+4. Copy the gate-level netlist and SDF file as `design.vcs.v` and `design.sdf` to `gls/design/`
+    - Alternatively, you can symlink your `design/` directory in `gls/`
 5. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
 6. Copy the bitstream `<app_name>.bsa` for the app to `gls/inputs/`. The example application bitstreams are already copied there.
 7. Open the VCD and find the cycle number you want to start measuring toggling (activity factor) from
