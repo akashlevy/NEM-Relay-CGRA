@@ -5,10 +5,12 @@
 /hardware/generator_z/top/genesis_work
 *.out
 *.log
+*.vcd
+*.raw
 
 nems/vcd
 gls/csrc
 gls/design
-gls/inputs/*.vcd
 gls/inputs/*.bsa
 
+verilator/generator_z_tb/build
