@@ -13,13 +13,13 @@ clock_period = 4.3
 timescale = '1ns/1ps'
 
 app_clk_factors = {
-    "cascade": 5, # >2
-    "conv_1_2": 2, # <2
-    "conv_2_1": 2, # <2
-    "conv_3_1": 2, # <2
-    "conv_bw": 5, # >2
-    "harris": 5, # >2
-    "pointwise": 1
+    "cascade": 2,
+    "conv_1_2": 2,
+    "conv_2_1": 2,
+    "conv_3_1": 2,
+    "conv_bw": 2,
+    "harris": 2,
+    "pointwise": 2
 }
 
 app_active_cycle_numbers = {
