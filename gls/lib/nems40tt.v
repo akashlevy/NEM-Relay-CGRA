@@ -7,7 +7,7 @@
 // File generated on Thu Jan 14 12:23:51 PST 2021. (SMSC-3)                   //
 //****************************************************************************//
 
-`default_nettype none
+`include "nems40tt_udp.v"
 `timescale 1ns/1ps
 
 
