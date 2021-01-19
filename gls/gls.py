@@ -183,6 +183,7 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "testbench.sv",
         design_file,
         stdcell_file,
+        nems_file
     ]
     os.system(" ".join(vcs_cmd))
 
@@ -208,7 +209,7 @@ def merge_saif(app):
     # Generate command
     app_saifs = glob.glob(f"outputs/{app}_pe_*.saif")
     input_list = " ".join([f"-input {saif} -weight {100 / len(app_saifs)}" for saif in app_saifs])
-    prefix = f"set power_enable_analysis true; read_verilog {design_file}; set target_library {stdcell_file[:-2]}.db; set link_path \"* $target_library\"; current_design {tile_module}"
+    prefix = f"set power_enable_analysis true; read_verilog {design_file}; set target_library [list {stdcell_file[:-2]}.db  {nems_file[:-2]}.db]; set link_path \"* $target_library\"; current_design {tile_module}"
     cmd = ["pt_shell", "-x", f"{prefix}; merge_saif -input_list \"{input_list}\" -simple_merge -strip_path testbench/dut -output outputs/{app}.saif; report_disable_timing; quit"]
     print(" ".join(cmd))
     ptout = subprocess.check_output(cmd)
