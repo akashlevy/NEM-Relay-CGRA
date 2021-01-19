@@ -236,7 +236,7 @@ def main():
 
     # Adjust clock period using app's clock factor
     try:
-        clock_period = clock_period * args.app_clk_factor if args.app_clk_factor is not None else app_clk_factors[args.app]
+        clock_period *= args.app_clk_factor if args.app_clk_factor is not None else app_clk_factors[args.app]
     except KeyError:
         pass
     print("Clock period used:", clock_period)
