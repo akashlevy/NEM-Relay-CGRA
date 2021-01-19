@@ -8,8 +8,18 @@ design_file = "design/design.vcs.v"
 stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v"
 assign_delay = 0
 config_clock_period = 10
-clock_period = 4.3*2
+clock_period = 4.3
 timescale = '1ns/1ps'
+
+app_clk_factors = {
+    "cascade": 5, # >2
+    "conv_1_2": 2, # <2
+    "conv_2_1": 2, # <2
+    "conv_3_1": 2, # <2
+    "conv_bw": 5, # >2
+    "harris": 5, # >2
+    "pointwise": 1
+}
 
 app_active_cycle_numbers = {
     "cascade": 510,
@@ -20,4 +30,5 @@ app_active_cycle_numbers = {
     "harris": 97,
     "pointwise": 41
 }
+
 app_active_cycle_numbers = {k: c + 500 - 5 for k, c in app_active_cycle_numbers.items()} # NEMS stall delay

@@ -212,6 +212,7 @@ def merge_saif(app):
     cmd = ["pt_shell", "-x", f"{prefix}; merge_saif -input_list \"{input_list}\" -simple_merge -strip_path testbench/dut -output outputs/{app}.saif; report_disable_timing; quit"]
     print(" ".join(cmd))
     ptout = subprocess.check_output(cmd)
+    print(ptout.decode('utf-8'))
 
     # Write output to log file
     open('merge_saif.log', 'ab').write(ptout)
@@ -223,6 +224,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run gate-level simulation for CGRA: verification and power estimation")
     parser.add_argument('app', help="Name of CGRA application to test", type=str)
     parser.add_argument('-acn', '--active_cycle_number', help="Number of cycles after which to measure toggling activity, typically after CGRA configuration", required=False, type=int, default=None)
+    parser.add_argument('-acf', '--app_clk_factor', help="How much slower should timing be for this app", required=False, type=int, default=None)
     parser.add_argument('--merge-saif-only', help="Only do the merge SAIF step", required=False, action='store_true')
     args = parser.parse_args()
 
@@ -231,6 +233,12 @@ def main():
         app, active_cycle_number = args.app, args.active_cycle_number if args.active_cycle_number is not None else app_active_cycle_numbers[args.app]
     except KeyError:
         sys.exit("Must specify app's active_cycle_number if it is not in defines.py dict!")
+
+    # Adjust clock period using app's clock factor
+    try:
+        clock_period *= args.app_clk_factor if args.app_clk_factor is not None else app_active_clk_factors[args.app]
+    except KeyError:
+        pass
 
     # If requested to merge saif only
     if args.merge_saif_only:
