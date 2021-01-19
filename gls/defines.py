@@ -8,7 +8,7 @@ design_file = "design/design.vcs.v"
 stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v"
 assign_delay = 0
 config_clock_period = 10
-clock_period = 4.5
+clock_period = 6
 timescale = '1ns/1ps'
 
 app_active_cycle_numbers = {
