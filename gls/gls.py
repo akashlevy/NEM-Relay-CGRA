@@ -209,7 +209,7 @@ def merge_saif(app):
     input_list = " ".join([f"-input {saif} -weight {100 / len(app_saifs)}" for saif in app_saifs])
     prefix = f"set power_enable_analysis true; read_verilog {design_file}; set target_library {stdcell_file[:-2]}.db; set link_path \"* $target_library\"; current_design {tile_module}"
     cmd = ["pt_shell", "-x", f"{prefix}; merge_saif -input_list \"{input_list}\" -simple_merge -strip_path testbench/dut -output outputs/{app}.saif; report_disable_timing; quit"]
-    print(" ".join(cmd))
+    print(" ".join(cmd) + ">> merge_saif.log")
     subprocess.run(cmd)
 
 
