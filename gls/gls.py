@@ -214,7 +214,7 @@ def merge_saif(app):
     ptout = subprocess.check_output(cmd)
 
     # Write output to log file
-    open('merge_saif.log', 'a').write(ptout)
+    open('merge_saif.log', 'ab').write(ptout)
 
 
 # Process each tile
