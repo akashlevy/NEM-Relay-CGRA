@@ -239,6 +239,7 @@ def main():
         clock_period *= args.app_clk_factor if args.app_clk_factor is not None else app_active_clk_factors[args.app]
     except KeyError:
         pass
+    print("Clock period used:", clock_period)
 
     # If requested to merge saif only
     if args.merge_saif_only:
