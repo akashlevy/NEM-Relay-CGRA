@@ -7,6 +7,7 @@ pwr_aware = False
 design_file = "design/design.vcs.v"
 stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v"
 nems_file = "lib/nems40tt.v"
+nems_udp_file = "lib/nems40tt_udp.v"
 assign_delay = 0
 config_clock_period = 10
 global clock_period
