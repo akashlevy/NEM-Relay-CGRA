@@ -184,7 +184,6 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         design_file,
         stdcell_file,
         nems_file,
-        nems_udp_file
     ]
     os.system(" ".join(vcs_cmd))
 
