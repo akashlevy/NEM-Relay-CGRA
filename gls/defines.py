@@ -8,7 +8,6 @@ design_file = "design/design.vcs.v"
 stdcell_file = "/home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v"
 nems_file = "lib/nems40tt.v"
 assign_delay = 0
-config_clock_period = 10
 global clock_period
 clock_period = 4.3
 timescale = '1ns/1ps'
@@ -32,3 +31,4 @@ app_active_cycle_numbers = {
     "harris": 97,
     "pointwise": 41
 }
+app_active_cycle_numbers = {k : v + 500 for k, v in app_active_cycle_numbers.items()}
