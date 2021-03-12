@@ -10,7 +10,7 @@ nems_file = "lib/nems40tt.v"
 assign_delay = 0
 config_clock_period = 10
 global clock_period
-clock_period = 4.3
+clock_period = 5
 timescale = '1ns/1ps'
 
 app_clk_factors = {
