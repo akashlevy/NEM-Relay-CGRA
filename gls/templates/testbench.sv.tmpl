@@ -43,7 +43,7 @@ module testbench;
 
     // Toggle clock
     always begin
-        if (test_vector_addr < `ACTIVE_CYCLE_NUMBER-5) begin
+        if (test_vector_addr < `ACTIVE_CYCLE_NUMBER-500) begin
             #(`CONFIG_CLK_PERIOD/2) clk_in =~clk_in;
         end else begin
             #(`CLK_PERIOD/2) clk_in =~clk_in;
