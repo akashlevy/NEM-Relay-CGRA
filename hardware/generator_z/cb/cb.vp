@@ -1,12 +1,15 @@
 //; use POSIX;
+//; my $num_poles  = parameter(Name=>'num_poles', val=> 8, doc=>'Number of poles on a NEM relay');
 //; my $width  = parameter(Name=>'width', val=> 16, doc=>'Bus width for CB');
 //; my $num_tracks = parameter(Name=>'num_tracks', val=> 10, doc=>'num of tracks for CB'); 
-//; my $feedthrough_outputs = parameter(Name=>'feedthrough_outputs', val=> "1111101111", doc=>'binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.');
-//; my $has_constant = parameter(Name=>'has_constant', val=> 1, doc=>'set to 1 if the CB has a register to supply a constant '); 
+//; my $feedthrough_outputs = parameter(Name=>'feedthrough_outputs', val=> "1111111111", doc=>'binary vector for specifying tracks that are muxed. MSB corresponds to track 0 eg: 1011 means tracks 0, 2, 3 are muxed to produce output for PE. Length in bits = num_tracks.');
+//; my $has_constant = parameter(Name=>'has_constant', val=> 0, doc=>'set to 1 if the CB has a register to supply a constant '); 
 //; my $default_value = parameter(Name=>'default_value', val=> 0, doc=>'set default cb output value on reset. has_constant should be 1 to enable this feature'); 
 //; my @feedthrough = split('',$feedthrough_outputs);
+//; my $mux_drive = parameter(Name=>'mux_drive', val=> 0, doc=>'drive strength of mux buffer'); 
+//; my $module_name = parameter(Name=>'module_name', val=>"cb_unq1", doc=>'Name of the module');
 
-module `mname` (
+module `$module_name` (
 clk, reset,
 //; for(my $i=0; $i<$num_tracks; $i++) {
 //;  if ($feedthrough[($i%$num_tracks)]==1) {
@@ -34,9 +37,9 @@ read_data
   /* verilator lint_off UNUSED */
   input [31:0] config_addr;
   /* verilator lint_on UNUSED */
-  wire ___genesis_wire_`${default_value}`_`${width}`_`${num_tracks}`_`${feedthrough_outputs}`_`${has_constant}`;
+  //wire ___genesis_wire_`${default_value}`_`${width}`_`${num_tracks}`_`${feedthrough_outputs}`_`${has_constant}`;
 
-  output reg [`$width-1`:0] out;
+  output [`$width-1`:0] out;
 //; for(my $i=0; $i<$num_tracks; $i++) {
 //;   if ($feedthrough[$i%$num_tracks]==1) {
   input [`$width-1`:0] in_`$i`;
@@ -97,23 +100,42 @@ read_data
 //;print CBINFO "        <default>$reset_val</default>\n";
 //;print CBINFO "        <mux snk='out'>\n";
 //; my $sel=0;
-  always @(*) begin
-    case (config_cb[`$mux_sel_bit_count - 1`:0])
-//; for(my $i=0; $i<$num_tracks; $i++) {
-//;   if ($feedthrough[$i%$num_tracks]==1) {
-        `$mux_sel_bit_count`'d`$sel`: out = in_`$i`;
-//;     print CBINFO "          <src sel='$sel'>in_$i</src>\n";
-//;     $sel++;
-//;   }
+  wire [`$num_tracks-1`:0] mux_sel; 
+
+  cb_unq1_decoder cb_unq1_decoder (
+    .in(config_cb[`$mux_sel_bit_count - 1`:0]),
+    .out(mux_sel)
+  );
+
+  wire [`$width-1`:0] out_bar;
+
+//; my $num_8bit_muxes = $width/$num_poles;
+//; $num_8bit_muxes = ($num_8bit_muxes < 1) ? 1 : $num_8bit_muxes;
+//; my $num_bits_routed_per_mux = ($width > $num_poles) ? $num_poles : $width;
+ 
+//; for (my $mux_num=0; $mux_num<$num_8bit_muxes; $mux_num=$mux_num+1) {
+//; my $min_bit = $mux_num * $num_bits_routed_per_mux;
+//; my $max_bit = (($mux_num+1)*$num_bits_routed_per_mux)-1;
+
+  nem_ohmux_invd`$mux_drive`_`$num_tracks`i_`$num_bits_routed_per_mux`b `$module_name`_mux_`$min_bit`_`$max_bit` (
+//; for (my $i=0; $i<$num_bits_routed_per_mux; $i=$i+1) {
+//;  for(my $j=0; $j<$num_tracks; $j=$j+1){
+    .I`$j`_`$i` (in_`$j`[`$min_bit+$i`]),
 //; }
-//;   if ($has_constant==1) {
-        default: out = config_cb[`$mux_sel_bit_count+$constant_bit_count-1`:`$mux_sel_bit_count`];
-//;     $sel++;
-//;   } else {
-        default: out = `$width`'d0;
-//;   }
-    endcase
-  end
+    .ZN_`$i` (out_bar[`$min_bit+$i`]),
+
+//;}
+//; for (my $i=0; $i<$num_tracks; $i=$i+1) {
+//; if($i==$num_tracks-1){
+    .S`$i` (mux_sel[`$i`])
+//;} else {
+    .S`$i` (mux_sel[`$i`]),
+//;} 
+//;}
+  );
+//;}
+  assign out = ~out_bar;
+
 endmodule
 //;print CBINFO "        </mux>\n";
 //;close CBINFO;
