@@ -82,32 +82,12 @@
         <sel_width>4</sel_width>
         <default>13</default>
         <mux snk='data0'>
-          <src sel='0'>in_BUS16_S2_T0</src>
-          <src sel='1'>in_BUS16_S2_T1</src>
-          <src sel='2'>in_BUS16_S2_T2</src>
-          <src sel='3'>in_BUS16_S2_T3</src>
-          <src sel='4'>in_BUS16_S2_T4</src>
-          <src sel='5'>out_BUS16_S2_T0</src>
-          <src sel='6'>out_BUS16_S2_T1</src>
-          <src sel='7'>out_BUS16_S2_T2</src>
-          <src sel='8'>out_BUS16_S2_T3</src>
-          <src sel='9'>out_BUS16_S2_T4</src>
         </mux>
     </cb>
     <cb feature_address='3' bus='BUS16'>
         <sel_width>4</sel_width>
         <default>13</default>
         <mux snk='data1'>
-          <src sel='0'>in_BUS16_S1_T0</src>
-          <src sel='1'>in_BUS16_S1_T1</src>
-          <src sel='2'>in_BUS16_S1_T2</src>
-          <src sel='3'>in_BUS16_S1_T3</src>
-          <src sel='4'>in_BUS16_S1_T4</src>
-          <src sel='5'>out_BUS16_S1_T0</src>
-          <src sel='6'>out_BUS16_S1_T1</src>
-          <src sel='7'>out_BUS16_S1_T2</src>
-          <src sel='8'>out_BUS16_S1_T3</src>
-          <src sel='9'>out_BUS16_S1_T4</src>
         </mux>
     </cb>
     <gout feature_address='10'>
@@ -388,8 +368,158 @@
           <src sel='2'>in_BUS16_S3_T0</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S0_T0' reg_address='1' bith='8' bitl='8' default='0' />
         <mux snk='out_BUS16_S0_T1' reg_address='0' bith='3' bitl='2' default='3'>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S1_T1</src>
           <src sel='1'>in_BUS16_S2_T1</src>
           <src sel='2'>in_BUS16_S3_T1</src>
@@ -402,8 +532,158 @@
           <src sel='2'>in_BUS16_S3_T2</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S0_T2' reg_address='1' bith='10' bitl='10' default='0' />
         <mux snk='out_BUS16_S0_T3' reg_address='0' bith='7' bitl='6' default='3'>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S1_T3</src>
           <src sel='1'>in_BUS16_S2_T3</src>
           <src sel='2'>in_BUS16_S3_T3</src>
@@ -416,8 +696,158 @@
           <src sel='2'>in_BUS16_S3_T4</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S1_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S0_T4' reg_address='1' bith='12' bitl='12' default='0' />
         <mux snk='out_BUS16_S1_T0' reg_address='0' bith='11' bitl='10' default='3'>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S2_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T0</src>
           <src sel='1'>in_BUS16_S2_T0</src>
           <src sel='2'>in_BUS16_S3_T0</src>
@@ -430,8 +860,158 @@
           <src sel='2'>in_BUS16_S3_T1</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S2_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S1_T1' reg_address='1' bith='14' bitl='14' default='0' />
         <mux snk='out_BUS16_S1_T2' reg_address='0' bith='15' bitl='14' default='3'>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S2_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T2</src>
           <src sel='1'>in_BUS16_S2_T2</src>
           <src sel='2'>in_BUS16_S3_T2</src>
@@ -444,8 +1024,158 @@
           <src sel='2'>in_BUS16_S3_T3</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S2_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S1_T3' reg_address='1' bith='16' bitl='16' default='0' />
         <mux snk='out_BUS16_S1_T4' reg_address='0' bith='19' bitl='18' default='3'>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S2_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T4</src>
           <src sel='1'>in_BUS16_S2_T4</src>
           <src sel='2'>in_BUS16_S3_T4</src>
@@ -458,8 +1188,158 @@
           <src sel='2'>in_BUS16_S3_T0</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S3_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S2_T0' reg_address='1' bith='18' bitl='18' default='0' />
         <mux snk='out_BUS16_S2_T1' reg_address='0' bith='23' bitl='22' default='3'>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S3_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T1</src>
           <src sel='1'>in_BUS16_S1_T1</src>
           <src sel='2'>in_BUS16_S3_T1</src>
@@ -472,8 +1352,158 @@
           <src sel='2'>in_BUS16_S3_T2</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S3_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S2_T2' reg_address='1' bith='20' bitl='20' default='0' />
         <mux snk='out_BUS16_S2_T3' reg_address='0' bith='27' bitl='26' default='3'>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S3_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T3</src>
           <src sel='1'>in_BUS16_S1_T3</src>
           <src sel='2'>in_BUS16_S3_T3</src>
@@ -486,8 +1516,158 @@
           <src sel='2'>in_BUS16_S3_T4</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S3_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S2_T4' reg_address='1' bith='22' bitl='22' default='0' />
         <mux snk='out_BUS16_S3_T0' reg_address='0' bith='31' bitl='30' default='3'>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T0</src>
+          <src sel='1'>in_BUS16_S1_T0</src>
+          <src sel='2'>in_BUS16_S2_T0</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T0</src>
           <src sel='1'>in_BUS16_S1_T0</src>
           <src sel='2'>in_BUS16_S2_T0</src>
@@ -500,8 +1680,158 @@
           <src sel='2'>in_BUS16_S2_T1</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T1</src>
+          <src sel='1'>in_BUS16_S1_T1</src>
+          <src sel='2'>in_BUS16_S2_T1</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S3_T1' reg_address='1' bith='24' bitl='24' default='0' />
         <mux snk='out_BUS16_S3_T2' reg_address='1' bith='35' bitl='34' default='3'>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T2</src>
+          <src sel='1'>in_BUS16_S1_T2</src>
+          <src sel='2'>in_BUS16_S2_T2</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T2</src>
           <src sel='1'>in_BUS16_S1_T2</src>
           <src sel='2'>in_BUS16_S2_T2</src>
@@ -514,8 +1844,158 @@
           <src sel='2'>in_BUS16_S2_T3</src>
           <src sel='3'>pe_out_res</src>
         </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T3</src>
+          <src sel='1'>in_BUS16_S1_T3</src>
+          <src sel='2'>in_BUS16_S2_T3</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
         <reg src='out_BUS16_S3_T3' reg_address='1' bith='26' bitl='26' default='0' />
         <mux snk='out_BUS16_S3_T4' reg_address='1' bith='39' bitl='38' default='3'>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
+          <src sel='0'>in_BUS16_S0_T4</src>
+          <src sel='1'>in_BUS16_S1_T4</src>
+          <src sel='2'>in_BUS16_S2_T4</src>
+          <src sel='3'>pe_out_res</src>
+        </mux>
           <src sel='0'>in_BUS16_S0_T4</src>
           <src sel='1'>in_BUS16_S1_T4</src>
           <src sel='2'>in_BUS16_S2_T4</src>

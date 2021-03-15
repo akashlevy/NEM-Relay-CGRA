@@ -11,4 +11,8 @@
           <src sel='7'>in_7</src>
           <src sel='8'>in_8</src>
           <src sel='9'>in_9</src>
+          <src sel='10'>in_10</src>
+          <src sel='11'>in_11</src>
+          <src sel='12'>in_12</src>
+          <src sel='13'>in_13</src>
         </mux>

@@ -37,7 +37,9 @@ function do_genesis {
     ../pad_ring/fixed_io.vp \
     \
     ../sb/sb.vp \
+    ../sb/sb_nems.vp \
     ../cb/cb.vp \
+    ../cb/cb_nems.vp \
     \
     ../pe_new/pe/rtl/test_pe_red.svp \
     ../pe_new/pe/rtl/test_pe_dual.vpf \
@@ -124,6 +126,9 @@ function main {
     ls -l genesis_verif/DW_tap.v
     echo
   fi
+
+  # Make sure to copy the NEMS stuff to genesis_verif/
+  cp ../nems/*.v genesis_verif/
 
   # What are these?  Why are they here?
   source clean_up_cgra_inputs.csh

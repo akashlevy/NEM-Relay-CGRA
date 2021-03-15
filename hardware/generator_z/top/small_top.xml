@@ -290,8 +290,18 @@
               <InstanceName>cbwide_base</InstanceName>
               <Parameters>
                 <ParameterItem>
+                  <Doc>Number of poles on a NEM relay</Doc>
+                  <Name>num_poles</Name>
+                  <Val>8</Val>
+                </ParameterItem>
+                <ParameterItem>
                   <Doc>set default cb output value on reset. has_constant should be 1 to enable this feature</Doc>
                   <Name>default_value</Name>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>drive strength of mux buffer</Doc>
+                  <Name>mux_drive</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </Parameters>
@@ -336,7 +346,18 @@
             </SubInstanceItem>
             <SubInstanceItem>
               <InstanceName>sb_wide</InstanceName>
-              <Parameters></Parameters>
+              <Parameters>
+                <ParameterItem>
+                  <Doc>Number of poles on a NEM relay</Doc>
+                  <Name>num_poles</Name>
+                  <Val>8</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>drive strength of mux buffer</Doc>
+                  <Name>mux_drive</Name>
+                  <Val>1</Val>
+                </ParameterItem>
+              </Parameters>
             </SubInstanceItem>
             <SubInstanceItem>
               <InstanceName>sb_1b</InstanceName>
@@ -563,8 +584,18 @@
               <InstanceName>cb</InstanceName>
               <Parameters>
                 <ParameterItem>
+                  <Doc>Number of poles on a NEM relay</Doc>
+                  <Name>num_poles</Name>
+                  <Val>8</Val>
+                </ParameterItem>
+                <ParameterItem>
                   <Doc>set default cb output value on reset. has_constant should be 1 to enable this feature</Doc>
                   <Name>default_value</Name>
+                  <Val>0</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>drive strength of mux buffer</Doc>
+                  <Name>mux_drive</Name>
                   <Val>0</Val>
                 </ParameterItem>
               </Parameters>
@@ -621,9 +652,19 @@
               <InstanceName>sb1</InstanceName>
               <Parameters>
                 <ParameterItem>
+                  <Doc>Number of poles on a NEM relay</Doc>
+                  <Name>num_poles</Name>
+                  <Val>8</Val>
+                </ParameterItem>
+                <ParameterItem>
                   <Doc>binary vector for modifying fanin of sb muxes</Doc>
                   <Name>sb_fs</Name>
                   <Val>10000#10000#10000</Val>
+                </ParameterItem>
+                <ParameterItem>
+                  <Doc>drive strength of mux buffer</Doc>
+                  <Name>mux_drive</Name>
+                  <Val>1</Val>
                 </ParameterItem>
               </Parameters>
             </SubInstanceItem>

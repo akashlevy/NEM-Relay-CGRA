@@ -7,10 +7,10 @@ genesis_verif/flop_unq3.sv
 genesis_verif/cfg_and_dbg_unq1.sv
 genesis_verif/jtag_unq1.sv
 genesis_verif/global_controller_unq1.sv
+genesis_verif/cb_nems_unq1.v
 genesis_verif/cb_unq1.v
-genesis_verif/cb_unq2.v
+genesis_verif/sb_nems_unq1.v
 genesis_verif/sb_unq1.v
-genesis_verif/sb_unq2.v
 genesis_verif/test_opt_reg.sv
 genesis_verif/test_opt_reg_file.sv
 genesis_verif/test_full_add.sv
@@ -22,7 +22,9 @@ genesis_verif/test_lut.sv
 genesis_verif/test_debug_reg.sv
 genesis_verif/test_pe_unq1.sv
 genesis_verif/pe_tile_new_unq1.sv
-genesis_verif/sb_unq3.v
+genesis_verif/cb_nems_unq2.v
+genesis_verif/sb_unq2.v
+genesis_verif/sb_nems_unq2.v
 genesis_verif/input_sr_unq1.v
 genesis_verif/output_sr_unq1.v
 genesis_verif/linebuffer_control_unq1.v

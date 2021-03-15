@@ -281,7 +281,7 @@ read_data
 //; ##############################################
 
 //; my $num_tracks_wide = $bus_num_tracks_hash { $gen_mem_for_busname };
-//; my $cb_wide = generate('cb', 'cb', width=>16, num_tracks=>($num_tracks_wide*2), has_constant=>0, feedthrough_outputs=>$cb_connections);  
+//; my $cb_wide = generate('cb_nems', 'cb', width=>16, num_tracks=>($num_tracks_wide*2), has_constant=>0, feedthrough_outputs=>$cb_connections);  
 
 //; my $num_tracks_1b = $bus_num_tracks_hash{ $control_busname };
 //; my $cb_1b = generate('cb', 'cb_ctl', width=>1, num_tracks=>(($num_tracks_1b*2)+$global_signal_count), has_constant=>0, feedthrough_outputs=>$cb_connections);
@@ -412,7 +412,7 @@ read_data
 //;   my $ft = '0' x $num_tracks;
 //;   my $reg = '1' x $num_tracks;
 //;   if ($bus eq $gen_mem_for_busname) {
-//;     $sb_hash{ $bus } = generate('sb', 'sb1', width => $bus_width, num_tracks => $num_tracks, sides => $sides, feedthrough_outputs=>$ft, registered_outputs=>$reg, pe_output_count=>1, is_bidi=>$is_bidi);
+//;     $sb_hash{ $bus } = generate('sb_nems', 'sb1', width => $bus_width, num_tracks => $num_tracks, sides => $sides, feedthrough_outputs=>$ft, registered_outputs=>$reg, pe_output_count=>1, is_bidi=>$is_bidi);
 //;   } else { 
 //;     $sb_hash{ $bus } = generate('sb', 'sb2', width => $bus_width, num_tracks => $num_tracks, sides => $sides, feedthrough_outputs=>$ft, registered_outputs=>$reg, pe_output_count=>3, is_bidi=>$is_bidi);
 //;   }
