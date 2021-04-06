@@ -9,19 +9,27 @@ def read_power_to_df(path='vanilla/*.power.hier.rpt'):
     # Search in path
     for powfname in glob.glob(path):
         # Get app name from file name
+        typ = powfname.split('/')[0]
         app = powfname.split('/')[-1].split('.')[0]
 
         # Read power files
-        for line in list(open(powfname).readlines())[14:-1]:
+        for line in list(open(powfname).readlines())[15:-1]:
             vals = line.strip().split()
-            data.append({
-                'App': app,
-                'Module': vals[0],
-                'Internal Power (mW)': float(vals[-5])*1e3,
-                'Switching Power (mW)': float(vals[-4])*1e3,
-                'Leakage Power (mW)': float(vals[-3])*1e3,
-                'Total Power (mW)': float(vals[-2])*1e3
-                })
+            try:
+                data.append({
+                    'Type': typ,
+                    'App': app,
+                    'Filename': powfname,
+                    'Indent': re.search('\S', line).start() // 2,
+                    'Module': ' '.join(vals[0:-5]),
+                    'Internal Power (mW)': float(vals[-5])*1e3 if vals[-5] != 'N/A' else 0.,
+                    'Switching Power (mW)': float(vals[-4])*1e3 if vals[-4] != 'N/A' else 0.,
+                    'Leakage Power (mW)': float(vals[-3])*1e3 if vals[-3] != 'N/A' else 0.,
+                    'Total Power (mW)': float(vals[-2])*1e3 if vals[-2] != 'N/A' else 0.
+                    })
+            except ValueError as e:
+                print(f"ERROR in {app}")
+                raise e
     
     # Convert to DataFrame
     return pd.DataFrame(data)
