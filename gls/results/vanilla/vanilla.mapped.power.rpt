@@ -1,0 +1,62 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : pe_tile_new_unq1
+Version: L-2016.03-SP5-5
+Date   : Fri Feb 26 07:34:26 2021
+****************************************
+
+
+Library(s) Used:
+
+    tcbn40ulpbwp40_c170815tt1p1v25c (File: /home/mcoduoza/Hybrid-RRAM-NEMS-CGRA/default_pe_tile/build/8-synopsys-dc-synthesis/inputs/adk/stdcells.db)
+
+
+Operating Conditions: tt1p1v25c   Library: tcbn40ulpbwp40_c170815tt1p1v25c
+Wire Load Model Mode: Inactive.
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+pe_tile_new_unq1                       6.75e-02    0.312  639.308    0.380 100.0
+  test_pe (test_pe_unq1)               2.48e-03 1.41e-02  203.575 1.68e-02   4.4
+    test_debug_bit (test_debug_reg_DataWidth1) 8.41e-07 1.27e-03    0.488 1.27e-03   0.3
+    test_debug_data (test_debug_reg_DataWidth16)    0.000 1.94e-03    8.347 1.94e-03   0.5
+    test_lut (test_lut_DataWidth1)     1.86e-05 1.49e-03    3.476 1.52e-03   0.4
+    test_pe_comp (test_pe_comp_unq1)   2.16e-05 1.95e-05  141.213 1.82e-04   0.0
+      test_shifter (test_shifter_unq1_DataWidth16)    0.000    0.000    8.725 8.73e-06   0.0
+      test_mult_add (test_mult_add_DataWidth16) 2.06e-05 1.76e-05   93.121 1.31e-04   0.0
+        mult_x_1 (test_mult_add_DataWidth16_DW_mult_tc_1) 2.06e-05 1.76e-05   92.994 1.31e-04   0.0
+      cmpr (test_cmpr)                    0.000    0.000    1.378 1.38e-06   0.0
+      GEN_ADD_0__full_add (test_full_add_DataWidth16)    0.000    0.000    4.113 4.11e-06   0.0
+        DP_OP_5J4_122_5729 (test_full_add_DataWidth16_DP_OP_5J4_122_5729_J4_0)    0.000    0.000    4.113 4.11e-06   0.0
+    test_opt_reg_f (test_opt_reg_DataWidth1_0) 1.07e-05 1.31e-03    0.807 1.33e-03   0.3
+    test_opt_reg_e (test_opt_reg_DataWidth1_1) 1.39e-05 1.31e-03    0.807 1.33e-03   0.3
+    test_opt_reg_d (test_opt_reg_DataWidth1_2) 1.40e-05 1.35e-03    0.966 1.36e-03   0.4
+    test_opt_reg_file (test_opt_reg_file_DataWidth16) 1.99e-06 1.03e-03   10.355 1.04e-03   0.3
+    test_opt_reg_a (test_opt_reg_DataWidth16) 1.84e-06 1.06e-03   11.323 1.08e-03   0.3
+  sb_1b (sb_unq2)                      4.59e-03 3.41e-02   57.098 3.87e-02  10.2
+  sb_wide (sb_unq1)                    5.28e-02    0.243  267.823    0.296  77.9
+  cb_cg_en (cb_unq2_0)                 9.58e-04 3.00e-03   13.239 3.98e-03   1.0
+  cb_bit2 (cb_unq2_1)                  1.06e-03 3.01e-03   13.260 4.08e-03   1.1
+  cb_bit1 (cb_unq2_2)                  1.19e-03 3.02e-03   13.339 4.21e-03   1.1
+  cb_bit0 (cb_unq2_3)                  1.12e-03 3.01e-03   13.253 4.14e-03   1.1
+  cb_data1 (cb_unq1_0)                 8.75e-04 2.93e-03   21.368 3.83e-03   1.0
+  cb_data0 (cb_unq1_1)                 9.86e-04 2.93e-03   20.650 3.94e-03   1.0
+1

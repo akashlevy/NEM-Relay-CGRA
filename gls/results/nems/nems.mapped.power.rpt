@@ -1,0 +1,105 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : pe_tile_new_unq1
+Version: L-2016.03-SP5-5
+Date   : Mon Mar 15 18:30:38 2021
+****************************************
+
+
+Library(s) Used:
+
+    tcbn40ulpbwp40_c170815tt1p1v25c (File: /home/mcoduoza/Hybrid-RRAM-NEMS-CGRA/nem_pe_tile/build/10-synopsys-dc-synthesis/inputs/adk/stdcells.db)
+    nems40tt (File: /home/mcoduoza/Hybrid-RRAM-NEMS-CGRA/nem_pe_tile/build/10-synopsys-dc-synthesis/inputs/nldm_nems40tt.db)
+
+
+Operating Conditions: tt1p1v25c   Library: tcbn40ulpbwp40_c170815tt1p1v25c
+Wire Load Model Mode: Inactive.
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+pe_tile_new_unq1                       7.28e-02    0.323  869.338    0.397 100.0
+  test_pe (pe_tile_new_unq1_test_pe_unq1_0) 3.25e-03 1.41e-02  239.021 1.76e-02   4.4
+    test_debug_bit (pe_tile_new_unq1_test_debug_reg_DataWidth1_0) 9.94e-08 1.27e-03    0.488 1.27e-03   0.3
+    test_debug_data (pe_tile_new_unq1_test_debug_reg_DataWidth16_0)    0.000 1.93e-03    8.378 1.94e-03   0.5
+    test_lut (pe_tile_new_unq1_test_lut_DataWidth1_0) 1.25e-05 1.49e-03    3.649 1.51e-03   0.4
+    test_pe_comp (pe_tile_new_unq1_test_pe_comp_unq1_0)    0.000    0.000  158.716 1.59e-04   0.0
+      test_shifter (pe_tile_new_unq1_test_shifter_unq1_DataWidth16_0)    0.000    0.000    9.625 9.63e-06   0.0
+      test_mult_add (pe_tile_new_unq1_test_mult_add_DataWidth16_0)    0.000    0.000  109.048 1.09e-04   0.0
+        mult_x_1 (pe_tile_new_unq1_test_mult_add_DataWidth16_DW_mult_tc_1_0)    0.000    0.000  108.549 1.09e-04   0.0
+      cmpr (pe_tile_new_unq1_test_cmpr_0)    0.000    0.000    0.867 8.67e-07   0.0
+      GEN_ADD_0__full_add (pe_tile_new_unq1_test_full_add_DataWidth16_0)    0.000    0.000    8.643 8.64e-06   0.0
+        DP_OP_5J2_122_5729 (pe_tile_new_unq1_test_full_add_DataWidth16_DP_OP_5J2_122_5729_J2_0_0)    0.000    0.000    8.643 8.64e-06   0.0
+    test_opt_reg_f (pe_tile_new_unq1_test_opt_reg_DataWidth1_1) 1.75e-05 1.31e-03    0.807 1.33e-03   0.3
+    test_opt_reg_e (pe_tile_new_unq1_test_opt_reg_DataWidth1_2) 1.57e-05 1.31e-03    0.807 1.33e-03   0.3
+    test_opt_reg_d (pe_tile_new_unq1_test_opt_reg_DataWidth1_0) 1.41e-05 1.35e-03    1.016 1.36e-03   0.3
+    test_opt_reg_file (pe_tile_new_unq1_test_opt_reg_file_DataWidth16_0) 3.41e-06 1.03e-03   12.645 1.05e-03   0.3
+    test_opt_reg_a (pe_tile_new_unq1_test_opt_reg_DataWidth16_0) 2.90e-06 1.03e-03   10.030 1.04e-03   0.3
+  sb_1b (pe_tile_new_unq1_sb_unq2_0)   4.91e-03 3.52e-02   63.970 4.01e-02  10.1
+  sb_wide (pe_tile_new_unq1_sb_unq1_0) 5.42e-02    0.252  432.127    0.307  77.4
+    sb_decoder_2to1_mux_59 (pe_tile_new_unq1_sb_decoder_2to1_mux_1)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_3_4 (pe_tile_new_unq1_sb_decoder_4to1_mux_1) 2.90e-06 3.89e-07    0.674 3.96e-06   0.0
+    sb_decoder_2to1_mux_58 (pe_tile_new_unq1_sb_decoder_2to1_mux_2)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_3_3 (pe_tile_new_unq1_sb_decoder_4to1_mux_2) 3.01e-06 3.90e-07    0.674 4.07e-06   0.0
+    sb_decoder_2to1_mux_57 (pe_tile_new_unq1_sb_decoder_2to1_mux_3)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_3_2 (pe_tile_new_unq1_sb_decoder_4to1_mux_3) 3.28e-06 3.89e-07    0.674 4.34e-06   0.0
+    sb_decoder_2to1_mux_56 (pe_tile_new_unq1_sb_decoder_2to1_mux_4)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_3_1 (pe_tile_new_unq1_sb_decoder_4to1_mux_4) 2.64e-06 3.89e-07    0.674 3.70e-06   0.0
+    sb_decoder_2to1_mux_55 (pe_tile_new_unq1_sb_decoder_2to1_mux_5)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_3_0 (pe_tile_new_unq1_sb_decoder_4to1_mux_5) 3.47e-06 9.35e-07    1.896 6.30e-06   0.0
+    sb_decoder_2to1_mux_54 (pe_tile_new_unq1_sb_decoder_2to1_mux_6)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_2_4 (pe_tile_new_unq1_sb_decoder_4to1_mux_6) 2.39e-06 3.19e-07    0.418 3.13e-06   0.0
+    sb_decoder_2to1_mux_53 (pe_tile_new_unq1_sb_decoder_2to1_mux_7)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_2_3 (pe_tile_new_unq1_sb_decoder_4to1_mux_7) 3.85e-06 3.90e-07    0.674 4.91e-06   0.0
+    sb_decoder_2to1_mux_52 (pe_tile_new_unq1_sb_decoder_2to1_mux_8)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_2_2 (pe_tile_new_unq1_sb_decoder_4to1_mux_8) 3.24e-06 3.89e-07    0.674 4.30e-06   0.0
+    sb_decoder_2to1_mux_51 (pe_tile_new_unq1_sb_decoder_2to1_mux_9)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_2_1 (pe_tile_new_unq1_sb_decoder_4to1_mux_9) 2.82e-06 3.89e-07    0.674 3.89e-06   0.0
+    sb_decoder_2to1_mux_50 (pe_tile_new_unq1_sb_decoder_2to1_mux_10)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_2_0 (pe_tile_new_unq1_sb_decoder_4to1_mux_10) 2.36e-06 2.56e-07    0.454 3.07e-06   0.0
+    sb_decoder_2to1_mux_49 (pe_tile_new_unq1_sb_decoder_2to1_mux_11)    0.000    0.000    0.167 1.67e-07   0.0
+    sb_decoder_4to1_mux_1_4 (pe_tile_new_unq1_sb_decoder_4to1_mux_11) 2.75e-06 3.89e-07    0.674 3.81e-06   0.0
+    sb_decoder_2to1_mux_48 (pe_tile_new_unq1_sb_decoder_2to1_mux_12)    0.000    0.000    0.167 1.67e-07   0.0
+    sb_decoder_4to1_mux_1_3 (pe_tile_new_unq1_sb_decoder_4to1_mux_12) 3.19e-06 3.89e-07    0.674 4.25e-06   0.0
+    sb_decoder_2to1_mux_47 (pe_tile_new_unq1_sb_decoder_2to1_mux_13)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_1_2 (pe_tile_new_unq1_sb_decoder_4to1_mux_13) 2.56e-06 3.90e-07    0.674 3.63e-06   0.0
+    sb_decoder_2to1_mux_46 (pe_tile_new_unq1_sb_decoder_2to1_mux_14)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_1_1 (pe_tile_new_unq1_sb_decoder_4to1_mux_14) 2.82e-06 3.88e-07    0.674 3.88e-06   0.0
+    sb_decoder_2to1_mux_45 (pe_tile_new_unq1_sb_decoder_2to1_mux_15)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_1_0 (pe_tile_new_unq1_sb_decoder_4to1_mux_15) 2.71e-06 3.21e-07    0.418 3.45e-06   0.0
+    sb_decoder_2to1_mux_44 (pe_tile_new_unq1_sb_decoder_2to1_mux_16)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_0_4 (pe_tile_new_unq1_sb_decoder_4to1_mux_16) 2.26e-06 2.54e-07    0.396 2.91e-06   0.0
+    sb_decoder_2to1_mux_43 (pe_tile_new_unq1_sb_decoder_2to1_mux_17)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_0_3 (pe_tile_new_unq1_sb_decoder_4to1_mux_17) 3.12e-06 3.88e-07    0.674 4.18e-06   0.0
+    sb_decoder_2to1_mux_42 (pe_tile_new_unq1_sb_decoder_2to1_mux_18)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_0_2 (pe_tile_new_unq1_sb_decoder_4to1_mux_18) 2.92e-06 3.89e-07    0.674 3.99e-06   0.0
+    sb_decoder_2to1_mux_41 (pe_tile_new_unq1_sb_decoder_2to1_mux_19)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_0_1 (pe_tile_new_unq1_sb_decoder_4to1_mux_19) 2.95e-06 3.90e-07    0.674 4.01e-06   0.0
+    sb_decoder_2to1_mux_40 (pe_tile_new_unq1_sb_decoder_2to1_mux_0)    0.000    0.000    0.147 1.47e-07   0.0
+    sb_decoder_4to1_mux_0_0 (pe_tile_new_unq1_sb_decoder_4to1_mux_0) 2.67e-06 3.88e-07    0.674 3.73e-06   0.0
+  cb_cg_en (pe_tile_new_unq1_cb_unq2_0) 1.15e-03 3.06e-03   13.484 4.23e-03   1.1
+  cb_bit2 (pe_tile_new_unq1_cb_unq2_1) 1.24e-03 3.14e-03   13.738 4.39e-03   1.1
+  cb_bit1 (pe_tile_new_unq1_cb_unq2_2) 1.35e-03 3.14e-03   13.738 4.51e-03   1.1
+  cb_bit0 (pe_tile_new_unq1_cb_unq2_3) 1.25e-03 3.13e-03   13.862 4.40e-03   1.1
+  cb_data1 (pe_tile_new_unq1_cb_unq1_1) 1.17e-03 2.93e-03   16.698 4.12e-03   1.0
+    cb_unq1_decoder (pe_tile_new_unq1_cb_unq1_decoder_1) 3.02e-06 7.01e-07    1.325 5.04e-06   0.0
+  cb_data0 (pe_tile_new_unq1_cb_unq1_0) 1.15e-03 2.93e-03   17.010 4.09e-03   1.0
+    cb_unq1_decoder (pe_tile_new_unq1_cb_unq1_decoder_0) 3.90e-06 7.74e-07    1.615 6.29e-06   0.0
+1
