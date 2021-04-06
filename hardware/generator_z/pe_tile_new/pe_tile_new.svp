@@ -201,7 +201,7 @@ read_data
 //; }
 //; my $num_tracks_wide = $bus_num_tracks_hash{'BUS16'};
 //; my $num_tracks_1b = $bus_num_tracks_hash{'BUS1'};
-//; my $cb_wide = generate('cb_nems', 'cbwide_base', width=>$wide_bus_width, num_tracks=>($num_tracks_wide*2), has_constant=>$has_constant, feedthrough_outputs=>$cb_connections);
+//; my $cb_wide = generate('cb', 'cbwide_base', width=>$wide_bus_width, num_tracks=>($num_tracks_wide*2), has_constant=>$has_constant, feedthrough_outputs=>$cb_connections);
 //; my $cb_1b = generate('cb', 'cb1b_base', width=>1, num_tracks=>(($num_tracks_1b*2)+$global_signal_count), has_constant=>$has_constant, feedthrough_outputs=>$cb_connections);
 //; my $cb_cg = generate('cb', 'cb1b_cg', width=>1, num_tracks=>(($num_tracks_1b*2)+$global_signal_count), has_constant=>0, feedthrough_outputs=>$cb_connections);
 //; my @cb_connections_arr = split('',$cb_connections);
@@ -353,7 +353,7 @@ read_data
 //;    }
 //;  }
 //;   my $output_count = 0;
-//;   my $sb_wide = generate('sb_nems', 'sb_wide', width => $wide_bus_width, num_tracks => $bus_num_tracks_hash{'BUS16'}, sides => $sides, feedthrough_outputs=>$bus_feedthrough_outputs, registered_outputs=>$bus_registered_outputs, pe_output_count=>(scalar @wide_outputs), is_bidi=>$is_bidi, sb_fs=>$sb_fs);
+//;   my $sb_wide = generate('sb', 'sb_wide', width => $wide_bus_width, num_tracks => $bus_num_tracks_hash{'BUS16'}, sides => $sides, feedthrough_outputs=>$bus_feedthrough_outputs, registered_outputs=>$bus_registered_outputs, pe_output_count=>(scalar @wide_outputs), is_bidi=>$is_bidi, sb_fs=>$sb_fs);
   `$sb_wide->instantiate()`
   (
     .clk(clk_in),

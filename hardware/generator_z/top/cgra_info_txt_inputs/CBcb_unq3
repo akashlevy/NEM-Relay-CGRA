@@ -1,4 +1,18 @@
         <sel_width>4</sel_width>
         <default>13</default>
         <mux snk='out'>
+          <src sel='0'>in_0</src>
+          <src sel='1'>in_1</src>
+          <src sel='2'>in_2</src>
+          <src sel='3'>in_3</src>
+          <src sel='4'>in_4</src>
+          <src sel='5'>in_5</src>
+          <src sel='6'>in_6</src>
+          <src sel='7'>in_7</src>
+          <src sel='8'>in_8</src>
+          <src sel='9'>in_9</src>
+          <src sel='10'>in_10</src>
+          <src sel='11'>in_11</src>
+          <src sel='12'>in_12</src>
+          <src sel='13'>in_13</src>
         </mux>
