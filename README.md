@@ -18,25 +18,26 @@ Then, you want to take the input stimuli from the VCD and apply them to the gate
 3. Go to `testdir` and run `make vcdtest APP=<app_name>` to generate the waveform. The VCD output will be in `verilator/generator_z_tb`
     - You might need a large amount of RAM for verilator to work
     - On Ubuntu, you can try creating a swap file: https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/
-4. Symlink your mflowgen `outputs/` directory from the signoff step as `design` in `gls/`
-5. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
-6. Copy the bitstream `<app_name>.bsa` for the app to `gls/inputs/`. The example application bitstreams are already copied there.
-7. Open the VCD and find the cycle number you want to start measuring toggling (activity factor) from
+4. Copy the VCD output to gls: `cp verilator/generator_z_tb/<app_name>.vcd gls/inputs/<app_name>.vcd`
+5. Symlink your mflowgen `outputs/` directory from the signoff step as `design` in `gls/`
+6. Symlink your Liberty/Verilog files from the NEM-Relay-CAD repo in `gls/lib/`. This will work by default if your NEM-Relay-CAD repo and NEM-Relay-CGRA repo are cloned to the same directory.
+7. Copy the bitstream `<app_name>.bsa` for the app to `gls/inputs/`. The example application bitstreams are already copied there.
+8. Open the VCD and find the cycle number you want to start measuring toggling (activity factor) from
     - Typically, you want to skip the configuration phase of the CGRA, so choose the cycle that corresponds to the beginning of the usage phase after the end of configuration
     - For several CGRA applications, this cycle number has been found and stored in `defines.py` for convenience
     - If you are using one of these CGRA applications, you don't need to supply `<active_cycle_number>`
-8. Make sure the requirement modules are loaded. Add these lines to your `~/.cshrc` or equivalent profile:
+9. Make sure the requirement modules are loaded. Add these lines to your `~/.cshrc` or equivalent profile:
     - `module load vcs/O-2018.09-SP1`
     - `module load prime`
     - `module load pts/K-2015.12`
-9.  Run GLS: `python gls.py <app_name> <active_cycle_number>`
-10. Then go into `synopsys-ptpx-gl` and configure your symlinks
+10. Run GLS: `python gls.py <app_name> <active_cycle_number>`
+11. Then go into `synopsys-ptpx-gl` and configure your symlinks
     - `nldm_nems40tt.db` should point to the latest compiled NEMS lib file
     - `stdcells.db` should point to the compiled library cells from the PDK
     - `nems` should point to the mflowgen `outputs/` directory from the signoff step of your NEMS design
     - `vanilla` should point to the mflowgen `outputs/` directory from the signoff step of your vanilla design
-11. Finally, run `run.sh <app_name> <nems_or_vanilla>` which will run PTPX and generate signoff reports in `gls/results/<nems_or_vanilla>`.
-12. Done!
+12. Finally, run `run.sh <app_name> <nems_or_vanilla>` which will run PTPX and generate signoff reports in `gls/results/<nems_or_vanilla>`.
+13. Done!
 
 
 To visualize the power number breakdown after PTPX using sunburst-chart:
