@@ -4,16 +4,12 @@ import powplot
 # Helper class for parsing tree struction of power report
 class Node:
     def __init__(self, row):
-        try:
-            self.children = []
-            self.level = row["Indent"]
-            self.module = row["Module"]
-            self.intpow = row["Internal Power (mW)"]
-            self.swpow = row["Switching Power (mW)"]
-            self.leakpow = row["Leakage Power (mW)"]
-        except:
-            print(row)
-            exit()
+        self.children = []
+        self.level = row["Indent"]
+        self.module = row["Module"]
+        self.intpow = row["Internal Power (mW)"]
+        self.swpow = row["Switching Power (mW)"]
+        self.leakpow = row["Leakage Power (mW)"]
 
     def add_children(self, nodes):
         childlevel = nodes[0].level
