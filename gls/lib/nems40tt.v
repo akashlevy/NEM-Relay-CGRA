@@ -1,1 +1,1 @@
-../../../NEM-Relay-CAD/liberty/nems40tt/models/verilog/verilog.v
+/home/mcoduoza/NEM-Relay-CAD/liberty/nems40tt/models/verilog/verilog.v

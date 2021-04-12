@@ -195,7 +195,7 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     subprocess.run(["cp", "-f", output_file, "inputs/test_outputs.txt"])
 
     # Run the simulation, print output and write to file
-    simout = subprocess.check_output(["simv", "+vcs+initreg+0"])
+    simout = subprocess.check_output(["./simv", "+vcs+initreg+0"])
     print(simout.decode('utf-8'))
     open(simout_file, 'wb').write(simout)
 
