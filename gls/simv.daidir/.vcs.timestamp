@@ -56,10 +56,10 @@ SYNOPSYS_PTS=/cad/synopsys/prime/Q-2019.12-SP2
 SYNOPSYS_LICENSE=27000@cadlic0.stanford.edu
 SYNOPSYS_LC_ROOT=/cad/synopsys/lc/M-2017.06-SP3
 SYNOPSYS=/cad/synopsys/syn/L-2016.03-SP5-5
-SSH_TTY=/dev/pts/6
-SSH_CONNECTION=10.31.236.8 55158 172.24.100.60 22
-SSH_CLIENT=10.31.236.8 55158 22
-SSH_AUTH_SOCK=/tmp/ssh-RgGdOI3429/agent.3429
+SSH_TTY=/dev/pts/11
+SSH_CONNECTION=10.31.236.8 58886 172.24.100.60 22
+SSH_CLIENT=10.31.236.8 58886 22
+SSH_AUTH_SOCK=/tmp/ssh-iWgXo10050/agent.10050
 SPRINGSOFT_LICENSE=5219@cadlic0.stanford.edu
 SPECTRE_FEATURE_FILE=/cad/cadence/MMSIM15.10.803.lnx86/tools.lnx86/spectre/etc/files/spectre.dat
 SPECTRE_DEFAULTS=-E
@@ -91,7 +91,7 @@ MATLABPATH=/cad/cadence/MMSIM15.10.803.lnx86/tools.lnx86/spectre/matlab/64bit
 LOADEDMODULES=base/1.0:base/rsg:vcs/O-2018.09-SP1:dc_shell/latest:pts/K-2015.12:prime/latest:ic/latest:incisive/latest:lc/latest:starrc/latest:innovus/latest:mmsim/latest:calibre/2019.1:xcelium/latest:cscope/latest
 LESSOPEN=||/usr/bin/lesspipe.sh %s
 LC_ALL=C
-KRB5CCNAME=FILE:/tmp/krb5cc_315958_NBWsEY
+KRB5CCNAME=FILE:/tmp/krb5cc_315958_e0gsc0
 IUSHOME=/cad/cadence/XCELIUMMAIN_20.09.007_lnx86
 HOSTTYPE=x86_64-linux
 G_BROKEN_FILENAMES=1
@@ -108,17 +108,17 @@ CADENCE_LICENSE=5280@cadlic0.stanford.edu
 AMSHOME=/cad/cadence/XCELIUMMAIN_20.09.007_lnx86
 0
 7
-1618186457 testbench_sdf.log
-1618120061 design/design.sdf
+1618349434 testbench_sdf.log
+1618277238 design/design.sdf
 1618122403 lib/nems40tt.v
 1587757270 /home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v
-1618120061 design/design.vcs.v
-1618186454 testbench.sv
+1618277238 design/design.vcs.v
+1618349430 testbench.sv
 1543551547 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/vcsdp.tab
 4
 1543552622 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/libvirsim.so
 1543551927 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/liberrorinf.so
 1543551833 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/libsnpsmalloc.so
 1543551917 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/libvfs.so
-1618186471 simv.daidir
+1618349449 simv.daidir
 -1 partitionlib

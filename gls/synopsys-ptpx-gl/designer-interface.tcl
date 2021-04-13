@@ -10,6 +10,7 @@
 set ptpx_design_name        pe_tile_new_unq1
 set appname                 $::env(APPNAME)
 set designtype              $::env(DESIGNTYPE)
+set experiment              $::env(EXPERIMENT)
 set appdesname              ${appname}_${designtype}
 
 
