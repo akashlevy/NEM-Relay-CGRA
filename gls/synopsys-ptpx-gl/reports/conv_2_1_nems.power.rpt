@@ -1,0 +1,33 @@
+****************************************
+Report : Averaged Power
+	-nosplit
+Design : pe_tile_new_unq1
+Version: Q-2019.12-SP2
+Date   : Tue Apr 13 15:32:15 2021
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+clock_network           2.544e-04 7.459e-05 2.433e-08 3.291e-04 (54.30%)  i
+register                1.345e-05 1.234e-05 2.772e-07 2.607e-05 ( 4.30%)  
+combinational           5.358e-05 1.967e-04 5.446e-07 2.508e-04 (41.39%)  
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 2.836e-04   (46.81%)
+  Cell Internal Power  = 3.215e-04   (53.05%)
+  Cell Leakage Power   = 8.462e-07   ( 0.14%)
+                         ---------
+Total Power            = 6.060e-04  (100.00%)
+
+1

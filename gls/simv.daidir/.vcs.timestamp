@@ -108,17 +108,17 @@ CADENCE_LICENSE=5280@cadlic0.stanford.edu
 AMSHOME=/cad/cadence/XCELIUMMAIN_20.09.007_lnx86
 0
 7
-1618349434 testbench_sdf.log
-1618277238 design/design.sdf
+1618370808 testbench_sdf.log
+1618341760 design/design.sdf
 1618122403 lib/nems40tt.v
 1587757270 /home/shared/COMMON_CHIMERA_V2/adks/tsmc40ulp_V130a/view-standard/stdcells.v
-1618277238 design/design.vcs.v
-1618349430 testbench.sv
+1618341760 design/design.vcs.v
+1618370805 testbench.sv
 1543551547 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/vcsdp.tab
 4
 1543552622 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/libvirsim.so
 1543551927 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/liberrorinf.so
 1543551833 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/libsnpsmalloc.so
 1543551917 /cad/synopsys/vcs/O-2018.09-SP1/linux64/lib/libvfs.so
-1618349449 simv.daidir
+1618370822 simv.daidir
 -1 partitionlib

@@ -100,8 +100,10 @@ report_power -nosplit \
 report_power -nosplit -hierarchy -leaf \
   > reports/$appdesname.power.hier.rpt
 
+set underscore "_"
+
 report_power -nosplit -hierarchy -leaf \
-  > ../results/$designtype/$appname.power.hier.rpt
+  > ../results/$designtype$underscore$experiment/$appname.power.hier.rpt
 
 exit
 
