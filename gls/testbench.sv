@@ -1,9 +1,9 @@
 `timescale 1ns/1ps
-`define NUM_TEST_VECTORS 5106
+`define NUM_TEST_VECTORS 4637
 `define ASSIGNMENT_DELAY 0
 `define CONFIG_CLK_PERIOD 10
 `define CLK_PERIOD 8.6
-`define ACTIVE_CYCLE_NUMBER 1010
+`define ACTIVE_CYCLE_NUMBER 541
 
 // Input slices
 `define SLICE_CONFIG_ADDR 31:0
