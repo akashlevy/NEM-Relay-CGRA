@@ -3,7 +3,7 @@ Report : Averaged Power
 	-nosplit
 Design : pe_tile_new_unq1
 Version: Q-2019.12-SP2
-Date   : Wed Apr 14 17:02:22 2021
+Date   : Mon May  3 23:59:09 2021
 ****************************************
 
 
@@ -16,18 +16,18 @@ Date   : Wed Apr 14 17:02:22 2021
                         Internal  Switching  Leakage    Total
 Power Group             Power     Power      Power      Power   (     %)  Attrs
 --------------------------------------------------------------------------------
-clock_network           2.563e-04 7.590e-05 2.569e-08 3.322e-04 (36.51%)  i
-register                2.071e-05 3.064e-05 2.634e-07 5.161e-05 ( 5.67%)  
-combinational           1.202e-04 4.047e-04 1.136e-06 5.261e-04 (57.82%)  
+clock_network           2.524e-04 7.298e-05 2.474e-08 3.254e-04 (41.56%)  i
+register                1.762e-05 2.260e-05 2.420e-07 4.047e-05 ( 5.17%)  
+combinational           8.199e-05 3.346e-04 4.815e-07 4.171e-04 (53.27%)  
 sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
 memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
 io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
 black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
 
-  Net Switching Power  = 5.113e-04   (56.19%)
-  Cell Internal Power  = 3.972e-04   (43.66%)
-  Cell Leakage Power   = 1.425e-06   ( 0.16%)
+  Net Switching Power  = 4.302e-04   (54.95%)
+  Cell Internal Power  = 3.520e-04   (44.96%)
+  Cell Leakage Power   = 7.483e-07   ( 0.10%)
                          ---------
-Total Power            = 9.099e-04  (100.00%)
+Total Power            = 7.829e-04  (100.00%)
 
 1

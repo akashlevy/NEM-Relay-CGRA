@@ -103,9 +103,9 @@ report_power -nosplit -hierarchy -leaf \
 set underscore "_"
 
 
-report_power -nosplit -hierarchy -leaf \
-  > ../results/$designtype/$appname.power.hier.rpt
 #report_power -nosplit -hierarchy -leaf \
+  > ../results/$designtype/$appname.power.hier.rpt
+report_power -nosplit -hierarchy -leaf \
   > ../results/$designtype$underscore$experiment/$appname.power.hier.rpt
 
 exit
