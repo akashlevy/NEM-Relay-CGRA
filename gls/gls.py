@@ -224,7 +224,7 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
 
     # Run the simulation, print output and write to file
     print(tile)
-    proc = "./simv" if (tile[5:] + "\n") not in open(f"inputs/{app}.delayed").readlines() else "./simv_delayed"
+    proc = "./simv" if (tile[5:] + "\n") not in open(f"inputs/{app}.delayed").readlines() else "./simv_delay"
     print(proc)
     simout = subprocess.check_output([proc, "+vcs+initreg+0"])
     print(simout.decode('utf-8'))
