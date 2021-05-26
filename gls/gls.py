@@ -1,17 +1,30 @@
 # Import python libraries
-import argparse, binascii, csv, glob, os, re, string, subprocess
+import argparse, csv, glob, os, re, string, subprocess
 from defines import *
 
 
-# Get active PE tiles from bitstream and write to file
-def get_active_pes(bsfile):
+# Get PE info from bitstream and write to files
+def get_pe_info(bsfile):
+    # Pattern for recognizing vector size (dim)
+    latch_pattern = re.compile("tile \((\d+), (\d+)\) latch")
+
+    # Get bitstream name
     bsname = bsfile[:-4] # remove the file extension
-    with open(bsfile) as inf, open(f'{bsname}.tiles', 'w') as outf:
+
+    # Search bitstream for info
+    with open(bsfile) as inf, open(f'{bsname}.tiles', 'w') as tilef, open(f'{bsname}.latched', 'w') as latchf, open(f'{bsname}.delayed', 'w') as delayf:
+        # Check if PE is active
         for line in inf.readlines():
             if line[:2] == 'FF':
                 peid = line[4:8]
-                outf.write(peid + '\n')
-
+                tilef.write(peid + '\n')
+            latch = latch_pattern.search(line)
+            if latch is not None:
+                x, y = [int(v) for v in latch.groups()]
+                if y % 4 != 0:
+                    latchf.write("0x%02X\n" % 15)
+            if "REG_DELAY" in line:
+                delayf.write(peid + '\n')
 
 # Commands to generate raw commands
 def generate_raw(app, tile):
@@ -162,7 +175,7 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
     output_checks = ''
     for o in outputs:
         output_checks += f'''
-        if ({o} != test_outputs[test_vector_addr][`SLICE_{o.upper()}] || ($isunknown({o}) && test_vector_addr != 0)) begin
+        if ({o} != test_outputs[test_vector_addr + `delayed][`SLICE_{o.upper()}] || ($isunknown({o}) && test_vector_addr != 0)) begin
             $display("mismatch cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
         end\n'''
     output_checks = output_checks.strip()
@@ -181,10 +194,27 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "+vcs+initreg+random",
         "+neg_tchk",
         "testbench.sv",
+        "+define+delayed=0",
         design_file,
         stdcell_file,
         nems_file,
     ]
+    os.system(" ".join(vcs_cmd))
+
+    # Run VCS to create simv executable
+    vcs_cmd = [
+        "vcs",
+        "-sverilog",
+        "-debug",
+        "+vcs+dumpvars+outputs/out.vcd",
+        "+vcs+initreg+random",
+        "+neg_tchk",
+        "testbench.sv",
+        "+define+delayed=1",
+        design_file,
+        stdcell_file,
+        nems_file,
+        "-o simv_delay"]
     os.system(" ".join(vcs_cmd))
 
 
@@ -195,7 +225,8 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     subprocess.run(["cp", "-f", output_file, "inputs/test_outputs.txt"])
 
     # Run the simulation, print output and write to file
-    simout = subprocess.check_output(["./simv", "+vcs+initreg+0"])
+    proc = "./simv" if (tile + "\n") not in f"inputs/{app}.delayed" else "./simv_delayed"
+    simout = subprocess.check_output([proc, "+vcs+initreg+0"])
     print(simout.decode('utf-8'))
     open(simout_file, 'wb').write(simout)
 
@@ -252,9 +283,9 @@ def main():
     if not os.path.exists('outputs'):
         os.makedirs('outputs')
 
-    # Extract active PEs from app bitstream
-    print("Extracting active PEs from app bitsream...")
-    get_active_pes(f"inputs/{app}.bsa")
+    # Extract PE info from app bitstream
+    print("Extracting PE info from app bitsream...")
+    get_pe_info(f"inputs/{app}.bsa")
 
     # Open tiles
     print("Converting tiles to vectors...")
@@ -296,4 +327,6 @@ def main():
 
 # Run main if called from command line
 if __name__ == '__main__':
-    main()
+    for f in glob.glob("inputs/*.bsa"):
+        get_pe_info(f)
+    #main()

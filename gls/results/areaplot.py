@@ -1,5 +1,5 @@
 import glob, re
-import numpy as np, matplotlib.pyplot as plt, pandas as pd
+import altair as alt, numpy as np, matplotlib.pyplot as plt, pandas as pd
 
 HEADER = ['Hinst Name', 'Module Name', 'Inst Count', 'Total Area', 'Buffer', 'Inverter', 'Combinational', 'Flop', 'Latch', 'Clock Gate', 'Macro', 'Physical']
 MODULES = ['PE Core', 'CBs', 'SB', 'Other']
@@ -83,19 +83,21 @@ if __name__ == '__main__':
     data['Hinst Name'].replace(re.compile(r'cb_bit.*'), 'CBs', inplace=True)
 
     # Plot the area: comparison
-    powdata = data[data['Indent'] == 0]
-    # print(powdata)
-    powdata.plot.bar(x='Design', y='Total Area', title='PE Tile CMOS Area', ylabel='Area (um$^2$)', figsize=(2.5,3.5), rot=0, legend=None, xlabel='')
-    for rect, label in zip(plt.gca().patches, powdata['Total Area'].values):
-        height = rect.get_height()
-        plt.gca().text(rect.get_x() + rect.get_width() / 2, height + 5, "%.1f" % label, ha='center', va='bottom')
-    plt.ylim(0, 15000)
-    plt.tight_layout()
-    plt.show()
+    areadata = data.copy()
+    areadata['TotArea'] = areadata['Total Area']
+    areadata['Module'] = areadata['Hinst Name']
+    areadata = areadata[areadata['Indent'] == 1].groupby(['Module', 'Design']).sum().reset_index()
+    chart = alt.Chart(areadata).mark_bar().encode(
+        # tell Altair which field to group columns on
+        x=alt.X('Design:N', title=None),
 
-    # Plot breakdown as pie chart
-    powdata = data[data['Indent'] == 1].pivot_table(values='Total Area', index=['Design'], columns='Hinst Name', aggfunc=np.sum).transpose()
-    # print(powdata)
-    powdata.plot.pie(title='PE Tile Area Breakdown', subplots=True, autopct='%1.1f%%', figsize=(3.5,5), legend=None, layout=(2,1))
-    plt.tight_layout()
-    plt.show()
+        # tell Altair which field to use as Y values and how to calculate
+        y=alt.Y('sum(TotArea):Q', axis=alt.Axis(title="Total Area (um²)")),
+
+        # tell Altair which field to use for color segmentation 
+        color=alt.Color('Module:N')
+    ).configure_view(
+        # remove grid lines around column clusters
+        strokeOpacity=0    
+    ).properties(width=140, height=100)
+    chart.show()

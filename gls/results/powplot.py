@@ -1,5 +1,5 @@
 import glob, re
-import numpy as np, matplotlib.pyplot as plt, pandas as pd
+import altair as alt, numpy as np, matplotlib.pyplot as plt, pandas as pd
 
 MODULES = ['PE Core', 'CBs', 'SB', 'Other']
 APPMAP = {
@@ -45,7 +45,7 @@ def read_power_to_df(path='*/*.power.hier.rpt'):
                     'Total Power (mW)': float(vals[-2])*1e3 if vals[-2] != 'N/A' else 0.
                     })
             except ValueError as e:
-                print(f"ERROR in {app}")
+                print(f'ERROR in {app}')
                 raise e
     
     # Convert to DataFrame
@@ -78,22 +78,24 @@ if __name__ == '__main__':
     powdata.loc[powdata['App'] == 'Conv 3×3', 'Total Power (mW)'] *= 20
     powdata.loc[powdata['App'] == 'Cascade', 'Total Power (mW)'] *= 71
     powdata.loc[powdata['App'] == 'Harris', 'Total Power (mW)'] *= 154
-    powdata = powdata[powdata['Indent'] == 0].pivot_table(values='Total Power (mW)', index=['App'], columns='Design')
+    powdata['TotPow'] = powdata['Total Power (mW)']
     print(powdata)
-    powdata.plot.bar(title='Total PE Tile Power by App', ylabel='Power (mW)', figsize=(5,3), rot=0, xlabel='')
-    plt.ylim(0, 100)
-    for rect, label in zip(plt.gca().patches, powdata.values.flatten(order='F')):
-        height = rect.get_height()
-        plt.gca().text(rect.get_x() + rect.get_width() / 2, height + 5, "%.1f" % label, ha='center', va='bottom')
-    plt.tight_layout()
-    plt.show()
-
-    # Plot the power breakdown
-    powdata = data[data['Indent'] == 1].pivot_table(values='Total Power (mW)', index=['Design'], columns='Module', aggfunc=np.sum)
-    powdata = powdata.reindex(MODULES, axis=1).transpose()
+    powdata = powdata[powdata['Indent'] == 1].groupby(['Module', 'App', 'Design']).sum().reset_index()
     print(powdata)
+    chart = alt.Chart(powdata).mark_bar().encode(
+        # tell Altair which field to group columns on
+        x=alt.X('Design:N', title=None),
 
-    # Plot as stacked bar plot
-    powdata.plot.pie(title='Average PE Power Breakdown by Module', subplots=True, autopct='%1.1f%%', figsize=(6,3), legend=None, xlabel='')
-    plt.tight_layout()
-    plt.show()
+        # tell Altair which field to use as Y values and how to calculate
+        y=alt.Y('sum(TotPow):Q', axis=alt.Axis(title='Total Power (mW)')),
+
+        # tell Altair which field to use to use as the set of columns to be represented in each group
+        column=alt.Column('App', sort=alt.SortArray(['Conv 3×3', 'Cascade', 'Harris']), header=alt.Header(labelOrient="bottom", title=None)),
+
+        # tell Altair which field to use for color segmentation 
+        color=alt.Color('Module:N', sort=alt.SortArray(['Conv 3×3', 'Cascade', 'Harris'])),
+    ).configure_view(
+        # remove grid lines around column clusters
+        strokeOpacity=0    
+    ).properties(width=40, height=100)
+    chart.show()

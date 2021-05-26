@@ -7,7 +7,7 @@ Then, you want to take the input stimuli from the VCD and apply them to the gate
 1. Clone modified TestBenchGenerator:
     - `git clone https://github.com/akashlevy/TestBenchGenerator.git ../TestBenchGenerator`
 2. Look at `.travis.yml` and install packages as done in there. *Recommended: use Linux for setup.* Current instructions:
-    - `sudo apt-get install csh verilator`
+    - `sudo apt-get install csh verilator make g++`
     - Install Miniconda:
         - `wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;`
         - `bash miniconda.sh -u -b -p $HOME/miniconda`
