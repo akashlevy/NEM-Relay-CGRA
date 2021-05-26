@@ -1,8 +1,25 @@
 import glob, re
 import numpy as np, matplotlib.pyplot as plt, pandas as pd
 
+MODULES = ['PE Core', 'CBs', 'SB', 'Other']
+APPMAP = {
+    'cascade': 'Cascade',
+    'conv_bw': 'Conv 3×3',
+    'harris': 'Harris'
+}
+DESIGNMAP = {
+        'vanilla': 'CMOS',
+        'nems_invd1': 'NEMS'
+    }
+BLOCKAGE_AREA = 4.2336
+MUXAREA = {
+    2 : 38.7192,
+    4 : 71.832,
+    10 : 164.6688
+}
+
 # Read power reports and convert into organized pandas DataFrame
-def read_power_to_df(path='vanilla/*.power.hier.rpt'):
+def read_power_to_df(path='*/*.power.hier.rpt'):
     # Data
     data = []
 
@@ -17,7 +34,7 @@ def read_power_to_df(path='vanilla/*.power.hier.rpt'):
             vals = line.strip().split()
             try:
                 data.append({
-                    'Type': typ,
+                    'Design': typ,
                     'App': app,
                     'Filename': powfname,
                     'Indent': re.search('\S', line).start() // 2,
@@ -38,35 +55,45 @@ if __name__ == '__main__':
     # Get data
     data = read_power_to_df()
 
-    # Rename high-level components and filter the rest
-    data['Module'].replace('test_pe', 'PE Core', inplace=True)
-    data['Module'].replace('sb_wide', 'SB', inplace=True)
-    data['Module'].replace(re.compile(r'cb_data\d*'), 'CBs', inplace=True)
-    data['Module'].replace(re.compile(r'cb_bit\d*'), 'Other', inplace=True)
-    data['Module'].replace('cb_cg_en', 'CBs', inplace=True)
-    data['Module'].replace('sb_1b', 'Other', inplace=True)
-    data = data[~data['Module'].str.contains('_')]
-    data = data[data['Module'] != 'cmpr']
-    data = data[data['Module'] != 'pe_tile_new_unq1']
+    # Use only one set of results
+    data = data[data['App'].isin(APPMAP.keys())]
+    data = data[data['Design'].isin(DESIGNMAP.keys())]
 
-    # Pivot table and rename apps
-    tot_pow_data = data.pivot_table(values='Total Power (mW)', index=['App'], columns='Module', aggfunc=np.sum)
-    tot_pow_data = tot_pow_data.reindex(['PE Core', 'Other', 'CBs', 'SB'], axis=1).reset_index().iloc[::-1]
-    tot_pow_data.replace({
-        'cascade': 'Cascade',
-        'conv_1_2': 'Conv. 1×2',
-        'conv_2_1': 'Conv. 2×1',
-        'conv_3_1': 'Conv. 3×1',
-        'conv_bw': 'Conv. 3×3',
-        'harris': 'Harris',
-        'pointwise': 'Pointwise'
-        }, inplace=True)
-    print(tot_pow_data)
+    # Rename high-level components and filter the rest
+    data['Module'].replace(re.compile(r'pe_tile_new_unq1.*'), 'Total', inplace=True)
+    data['Module'].replace(re.compile(r'cb_data\d+.*'), 'CBs', inplace=True)
+    data['Module'].replace(re.compile(r'test_pe.*'), 'PE Core', inplace=True)
+    data['Module'].replace(re.compile(r'sb_wide.*'), 'SB', inplace=True)
+    data['Module'].replace(re.compile(r'sb_1b.*'), 'SB', inplace=True)
+    data['Module'].replace(re.compile(r'cb_cg_en.*'), 'CBs', inplace=True)
+    data['Module'].replace(re.compile(r'cb_bitd+.*'), 'CBs', inplace=True)
+    data.loc[~data['Module'].isin(MODULES + ['Total']), 'Module'] = 'Other'
+
+    # Data replacement
+    data.replace(APPMAP, inplace=True)
+    data.replace(DESIGNMAP, inplace=True)
+
+    # Plot the power: comparison
+    powdata = data.copy()
+    powdata.loc[powdata['App'] == 'Conv 3×3', 'Total Power (mW)'] *= 20
+    powdata.loc[powdata['App'] == 'Cascade', 'Total Power (mW)'] *= 71
+    powdata.loc[powdata['App'] == 'Harris', 'Total Power (mW)'] *= 154
+    powdata = powdata[powdata['Indent'] == 0].pivot_table(values='Total Power (mW)', index=['App'], columns='Design')
+    print(powdata)
+    powdata.plot.bar(title='Total PE Tile Power by App', ylabel='Power (mW)', figsize=(5,3), rot=0, xlabel='')
+    plt.ylim(0, 100)
+    for rect, label in zip(plt.gca().patches, powdata.values.flatten(order='F')):
+        height = rect.get_height()
+        plt.gca().text(rect.get_x() + rect.get_width() / 2, height + 5, "%.1f" % label, ha='center', va='bottom')
+    plt.tight_layout()
+    plt.show()
+
+    # Plot the power breakdown
+    powdata = data[data['Indent'] == 1].pivot_table(values='Total Power (mW)', index=['Design'], columns='Module', aggfunc=np.sum)
+    powdata = powdata.reindex(MODULES, axis=1).transpose()
+    print(powdata)
 
     # Plot as stacked bar plot
-    ax = tot_pow_data.plot(x='App', kind='barh', title='Average Power by Module (mW)', stacked=True, mark_right=True, figsize=(5,3))
-    #ax.legend(loc='center left', bbox_to_anchor=(0.85, 0.7))
-    plt.xlabel('Average Power (mW)')
-    plt.gca().get_yaxis().label.set_visible(False)
+    powdata.plot.pie(title='Average PE Power Breakdown by Module', subplots=True, autopct='%1.1f%%', figsize=(6,3), legend=None, xlabel='')
     plt.tight_layout()
     plt.show()
