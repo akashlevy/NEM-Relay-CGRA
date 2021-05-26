@@ -22,7 +22,7 @@ def get_pe_info(bsfile):
             if latch is not None:
                 x, y = [int(v) for v in latch.groups()]
                 if y % 4 != 0:
-                    latchf.write("0x%02X\n" % 15)
+                    latchf.write("%02X%02X\n" % (x,y))
             if "REG_DELAY" in line:
                 delayf.write(peid + '\n')
 
@@ -223,7 +223,8 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     subprocess.run(["cp", "-f", output_file, "inputs/test_outputs.txt"])
 
     # Run the simulation, print output and write to file
-    proc = "./simv" if (tile + "\n") not in open(f"inputs/{app}.delayed").readlines() else "./simv_delayed"
+    print(tile)
+    proc = "./simv" if (tile[5:] + "\n") not in open(f"inputs/{app}.delayed").readlines() else "./simv_delayed"
     print(proc)
     simout = subprocess.check_output([proc, "+vcs+initreg+0"])
     print(simout.decode('utf-8'))
