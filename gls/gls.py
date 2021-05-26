@@ -196,23 +196,10 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "testbench.sv",
         design_file,
         stdcell_file,
-        nems_file,
+        nems_file
     ]
-    os.system(" ".join(vcs_cmd))
-
-    # Run VCS to create simv executable
-    vcs_cmd = [
-        "vcs",
-        "-sverilog",
-        "-debug",
-        "+vcs+dumpvars+outputs/out.vcd",
-        "+vcs+initreg+random",
-        "+neg_tchk",
-        "testbench_delay.sv",
-        design_file,
-        stdcell_file,
-        nems_file,
-        "-o simv_delay"]
+    if delayed:
+        vcs_cmd.append("-o simv_delay")
     os.system(" ".join(vcs_cmd))
 
 
