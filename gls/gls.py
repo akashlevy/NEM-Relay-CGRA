@@ -123,7 +123,7 @@ def convert_raw(signals, input_file, output_file):
 
 
 # Generates the testbench SystemVerilog file
-def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors, active_cycle_number):
+def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors, active_cycle_number, delayed=0):
     # Start from 0 and define input slices
     input_slices, input_base = '', 0
     for i in inputs:
@@ -175,7 +175,7 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
     output_checks = ''
     for o in outputs:
         output_checks += f'''
-        if ({o} != test_outputs[test_vector_addr + `delayed][`SLICE_{o.upper()}] || ($isunknown({o}) && test_vector_addr != 0)) begin
+        if ({o} != test_outputs[test_vector_addr + `DELAYED][`SLICE_{o.upper()}] || ($isunknown({o}) && test_vector_addr != 0)) begin
             $display("mismatch cycle %d: {o}: got %x, expected %x", test_vector_addr, {o}, test_outputs[test_vector_addr][`SLICE_{o.upper()}]);
         end\n'''
     output_checks = output_checks.strip()
@@ -194,7 +194,6 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "+vcs+initreg+random",
         "+neg_tchk",
         "testbench.sv",
-        "+define+delayed=0",
         design_file,
         stdcell_file,
         nems_file,
@@ -207,10 +206,9 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "-sverilog",
         "-debug",
         "+vcs+dumpvars+outputs/out.vcd",
-        "+vcs+initreg+random",
+        "+vcs+initreg+0",
         "+neg_tchk",
-        "testbench.sv",
-        "+define+delayed=1",
+        "testbench_delay.sv",
         design_file,
         stdcell_file,
         nems_file,
@@ -225,7 +223,8 @@ def run_testbench(app, tile, input_file, output_file, simout_file):
     subprocess.run(["cp", "-f", output_file, "inputs/test_outputs.txt"])
 
     # Run the simulation, print output and write to file
-    proc = "./simv" if (tile + "\n") not in f"inputs/{app}.delayed" else "./simv_delayed"
+    proc = "./simv" if (tile + "\n") not in open(f"inputs/{app}.delayed").readlines() else "./simv_delayed"
+    print(proc)
     simout = subprocess.check_output([proc, "+vcs+initreg+0"])
     print(simout.decode('utf-8'))
     open(simout_file, 'wb').write(simout)
@@ -306,6 +305,7 @@ def main():
     # Create testbench
     print("Creating testbench...")
     create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors, active_cycle_number)
+    create_testbench(app, inputs, outputs, input_widths, output_widths, num_test_vectors, active_cycle_number, delayed=1)
 
     # Run testbench
     print("Running testbench...")
