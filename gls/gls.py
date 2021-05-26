@@ -327,6 +327,4 @@ def main():
 
 # Run main if called from command line
 if __name__ == '__main__':
-    for f in glob.glob("inputs/*.bsa"):
-        get_pe_info(f)
-    #main()
+    main()
