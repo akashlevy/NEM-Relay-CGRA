@@ -206,7 +206,7 @@ def create_testbench(app, inputs, outputs, input_widths, output_widths, num_test
         "-sverilog",
         "-debug",
         "+vcs+dumpvars+outputs/out.vcd",
-        "+vcs+initreg+0",
+        "+vcs+initreg+random",
         "+neg_tchk",
         "testbench_delay.sv",
         design_file,
