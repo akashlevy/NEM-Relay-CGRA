@@ -1,0 +1,143 @@
+CRTE_SNAPSHOT_START
+
+SECTION_CRTE_VERSION
+3.0
+
+SECTION_PID
+1203
+
+SECTION_POLLING_INTERVAL
+5
+
+SECTION_DATE_TIME
+Sat May 22 00:12:26 PDT 2021 (1621667546)
+
+SECTION_OS_VERSION
+osname: Linux
+hostname: r6cad-tsmc40r.stanford.edu
+arch: x86_64
+release_version: 2.6.32-754.23.1.el6.x86_64
+
+SECTION_IPC_INFO
+
+------ Shared Memory Segments --------
+key        shmid      owner      perms      bytes      nattch     status      
+0xabbaca01 11927564   mcoduoza   666        4          2                       
+0xabbaca02 11960333   mcoduoza   666        4          2                       
+0x00000000 101842973  kprabhu7   644        790528     6          dest         
+0x00000000 101875742  kprabhu7   644        106496     2          dest         
+0x00000000 102367263  kprabhu7   644        790528     2          dest         
+0x00000072 161644586  akashl     444        1          0                       
+
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems     
+0x00004155 131074     mcoduoza   666        1         
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+
+
+SECTION_ULIMIT
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 128352
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 4096
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 10240
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 1024
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+SECTION_SYSCONF
+_SC_THREAD_SAFE_FUNCTIONS= 200809
+_SC_CLK_TCK= 100
+_SC_OPEN_MAX= 4096
+_SC_PAGE_SIZE= 4096
+_SC_ARG_MAX= 2621440
+_SC_CHILD_MAX= 1024
+_SC_LINE_MAX= 2048
+
+SECTION_FULL_COMMAND
+/cad/synopsys/pts/M-2017.06-SP3/linux64/syn/bin/pt_shell_exec -r /cad/synopsys/pts/M-2017.06-SP3 -f ptpx.tcl
+
+SECTION_CPUINFO
+total_core: 8
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good xtopology unfair_spinlock eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch arat xsaveopt invpcid_single ssbd ibrs ibpb stibp fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm avx512f rdseed adx avx512cd md_clear arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2200
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 16384
+ht: 0

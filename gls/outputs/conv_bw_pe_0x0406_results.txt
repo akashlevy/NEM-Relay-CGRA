@@ -1,0 +1,11 @@
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP1_Full64; Runtime version O-2018.09-SP1_Full64;  May 22 15:06 2021
+Doing SDF annotation ...... Done
+Started toggle measurement at         650...
+$finish called from file "testbench.sv", line 350.
+$finish at simulation time             41017900
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 41017900 ps
+CPU Time:      3.620 seconds;       Data structure size:   7.0Mb
+Sat May 22 15:06:52 2021
